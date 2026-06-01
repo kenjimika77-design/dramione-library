@@ -10,11 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function typeQuote() {
     if (quote && i < text.length) {
-      quote.textContent += text[i];
-      i++;
-      setTimeout(typeQuote, 40);
-    }
-  }
 
   typeQuote();
 
@@ -27,5 +22,3 @@ document.addEventListener("DOMContentLoaded", () => {
       library.classList.add("active");
     }, 2000);
   };
-
-});
