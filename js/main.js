@@ -1,31 +1,31 @@
-const btn = document.getElementById("enterBtn");
-const portal = document.getElementById("portal");
-const library = document.getElementById("library");
-const quote = document.getElementById("quote");
+document.addEventListener("DOMContentLoaded", () => {
 
-const text = "Some stories were never meant to be forgotten.";
-let i = 0;
+  const btn = document.getElementById("enterBtn");
+  const portal = document.getElementById("portal");
+  const library = document.getElementById("library");
+  const quote = document.getElementById("quote");
 
-// эффект "перо пишет"
-function typeQuote() {
-  if (i < text.length) {
-    quote.textContent += text[i];
-    i++;
-    setTimeout(typeQuote, 40);
+  const text = "Some stories were never meant to be forgotten.";
+  let i = 0;
+
+  function typeQuote() {
+    if (quote && i < text.length) {
+      quote.textContent += text[i];
+      i++;
+      setTimeout(typeQuote, 40);
+    }
   }
-}
 
-typeQuote();
+  typeQuote();
 
-btn.onclick = () => {
+  btn.onclick = () => {
+    portal.style.transition = "2s ease";
+    portal.style.opacity = "0";
 
-  // белая вспышка
-  portal.style.transition = "2s ease";
-  portal.style.opacity = "0";
+    setTimeout(() => {
+      portal.style.display = "none";
+      library.classList.add("active");
+    }, 2000);
+  };
 
-  setTimeout(() => {
-    portal.style.display = "none";
-    library.classList.add("active");
-  }, 2000);
-
-};
+});
