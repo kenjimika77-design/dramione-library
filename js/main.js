@@ -1,7 +1,15 @@
-document.getElementById("enterBtn").addEventListener("click", () => {
-  document.body.style.opacity = "0";
+const enterBtn = document.getElementById("enterBtn");
+const portal = document.getElementById("portal");
+const library = document.getElementById("library");
+
+enterBtn.onclick = () => {
+
+  // свиток "гаснет"
+  portal.style.opacity = "0";
 
   setTimeout(() => {
-    window.location.href = "library.html";
-  }, 600);
-});
+    portal.style.display = "none";
+    library.classList.add("active");
+  }, 1500);
+
+};
