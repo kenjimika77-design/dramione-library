@@ -1,87 +1,110 @@
 body {
-margin: 0;
-overflow: hidden;
-font-family: serif;
-background: #2a1f1a; /* шоколадно-молочный */
-color: #f5e6d3;
+  margin: 0;
+  overflow: hidden;
+  font-family: serif;
+  background: #2a1f1a; /* шоколадно-молочный */
+  color: #f5e6d3;
 }
 
 /* ПОРТАЛ */
 .portal {
-position: absolute;
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
-/* ПЫЛЬ */
+/* ПЫЛЬ / МАГИЯ ФОНА */
 .dust {
-position: absolute;
-width: 100%;
-height: 100%;
-background-image: radial-gradient(circle, rgba(255,215,120,0.08) 1px, transparent 1px);
-background-size: 3px 3px;
-animation: float 20s linear infinite;
-opacity: 0.4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: radial-gradient(circle, rgba(255,215,120,0.6) 1px, transparent 3px);
+  background-size: 10px 10px;
+
+  animation: float 12s linear infinite;
+  opacity: 0.7;
 }
 
 @keyframes float {
-from { transform: translateY(0); }
-to { transform: translateY(-200px); }
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
 }
 
 /* НАЗВАНИЕ */
 .title {
-font-size: 42px;
-letter-spacing: 2px;
-opacity: 0;
-animation: appear 3s ease forwards;
-text-shadow: 0 0 20px rgba(255,215,120,0.2);
+  font-size: 42px;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: appear 3s ease forwards;
+  text-shadow: 0 0 20px rgba(255,215,120,0.2);
 }
 
 @keyframes appear {
-to { opacity: 1; }
+  to { opacity: 1; }
 }
 
 /* ЦИТАТА */
 .quote {
-margin-top: 15px;
-font-style: italic;
-opacity: 0.6;
+  margin-top: 15px;
+  font-style: italic;
+  opacity: 0.6;
 }
 
-/* ЗАМОК */
+/* КНОПКА */
 .lock {
-margin-top: 30px;
-padding: 10px 20px;
-background: transparent;
-border: 1px solid #d4af37;
-color: #d4af37;
-cursor: pointer;
-transition: 0.3s;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  cursor: pointer;
+  transition: 0.3s;
+
+  position: relative;
+  z-index: 3;
 }
 
 .lock:hover {
-box-shadow: 0 0 20px #d4af37;
-transform: scale(1.05);
+  box-shadow: 0 0 20px #d4af37;
+  transform: scale(1.05);
 }
 
 /* БИБЛИОТЕКА */
 .library {
-position: absolute;
-width: 100%;
-height: 100%;
-background: #1b1512;
-display: flex;
-align-items: center;
-justify-content: center;
-opacity: 0;
-transition: 2s ease;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1b1512;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 2s ease;
+
+  z-index: 1;
 }
 
 .library.active {
-opacity: 1;
+  opacity: 1;
+}
+
+/* СЛОЙ НА ВСЁМ САЙТЕ */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent);
+  pointer-events: none;
+  z-index: 0;
 }
