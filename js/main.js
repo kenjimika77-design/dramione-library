@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const text = "Some stories were never meant to be forgotten.";
   let i = 0;
 
-  // эффект печати
   function typeQuote() {
     if (quote && i < text.length) {
       quote.textContent += text[i];
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   typeQuote();
 
-  // кнопка входа
   btn.onclick = () => {
     portal.style.transition = "2s ease";
     portal.style.opacity = "0";
