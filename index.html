@@ -3,31 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Dramione Library</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="portal">
+<div class="portal" id="portal">
 
+  <!-- ПЫЛЬ -->
   <div class="dust"></div>
 
+  <!-- СВИТОК -->
   <div class="scroll">
-
-    <h1 class="logo">Dramione Library</h1>
-
-    <p class="subtitle">The Archive Awaits</p>
-
-    <p class="quote">“Some stories were never meant to be forgotten.”</p>
+    <h1>Dramione Library</h1>
+    <p class="quote">“Some stories breathe even when forgotten.”</p>
 
     <button id="enterBtn">ENTER THE LIBRARY</button>
-
   </div>
 
 </div>
 
-<script src="js/main.js"></script>
+<!-- БИБЛИОТЕКА -->
+<div class="library" id="library">
+  <div class="library-inner">
+    <h2>THE ARCHIVE AWAKENS</h2>
+    <p>Welcome back.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
