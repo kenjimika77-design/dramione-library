@@ -1,4 +1,4 @@
-alert("JS STARTED");
+alert("JS LOADED");
 document.addEventListener("DOMContentLoaded", () => {
 
   const btn = document.getElementById("enterBtn");
