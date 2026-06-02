@@ -5,177 +5,208 @@ const title = document.getElementById("title");
 const quote = document.getElementById("quote");
 const door = document.getElementById("door");
 
-/* -------------------------
-   Canvas
-------------------------- */
+/* =========================
+   CANVAS SETUP
+========================= */
 
-function resizeCanvas() {
+function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
+resize();
+window.addEventListener("resize", resize);
 
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-/* -------------------------
-   Dust Particles
-------------------------- */
-
-const particles = [];
+/* =========================
+   PARTICLES SYSTEM
+========================= */
 
 class Particle {
+    constructor(x, y, targetX = null, targetY = null) {
+        this.x = x;
+        this.y = y;
 
-    constructor() {
-        this.reset();
-        this.y = Math.random() * canvas.height;
-    }
+        this.targetX = targetX;
+        this.targetY = targetY;
 
-    reset() {
+        this.size = Math.random() * 2 + 0.5;
+        this.speed = Math.random() * 0.05 + 0.02;
 
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + 20;
+        this.opacity = Math.random() * 0.8 + 0.2;
 
-        this.size = Math.random() * 1.8 + 0.5;
+        this.vx = (Math.random() - 0.5) * 2;
+        this.vy = (Math.random() - 0.5) * 2;
 
-        this.speedY = Math.random() * 0.35 + 0.08;
-        this.speedX = (Math.random() - 0.5) * 0.15;
-
-        this.opacity = Math.random() * 0.6 + 0.1;
+        this.mode = targetX !== null ? "attract" : "float";
     }
 
     update() {
+        if (this.mode === "float") {
+            this.x += this.vx;
+            this.y += this.vy;
 
-        this.y -= this.speedY;
-        this.x += this.speedX;
+            this.vy += 0.01; // лёгкая гравитация
+            this.opacity -= 0.002;
 
-        if (
-            this.y < -20 ||
-            this.x < -20 ||
-            this.x > canvas.width + 20
-        ) {
-            this.reset();
+        } else if (this.mode === "attract") {
+            this.x += (this.targetX - this.x) * this.speed;
+            this.y += (this.targetY - this.y) * this.speed;
         }
     }
 
     draw() {
-
         ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
 
-        ctx.arc(
-            this.x,
-            this.y,
-            this.size,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fillStyle =
-            `rgba(214,178,94,${this.opacity})`;
-
-        ctx.shadowBlur = 8;
+        ctx.fillStyle = `rgba(214,178,94,${this.opacity})`;
+        ctx.shadowBlur = 10;
         ctx.shadowColor = "#d6b25e";
 
         ctx.fill();
     }
 }
 
-for (let i = 0; i < 220; i++) {
-    particles.push(new Particle());
+let particles = [];
+
+/* =========================
+   BACKGROUND DUST
+========================= */
+
+for (let i = 0; i < 180; i++) {
+    particles.push(
+        new Particle(
+            Math.random() * canvas.width,
+            Math.random() * canvas.height
+        )
+    );
 }
 
-/* -------------------------
-   Animation Loop
-------------------------- */
+/* =========================
+   ANIMATION LOOP
+========================= */
 
 function animate() {
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(p => {
         p.update();
         p.draw();
     });
 
+    particles = particles.filter(p => p.opacity > 0);
+
     requestAnimationFrame(animate);
 }
 
 animate();
 
-/* -------------------------
-   Title
-------------------------- */
+/* =========================
+   TITLE BUILD (FROM DUST)
+========================= */
 
 const titleText = "Dramione Library";
+title.textContent = "";
 
-setTimeout(() => {
+function buildTitle() {
+    const rect = title.getBoundingClientRect();
 
     title.textContent = titleText;
+    title.style.opacity = 1;
 
-    title.style.transition =
-        "opacity 2s ease";
+    // взрыв пыли в центр заголовка
+    for (let i = 0; i < 120; i++) {
+        particles.push(
+            new Particle(
+                Math.random() * canvas.width,
+                Math.random() * canvas.height,
+                rect.left + rect.width / 2,
+                rect.top + rect.height / 2
+            )
+        );
+    }
+}
 
-    title.style.opacity = "1";
+setTimeout(buildTitle, 1200);
 
-}, 1200);
-
-/* -------------------------
-   Quote
-------------------------- */
+/* =========================
+   QUOTE (WRITE EFFECT)
+========================= */
 
 const quoteText =
-"Between the lion and the dragon, destiny wrote its own story.";
+"Between lion and dragon, destiny was written in gold.";
 
-setTimeout(() => {
-
-    quote.style.opacity = "1";
-
+function writeQuote() {
     let i = 0;
+    quote.style.opacity = 1;
 
-    const typing = setInterval(() => {
-
+    const interval = setInterval(() => {
         quote.textContent += quoteText[i];
-
         i++;
 
         if (i >= quoteText.length) {
-            clearInterval(typing);
+            clearInterval(interval);
+            destroyQuoteIntoDust();
         }
+    }, 35);
+}
 
-    }, 45);
+setTimeout(writeQuote, 3200);
 
-}, 3200);
+/* =========================
+   QUOTE → DUST → BUTTON
+========================= */
 
-/* -------------------------
-   Button
-------------------------- */
+function destroyQuoteIntoDust() {
+    const rect = quote.getBoundingClientRect();
 
-setTimeout(() => {
+    for (let i = 0; i < 140; i++) {
+        particles.push(
+            new Particle(
+                rect.left + Math.random() * rect.width,
+                rect.top + Math.random() * rect.height,
+                window.innerWidth / 2,
+                window.innerHeight / 2 + 120
+            )
+        );
+    }
 
-    door.style.opacity = "1";
+    setTimeout(buildButton, 1500);
+}
 
-}, 7600);
+/* =========================
+   BUTTON BUILD
+========================= */
 
-/* -------------------------
-   Portal Enter
-------------------------- */
+function buildButton() {
+    const rect = door.getBoundingClientRect();
+
+    door.style.opacity = 1;
+
+    for (let i = 0; i < 160; i++) {
+        particles.push(
+            new Particle(
+                Math.random() * canvas.width,
+                Math.random() * canvas.height,
+                rect.left + rect.width / 2,
+                rect.top + rect.height / 2
+            )
+        );
+    }
+
+    setTimeout(() => {
+        door.style.opacity = 1;
+        door.style.transform = "scale(1)";
+    }, 800);
+}
+
+/* =========================
+   PORTAL ENTER
+========================= */
 
 door.addEventListener("click", () => {
-
-    document.body.style.transition =
-        "opacity 1.5s ease";
-
+    document.body.style.transition = "opacity 1.2s ease";
     document.body.style.opacity = "0";
 
     setTimeout(() => {
-
-        window.location.href =
-            "library.html";
-
-    }, 1500);
-
+        window.location.href = "library.html";
+    }, 1200);
 });
