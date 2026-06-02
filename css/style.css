@@ -75,8 +75,6 @@ body::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    animation: breathe 8s ease-in-out infinite;
 }
 
 /* soft breathing of the scene */
