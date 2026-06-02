@@ -1,61 +1,181 @@
-const titleText = "Dramione Library";
+const canvas = document.getElementById("dustCanvas");
+const ctx = canvas.getContext("2d");
+
 const title = document.getElementById("title");
 const quote = document.getElementById("quote");
 const door = document.getElementById("door");
 
-/* 🌌 particles */
-for (let i = 0; i < 90; i++) {
-  const p = document.createElement("div");
-  p.className = "particle";
-  p.style.top = Math.random() * 100 + "%";
-  p.style.left = Math.random() * 100 + "%";
-  p.style.animationDelay = Math.random() * 6 + "s";
-  document.body.appendChild(p);
+/* -------------------------
+   Canvas
+------------------------- */
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
 
-/* 💥 TITLE EXPLOSION */
-titleText.split("").forEach((char, i) => {
-  const span = document.createElement("span");
-  span.textContent = char;
-  span.className = "fade-letter";
-  span.style.animationDelay = (i * 0.08) + "s";
-  title.appendChild(span);
-});
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
-/* 📜 TYPEWRITER QUOTE */
-const text = "Every library keeps secrets. Some are darker than others.";
+/* -------------------------
+   Dust Particles
+------------------------- */
+
+const particles = [];
+
+class Particle {
+
+    constructor() {
+        this.reset();
+        this.y = Math.random() * canvas.height;
+    }
+
+    reset() {
+
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 20;
+
+        this.size = Math.random() * 1.8 + 0.5;
+
+        this.speedY = Math.random() * 0.35 + 0.08;
+        this.speedX = (Math.random() - 0.5) * 0.15;
+
+        this.opacity = Math.random() * 0.6 + 0.1;
+    }
+
+    update() {
+
+        this.y -= this.speedY;
+        this.x += this.speedX;
+
+        if (
+            this.y < -20 ||
+            this.x < -20 ||
+            this.x > canvas.width + 20
+        ) {
+            this.reset();
+        }
+    }
+
+    draw() {
+
+        ctx.beginPath();
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            `rgba(214,178,94,${this.opacity})`;
+
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = "#d6b25e";
+
+        ctx.fill();
+    }
+}
+
+for (let i = 0; i < 220; i++) {
+    particles.push(new Particle());
+}
+
+/* -------------------------
+   Animation Loop
+------------------------- */
+
+function animate() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+/* -------------------------
+   Title
+------------------------- */
+
+const titleText = "Dramione Library";
 
 setTimeout(() => {
-  quote.style.opacity = 1;
 
-  let i = 0;
-  const typing = setInterval(() => {
-    quote.textContent += text[i];
-    i++;
+    title.textContent = titleText;
 
-    if (i >= text.length) {
-      clearInterval(typing);
+    title.style.transition =
+        "opacity 2s ease";
 
-      setTimeout(() => {
-        quote.style.opacity = "0";
+    title.style.opacity = "1";
 
-        setTimeout(() => {
-          quote.style.display = "none";
-          door.classList.add("show");
-        }, 800);
+}, 1200);
 
-      }, 1000);
-    }
-  }, 30);
+/* -------------------------
+   Quote
+------------------------- */
 
-}, 1800);
+const quoteText =
+"Between the lion and the dragon, destiny wrote its own story.";
 
-/* 🔑 BUTTON */
-door.onclick = () => {
-  document.body.style.transition = "opacity 1.2s ease";
-  document.body.style.opacity = "0";
+setTimeout(() => {
 
-  setTimeout(() => {
-    window.location.href = "library.html";
-  }, 1200);
-};
+    quote.style.opacity = "1";
+
+    let i = 0;
+
+    const typing = setInterval(() => {
+
+        quote.textContent += quoteText[i];
+
+        i++;
+
+        if (i >= quoteText.length) {
+            clearInterval(typing);
+        }
+
+    }, 45);
+
+}, 3200);
+
+/* -------------------------
+   Button
+------------------------- */
+
+setTimeout(() => {
+
+    door.style.opacity = "1";
+
+}, 7600);
+
+/* -------------------------
+   Portal Enter
+------------------------- */
+
+door.addEventListener("click", () => {
+
+    document.body.style.transition =
+        "opacity 1.5s ease";
+
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+
+        window.location.href =
+            "library.html";
+
+    }, 1500);
+
+});
