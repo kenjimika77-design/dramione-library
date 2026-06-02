@@ -1,110 +1,134 @@
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: serif;
-  background: #2a1f1a; /* шоколадно-молочный */
-  color: #f5e6d3;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+
+html, body {
+margin: 0;
+height: 100%;
+overflow: hidden;
+font-family: 'Cinzel', serif;
+background: radial-gradient(circle at center, #1a120d, #0b0705);
 }
 
-/* ПОРТАЛ */
-.portal {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+/* GOLD DUST BACKGROUND */
+body::before {
+content: "";
+position: absolute;
+inset: 0;
+background:
+radial-gradient(circle at 20% 30%, rgba(255,215,0,0.08), transparent 40%),
+radial-gradient(circle at 70% 60%, rgba(255,215,0,0.05), transparent 45%),
+radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 60%);
+pointer-events: none;
 }
 
-/* ПЫЛЬ / МАГИЯ ФОНА */
-.dust {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
+/* MAIN */
+#scene {
+position: relative;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
 
-  background-image: radial-gradient(circle, rgba(255,215,120,0.6) 1px, transparent 3px);
-  background-size: 10px 10px;
+/* TITLE */
+#title {
+font-size: 46px;
+letter-spacing: 6px;
+color: #d6b25e;
+position: relative;
+text-shadow: 0 0 10px rgba(214,178,94,0.2);
+}
 
-  animation: float 12s linear infinite;
-  opacity: 0.7;
+/* line */
+#line {
+width: 0%;
+height: 1px;
+margin-top: 10px;
+background: linear-gradient(90deg, transparent, #d6b25e, transparent);
+animation: lineGrow 2.5s ease forwards;
+}
+
+@keyframes lineGrow {
+to { width: 55%; }
+}
+
+/* quote */
+#quote {
+margin-top: 35px;
+font-size: 18px;
+color: #c8a86a;
+opacity: 0;
+transform: translateY(10px);
+transition: all 2s ease;
+}
+
+/* BUTTON */
+#door {
+margin-top: 50px;
+padding: 12px 22px;
+border: 1px solid rgba(214,178,94,0.5);
+background: rgba(255,255,255,0.03);
+color: #d6b25e;
+cursor: pointer;
+
+opacity: 0;
+transform: scale(0.8);
+transition: all 1.2s ease;
+}
+
+#door.show {
+opacity: 1;
+transform: scale(1);
+}
+
+#door:hover {
+transform: scale(1.05);
+background: rgba(214,178,94,0.08);
+}
+
+/* PARTICLES (МЕЛЬЧЕ И МЯГЧЕ) */
+.particle {
+position: absolute;
+width: 1.5px;
+height: 1.5px;
+background: rgba(255, 215, 120, 0.8);
+border-radius: 50%;
+opacity: 0.25;
+animation: float 8s infinite ease-in-out;
+filter: blur(0.5px);
 }
 
 @keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-200px); }
+0%,100% { transform: translateY(0); opacity: 0.2; }
+50% { transform: translateY(-25px); opacity: 0.6; }
 }
 
-/* НАЗВАНИЕ */
-.title {
-  font-size: 42px;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: appear 3s ease forwards;
-  text-shadow: 0 0 20px rgba(255,215,120,0.2);
+/* LETTER DUST FORMATION */
+.fade-letter {
+display: inline-block;
+opacity: 0;
+transform: translateY(20px) scale(1.6);
+filter: blur(12px);
+animation: dustForm 1.6s forwards;
+text-shadow: 0 0 12px rgba(214,178,94,0.6);
 }
 
-@keyframes appear {
-  to { opacity: 1; }
+@keyframes dustForm {
+0% {
+opacity: 0;
+transform: translateY(20px) scale(1.6);
+filter: blur(12px);
 }
 
-/* ЦИТАТА */
-.quote {
-  margin-top: 15px;
-  font-style: italic;
-  opacity: 0.6;
+60% {
+opacity: 0.6;
+filter: blur(4px);
 }
 
-/* КНОПКА */
-.lock {
-  margin-top: 30px;
-  padding: 10px 20px;
-  background: transparent;
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  cursor: pointer;
-  transition: 0.3s;
-
-  position: relative;
-  z-index: 3;
+100% {
+opacity: 1;
+transform: translateY(0) scale(1);
+filter: blur(0);
 }
-
-.lock:hover {
-  box-shadow: 0 0 20px #d4af37;
-  transform: scale(1.05);
-}
-
-/* БИБЛИОТЕКА */
-.library {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #1b1512;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: 2s ease;
-
-  z-index: 1;
-}
-
-.library.active {
-  opacity: 1;
-}
-
-/* СЛОЙ НА ВСЁМ САЙТЕ */
-body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent);
-  pointer-events: none;
-  z-index: 0;
 }
