@@ -3,7 +3,7 @@ const title = document.getElementById("title");
 const quote = document.getElementById("quote");
 const door = document.getElementById("door");
 
-/* 1. TITLE: dust explosion */
+/* 🌌 1. cinematic dust title */
 titleText.split("").forEach((char, i) => {
   const span = document.createElement("span");
   span.textContent = char;
@@ -12,45 +12,52 @@ titleText.split("").forEach((char, i) => {
   title.appendChild(span);
 });
 
-/* 2. AFTER TITLE → write quote like feather */
-setTimeout(() => {
-  const text = "Every library keeps secrets. Some are darker than others.";
-  let i = 0;
+/* ✨ particles */
+for (let i = 0; i < 90; i++) {
+  const p = document.createElement("div");
+  p.className = "particle";
+  p.style.top = Math.random() * 100 + "%";
+  p.style.left = Math.random() * 100 + "%";
+  p.style.animationDelay = Math.random() * 6 + "s";
+  document.body.appendChild(p);
+}
 
+/* 📜 2. typewriter quote */
+const text = "Every library keeps secrets. Some are darker than others.";
+
+setTimeout(() => {
+  quote.style.opacity = 1;
+
+  let i = 0;
   const typing = setInterval(() => {
-    quote.style.opacity = 1;
-    quote.textContent += text[i];
     quote.style.width = "100%";
+    quote.textContent += text[i];
     i++;
 
     if (i >= text.length) {
       clearInterval(typing);
 
-      /* after typing → break quote into button */
-      setTimeout(() => transformQuoteToButton(), 800);
+      setTimeout(() => {
+        quote.style.transition = "all 1.2s ease";
+        quote.style.opacity = "0";
+        quote.style.transform = "scale(1.5)";
+
+        setTimeout(() => {
+          quote.style.display = "none";
+          door.classList.add("show");
+        }, 900);
+      }, 800);
     }
-  }, 40);
+  }, 35);
 
-}, 2000);
+}, 1800);
 
-/* 3. quote → button transformation */
-function transformQuoteToButton() {
-  quote.style.transition = "all 1s ease";
-  quote.style.opacity = "0";
-  quote.style.transform = "scale(1.5) rotate(3deg)";
-
-  setTimeout(() => {
-    quote.style.display = "none";
-    door.classList.add("show");
-  }, 800);
-}
-
-/* 4. click portal */
+/* 🔑 portal click */
 door.onclick = () => {
-  document.body.style.transition = "opacity 1.2s ease";
+  document.body.style.transition = "opacity 1.5s ease";
   document.body.style.opacity = "0";
 
   setTimeout(() => {
     window.location.href = "library.html";
-  }, 1200);
+  }, 1400);
 };
