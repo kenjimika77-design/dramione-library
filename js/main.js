@@ -3,16 +3,7 @@ const title = document.getElementById("title");
 const quote = document.getElementById("quote");
 const door = document.getElementById("door");
 
-/* 🌌 1. cinematic dust title */
-titleText.split("").forEach((char, i) => {
-  const span = document.createElement("span");
-  span.textContent = char;
-  span.className = "fade-letter";
-  span.style.animationDelay = (i * 0.08) + "s";
-  title.appendChild(span);
-});
-
-/* ✨ particles */
+/* 🌌 particles */
 for (let i = 0; i < 90; i++) {
   const p = document.createElement("div");
   p.className = "particle";
@@ -22,7 +13,16 @@ for (let i = 0; i < 90; i++) {
   document.body.appendChild(p);
 }
 
-/* 📜 2. typewriter quote */
+/* 💥 TITLE EXPLOSION */
+titleText.split("").forEach((char, i) => {
+  const span = document.createElement("span");
+  span.textContent = char;
+  span.className = "fade-letter";
+  span.style.animationDelay = (i * 0.08) + "s";
+  title.appendChild(span);
+});
+
+/* 📜 TYPEWRITER QUOTE */
 const text = "Every library keeps secrets. Some are darker than others.";
 
 setTimeout(() => {
@@ -30,7 +30,6 @@ setTimeout(() => {
 
   let i = 0;
   const typing = setInterval(() => {
-    quote.style.width = "100%";
     quote.textContent += text[i];
     i++;
 
@@ -38,26 +37,25 @@ setTimeout(() => {
       clearInterval(typing);
 
       setTimeout(() => {
-        quote.style.transition = "all 1.2s ease";
         quote.style.opacity = "0";
-        quote.style.transform = "scale(1.5)";
 
         setTimeout(() => {
           quote.style.display = "none";
           door.classList.add("show");
-        }, 900);
-      }, 800);
+        }, 800);
+
+      }, 1000);
     }
-  }, 35);
+  }, 30);
 
 }, 1800);
 
-/* 🔑 portal click */
+/* 🔑 BUTTON */
 door.onclick = () => {
-  document.body.style.transition = "opacity 1.5s ease";
+  document.body.style.transition = "opacity 1.2s ease";
   document.body.style.opacity = "0";
 
   setTimeout(() => {
     window.location.href = "library.html";
-  }, 1400);
+  }, 1200);
 };
