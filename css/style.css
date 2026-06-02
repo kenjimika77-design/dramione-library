@@ -9,7 +9,25 @@ body {
     background: radial-gradient(circle at center, #1a120d 0%, #050303 100%);
     font-family: 'Cinzel', serif;
 }
-
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center,
+        rgba(214,178,94,0.08),
+        transparent 60%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%,
+        rgba(255,255,255,0.03),
+        transparent 60%);
+    pointer-events: none;
+}
 /* Холст для пыли */
 #dustCanvas {
     position: fixed;
