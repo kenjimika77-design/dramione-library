@@ -1,3 +1,4 @@
+console.log("JS WORKS");
 const titleText = "Dramione Library";
 const title = document.getElementById("title");
 const quote = document.getElementById("quote");
