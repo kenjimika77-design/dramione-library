@@ -1,46 +1,56 @@
-console.log("JS WORKS");
 const titleText = "Dramione Library";
 const title = document.getElementById("title");
 const quote = document.getElementById("quote");
 const door = document.getElementById("door");
 
-/* TITLE FROM DUST */
+/* 1. TITLE: dust explosion */
 titleText.split("").forEach((char, i) => {
   const span = document.createElement("span");
   span.textContent = char;
   span.className = "fade-letter";
-  span.style.animationDelay = (i * 0.06) + "s";
-  span.style.textShadow = "0 0 12px rgba(214,178,94,0.6)";
+  span.style.animationDelay = (i * 0.08) + "s";
   title.appendChild(span);
 });
 
-/* quote appears AFTER title */
+/* 2. AFTER TITLE → write quote like feather */
 setTimeout(() => {
-  quote.style.opacity = 1;
-  quote.style.transform = "translateY(0)";
-}, 2200);
+  const text = "Every library keeps secrets. Some are darker than others.";
+  let i = 0;
 
-/* button appears */
-setTimeout(() => {
-  door.classList.add("show");
-}, 3800);
+  const typing = setInterval(() => {
+    quote.style.opacity = 1;
+    quote.textContent += text[i];
+    quote.style.width = "100%";
+    i++;
 
-/* particles */
-for (let i = 0; i < 70; i++) {
-  const p = document.createElement("div");
-  p.className = "particle";
-  p.style.top = Math.random() * 100 + "%";
-  p.style.left = Math.random() * 100 + "%";
-  p.style.animationDelay = Math.random() * 5 + "s";
-  document.body.appendChild(p);
+    if (i >= text.length) {
+      clearInterval(typing);
+
+      /* after typing → break quote into button */
+      setTimeout(() => transformQuoteToButton(), 800);
+    }
+  }, 40);
+
+}, 2000);
+
+/* 3. quote → button transformation */
+function transformQuoteToButton() {
+  quote.style.transition = "all 1s ease";
+  quote.style.opacity = "0";
+  quote.style.transform = "scale(1.5) rotate(3deg)";
+
+  setTimeout(() => {
+    quote.style.display = "none";
+    door.classList.add("show");
+  }, 800);
 }
 
-/* portal click */
+/* 4. click portal */
 door.onclick = () => {
   document.body.style.transition = "opacity 1.2s ease";
   document.body.style.opacity = "0";
 
   setTimeout(() => {
-    alert("The door opens… next step: we build the library interior worlds.");
+    window.location.href = "library.html";
   }, 1200);
 };
