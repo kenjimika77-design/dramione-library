@@ -1,121 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Pinyon+Script&display=swap');
 
-html, body {
-margin: 0;
-height: 100%;
-overflow: hidden;
-font-family: 'Cinzel', serif;
-background: radial-gradient(circle at center, #120b08, #050303);
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1a120d 0%, #050303 100%);
+    font-family: 'Cinzel', serif;
 }
 
-/* 🌌 cinematic dust background */
-body::before {
-content: "";
-position: absolute;
-inset: 0;
-background:
-radial-gradient(circle at 30% 30%, rgba(255,215,120,0.08), transparent 40%),
-radial-gradient(circle at 70% 60%, rgba(255,215,120,0.05), transparent 45%),
-radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 60%);
-pointer-events: none;
+/* Холст для пыли */
+#dustCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-/* scene */
+/* Главная сцена */
 #scene {
-position: relative;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* TITLE */
+/* Название */
 #title {
-font-size: 48px;
-letter-spacing: 6px;
-color: #d6b25e;
-text-shadow: 0 0 25px rgba(214,178,94,0.2);
+    margin: 0;
+
+    font-size: 58px;
+    font-weight: 700;
+    letter-spacing: 10px;
+
+    color: #d6b25e;
+
+    text-shadow:
+        0 0 10px rgba(214,178,94,.35),
+        0 0 25px rgba(214,178,94,.15);
+
+    opacity: 0;
 }
 
-/* ✨ cinematic dust letters */
-.fade-letter {
-display: inline-block;
-opacity: 0;
-transform: scale(3) rotate(-8deg);
-filter: blur(14px);
-animation: explodeIn 1.6s forwards;
-}
-
-@keyframes explodeIn {
-0% {
-opacity: 0;
-transform: scale(3) rotate(-10deg);
-filter: blur(15px);
-}
-
-60% {
-opacity: 0.6;
-filter: blur(5px);
-}
-
-100% {
-opacity: 1;
-transform: scale(1) rotate(0deg);
-filter: blur(0);
-}
-}
-
-/* 📜 quote (typewriter cinematic) */
+/* Цитата */
 #quote {
-margin-top: 30px;
-font-size: 18px;
-color: #c8a86a;
-border-right: 2px solid rgba(214,178,94,0.6);
-white-space: nowrap;
-overflow: hidden;
-width: 0;
-opacity: 0;
-transition: opacity 0.5s;
+    margin-top: 28px;
+
+    min-height: 60px;
+
+    font-family: 'Pinyon Script', cursive;
+    font-size: 42px;
+
+    color: rgba(214,178,94,.85);
+
+    opacity: 0;
 }
 
-/* 🔑 portal button */
+/* Кнопка */
 #door {
-margin-top: 40px;
-padding: 12px 26px;
-border: 1px solid #d6b25e;
-background: transparent;
-color: #d6b25e;
-opacity: 0;
-transform: scale(0.5);
-transition: all 1s ease;
-cursor: pointer;
-}
+    margin-top: 40px;
 
-#door.show {
-opacity: 1;
-transform: scale(1);
+    padding: 14px 34px;
+
+    border: 1px solid rgba(214,178,94,.45);
+
+    background: rgba(255,255,255,.02);
+
+    color: #d6b25e;
+
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transition:
+        background .4s ease,
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
 #door:hover {
-background: rgba(214,178,94,0.12);
-transform: scale(1.05);
-}
+    background: rgba(214,178,94,.08);
 
-/* ✨ dust particles */
-.particle {
-position: absolute;
-width: 1.5px;
-height: 1.5px;
-background: rgba(255, 215, 120, 0.7);
-border-radius: 50%;
-opacity: 0.3;
-animation: float 9s infinite ease-in-out;
-filter: blur(0.6px);
-}
+    transform: translateY(-2px);
 
-@keyframes float {
-0%,100% { transform: translateY(0); opacity: 0.2; }
-50% { transform: translateY(-30px); opacity: 0.6; }
+    box-shadow:
+        0 0 20px rgba(214,178,94,.15);
 }
