@@ -1,8 +1,11 @@
 const canvas = document.getElementById("dustCanvas");
 const ctx = canvas.getContext("2d");
 
-const title = document.getElementById("title");
-const quote = document.getElementById("quote");
+const titleText = "Dramione Library";
+const quoteText = "Between lion and dragon, destiny becomes dust and light.";
+
+const titleEl = document.getElementById("title");
+const quoteEl = document.getElementById("quote");
 const door = document.getElementById("door");
 
 canvas.width = window.innerWidth;
@@ -13,61 +16,147 @@ window.addEventListener("resize", () => {
     canvas.height = window.innerHeight;
 });
 
-let particles = [];
-
 /* =========================
-   PARTICLE CLASS (FIXED)
+   PARTICLES
 ========================= */
 
 class Particle {
-    constructor(x, y, tx = null, ty = null) {
-        this.x = x;
-        this.y = y;
+    constructor(x, y) {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
 
-        this.tx = tx;
-        this.ty = ty;
+        this.tx = x;
+        this.ty = y;
 
-        this.vx = (Math.random() - 0.5) * 2;
-        this.vy = (Math.random() - 0.5) * 2;
+        this.vx = 0;
+        this.vy = 0;
 
-        this.size = Math.random() * 2 + 0.5;
-        this.opacity = 1;
+        this.friction = 0.88;
+        this.size = 1.6;
 
-        this.mode = tx !== null ? "move" : "float";
+        this.mode = "move";
+    }
+
+    setTarget(x, y) {
+        this.tx = x;
+        this.ty = y;
     }
 
     update() {
-        if (this.mode === "float") {
-            this.x += this.vx;
-            this.y += this.vy;
-            this.opacity -= 0.002;
-        }
 
-        if (this.mode === "move") {
-            this.x += (this.tx - this.x) * 0.08;
-            this.y += (this.ty - this.y) * 0.08;
+        let dx = this.tx - this.x;
+        let dy = this.ty - this.y;
 
-            if (Math.abs(this.x - this.tx) < 1 && Math.abs(this.y - this.ty) < 1) {
-                this.mode = "done";
-            }
-        }
+        this.vx += dx * 0.02;
+        this.vy += dy * 0.02;
+
+        this.vx *= this.friction;
+        this.vy *= this.friction;
+
+        this.x += this.vx;
+        this.y += this.vy;
     }
 
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(214,178,94,${this.opacity})`;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = "#d6b25e";
+        ctx.fillStyle = "rgba(214,178,94,0.85)";
         ctx.fill();
     }
 }
 
+let particles = [];
+
 /* =========================
-   LOOP
+   TEXT SHAPE GENERATOR
+========================= */
+
+function getTextPoints(text, fontSize = 90) {
+
+    const off = document.createElement("canvas");
+    const offCtx = off.getContext("2d");
+
+    off.width = canvas.width;
+    off.height = canvas.height;
+
+    offCtx.fillStyle = "white";
+    offCtx.font = `bold ${fontSize}px Cinzel`;
+    offCtx.textAlign = "center";
+    offCtx.textBaseline = "middle";
+
+    offCtx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+    const data = offCtx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+    const points = [];
+
+    for (let y = 0; y < canvas.height; y += 6) {
+        for (let x = 0; x < canvas.width; x += 6) {
+
+            const i = (y * canvas.width + x) * 4;
+
+            if (data[i + 3] > 128) {
+                points.push({ x, y });
+            }
+        }
+    }
+
+    return points;
+}
+
+/* =========================
+   INIT TEXT PARTICLES
+========================= */
+
+function buildText(text) {
+
+    const points = getTextPoints(text);
+
+    particles = [];
+
+    for (let i = 0; i < points.length; i++) {
+        particles.push(new Particle(points[i].x, points[i].y));
+    }
+}
+
+/* =========================
+   DISSOLVE TEXT
+========================= */
+
+function dissolveTo(centerX, centerY) {
+
+    particles.forEach(p => {
+        p.setTarget(
+            centerX + (Math.random() - 0.5) * 200,
+            centerY + (Math.random() - 0.5) * 200
+        );
+    });
+}
+
+/* =========================
+   BUTTON FORMATION
+========================= */
+
+function buildButton() {
+
+    const rect = door.getBoundingClientRect();
+
+    particles.forEach(p => {
+        p.setTarget(
+            rect.left + rect.width / 2 + (Math.random() - 0.5) * 30,
+            rect.top + rect.height / 2 + (Math.random() - 0.5) * 15
+        );
+    });
+
+    door.style.opacity = 1;
+}
+
+/* =========================
+   ANIMATION LOOP
 ========================= */
 
 function animate() {
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(p => {
@@ -75,117 +164,37 @@ function animate() {
         p.draw();
     });
 
-    particles = particles.filter(p => p.opacity > 0);
-
     requestAnimationFrame(animate);
 }
 
 animate();
 
 /* =========================
-   STEP 1: TITLE BUILD
+   SEQUENCE (LEVEL 3 FLOW)
 ========================= */
 
+/* STEP 1 — build title */
 setTimeout(() => {
+    buildText(titleText);
+}, 800);
 
-    const rect = title.getBoundingClientRect();
-
-    title.textContent = "Dramione Library";
-    title.style.opacity = 1;
-
-    for (let i = 0; i < 200; i++) {
-        particles.push(
-            new Particle(
-                Math.random() * canvas.width,
-                Math.random() * canvas.height,
-                rect.left + rect.width / 2,
-                rect.top + rect.height / 2
-            )
-        );
-    }
-
-}, 1200);
-
-/* =========================
-   STEP 2: QUOTE WRITE
-========================= */
-
-const text =
-"Between lion and dragon, destiny was written in gold.";
-
+/* STEP 2 — quote appears */
 setTimeout(() => {
+    quoteEl.style.opacity = 1;
+    quoteEl.textContent = quoteText;
+}, 3500);
 
-    quote.style.opacity = 1;
+/* STEP 3 — dissolve into portal */
+setTimeout(() => {
+    dissolveTo(canvas.width / 2, canvas.height / 2 + 80);
+}, 6000);
 
-    let i = 0;
+/* STEP 4 — reform into button */
+setTimeout(() => {
+    buildButton();
+}, 8000);
 
-    const interval = setInterval(() => {
-
-        quote.textContent += text[i];
-        i++;
-
-        if (i >= text.length) {
-            clearInterval(interval);
-
-            setTimeout(destroyQuote, 600);
-        }
-
-    }, 35);
-
-}, 3000);
-
-/* =========================
-   STEP 3: QUOTE → DUST
-========================= */
-
-function destroyQuote() {
-
-    const rect = quote.getBoundingClientRect();
-
-    for (let i = 0; i < 180; i++) {
-        particles.push(
-            new Particle(
-                rect.left + Math.random() * rect.width,
-                rect.top + Math.random() * rect.height,
-                canvas.width / 2,
-                canvas.height / 2 + 120
-            )
-        );
-    }
-
-    setTimeout(buildButton, 1200);
-}
-
-/* =========================
-   STEP 4: BUTTON BUILD
-========================= */
-
-function buildButton() {
-
-    const rect = door.getBoundingClientRect();
-
-    door.style.opacity = 1;
-
-    for (let i = 0; i < 200; i++) {
-        particles.push(
-            new Particle(
-                Math.random() * canvas.width,
-                Math.random() * canvas.height,
-                rect.left + rect.width / 2,
-                rect.top + rect.height / 2
-            )
-        );
-    }
-
-    setTimeout(() => {
-        door.style.opacity = 1;
-    }, 600);
-}
-
-/* =========================
-   ENTER
-========================= */
-
+/* STEP 5 — enter */
 door.addEventListener("click", () => {
     document.body.style.transition = "opacity 1.2s ease";
     document.body.style.opacity = "0";
