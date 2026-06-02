@@ -8,19 +8,19 @@ font-family: 'Cinzel', serif;
 background: radial-gradient(circle at center, #1a120d, #0b0705);
 }
 
-/* GOLD DUST BACKGROUND */
+/* 🌌 фон с золотой пылью */
 body::before {
 content: "";
 position: absolute;
 inset: 0;
 background:
-radial-gradient(circle at 20% 30%, rgba(255,215,0,0.08), transparent 40%),
-radial-gradient(circle at 70% 60%, rgba(255,215,0,0.05), transparent 45%),
+radial-gradient(circle at 20% 30%, rgba(255,215,120,0.08), transparent 40%),
+radial-gradient(circle at 70% 60%, rgba(255,215,120,0.05), transparent 45%),
 radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 60%);
 pointer-events: none;
 }
 
-/* MAIN */
+/* 📍 сцена */
 #scene {
 position: relative;
 height: 100%;
@@ -31,93 +31,27 @@ align-items: center;
 text-align: center;
 }
 
-/* TITLE */
+/* ✨ название */
 #title {
 font-size: 46px;
 letter-spacing: 6px;
 color: #d6b25e;
-position: relative;
 text-shadow: 0 0 10px rgba(214,178,94,0.2);
 }
 
-/* line */
-#line {
-width: 0%;
-height: 1px;
-margin-top: 10px;
-background: linear-gradient(90deg, transparent, #d6b25e, transparent);
-animation: lineGrow 2.5s ease forwards;
-}
-
-@keyframes lineGrow {
-to { width: 55%; }
-}
-
-/* quote */
-#quote {
-margin-top: 35px;
-font-size: 18px;
-color: #c8a86a;
-opacity: 0;
-transform: translateY(10px);
-transition: all 2s ease;
-}
-
-/* BUTTON */
-#door {
-margin-top: 50px;
-padding: 12px 22px;
-border: 1px solid rgba(214,178,94,0.5);
-background: rgba(255,255,255,0.03);
-color: #d6b25e;
-cursor: pointer;
-
-opacity: 0;
-transform: scale(0.8);
-transition: all 1.2s ease;
-}
-
-#door.show {
-opacity: 1;
-transform: scale(1);
-}
-
-#door:hover {
-transform: scale(1.05);
-background: rgba(214,178,94,0.08);
-}
-
-/* PARTICLES (МЕЛЬЧЕ И МЯГЧЕ) */
-.particle {
-position: absolute;
-width: 1.5px;
-height: 1.5px;
-background: rgba(255, 215, 120, 0.8);
-border-radius: 50%;
-opacity: 0.25;
-animation: float 8s infinite ease-in-out;
-filter: blur(0.5px);
-}
-
-@keyframes float {
-0%,100% { transform: translateY(0); opacity: 0.2; }
-50% { transform: translateY(-25px); opacity: 0.6; }
-}
-
-/* LETTER DUST FORMATION */
+/* 💥 буквы из пыли */
 .fade-letter {
 display: inline-block;
 opacity: 0;
-transform: translateY(20px) scale(1.6);
+transform: scale(2.5) translateY(20px);
 filter: blur(12px);
-animation: dustForm 1.6s forwards;
-text-shadow: 0 0 12px rgba(214,178,94,0.6);
+animation: dustBurst 1.4s forwards;
 }
 
-@keyframes dustForm {
+@keyframes dustBurst {
 0% {
 opacity: 0;
-transform: translateY(20px) scale(1.6);
+transform: scale(2.5) translateY(30px);
 filter: blur(12px);
 }
 
@@ -128,7 +62,58 @@ filter: blur(4px);
 
 100% {
 opacity: 1;
-transform: translateY(0) scale(1);
+transform: scale(1) translateY(0);
 filter: blur(0);
 }
+}
+
+/* 📜 цитата (перо-письмо эффект) */
+#quote {
+margin-top: 30px;
+font-size: 18px;
+color: #c8a86a;
+opacity: 0;
+white-space: nowrap;
+overflow: hidden;
+border-right: 2px solid rgba(214,178,94,0.6);
+}
+
+/*  кнопка входа */
+#door {
+margin-top: 40px;
+padding: 12px 24px;
+border: 1px solid #d6b25e;
+background: transparent;
+color: #d6b25e;
+opacity: 0;
+transform: scale(0.6);
+transition: all 1s ease;
+cursor: pointer;
+}
+
+#door.show {
+opacity: 1;
+transform: scale(1);
+}
+
+#door:hover {
+background: rgba(214,178,94,0.1);
+transform: scale(1.05);
+}
+
+/* ✨ мягкая золотая пыль */
+.particle {
+position: absolute;
+width: 1.5px;
+height: 1.5px;
+background: rgba(255, 215, 120, 0.7);
+border-radius: 50%;
+opacity: 0.25;
+animation: float 8s infinite ease-in-out;
+filter: blur(0.6px);
+}
+
+@keyframes float {
+0%,100% { transform: translateY(0); opacity: 0.2; }
+50% { transform: translateY(-25px); opacity: 0.6; }
 }
