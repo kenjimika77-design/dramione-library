@@ -5,83 +5,66 @@ const title = document.getElementById("title");
 const quote = document.getElementById("quote");
 const door = document.getElementById("door");
 
-/* =========================
-   CANVAS SETUP
-========================= */
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-function resize() {
+window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+});
+
+let particles = [];
 
 /* =========================
-   PARTICLES SYSTEM
+   PARTICLE CLASS (FIXED)
 ========================= */
 
 class Particle {
-    constructor(x, y, targetX = null, targetY = null) {
+    constructor(x, y, tx = null, ty = null) {
         this.x = x;
         this.y = y;
 
-        this.targetX = targetX;
-        this.targetY = targetY;
-
-        this.size = Math.random() * 2 + 0.5;
-        this.speed = Math.random() * 0.05 + 0.02;
-
-        this.opacity = Math.random() * 0.8 + 0.2;
+        this.tx = tx;
+        this.ty = ty;
 
         this.vx = (Math.random() - 0.5) * 2;
         this.vy = (Math.random() - 0.5) * 2;
 
-        this.mode = targetX !== null ? "attract" : "float";
+        this.size = Math.random() * 2 + 0.5;
+        this.opacity = 1;
+
+        this.mode = tx !== null ? "move" : "float";
     }
 
     update() {
         if (this.mode === "float") {
             this.x += this.vx;
             this.y += this.vy;
-
-            this.vy += 0.01; // лёгкая гравитация
             this.opacity -= 0.002;
+        }
 
-        } else if (this.mode === "attract") {
-            this.x += (this.targetX - this.x) * this.speed;
-            this.y += (this.targetY - this.y) * this.speed;
+        if (this.mode === "move") {
+            this.x += (this.tx - this.x) * 0.08;
+            this.y += (this.ty - this.y) * 0.08;
+
+            if (Math.abs(this.x - this.tx) < 1 && Math.abs(this.y - this.ty) < 1) {
+                this.mode = "done";
+            }
         }
     }
 
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-
         ctx.fillStyle = `rgba(214,178,94,${this.opacity})`;
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 8;
         ctx.shadowColor = "#d6b25e";
-
         ctx.fill();
     }
 }
 
-let particles = [];
-
 /* =========================
-   BACKGROUND DUST
-========================= */
-
-for (let i = 0; i < 180; i++) {
-    particles.push(
-        new Particle(
-            Math.random() * canvas.width,
-            Math.random() * canvas.height
-        )
-    );
-}
-
-/* =========================
-   ANIMATION LOOP
+   LOOP
 ========================= */
 
 function animate() {
@@ -100,20 +83,17 @@ function animate() {
 animate();
 
 /* =========================
-   TITLE BUILD (FROM DUST)
+   STEP 1: TITLE BUILD
 ========================= */
 
-const titleText = "Dramione Library";
-title.textContent = "";
+setTimeout(() => {
 
-function buildTitle() {
     const rect = title.getBoundingClientRect();
 
-    title.textContent = titleText;
+    title.textContent = "Dramione Library";
     title.style.opacity = 1;
 
-    // взрыв пыли в центр заголовка
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 200; i++) {
         particles.push(
             new Particle(
                 Math.random() * canvas.width,
@@ -123,65 +103,70 @@ function buildTitle() {
             )
         );
     }
-}
 
-setTimeout(buildTitle, 1200);
+}, 1200);
 
 /* =========================
-   QUOTE (WRITE EFFECT)
+   STEP 2: QUOTE WRITE
 ========================= */
 
-const quoteText =
+const text =
 "Between lion and dragon, destiny was written in gold.";
 
-function writeQuote() {
-    let i = 0;
+setTimeout(() => {
+
     quote.style.opacity = 1;
 
+    let i = 0;
+
     const interval = setInterval(() => {
-        quote.textContent += quoteText[i];
+
+        quote.textContent += text[i];
         i++;
 
-        if (i >= quoteText.length) {
+        if (i >= text.length) {
             clearInterval(interval);
-            destroyQuoteIntoDust();
-        }
-    }, 35);
-}
 
-setTimeout(writeQuote, 3200);
+            setTimeout(destroyQuote, 600);
+        }
+
+    }, 35);
+
+}, 3000);
 
 /* =========================
-   QUOTE → DUST → BUTTON
+   STEP 3: QUOTE → DUST
 ========================= */
 
-function destroyQuoteIntoDust() {
+function destroyQuote() {
+
     const rect = quote.getBoundingClientRect();
 
-    for (let i = 0; i < 140; i++) {
+    for (let i = 0; i < 180; i++) {
         particles.push(
             new Particle(
                 rect.left + Math.random() * rect.width,
                 rect.top + Math.random() * rect.height,
-                window.innerWidth / 2,
-                window.innerHeight / 2 + 120
+                canvas.width / 2,
+                canvas.height / 2 + 120
             )
         );
     }
 
-    setTimeout(buildButton, 1500);
+    setTimeout(buildButton, 1200);
 }
 
 /* =========================
-   BUTTON BUILD
+   STEP 4: BUTTON BUILD
 ========================= */
 
 function buildButton() {
+
     const rect = door.getBoundingClientRect();
 
     door.style.opacity = 1;
 
-    for (let i = 0; i < 160; i++) {
+    for (let i = 0; i < 200; i++) {
         particles.push(
             new Particle(
                 Math.random() * canvas.width,
@@ -194,12 +179,11 @@ function buildButton() {
 
     setTimeout(() => {
         door.style.opacity = 1;
-        door.style.transform = "scale(1)";
-    }, 800);
+    }, 600);
 }
 
 /* =========================
-   PORTAL ENTER
+   ENTER
 ========================= */
 
 door.addEventListener("click", () => {
