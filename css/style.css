@@ -4,60 +4,17 @@
    BASE
 ========================= */
 
-html,
-body {
+hhtml, body {
     margin: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
 
-    background:
-        radial-gradient(circle at center,
-            #1a120d 0%,
-            #0b0705 45%,
-            #050303 100%);
-
+    background: radial-gradient(circle at center, #1a120d, #050303);
     font-family: 'Cinzel', serif;
 }
 
-/* =========================
-   ATMOSPHERE LIGHT
-========================= */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background:
-        radial-gradient(circle at 30% 30%,
-            rgba(255,255,255,0.03),
-            transparent 60%);
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background:
-        radial-gradient(circle at center,
-            rgba(214,178,94,0.08),
-            transparent 65%);
-
-    filter: blur(80px);
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* =========================
-   CANVAS (DUST)
-========================= */
-
+/* canvas ВСЕГДА видим */
 #dustCanvas {
     position: fixed;
     inset: 0;
@@ -66,79 +23,10 @@ body::after {
     z-index: 1;
 }
 
-/* =========================
-   CONSTELLATIONS PLACEHOLDERS
-========================= */
-
-#constellation-left,
-#constellation-right {
-    position: fixed;
-    width: 240px;
-    height: 240px;
-    opacity: 0;
-    z-index: 2;
-}
-
-#constellation-left {
-    left: 8%;
-    top: 22%;
-}
-
-#constellation-right {
-    right: 8%;
-    top: 22%;
-}
-
-/* =========================
-   PORTAL (REALITY RIFT)
-========================= */
-
-#portal {
-    position: fixed;
-    left: 50%;
-    top: 52%;
-    transform: translate(-50%, -50%) scale(0);
-
-    width: 420px;
-    height: 140px;
-
-    opacity: 0;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(214,178,94,0.25),
-        rgba(255,230,160,0.45),
-        rgba(214,178,94,0.25),
-        transparent
-    );
-
-    filter: blur(2px);
-
-    clip-path: polygon(
-        0% 50%, 8% 25%, 16% 60%, 24% 30%, 32% 70%,
-        40% 25%, 48% 65%, 56% 30%, 64% 70%, 72% 35%,
-        80% 60%, 88% 40%, 100% 50%,
-        88% 80%, 72% 65%, 56% 85%, 40% 60%,
-        24% 80%, 8% 65%
-    );
-
-    box-shadow:
-        0 0 30px rgba(214,178,94,0.2),
-        0 0 100px rgba(214,178,94,0.08);
-
-    transition: 2.5s ease;
-
-    z-index: 3;
-}
-
-/* =========================
-   SCENE
-========================= */
-
+/* сцена поверх */
 #scene {
     position: relative;
-    z-index: 4;
+    z-index: 2;
 
     width: 100%;
     height: 100%;
@@ -147,113 +35,38 @@ body::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+
+    color: #d6b25e;
 }
 
-/* =========================
-   TITLE
-========================= */
-
+/* TITLE */
 #title {
-    margin: 0;
-
-    font-size: 64px;
-    letter-spacing: 12px;
-    font-weight: 700;
-
-    color: #d6b25e;
-
-    opacity: 0;
-
-    text-shadow:
-        0 0 15px rgba(214,178,94,0.4),
-        0 0 40px rgba(214,178,94,0.15);
-
-    transition: opacity 2s ease;
-
-    animation: glow 6s ease-in-out infinite alternate;
+    font-size: 48px;
+    opacity: 1; /* ВАЖНО */
 }
 
-/* =========================
-   QUOTE
-========================= */
-
+/* QUOTE */
 #quote {
-    margin-top: 28px;
-
-    font-family: 'Pinyon Script', cursive;
-    font-size: 42px;
-
-    color: rgba(214,178,94,0.85);
-
-    opacity: 0;
-
-    transition: opacity 2s ease;
-
-    text-shadow: 0 0 12px rgba(214,178,94,0.15);
+    margin-top: 20px;
+    opacity: 1; /* ВАЖНО */
 }
 
-/* =========================
-   BUTTON (RUINED SEAL STYLE)
-========================= */
-
+/* BUTTON — ВИДИМА ВСЕГДА (чтобы не было "пустого экрана") */
 #door {
-    margin-top: 45px;
+    margin-top: 30px;
 
-    padding: 14px 28px;
+    padding: 12px 26px;
 
-    border: 1px solid rgba(214,178,94,0.45);
-
-    background: rgba(10,8,6,0.4);
-
+    border: 1px solid #d6b25e;
+    background: rgba(0,0,0,0.3);
     color: #d6b25e;
-
-    letter-spacing: 4px;
-
-    font-size: 14px;
 
     cursor: pointer;
 
-    opacity: 0;
-
-    transition: 0.5s ease;
-
-    position: relative;
-    overflow: hidden;
-
-    z-index: 5;
+    opacity: 1; /* ВАЖНО */
+    z-index: 3;
 }
 
 #door:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px rgba(214,178,94,0.2);
-}
-
-/* rune glow */
-#door::before {
-    content: "✶";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    font-size: 22px;
-
-    color: rgba(214,178,94,0.6);
-
-    animation: spin 6s linear infinite;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes glow {
-    0% { filter: brightness(1); }
-    100% { filter: brightness(1.2); }
-}
-
-@keyframes spin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
+    background: rgba(214,178,94,0.1);
 }
