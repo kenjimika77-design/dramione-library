@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Pinyon+Script&display=swap');
 
-/* =========================
+/* ===================================
    BASE
-========================= */
+=================================== */
 
 html,
 body {
@@ -10,174 +10,295 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: radial-gradient(circle at center, #1a120d 0%, #050303 100%);
+
+    background:
+        radial-gradient(circle at center,
+            #1a120d 0%,
+            #0e0907 45%,
+            #050303 100%);
+
     font-family: 'Cinzel', serif;
 }
 
-/* =========================
-   LIGHT LAYERS (ATMOSPHERE)
-========================= */
+/* ===================================
+   ATMOSPHERIC LIGHT
+=================================== */
 
-/* golden aura */
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(255,255,255,.025),
+            transparent 60%
+        );
+
+    pointer-events: none;
+    z-index: 0;
+}
+
 body::after {
     content: "";
+
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at center,
-        rgba(214,178,94,0.08),
-        transparent 60%);
-    filter: blur(60px);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,178,94,.08),
+            transparent 65%
+        );
+
+    filter: blur(80px);
+
     pointer-events: none;
-    opacity: 0.9;
+    z-index: 0;
 }
 
-/* cold mist */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at 30% 30%,
-        rgba(255,255,255,0.03),
-        transparent 60%);
-    pointer-events: none;
-    opacity: 0.8;
-}
-
-/* subtle grain (cinematic feel) */
-body::before {
-    mix-blend-mode: overlay;
-}
-
-/* =========================
-   CANVAS (DUST)
-========================= */
+/* ===================================
+   DUST CANVAS
+=================================== */
 
 #dustCanvas {
     position: fixed;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     z-index: 1;
 }
 
-/* =========================
-   SCENE
-========================= */
+/* ===================================
+   CONSTELLATIONS
+=================================== */
+
+#constellation-left,
+#constellation-right {
+
+    position: fixed;
+
+    width: 260px;
+    height: 260px;
+
+    opacity: 0;
+
+    transition: 3s ease;
+
+    z-index: 2;
+}
+
+#constellation-left {
+    left: 8%;
+    top: 25%;
+}
+
+#constellation-right {
+    right: 8%;
+    top: 25%;
+}
+
+/* ===================================
+   PORTAL
+=================================== */
+
+#portal {
+
+    position: fixed;
+
+    left: 50%;
+    top: 58%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(214,178,94,.35),
+            rgba(40,20,10,.85) 40%,
+            rgba(0,0,0,.95) 75%
+        );
+
+    box-shadow:
+
+        0 0 20px rgba(214,178,94,.15),
+        0 0 60px rgba(214,178,94,.10),
+        inset 0 0 50px rgba(214,178,94,.15);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+
+    z-index: 2;
+}
+
+/* ===================================
+   MAIN SCENE
+=================================== */
 
 #scene {
+
     position: relative;
-    z-index: 2;
+
+    z-index: 3;
 
     width: 100%;
     height: 100%;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
+
+    text-align: center;
 }
 
-/* soft breathing of the scene */
-@keyframes breathe {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.01); }
-}
-
-/* =========================
+/* ===================================
    TITLE
-========================= */
+=================================== */
 
 #title {
+
     margin: 0;
 
-    font-size: 58px;
+    font-size: 64px;
+
     font-weight: 700;
-    letter-spacing: 10px;
+
+    letter-spacing: 12px;
 
     color: #d6b25e;
 
-    text-shadow:
-        0 0 10px rgba(214,178,94,.35),
-        0 0 25px rgba(214,178,94,.15);
-
     opacity: 0;
 
-    position: relative;
-    z-index: 3;
+    text-shadow:
+        0 0 10px rgba(214,178,94,.45),
+        0 0 25px rgba(214,178,94,.25),
+        0 0 60px rgba(214,178,94,.08);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+
+    z-index: 5;
 }
 
-/* =========================
+/* ===================================
    QUOTE
-========================= */
+=================================== */
 
 #quote {
-    margin-top: 28px;
 
-    min-height: 60px;
+    margin-top: 30px;
+
+    min-height: 70px;
 
     font-family: 'Pinyon Script', cursive;
+
     font-size: 42px;
 
     color: rgba(214,178,94,.85);
 
     opacity: 0;
 
-    position: relative;
-    z-index: 3;
+    text-shadow:
+        0 0 10px rgba(214,178,94,.15);
+
+    transition:
+        opacity 2s ease;
+
+    z-index: 5;
 }
 
-/* =========================
+/* ===================================
    BUTTON
-========================= */
+=================================== */
 
 #door {
-    margin-top: 40px;
 
-    padding: 14px 34px;
+    margin-top: 45px;
 
-    border: 1px solid rgba(214,178,94,.45);
+    padding:
+        14px
+        34px;
 
-    background: rgba(255,255,255,.02);
+    border:
+        1px solid rgba(214,178,94,.45);
 
-    color: #d6b25e;
+    background:
+        rgba(255,255,255,.02);
 
-    font-family: 'Cinzel', serif;
-    letter-spacing: 3px;
+    color:
+        #d6b25e;
+
+    font-family:
+        'Cinzel',
+        serif;
+
+    font-size: 15px;
+
+    letter-spacing: 4px;
 
     cursor: pointer;
 
     opacity: 0;
 
     transition:
-        background .4s ease,
-        transform .4s ease,
-        box-shadow .4s ease,
-        backdrop-filter .4s ease;
+        opacity 1.5s ease,
+        transform .5s ease,
+        box-shadow .5s ease,
+        background .5s ease;
 
-    position: relative;
-    z-index: 3;
+    z-index: 6;
 }
 
-/* glass effect (adds “artifact feel”) */
-#door {
-    backdrop-filter: blur(6px);
-}
-
-/* hover magic */
 #door:hover {
-    background: rgba(214,178,94,0.08);
 
-    transform: translateY(-2px) scale(1.02);
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(214,178,94,.08);
 
     box-shadow:
-        0 0 20px rgba(214,178,94,.15);
+        0 0 20px rgba(214,178,94,.18);
 }
 
-/* =========================
-   OPTIONAL: LAYER PROTECTION
-========================= */
+/* ===================================
+   FLOATING GLOW
+=================================== */
 
-#title, #quote, #door {
-    position: relative;
-    z-index: 3;
+@keyframes glowPulse {
+
+    0% {
+        filter: brightness(1);
+    }
+
+    100% {
+        filter: brightness(1.2);
+    }
+}
+
+#title,
+#portal {
+
+    animation:
+        glowPulse 6s ease-in-out infinite alternate;
 }
