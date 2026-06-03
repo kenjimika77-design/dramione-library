@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Pinyon+Script&display=swap');
 
-/* ===================================
-   BASE
-=================================== */
+/* =========================
+   BASE CINEMATIC WORLD
+========================= */
 
 html,
 body {
@@ -12,30 +12,23 @@ body {
     overflow: hidden;
 
     background:
-        radial-gradient(circle at center,
-            #1a120d 0%,
-            #0e0907 45%,
-            #050303 100%);
+        radial-gradient(circle at center, #1a120d 0%, #050303 70%, #000 100%);
 
     font-family: 'Cinzel', serif;
 }
 
-/* ===================================
-   ATMOSPHERIC LIGHT
-=================================== */
+/* =========================
+   ATMOSPHERIC LIGHT LAYERS
+========================= */
 
 body::before {
     content: "";
-
     position: fixed;
     inset: 0;
 
     background:
-        radial-gradient(
-            circle at 30% 30%,
-            rgba(255,255,255,.025),
-            transparent 60%
-        );
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.03), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(214,178,94,0.04), transparent 55%);
 
     pointer-events: none;
     z-index: 0;
@@ -43,16 +36,11 @@ body::before {
 
 body::after {
     content: "";
-
     position: fixed;
     inset: 0;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(214,178,94,.08),
-            transparent 65%
-        );
+        radial-gradient(circle at center, rgba(214,178,94,0.08), transparent 65%);
 
     filter: blur(80px);
 
@@ -60,245 +48,209 @@ body::after {
     z-index: 0;
 }
 
-/* ===================================
-   DUST CANVAS
-=================================== */
+/* =========================
+   CANVAS (DUST FIELD)
+========================= */
 
 #dustCanvas {
     position: fixed;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     z-index: 1;
 }
 
-/* ===================================
+/* =========================
    CONSTELLATIONS
-=================================== */
+========================= */
 
 #constellation-left,
 #constellation-right {
-
     position: fixed;
-
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
 
     opacity: 0;
-
-    transition: 3s ease;
+    transition: opacity 3s ease;
 
     z-index: 2;
+
+    filter: drop-shadow(0 0 10px rgba(214,178,94,0.2));
 }
 
 #constellation-left {
-    left: 8%;
-    top: 25%;
+    left: 6%;
+    top: 20%;
 }
 
 #constellation-right {
-    right: 8%;
-    top: 25%;
+    right: 6%;
+    top: 20%;
 }
 
-/* ===================================
-   PORTAL
-=================================== */
+/* =========================
+   PORTAL (MOON CORE)
+========================= */
 
 #portal {
-
     position: fixed;
 
     left: 50%;
-    top: 58%;
+    top: 55%;
 
-    transform:
-        translate(-50%, -50%)
-        scale(0);
+    transform: translate(-50%, -50%) scale(0);
 
     width: 260px;
     height: 260px;
 
     border-radius: 50%;
 
-    opacity: 0;
-
     background:
-
-        radial-gradient(
-            circle at center,
-            rgba(214,178,94,.35),
-            rgba(40,20,10,.85) 40%,
-            rgba(0,0,0,.95) 75%
-        );
+        radial-gradient(circle at center,
+            rgba(214,178,94,0.35),
+            rgba(30,15,10,0.85) 45%,
+            rgba(0,0,0,0.95) 75%);
 
     box-shadow:
+        0 0 25px rgba(214,178,94,0.15),
+        0 0 80px rgba(214,178,94,0.08),
+        inset 0 0 60px rgba(214,178,94,0.12);
 
-        0 0 20px rgba(214,178,94,.15),
-        0 0 60px rgba(214,178,94,.10),
-        inset 0 0 50px rgba(214,178,94,.15);
-
-    transition:
-        opacity 2s ease,
-        transform 2s ease;
+    opacity: 0;
 
     z-index: 2;
+
+    transition: transform 2s ease, opacity 2s ease;
+
+    animation: portalPulse 6s ease-in-out infinite;
 }
 
-/* ===================================
-   MAIN SCENE
-=================================== */
+@keyframes portalPulse {
+    0% {
+        filter: brightness(0.9) blur(0px);
+    }
+    50% {
+        filter: brightness(1.15) blur(1px);
+    }
+    100% {
+        filter: brightness(0.95);
+    }
+}
+
+/* =========================
+   SCENE
+========================= */
 
 #scene {
-
     position: relative;
-
     z-index: 3;
 
     width: 100%;
     height: 100%;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
 
     text-align: center;
 }
 
-/* ===================================
-   TITLE
-=================================== */
+/* =========================
+   TITLE (LIGHT PROJECTION)
+========================= */
 
 #title {
-
     margin: 0;
 
     font-size: 64px;
-
-    font-weight: 700;
-
-    letter-spacing: 12px;
+    letter-spacing: 14px;
 
     color: #d6b25e;
 
     opacity: 0;
 
     text-shadow:
-        0 0 10px rgba(214,178,94,.45),
-        0 0 25px rgba(214,178,94,.25),
-        0 0 60px rgba(214,178,94,.08);
+        0 0 15px rgba(214,178,94,0.4),
+        0 0 40px rgba(214,178,94,0.15),
+        0 0 80px rgba(214,178,94,0.08);
 
-    transition:
-        opacity 2s ease,
-        transform 2s ease;
-
-    z-index: 5;
+    transition: opacity 2s ease;
 }
 
-/* ===================================
-   QUOTE
-=================================== */
+/* =========================
+   QUOTE (SCRIPT MAGIC)
+========================= */
 
 #quote {
-
     margin-top: 30px;
 
     min-height: 70px;
 
     font-family: 'Pinyon Script', cursive;
-
     font-size: 42px;
 
-    color: rgba(214,178,94,.85);
+    color: rgba(214,178,94,0.85);
 
     opacity: 0;
 
-    text-shadow:
-        0 0 10px rgba(214,178,94,.15);
+    text-shadow: 0 0 20px rgba(214,178,94,0.12);
 
-    transition:
-        opacity 2s ease;
-
-    z-index: 5;
+    transition: opacity 2s ease;
 }
 
-/* ===================================
-   BUTTON
-=================================== */
+/* =========================
+   BUTTON (MOON / PORTAL KEY)
+========================= */
 
 #door {
+    margin-top: 50px;
 
-    margin-top: 45px;
+    padding: 16px 38px;
 
-    padding:
-        14px
-        34px;
+    border-radius: 50px;
 
-    border:
-        1px solid rgba(214,178,94,.45);
+    border: 1px solid rgba(214,178,94,0.35);
 
-    background:
-        rgba(255,255,255,.02);
+    background: radial-gradient(circle at center,
+        rgba(214,178,94,0.15),
+        rgba(0,0,0,0.4));
 
-    color:
-        #d6b25e;
+    color: #d6b25e;
 
-    font-family:
-        'Cinzel',
-        serif;
-
-    font-size: 15px;
-
+    font-size: 14px;
     letter-spacing: 4px;
 
     cursor: pointer;
 
     opacity: 0;
 
-    transition:
-        opacity 1.5s ease,
-        transform .5s ease,
-        box-shadow .5s ease,
-        background .5s ease;
+    box-shadow:
+        0 0 20px rgba(214,178,94,0.1),
+        inset 0 0 20px rgba(214,178,94,0.08);
 
-    z-index: 6;
+    transition: all 0.5s ease;
 }
 
 #door:hover {
-
-    transform:
-        translateY(-2px);
-
-    background:
-        rgba(214,178,94,.08);
+    transform: translateY(-3px) scale(1.05);
 
     box-shadow:
-        0 0 20px rgba(214,178,94,.18);
+        0 0 35px rgba(214,178,94,0.25),
+        inset 0 0 25px rgba(214,178,94,0.15);
 }
 
-/* ===================================
-   FLOATING GLOW
-=================================== */
-
-@keyframes glowPulse {
-
-    0% {
-        filter: brightness(1);
-    }
-
-    100% {
-        filter: brightness(1.2);
-    }
-}
+/* =========================
+   GLOBAL GLOW BREATH
+========================= */
 
 #title,
 #portal {
+    animation: breathe 6s ease-in-out infinite;
+}
 
-    animation:
-        glowPulse 6s ease-in-out infinite alternate;
+@keyframes breathe {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+    100% { filter: brightness(1); }
 }
