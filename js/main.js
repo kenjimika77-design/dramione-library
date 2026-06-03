@@ -5,76 +5,69 @@ const titleEl = document.getElementById("title");
 const quoteEl = document.getElementById("quote");
 const door = document.getElementById("door");
 
+const left = document.getElementById("constellation-left");
+const right = document.getElementById("constellation-right");
 const portal = document.getElementById("portal");
-const leftConst = document.getElementById("constellation-left");
-const rightConst = document.getElementById("constellation-right");
 
 const titleText = "Dramione Library";
-const quoteText = "Between lion and dragon, destiny becomes dust and light.";
-
-let particles = [];
-let mode = "dust";
+const quoteText = "Between lion and dragon, destiny bends space and time.";
 
 /* =========================
-   CANVAS SETUP
+   CANVAS
 ========================= */
 
-function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+let w = (canvas.width = innerWidth);
+let h = (canvas.height = innerHeight);
+
+window.addEventListener("resize", () => {
+    w = canvas.width = innerWidth;
+    h = canvas.height = innerHeight;
+});
 
 /* =========================
-   PARTICLE CLASS
+   DUST PARTICLES
 ========================= */
 
-class Particle {
-    constructor(x, y) {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-
-        this.tx = x || this.x;
-        this.ty = y || this.y;
-
-        this.vx = 0;
-        this.vy = 0;
-
-        this.size = Math.random() * 2 + 0.6;
-        this.friction = 0.88;
+class Dust {
+    constructor() {
+        this.reset();
     }
 
-    setTarget(x, y) {
-        this.tx = x;
-        this.ty = y;
+    reset() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+
+        this.baseX = this.x;
+        this.baseY = this.y;
+
+        this.size = Math.random() * 1.2 + 0.2;
+        this.speed = Math.random() * 0.3 + 0.05;
+        this.angle = Math.random() * Math.PI * 2;
+        this.radius = Math.random() * 40 + 10;
     }
 
-    update() {
-        if (mode === "dust") {
-            this.x += Math.sin(Date.now() * 0.001 + this.y) * 0.2;
-            this.y += Math.cos(Date.now() * 0.001 + this.x) * 0.2;
-            return;
+    update(time) {
+
+        // orbital motion (cinematic dust field)
+        this.angle += 0.002;
+
+        this.x = this.baseX + Math.cos(this.angle + time * 0.0005) * this.radius;
+        this.y = this.baseY + Math.sin(this.angle + time * 0.0005) * this.radius;
+
+        // slow upward drift
+        this.baseY -= this.speed;
+
+        if (this.baseY < -50) {
+            this.baseY = h + 50;
+            this.baseX = Math.random() * w;
         }
-
-        let dx = this.tx - this.x;
-        let dy = this.ty - this.y;
-
-        this.vx += dx * 0.02;
-        this.vy += dy * 0.02;
-
-        this.vx *= this.friction;
-        this.vy *= this.friction;
-
-        this.x += this.vx;
-        this.y += this.vy;
     }
 
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
 
-        ctx.fillStyle = "rgba(214,178,94,0.85)";
+        ctx.fillStyle = "rgba(214,178,94,0.7)";
         ctx.shadowBlur = 10;
         ctx.shadowColor = "#d6b25e";
 
@@ -82,152 +75,180 @@ class Particle {
     }
 }
 
-/* =========================
-   INIT DUST
-========================= */
-
-function initDust(count = 250) {
-    particles = [];
-
-    for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-    }
+const dust = [];
+for (let i = 0; i < 500; i++) {
+    dust.push(new Dust());
 }
 
-initDust();
-
 /* =========================
-   TEXT SHAPE
+   CONSTELLATIONS (LIVING)
 ========================= */
 
-function getPoints(text, size = 90) {
-    const off = document.createElement("canvas");
-    const octx = off.getContext("2d");
+const lion = [];
+const dragon = [];
 
-    off.width = canvas.width;
-    off.height = canvas.height;
+function createSide(xOffset) {
+    const arr = [];
+    for (let i = 0; i < 20; i++) {
+        arr.push({
+            x: xOffset + Math.random() * 200,
+            y: 200 + Math.random() * 250,
+            glow: Math.random()
+        });
+    }
+    return arr;
+}
 
-    octx.fillStyle = "white";
-    octx.font = `bold ${size}px Cinzel`;
-    octx.textAlign = "center";
-    octx.textBaseline = "middle";
+lion.push(...createSide(120));
+dragon.push(...createSide(w - 320));
 
-    octx.fillText(text, canvas.width / 2, canvas.height / 2);
+/* =========================
+   DRAW CONSTELLATION
+========================= */
 
-    const data = octx.getImageData(0, 0, off.width, off.height).data;
+function drawConstellation(stars, time, intensity) {
 
-    const pts = [];
+    ctx.strokeStyle = `rgba(214,178,94,${0.15 * intensity})`;
+    ctx.fillStyle = `rgba(214,178,94,${0.9 * intensity})`;
 
-    for (let y = 0; y < off.height; y += 6) {
-        for (let x = 0; x < off.width; x += 6) {
-            let i = (y * off.width + x) * 4;
+    for (let i = 0; i < stars.length; i++) {
 
-            if (data[i + 3] > 128) {
-                pts.push({ x, y });
-            }
+        const s = stars[i];
+
+        // pulse glow
+        const pulse = Math.sin(time * 0.002 + i) * 1.5;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y + pulse, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (i > 0) {
+            const p = stars[i - 1];
+
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(s.x, s.y);
+            ctx.stroke();
         }
     }
-
-    return pts;
 }
 
 /* =========================
-   BUILD TEXT
+   THREAD OF DESTINY
 ========================= */
 
-function buildText(text) {
-    mode = "text";
+function drawThread(time) {
 
-    const pts = getPoints(text, 90);
+    const x1 = 200;
+    const x2 = w - 200;
+    const y = h / 2;
 
-    particles.forEach((p, i) => {
-        const pt = pts[i % pts.length];
-        p.setTarget(pt.x, pt.y);
-    });
+    const wave = Math.sin(time * 0.003) * 20;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y);
+
+    for (let i = 0; i <= 20; i++) {
+        const t = i / 20;
+        const x = x1 + (x2 - x1) * t;
+        const yy = y + Math.sin(t * 10 + time * 0.002) * 30 + wave;
+
+        ctx.lineTo(x, yy);
+    }
+
+    ctx.strokeStyle = "rgba(214,178,94,0.25)";
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "#d6b25e";
+    ctx.stroke();
 }
 
 /* =========================
-   PORTAL MODE
+   PORTAL ZOOM
 ========================= */
 
-function buildPortal() {
-    mode = "portal";
-
-    const rect = portal.getBoundingClientRect();
-
-    particles.forEach(p => {
-        p.setTarget(
-            rect.left + rect.width / 2 + (Math.random() - 0.5) * 80,
-            rect.top + rect.height / 2 + (Math.random() - 0.5) * 80
-        );
-    });
-
-    portal.style.opacity = "1";
-    portal.style.transform = "translate(-50%, -50%) scale(1)";
-}
+let zoom = 0;
 
 /* =========================
-   ANIMATION LOOP
+   MAIN LOOP
 ========================= */
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+function animate(time) {
 
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
+    ctx.clearRect(0, 0, w, h);
+
+    // dust
+    for (let d of dust) {
+        d.update(time);
+        d.draw();
+    }
+
+    // constellations
+    drawConstellation(lion, time, 1);
+    drawConstellation(dragon, time, 1);
+
+    // destiny thread
+    drawThread(time);
+
+    // portal breathing
+    if (zoom > 0) {
+        ctx.beginPath();
+        ctx.arc(w / 2, h / 2, 120 + Math.sin(time * 0.002) * 10, 0, Math.PI * 2);
+
+        ctx.fillStyle = "rgba(214,178,94,0.08)";
+        ctx.shadowBlur = 40;
+        ctx.shadowColor = "#d6b25e";
+
+        ctx.fill();
+    }
 
     requestAnimationFrame(animate);
 }
 
-animate();
+animate(0);
 
 /* =========================
    SEQUENCE
 ========================= */
 
-/* 1. START DUST */
+/* CONSTELLATIONS AWAKEN */
 setTimeout(() => {
-    buildText(titleText);
-    titleEl.textContent = titleText;
-    titleEl.style.opacity = "1";
+    left.style.opacity = 1;
+    right.style.opacity = 1;
 }, 1200);
 
-/* 2. CONSTELLATIONS */
+/* TITLE */
 setTimeout(() => {
-    leftConst.style.opacity = "1";
-    rightConst.style.opacity = "1";
-}, 2500);
+    titleEl.textContent = titleText;
+    titleEl.style.opacity = 1;
+}, 3000);
 
-/* 3. QUOTE */
+/* QUOTE */
 setTimeout(() => {
-    quoteEl.style.opacity = "1";
+    quoteEl.style.opacity = 1;
 
     let i = 0;
     const t = setInterval(() => {
         quoteEl.textContent += quoteText[i];
         i++;
         if (i >= quoteText.length) clearInterval(t);
-    }, 35);
-}, 4000);
+    }, 30);
+}, 4500);
 
-/* 4. DISINTEGRATE INTO PORTAL */
+/* PORTAL IGNITION */
 setTimeout(() => {
-    buildPortal();
+    zoom = 1;
+
+    portal.style.opacity = 1;
+    portal.style.transform = "translate(-50%, -50%) scale(1.2)";
 }, 7000);
 
-/* 5. BUTTON APPEAR */
-setTimeout(() => {
-    door.style.opacity = "1";
-}, 8500);
-
-/* 6. ENTER */
+/* ENTER */
 door.addEventListener("click", () => {
-    document.body.style.transition = "opacity 1.5s ease";
+
+    document.body.style.transition = "opacity 2s ease";
     document.body.style.opacity = "0";
 
     setTimeout(() => {
         window.location.href = "library.html";
-    }, 1500);
+    }, 2000);
 });
