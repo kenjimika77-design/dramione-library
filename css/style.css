@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Pinyon+Script&display=swap');
-
-/* =========================
-   BASE
-========================= */
-
-hhtml, body {
+html, body {
     margin: 0;
     width: 100%;
     height: 100%;
@@ -14,7 +8,7 @@ hhtml, body {
     font-family: 'Cinzel', serif;
 }
 
-/* canvas ВСЕГДА видим */
+/* canvas */
 #dustCanvas {
     position: fixed;
     inset: 0;
@@ -23,10 +17,10 @@ hhtml, body {
     z-index: 1;
 }
 
-/* сцена поверх */
+/* сцена */
 #scene {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 
     width: 100%;
     height: 100%;
@@ -36,37 +30,93 @@ hhtml, body {
     justify-content: center;
     align-items: center;
 
+    text-align: center;
     color: #d6b25e;
 }
 
-/* TITLE */
-#title {
-    font-size: 48px;
-    opacity: 1; /* ВАЖНО */
+/* созвездия (визуальные точки) */
+#constellation-left,
+#constellation-right {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    opacity: 1;
+    z-index: 2;
+
+    background: radial-gradient(circle, rgba(214,178,94,0.2), transparent 70%);
+    filter: blur(2px);
 }
 
-/* QUOTE */
+#constellation-left { left: 5%; }
+#constellation-right { right: 5%; }
+
+/* портал = НЕ круг, а разлом */
+#portal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    width: 380px;
+    height: 120px;
+
+    opacity: 0.8;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(214,178,94,0.25),
+        rgba(255,230,160,0.4),
+        rgba(214,178,94,0.25),
+        transparent
+    );
+
+    filter: blur(2px);
+
+    clip-path: polygon(
+        0% 50%, 10% 20%, 20% 70%, 30% 25%, 40% 75%,
+        50% 30%, 60% 70%, 70% 20%, 80% 65%, 90% 40%, 100% 50%
+    );
+
+    z-index: 2;
+
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,100% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* текст */
+#title {
+    font-size: 54px;
+    margin: 0;
+}
+
 #quote {
     margin-top: 20px;
-    opacity: 1; /* ВАЖНО */
+    font-size: 18px;
+    opacity: 0.8;
 }
 
-/* BUTTON — ВИДИМА ВСЕГДА (чтобы не было "пустого экрана") */
+/* кнопка */
 #door {
     margin-top: 30px;
 
-    padding: 12px 26px;
+    padding: 12px 28px;
 
-    border: 1px solid #d6b25e;
+    border: 1px solid rgba(214,178,94,0.5);
     background: rgba(0,0,0,0.3);
-    color: #d6b25e;
 
+    color: #d6b25e;
     cursor: pointer;
 
-    opacity: 1; /* ВАЖНО */
-    z-index: 3;
+    z-index: 4;
 }
 
 #door:hover {
     background: rgba(214,178,94,0.1);
+    transform: scale(1.05);
 }
