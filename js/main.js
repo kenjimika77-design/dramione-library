@@ -200,7 +200,59 @@ function animate(time) {
 
         ctx.fill();
     }
+   
+function drawFateThread(time) {
 
+    const x1 = 240;               // лев
+    const y1 = 260;
+
+    const x2 = canvas.width - 240; // дракон
+    const y2 = 260;
+
+    const midX = (x1 + x2) / 2;
+    const midY = (y1 + y2) / 2;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+
+    // создаём магическую дугу
+    for (let i = 0; i <= 30; i++) {
+
+        const t = i / 30;
+
+        const x = x1 + (x2 - x1) * t;
+
+        // дуга + "дыхание"
+        const wave =
+            Math.sin(t * Math.PI * 2 + time * 0.003) * 25;
+
+        const y =
+            y1 + (y2 - y1) * t
+            + wave
+            - Math.sin(time * 0.002) * 10;
+
+        ctx.lineTo(x, y);
+    }
+
+    // ✨ стиль линии (магия)
+    ctx.strokeStyle = "rgba(214,178,94,0.35)";
+    ctx.lineWidth = 2;
+
+    ctx.shadowBlur = 25;
+    ctx.shadowColor = "#d6b25e";
+
+    ctx.stroke();
+
+    // ✨ центральный пульс (сердце судьбы)
+    ctx.beginPath();
+    ctx.arc(midX, midY, 3 + Math.sin(time * 0.005) * 2, 0, Math.PI * 2);
+
+    ctx.fillStyle = "rgba(255,220,140,0.8)";
+    ctx.shadowBlur = 30;
+    ctx.shadowColor = "#ffe0a3";
+
+    ctx.fill();
+}
     requestAnimationFrame(animate);
 }
 
