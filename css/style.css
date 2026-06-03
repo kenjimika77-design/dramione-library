@@ -203,111 +203,64 @@ body::after {
    BUTTON (MOON / PORTAL KEY)
 ========================= */
 
+/* =========================
+   BUTTON (RUNIC CORE)
+========================= */
+
 #door {
-    margin-top: 50px;
+    position: absolute;
+    bottom: 18%;
+    
+    padding: 10px 22px;
 
-    padding: 16px 38px;
-
-    border-radius: 50px;
+    border-radius: 999px;
 
     border: 1px solid rgba(214,178,94,0.35);
 
-    background: radial-gradient(circle at center,
-        rgba(214,178,94,0.15),
-        rgba(0,0,0,0.4));
+    background: rgba(0,0,0,0.25);
 
     color: #d6b25e;
 
-    font-size: 14px;
-    letter-spacing: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
 
     cursor: pointer;
 
     opacity: 0;
 
-    box-shadow:
-        0 0 20px rgba(214,178,94,0.1),
-        inset 0 0 20px rgba(214,178,94,0.08);
-
-    transition: all 0.5s ease;
-}
-
-#door {
-    margin-top: 50px;
-
-    width: 90px;
-    height: 90px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(214,178,94,0.35);
-
-    background:
-        radial-gradient(circle at center,
-            rgba(214,178,94,0.18),
-            rgba(0,0,0,0.55));
-
-    color: #d6b25e;
-
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    cursor: pointer;
-
-    opacity: 0;
+    transition: all .4s ease;
 
     box-shadow:
-        0 0 18px rgba(214,178,94,0.12),
-        inset 0 0 12px rgba(214,178,94,0.08);
-
-    transition: all 0.6s ease;
-
-    position: relative;
+        0 0 10px rgba(214,178,94,0.08),
+        inset 0 0 10px rgba(214,178,94,0.05);
 }
 
-/* ✨ руна */
+/* ✨ rune glow */
 #door::before {
     content: "✶";
-
     position: absolute;
+    top: -10px;
+    right: -10px;
 
-    font-size: 26px;
+    font-size: 14px;
 
-    color: rgba(214,178,94,0.7);
+    color: rgba(214,178,94,0.6);
 
-    text-shadow:
-        0 0 10px rgba(214,178,94,0.3),
-        0 0 25px rgba(214,178,94,0.15);
-
-    animation: runeSpin 8s linear infinite;
+    animation: runeSpin 6s linear infinite;
 }
 
-/* hover эффект */
+@keyframes runeSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 #door:hover {
-    transform: scale(1.12);
+    transform: scale(1.05);
 
     box-shadow:
-        0 0 30px rgba(214,178,94,0.25),
-        inset 0 0 18px rgba(214,178,94,0.12);
-}
+        0 0 25px rgba(214,178,94,0.25),
+        inset 0 0 15px rgba(214,178,94,0.1);
 
-/* вращение руны */
-@keyframes runeSpin {
-    0% {
-        transform: rotate(0deg);
-        opacity: 0.6;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(360deg);
-        opacity: 0.6;
-    }
+    background: rgba(214,178,94,0.05);
 }
