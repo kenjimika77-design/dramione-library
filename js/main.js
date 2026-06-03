@@ -13,11 +13,11 @@ const titleText = "Dramione Library";
 const quoteText = "Between lion and dragon, destiny bends space and time.";
 
 /* =========================
-   CANVAS
+   SIZE
 ========================= */
 
-let w = (canvas.width = innerWidth);
-let h = (canvas.height = innerHeight);
+let w = canvas.width = innerWidth;
+let h = canvas.height = innerHeight;
 
 window.addEventListener("resize", () => {
     w = canvas.width = innerWidth;
@@ -25,7 +25,7 @@ window.addEventListener("resize", () => {
 });
 
 /* =========================
-   DUST PARTICLES
+   DUST
 ========================= */
 
 class Dust {
@@ -36,7 +36,6 @@ class Dust {
     reset() {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-
         this.baseX = this.x;
         this.baseY = this.y;
 
@@ -47,14 +46,11 @@ class Dust {
     }
 
     update(time) {
-
-        // orbital motion (cinematic dust field)
         this.angle += 0.002;
 
         this.x = this.baseX + Math.cos(this.angle + time * 0.0005) * this.radius;
         this.y = this.baseY + Math.sin(this.angle + time * 0.0005) * this.radius;
 
-        // slow upward drift
         this.baseY -= this.speed;
 
         if (this.baseY < -50) {
@@ -66,60 +62,47 @@ class Dust {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-
         ctx.fillStyle = "rgba(214,178,94,0.7)";
         ctx.shadowBlur = 10;
         ctx.shadowColor = "#d6b25e";
-
         ctx.fill();
     }
 }
 
-const dust = [];
-for (let i = 0; i < 500; i++) {
-    dust.push(new Dust());
-}
+const dust = Array.from({ length: 400 }, () => new Dust());
 
 /* =========================
-   CONSTELLATIONS (LIVING)
+   CONSTELLATIONS
 ========================= */
 
-const lion = [];
-const dragon = [];
-
-function createSide(xOffset) {
-    const arr = [];
-    for (let i = 0; i < 20; i++) {
-        arr.push({
-            x: xOffset + Math.random() * 200,
-            y: 200 + Math.random() * 250,
-            glow: Math.random()
-        });
-    }
-    return arr;
+function makeStars(offsetX) {
+    return Array.from({ length: 18 }, () => ({
+        x: offsetX + Math.random() * 180,
+        y: 180 + Math.random() * 260
+    }));
 }
 
-lion.push(...createSide(120));
-dragon.push(...createSide(w - 320));
+const lion = makeStars(120);
+const dragon = makeStars(w - 300);
 
 /* =========================
    DRAW CONSTELLATION
 ========================= */
 
-function drawConstellation(stars, time, intensity) {
-
-    ctx.strokeStyle = `rgba(214,178,94,${0.15 * intensity})`;
-    ctx.fillStyle = `rgba(214,178,94,${0.9 * intensity})`;
+function drawConstellation(stars, time) {
 
     for (let i = 0; i < stars.length; i++) {
 
         const s = stars[i];
-
-        // pulse glow
-        const pulse = Math.sin(time * 0.002 + i) * 1.5;
+        const pulse = Math.sin(time * 0.002 + i) * 1.2;
 
         ctx.beginPath();
-        ctx.arc(s.x, s.y + pulse, 1.5, 0, Math.PI * 2);
+        ctx.arc(s.x, s.y + pulse, 1.6, 0, Math.PI * 2);
+
+        ctx.fillStyle = "rgba(214,178,94,0.85)";
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = "#d6b25e";
+
         ctx.fill();
 
         if (i > 0) {
@@ -128,131 +111,80 @@ function drawConstellation(stars, time, intensity) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(s.x, s.y);
+            ctx.strokeStyle = "rgba(214,178,94,0.15)";
             ctx.stroke();
         }
     }
 }
 
 /* =========================
-   THREAD OF DESTINY
+   FATE THREAD (MAIN MAGIC)
 ========================= */
 
-function drawThread(time) {
+function drawFateThread(time) {
 
     const x1 = 200;
-    const x2 = w - 200;
-    const y = h / 2;
+    const y1 = h / 2 - 60;
 
-    const wave = Math.sin(time * 0.003) * 20;
+    const x2 = w - 200;
+    const y2 = h / 2 - 60;
+
+    const midX = (x1 + x2) / 2;
+    const midY = (y1 + y2) / 2;
+
+    ctx.save();
+    ctx.globalCompositeOperation = "screen";
 
     ctx.beginPath();
-    ctx.moveTo(x1, y);
+    ctx.moveTo(x1, y1);
 
-    for (let i = 0; i <= 20; i++) {
-        const t = i / 20;
+    for (let i = 0; i <= 60; i++) {
+
+        const t = i / 60;
         const x = x1 + (x2 - x1) * t;
-        const yy = y + Math.sin(t * 10 + time * 0.002) * 30 + wave;
 
-        ctx.lineTo(x, yy);
+        const wave = Math.sin(t * Math.PI * 3 + time * 0.003) * 28;
+
+        const y = y1 + (y2 - y1) * t + wave;
+
+        ctx.lineTo(x, y);
     }
 
-    ctx.strokeStyle = "rgba(214,178,94,0.25)";
-    ctx.shadowBlur = 20;
+    ctx.strokeStyle = "rgba(214,178,94,0.35)";
+    ctx.lineWidth = 2;
+    ctx.shadowBlur = 30;
     ctx.shadowColor = "#d6b25e";
     ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(midX, midY, 3 + Math.sin(time * 0.004) * 2, 0, Math.PI * 2);
+
+    ctx.fillStyle = "rgba(255,230,160,0.9)";
+    ctx.shadowBlur = 50;
+    ctx.shadowColor = "#ffe8b0";
+    ctx.fill();
+
+    ctx.restore();
 }
 
 /* =========================
-   PORTAL ZOOM
-========================= */
-
-let zoom = 0;
-
-/* =========================
-   MAIN LOOP
+   LOOP
 ========================= */
 
 function animate(time) {
 
     ctx.clearRect(0, 0, w, h);
 
-    // dust
     for (let d of dust) {
         d.update(time);
         d.draw();
     }
 
-    // constellations
-    drawConstellation(lion, time, 1);
-    drawConstellation(dragon, time, 1);
+    drawConstellation(lion, time);
+    drawConstellation(dragon, time);
 
-    // destiny thread
-    drawThread(time);
+    drawFateThread(time);
 
-    // portal breathing
-    if (zoom > 0) {
-        ctx.beginPath();
-        ctx.arc(w / 2, h / 2, 120 + Math.sin(time * 0.002) * 10, 0, Math.PI * 2);
-
-        ctx.fillStyle = "rgba(214,178,94,0.08)";
-        ctx.shadowBlur = 40;
-        ctx.shadowColor = "#d6b25e";
-
-        ctx.fill();
-    }
-   
-function drawFateThread(time) {
-
-    const x1 = 240;               // лев
-    const y1 = 260;
-
-    const x2 = canvas.width - 240; // дракон
-    const y2 = 260;
-
-    const midX = (x1 + x2) / 2;
-    const midY = (y1 + y2) / 2;
-
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-
-    // создаём магическую дугу
-    for (let i = 0; i <= 30; i++) {
-
-        const t = i / 30;
-
-        const x = x1 + (x2 - x1) * t;
-
-        // дуга + "дыхание"
-        const wave =
-            Math.sin(t * Math.PI * 2 + time * 0.003) * 25;
-
-        const y =
-            y1 + (y2 - y1) * t
-            + wave
-            - Math.sin(time * 0.002) * 10;
-
-        ctx.lineTo(x, y);
-    }
-
-    // ✨ стиль линии (магия)
-    ctx.strokeStyle = "rgba(214,178,94,0.35)";
-    ctx.lineWidth = 2;
-
-    ctx.shadowBlur = 25;
-    ctx.shadowColor = "#d6b25e";
-
-    ctx.stroke();
-
-    // ✨ центральный пульс (сердце судьбы)
-    ctx.beginPath();
-    ctx.arc(midX, midY, 3 + Math.sin(time * 0.005) * 2, 0, Math.PI * 2);
-
-    ctx.fillStyle = "rgba(255,220,140,0.8)";
-    ctx.shadowBlur = 30;
-    ctx.shadowColor = "#ffe0a3";
-
-    ctx.fill();
-}
     requestAnimationFrame(animate);
 }
 
@@ -262,19 +194,16 @@ animate(0);
    SEQUENCE
 ========================= */
 
-/* CONSTELLATIONS AWAKEN */
 setTimeout(() => {
     left.style.opacity = 1;
     right.style.opacity = 1;
 }, 1200);
 
-/* TITLE */
 setTimeout(() => {
     titleEl.textContent = titleText;
     titleEl.style.opacity = 1;
-}, 3000);
+}, 2800);
 
-/* QUOTE */
 setTimeout(() => {
     quoteEl.style.opacity = 1;
 
@@ -284,23 +213,18 @@ setTimeout(() => {
         i++;
         if (i >= quoteText.length) clearInterval(t);
     }, 30);
-}, 4500);
+}, 4200);
 
-/* PORTAL IGNITION */
 setTimeout(() => {
-    zoom = 1;
-
     portal.style.opacity = 1;
     portal.style.transform = "translate(-50%, -50%) scale(1.2)";
-}, 7000);
+}, 6500);
 
-/* ENTER */
 door.addEventListener("click", () => {
-
-    document.body.style.transition = "opacity 2s ease";
+    document.body.style.transition = "opacity 1.5s ease";
     document.body.style.opacity = "0";
 
     setTimeout(() => {
         window.location.href = "library.html";
-    }, 2000);
+    }, 1500);
 });
