@@ -17,13 +17,10 @@ html, body {
     z-index: 1;
 }
 
-/* сцена */
+/* сцена — ВАЖНО: центрирование */
 #scene {
-    position: relative;
-    z-index: 3;
-
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
 
     display: flex;
     flex-direction: column;
@@ -31,81 +28,28 @@ html, body {
     align-items: center;
 
     text-align: center;
-    color: #d6b25e;
-}
-
-/* созвездия (визуальные точки) */
-#constellation-left,
-#constellation-right {
-    position: fixed;
-    width: 200px;
-    height: 200px;
-    top: 20%;
-    opacity: 1;
-    z-index: 2;
-
-    background: radial-gradient(circle, rgba(214,178,94,0.2), transparent 70%);
-    filter: blur(2px);
-}
-
-#constellation-left { left: 5%; }
-#constellation-right { right: 5%; }
-
-/* портал = НЕ круг, а разлом */
-#portal {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-
-    width: 380px;
-    height: 120px;
-
-    opacity: 0.8;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(214,178,94,0.25),
-        rgba(255,230,160,0.4),
-        rgba(214,178,94,0.25),
-        transparent
-    );
-
-    filter: blur(2px);
-
-    clip-path: polygon(
-        0% 50%, 10% 20%, 20% 70%, 30% 25%, 40% 75%,
-        50% 30%, 60% 70%, 70% 20%, 80% 65%, 90% 40%, 100% 50%
-    );
 
     z-index: 2;
-
-    animation: pulse 4s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0%,100% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
-}
-
-/* текст */
+/* TITLE */
 #title {
-    font-size: 54px;
+    color: #d6b25e;
+    font-size: 52px;
     margin: 0;
 }
 
+/* QUOTE */
 #quote {
     margin-top: 20px;
-    font-size: 18px;
-    opacity: 0.8;
+    color: rgba(214,178,94,0.8);
 }
 
-/* кнопка */
+/* BUTTON */
 #door {
     margin-top: 30px;
 
-    padding: 12px 28px;
+    padding: 12px 26px;
 
     border: 1px solid rgba(214,178,94,0.5);
     background: rgba(0,0,0,0.3);
@@ -113,10 +57,10 @@ html, body {
     color: #d6b25e;
     cursor: pointer;
 
-    z-index: 4;
+    transition: 0.3s ease;
 }
 
 #door:hover {
-    background: rgba(214,178,94,0.1);
     transform: scale(1.05);
+    background: rgba(214,178,94,0.1);
 }
