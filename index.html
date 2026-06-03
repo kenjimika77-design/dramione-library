@@ -1,47 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Dramione Library</title>
+<style>
 
-    <title>Dramione Library</title>
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #0f0a07;
+    font-family: "Georgia", serif;
+    color: #d6b25e;
+}
 
-    <link rel="stylesheet" href="css/style.css">
+/* ===== PORTAL ===== */
+
+#portal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #1a120d, #0f0a07 70%);
+}
+
+/* dust */
+.dust {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(214,178,94,0.6);
+    border-radius: 50%;
+    animation: float 8s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
+
+/* title */
+#title {
+    position: absolute;
+    top: 42%;
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 3px;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: 2.5s ease;
+}
+
+#subtitle {
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0;
+    transition: 3s ease;
+    letter-spacing: 2px;
+}
+
+/* golden line */
+#line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d6b25e, transparent);
+    transform: translateX(-50%);
+    transition: 2.5s ease;
+}
+
+/* enter */
+#enter {
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0;
+    cursor: pointer;
+    transition: 2s ease;
+}
+
+/* fade out transition */
+.fadeOut {
+    animation: vanish 2s forwards;
+}
+
+@keyframes vanish {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); }
+}
+
+/* ===== LIBRARY ===== */
+
+#library {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #120b08;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 2s ease;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- 🌌 ПЫЛЬ -->
-    <canvas id="dustCanvas"></canvas>
+<div id="portal"></div>
 
-    <!-- 🦁 ЛЕВ -->
-    <svg id="lion" viewBox="0 0 300 300">
-        <path d="M40,200 L80,120 L120,160 L160,80 L200,140 L240,100"
-              stroke="#d6b25e"
-              stroke-width="1.5"
-              fill="none"
-              opacity="0.7"/>
-    </svg>
+<div id="title">Dramione Library</div>
+<div id="line"></div>
+<div id="subtitle">forbidden archive of memory</div>
+<div id="enter">Enter the Archive</div>
 
-    <!-- 🐉 ДРАКОН -->
-    <svg id="dragon" viewBox="0 0 300 300">
-        <path d="M60,120 L100,180 L140,140 L180,200 L220,130 L260,170"
-              stroke="#d6b25e"
-              stroke-width="1.5"
-              fill="none"
-              opacity="0.7"/>
-    </svg>
+<div id="library">THE ARCHIVE IS OPEN</div>
 
-    <!-- ✨ СЦЕНА -->
-    <div id="scene">
-        <h1 id="title"></h1>
-        <div id="quote"></div>
-        <button id="door">ENTER</button>
-    </div>
+<script>
 
-    <script src="js/main.js"></script>
+// ===== DUST =====
+for (let i = 0; i < 120; i++) {
+    let d = document.createElement("div");
+    d.className = "dust";
+    d.style.left = Math.random() * 100 + "vw";
+    d.style.animationDuration = (6 + Math.random() * 6) + "s";
+    d.style.opacity = Math.random() * 0.5;
+    document.body.appendChild(d);
+}
+
+// ===== SEQUENCE =====
+setTimeout(() => {
+    document.getElementById("title").style.opacity = 1;
+}, 1200);
+
+setTimeout(() => {
+    document.getElementById("line").style.width = "40%";
+}, 2500);
+
+setTimeout(() => {
+    document.getElementById("subtitle").style.opacity = 0.7;
+}, 3200);
+
+setTimeout(() => {
+    document.getElementById("enter").style.opacity = 0.8;
+}, 4200);
+
+// ===== ENTER =====
+document.getElementById("enter").onclick = () => {
+
+    document.getElementById("portal").classList.add("fadeOut");
+    document.getElementById("title").classList.add("fadeOut");
+    document.getElementById("line").classList.add("fadeOut");
+    document.getElementById("subtitle").classList.add("fadeOut");
+    document.getElementById("enter").classList.add("fadeOut");
+
+    setTimeout(() => {
+        document.getElementById("library").style.opacity = 1;
+    }, 1800);
+
+};
+
+</script>
 
 </body>
-
 </html>
