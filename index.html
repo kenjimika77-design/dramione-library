@@ -1,5 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -7,20 +11,31 @@
 
 <body>
 
-<canvas id="dustCanvas"></canvas>
+    <!-- Canvas для всей магии -->
+    <canvas id="dustCanvas"></canvas>
 
-<div id="scene">
+    <!-- Созвездия -->
+    <div id="constellation-left"></div>
+    <div id="constellation-right"></div>
 
-    <h1 id="title"></h1>
+    <!-- Портал -->
+    <div id="portal"></div>
 
-    <div id="quote"></div>
+    <!-- Главная сцена -->
+    <div id="scene">
 
-    <button id="door">
-        Enter the Library
-    </button>
+        <h1 id="title"></h1>
 
-</div>
+        <div id="quote"></div>
 
-<script src="js/main.js"></script>
+        <button id="door">
+            Enter the Library
+        </button>
+
+    </div>
+
+    <script src="js/main.js"></script>
 
 </body>
+
+</html>
