@@ -232,25 +232,82 @@ body::after {
     transition: all 0.5s ease;
 }
 
-#door:hover {
-    transform: translateY(-3px) scale(1.05);
+#door {
+    margin-top: 50px;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(214,178,94,0.35);
+
+    background:
+        radial-gradient(circle at center,
+            rgba(214,178,94,0.18),
+            rgba(0,0,0,0.55));
+
+    color: #d6b25e;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    cursor: pointer;
+
+    opacity: 0;
 
     box-shadow:
-        0 0 35px rgba(214,178,94,0.25),
-        inset 0 0 25px rgba(214,178,94,0.15);
+        0 0 18px rgba(214,178,94,0.12),
+        inset 0 0 12px rgba(214,178,94,0.08);
+
+    transition: all 0.6s ease;
+
+    position: relative;
 }
 
-/* =========================
-   GLOBAL GLOW BREATH
-========================= */
+/* ✨ руна */
+#door::before {
+    content: "✶";
 
-#title,
-#portal {
-    animation: breathe 6s ease-in-out infinite;
+    position: absolute;
+
+    font-size: 26px;
+
+    color: rgba(214,178,94,0.7);
+
+    text-shadow:
+        0 0 10px rgba(214,178,94,0.3),
+        0 0 25px rgba(214,178,94,0.15);
+
+    animation: runeSpin 8s linear infinite;
 }
 
-@keyframes breathe {
-    0% { filter: brightness(1); }
-    50% { filter: brightness(1.2); }
-    100% { filter: brightness(1); }
+/* hover эффект */
+#door:hover {
+    transform: scale(1.12);
+
+    box-shadow:
+        0 0 30px rgba(214,178,94,0.25),
+        inset 0 0 18px rgba(214,178,94,0.12);
+}
+
+/* вращение руны */
+@keyframes runeSpin {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.6;
+    }
 }
