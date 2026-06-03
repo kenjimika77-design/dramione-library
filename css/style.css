@@ -1,17 +1,13 @@
-body {
-    background: red !important;
-}
 html, body {
     margin: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
 
-    background: radial-gradient(circle at center, #1a120d, #050303);
-    font-family: 'Cinzel', serif;
+    background: #050303;
+    font-family: Cinzel, serif;
 }
 
-/* canvas */
 #dustCanvas {
     position: fixed;
     inset: 0;
@@ -20,7 +16,6 @@ html, body {
     z-index: 1;
 }
 
-/* сцена — ВАЖНО: центрирование */
 #scene {
     position: absolute;
     inset: 0;
@@ -30,40 +25,18 @@ html, body {
     justify-content: center;
     align-items: center;
 
-    text-align: center;
-
     z-index: 2;
-}
 
-/* TITLE */
-#title {
     color: #d6b25e;
-    font-size: 52px;
-    margin: 0;
 }
 
-/* QUOTE */
-#quote {
-    margin-top: 20px;
-    color: rgba(214,178,94,0.8);
-}
-
-/* BUTTON */
 #door {
-    margin-top: 30px;
+    margin-top: 20px;
+    padding: 10px 20px;
 
-    padding: 12px 26px;
-
-    border: 1px solid rgba(214,178,94,0.5);
-    background: rgba(0,0,0,0.3);
+    border: 1px solid #d6b25e;
+    background: transparent;
 
     color: #d6b25e;
     cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-#door:hover {
-    transform: scale(1.05);
-    background: rgba(214,178,94,0.1);
 }
