@@ -13,15 +13,15 @@ window.addEventListener("resize", () => {
     h = canvas.height = innerHeight;
 });
 
-/* SIMPLE DUST (NO BREAKAGE) */
+/* 🌟 ПЫЛЬ (СТАБИЛЬНАЯ) */
 const dust = [];
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 300; i++) {
     dust.push({
         x: Math.random() * w,
         y: Math.random() * h,
         s: Math.random() * 2,
-        v: Math.random() * 0.5
+        v: Math.random() * 0.6
     });
 }
 
@@ -35,7 +35,10 @@ function animate() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(214,178,94,0.6)";
+
+        ctx.fillStyle = "rgba(214,178,94,0.7)";
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#d6b25e";
         ctx.fill();
     }
 
@@ -44,15 +47,16 @@ function animate() {
 
 animate();
 
-/* TEXT (SAFE) */
+/* TEXT */
 titleEl.textContent = "Dramione Library";
-quoteEl.textContent = "Between lion and dragon...";
+quoteEl.textContent = "Between lion and dragon, destiny unfolds.";
 
-/* BUTTON WORKS */
+/* BUTTON */
 door.addEventListener("click", () => {
+    document.body.style.transition = "opacity 1s ease";
     document.body.style.opacity = "0";
 
     setTimeout(() => {
         window.location.href = "library.html";
-    }, 800);
+    }, 1000);
 });
