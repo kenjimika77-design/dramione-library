@@ -71,3 +71,13 @@ h1 {
 .btn:hover {
   transform: scale(1.1);
 }
+/* пока заготовка для будущих тем */
+
+body.dark {
+  background: radial-gradient(circle at top, #0b0813, #000);
+}
+
+body.light {
+  background: radial-gradient(circle at top, #f3e8ff, #d9c7ff);
+  color: black;
+}
