@@ -1,113 +1,411 @@
+/* Общие сбросы стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  margin: 0;
-  font-family: 'Cinzel', serif;
-  background: radial-gradient(circle at top, #1a1425, #0b0813);
-  color: white;
-  overflow-x: hidden;
+    background-color: #030002;
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-h1 {
-  text-align: center;
-  margin-top: 40px;
-  animation: glow 3s infinite alternate;
+/* Фоновое изображение с темным и розовым свечением */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Замените URL на вашу картинку, если скачаете её */
+    background: radial-gradient(circle at 50% 40%, rgba(219, 39, 119, 0.15) 0%, rgba(3, 0, 2, 0.95) 70%), 
+                url('https://unsplash.com') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    filter: brightness(0.6) contrast(1.1);
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px #a66bff; }
-  to { text-shadow: 0 0 25px #ffccff; }
+/* Основной контейнер-сетка */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
 }
 
-.menu {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 60px;
-  flex-wrap: wrap;
+/* --- Боковое меню (Sidebar) --- */
+.sidebar {
+    width: 260px;
+    background: rgba(15, 5, 10, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(219, 39, 119, 0.1);
+    border-radius: 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.card {
-  width: 220px;
-  height: 280px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 18px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
+.logo i {
+    font-size: 2rem;
+    color: #db2777;
+    text-shadow: 0 0 15px rgba(219, 39, 119, 0.6);
 }
 
-.card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
+.logo h2 {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    text-transform: uppercase;
 }
 
-.card h3 {
-  margin: 10px;
+.logo h2 span {
+    display: block;
+    font-size: 0.8rem;
+    color: #a21caf;
+    text-transform: lowercase;
+    font-style: italic;
 }
 
-.card p {
-  font-size: 12px;
-  margin: 10px;
-  opacity: 0.8;
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.btn {
-  margin: 10px auto;
-  display: block;
-  padding: 8px 16px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(45deg, #7b4dff, #ff6bd6);
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.btn:hover {
-  transform: scale(1.1);
-}
-/* пока заготовка для будущих тем */
-
-body.dark {
-  background: radial-gradient(circle at top, #0b0813, #000);
+.nav-item i {
+    font-size: 1.2rem;
+    width: 25px;
 }
 
-body.light {
-  background: radial-gradient(circle at top, #f3e8ff, #d9c7ff);
-  color: black;
-}
-.star {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: float 6s infinite ease-in-out;
+.nav-item div {
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); opacity: 0.2; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-20px); opacity: 0.2; }
+.nav-item span {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
 }
 
-.spark {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #fff, #b388ff);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: fade 0.8s forwards;
+.nav-item:hover, .nav-item.active {
+    color: #ffffff;
+    background: rgba(219, 39, 119, 0.15);
+    box-shadow: inset 0 0 10px rgba(219, 39, 119, 0.1);
+    border-left: 3px solid #db2777;
 }
 
-@keyframes fade {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(0.2); opacity: 0; }
+.sidebar-footer {
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.audio-controls button {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.audio-controls button:hover {
+    color: #db2777;
+    border-color: #db2777;
+    background: rgba(219, 39, 119, 0.1);
+}
+
+/* --- Главный контент --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.top-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+}
+
+.text-pink { color: #db2777; }
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    flex: 1;
+}
+
+/* Центральный портал */
+.hero-center {
+    background: radial-gradient(circle at center, rgba(219, 39, 119, 0.08) 0%, transparent 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+}
+
+/* Имитация неоновой арки */
+.hero-arch-glow h1 {
+    font-size: 3rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-shadow: 0 0 20px rgba(219, 39, 119, 0.6), 0 0 40px rgba(219, 39, 119, 0.2);
+}
+
+.hero-arch-glow h1 span {
+    display: block;
+    font-size: 1.5rem;
+    text-transform: lowercase;
+    font-style: italic;
+    color: #f472b6;
+    margin-top: -5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.heart-icon {
+    font-size: 1.2rem;
+    color: #db2777;
+    margin-top: 15px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Правые карточки (Виджеты) --- */
+.right-widgets {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.widget-card {
+    background: rgba(15, 5, 10, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-heart {
+    color: rgba(219, 39, 119, 0.3);
+    font-size: 1rem;
+    margin-bottom: 15px;
+    align-self: center;
+}
+
+.widget-card h3 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.widget-card blockquote {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+}
+
+.widget-card cite {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: #db2777;
+    margin-top: 15px;
+}
+
+.text-center { text-align: center; }
+
+.msg-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+.btn-open {
+    background: transparent;
+    border: 1px solid rgba(219, 39, 119, 0.5);
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-open:hover {
+    background: #db2777;
+    box-shadow: 0 0 15px rgba(219, 39, 119, 0.5);
+    border-color: transparent;
+}
+
+/* --- Нижняя карусель --- */
+.bottom-carousel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.carousel-card {
+    flex: 1;
+    background: rgba(20, 10, 15, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.carousel-card:hover {
+    border-color: rgba(219, 39, 119, 0.3);
+    transform: translateY(-2px);
+}
+
+.card-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.card-info p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.circle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: #ffffff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.carousel-card:hover .circle-btn {
+    background: #db2777;
+}
+
+.carousel-arrow {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.4);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-arrow:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 1; text-shadow: 0 0 10px #db2777; }
+}
+
+/* Адаптивность под планшеты и мобильные устройства */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    .carousel-track {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
 }
