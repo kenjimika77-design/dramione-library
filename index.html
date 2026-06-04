@@ -1,45 +1,144 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magic Library</title>
-
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/themes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal of Love</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Иконки FontAwesome для меню -->
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
-
 <body>
 
-<h1>✨ Magic Library</h1>
+    <!-- Фоновое изображение сайта -->
+    <div class="background-overlay"></div>
 
-<div class="menu">
+    <div class="app-container">
+        
+        <!-- Левое навигационное меню -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <h2>PORTAL <span>of love</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <div>Главная <span>домой</span></div>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-book-heart"></i>
+                    <div>Истории <span>романтические</span></div>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-envelope-heart"></i>
+                    <div>Послания <span>для тебя</span></div>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-images"></i>
+                    <div>Галерея <span>моменты любви</span></div>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-music"></i>
+                    <div>Музыка <span>мелодии души</span></div>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-user"></i>
+                    <div>Профиль <span>только ты</span></div>
+                </a>
+            </nav>
 
-  <div class="card">
-    <img src="https://picsum.photos/300/200?1">
-    <h3>Forbidden Love</h3>
-    <p>Истории запретных чувств.</p>
-    <button class="btn">Enter</button>
-  </div>
+            <div class="sidebar-footer">
+                <div class="audio-controls">
+                    <button><i class="fa-solid fa-moon"></i></button>
+                    <button><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+                <p>&copy; 2024 Portal of Love<br>Все права защищены</p>
+            </div>
+        </aside>
 
-  <div class="card">
-    <img src="https://picsum.photos/300/200?2">
-    <h3>Dark Magic</h3>
-    <p>Тайные заклинания.</p>
-    <button class="btn">Enter</button>
-  </div>
+        <!-- Центральный и правый контент -->
+        <main class="main-content">
+            
+            <!-- Верхняя строка приветствия -->
+            <header class="top-header">
+                <p>Ты не просто здесь... Ты дома. <i class="fa-solid fa-heart text-pink"></i></p>
+            </header>
 
-  <div class="card">
-    <img src="https://picsum.photos/300/200?3">
-    <h3>Healing</h3>
-    <p>Свет и восстановление.</p>
-    <button class="btn">Enter</button>
-  </div>
+            <!-- Основная сетка блоков -->
+            <div class="content-grid">
+                
+                <!-- Центральный главный блок (Арка) -->
+                <section class="hero-center">
+                    <div class="hero-arch-glow">
+                        <h1>PORTAL <span>of love</span></h1>
+                        <p class="subtitle">Добро пожаловать в мир, где любовь вечна</p>
+                        <i class="fa-regular fa-heart heart-icon"></i>
+                    </div>
+                    <div class="scroll-down">
+                        <span>Прокрутите вниз</span>
+                        <i class="fa-solid fa-angles-down"></i>
+                    </div>
+                </section>
 
-</div>
+                <!-- Правый блок с виджетами -->
+                <aside class="right-widgets">
+                    <!-- Цитата дня -->
+                    <div class="widget-card">
+                        <i class="fa-regular fa-heart card-heart"></i>
+                        <h3>ЦИТАТА ДНЯ</h3>
+                        <blockquote>
+                            «Любовь — это не взгляды друг на друга, любовь — это вместе смотреть в одном направлении.»
+                        </blockquote>
+                        <cite>— Антуан де Сент-Экзюпери</cite>
+                    </div>
 
-<script src="js/script.js"></script>
-<script src="js/effects.js"></script>
+                    <!-- Послание -->
+                    <div class="widget-card text-center">
+                        <i class="fa-regular fa-heart card-heart"></i>
+                        <h3>ПОСЛАНИЕ ДЛЯ ТЕБЯ</h3>
+                        <p class="msg-text">Ты особенный человек. Спасибо, что ты есть.</p>
+                        <button class="btn-open">ОТКРЫТЬ <i class="fa-solid fa-heart-open"></i></button>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Нижняя горизонтальная лента/карусель -->
+            <section class="bottom-carousel">
+                <button class="carousel-arrow prev"><i class="fa-solid fa-arrow-left"></i></button>
+                
+                <div class="carousel-track">
+                    <div class="carousel-card">
+                        <div class="card-info">
+                            <h4>Истории любви</h4>
+                            <p>Погрузись в романтические истории</p>
+                        </div>
+                        <button class="circle-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <div class="carousel-card">
+                        <div class="card-info">
+                            <h4>Музыка души</h4>
+                            <p>Мелодии, которые говорят о любви</p>
+                        </div>
+                        <button class="circle-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <div class="carousel-card">
+                        <div class="card-info">
+                            <h4>Наши моменты</h4>
+                            <p>Воспоминания, которые останутся навсегда</p>
+                        </div>
+                        <button class="circle-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <button class="carousel-arrow next"><i class="fa-solid fa-arrow-right"></i></button>
+            </section>
+
+        </main>
+    </div>
 
 </body>
 </html>
