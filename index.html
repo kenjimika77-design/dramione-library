@@ -3,139 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal of Love</title>
+    <title>Lovers — Наша история вечна</title>
+    
+    <!-- Подключение иконок FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Готические и магические шрифты -->
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Подключение внешнего CSS из папки css -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Иконки FontAwesome для меню -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Фоновое изображение сайта -->
-    <div class="background-overlay"></div>
+    <!-- Фоновое свечение -->
+    <div class="background-glow"></div>
 
-    <div class="app-container">
-        
-        <!-- Левое навигационное меню -->
+    <div class="wrapper">
+        <!-- ЛЕВОЕ МЕНЮ (Sidebar) -->
         <aside class="sidebar">
-            <div class="logo">
-                <i class="fa-solid fa-heart-pulse"></i>
-                <h2>PORTAL <span>of love</span></h2>
+            <div class="logo-area">
+                <h1>Lovers</h1>
+                <div class="logo-heart"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
             </div>
-            
-            <nav class="nav-menu">
-                <a href="#" class="nav-item active">
-                    <i class="fa-solid fa-house"></i>
-                    <div>Главная <span>домой</span></div>
+
+            <nav class="menu-links">
+                <a href="#" class="menu-item active">
+                    <i class="fa-solid fa-castle"></i>
+                    <div>Home <span>вернуться домой</span></div>
                 </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-book-heart"></i>
-                    <div>Истории <span>романтические</span></div>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-book-bible"></i>
+                    <div>Diary <span>мои мысли</span></div>
                 </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-envelope-heart"></i>
-                    <div>Послания <span>для тебя</span></div>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-feather"></i>
+                    <div>Messages <span>наши письма</span></div>
                 </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-images"></i>
-                    <div>Галерея <span>моменты любви</span></div>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-scroll"></i>
+                    <div>Gallery <span>наши моменты</span></div>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="#" class="menu-item">
                     <i class="fa-solid fa-music"></i>
-                    <div>Музыка <span>мелодии души</span></div>
+                    <div>Playlist <span>мелодии любви</span></div>
                 </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-user"></i>
-                    <div>Профиль <span>только ты</span></div>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-ring"></i>
+                    <div>Store <span>наши вещи</span></div>
                 </a>
             </nav>
 
-            <div class="sidebar-footer">
-                <div class="audio-controls">
-                    <button><i class="fa-solid fa-moon"></i></button>
-                    <button><i class="fa-solid fa-volume-high"></i></button>
-                </div>
-                <p>&copy; 2024 Portal of Love<br>Все права защищены</p>
+            <div class="sidebar-quote">
+                «Ты — мое любимое "что, если", которое сбылось»
             </div>
         </aside>
 
-        <!-- Центральный и правый контент -->
-        <main class="main-content">
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="main-pane">
             
-            <!-- Верхняя строка приветствия -->
-            <header class="top-header">
-                <p>Ты не просто здесь... Ты дома. <i class="fa-solid fa-heart text-pink"></i></p>
+            <!-- Верхний бар -->
+            <header class="top-navbar">
+                <div class="welcome-msg">Добро пожаловать в наш мир</div>
+                <div class="top-actions">
+                    <i class="fa-solid fa-sliders"></i>
+                    <i class="fa-regular fa-bell"></i>
+                    <i class="fa-regular fa-moon"></i>
+                    <i class="fa-regular fa-user"></i>
+                </div>
             </header>
 
-            <!-- Основная сетка блоков -->
-            <div class="content-grid">
+            <!-- Середина: Главный баннер и Музыкальный Плеер -->
+            <div class="mid-section">
                 
-                <!-- Центральный главный блок (Арка) -->
-                <section class="hero-center">
-                    <div class="hero-arch-glow">
-                        <h1>PORTAL <span>of love</span></h1>
-                        <p class="subtitle">Добро пожаловать в мир, где любовь вечна</p>
-                        <i class="fa-regular fa-heart heart-icon"></i>
+                <section class="hero-banner">
+                    <span class="hero-tag">— чистокровный и маглорожденная —</span>
+                    <h2>Наша история<br><span>вечна... 🐍</span></h2>
+                    <p class="hero-desc">
+                        Добро пожаловать в наш личный портал. Здесь живет наша любовь, наши воспоминания и наши мечты под сводами Хогвартса.
+                    </p>
+                    <button class="btn-enter">
+                        Войти в мир <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </section>
+
+                <!-- Плеер -->
+                <section class="music-player">
+                    <div class="player-title">Наш Саундтрек</div>
+                    <div class="vinyl-container">
+                        <div class="vinyl-disk"></div>
                     </div>
-                    <div class="scroll-down">
-                        <span>Прокрутите вниз</span>
-                        <i class="fa-solid fa-angles-down"></i>
+                    <div class="track-name">Lovely</div>
+                    <div class="track-artist">Billie Eilish, Khalid</div>
+                    <div class="track-time">02:15 / 03:20</div>
+                    
+                    <div class="player-controls">
+                        <button class="control-btn"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="control-btn play"><i class="fa-solid fa-play"></i></button>
+                        <button class="control-btn"><i class="fa-solid fa-forward-step"></i></button>
                     </div>
                 </section>
 
-                <!-- Правый блок с виджетами -->
-                <aside class="right-widgets">
-                    <!-- Цитата дня -->
-                    <div class="widget-card">
-                        <i class="fa-regular fa-heart card-heart"></i>
-                        <h3>ЦИТАТА ДНЯ</h3>
-                        <blockquote>
-                            «Любовь — это не взгляды друг на друга, любовь — это вместе смотреть в одном направлении.»
-                        </blockquote>
-                        <cite>— Антуан де Сент-Экзюпери</cite>
-                    </div>
-
-                    <!-- Послание -->
-                    <div class="widget-card text-center">
-                        <i class="fa-regular fa-heart card-heart"></i>
-                        <h3>ПОСЛАНИЕ ДЛЯ ТЕБЯ</h3>
-                        <p class="msg-text">Ты особенный человек. Спасибо, что ты есть.</p>
-                        <button class="btn-open">ОТКРЫТЬ <i class="fa-solid fa-heart-open"></i></button>
-                    </div>
-                </aside>
             </div>
 
-            <!-- Нижняя горизонтальная лента/карусель -->
-            <section class="bottom-carousel">
-                <button class="carousel-arrow prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <!-- Низ: Карточки воспоминаний и цитата -->
+            <div class="bottom-section">
                 
-                <div class="carousel-track">
-                    <div class="carousel-card">
-                        <div class="card-info">
-                            <h4>Истории любви</h4>
-                            <p>Погрузись в романтические истории</p>
+                <div>
+                    <div class="moments-title">Наши моменты</div>
+                    <div class="moments-row">
+                        <div class="moment-card">
+                            <div class="moment-img-stub"></div>
+                            <h4>Первая встреча</h4>
+                            <span>14.02.2022</span>
                         </div>
-                        <button class="circle-btn"><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-
-                    <div class="carousel-card">
-                        <div class="card-info">
-                            <h4>Музыка души</h4>
-                            <p>Мелодии, которые говорят о любви</p>
+                        <div class="moment-card">
+                            <div class="moment-img-stub"></div>
+                            <h4>Ты сказал «Люблю»</h4>
+                            <span>07.07.2022</span>
                         </div>
-                        <button class="circle-btn"><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-
-                    <div class="carousel-card">
-                        <div class="card-info">
-                            <h4>Наши моменты</h4>
-                            <p>Воспоминания, которые останутся навсегда</p>
+                        <div class="moment-card">
+                            <div class="moment-img-stub"></div>
+                            <h4>Навсегда</h4>
+                            <span>01.01.2023</span>
                         </div>
-                        <button class="circle-btn"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
 
-                <button class="carousel-arrow next"><i class="fa-solid fa-arrow-right"></i></button>
-            </section>
+                <div class="quote-box">
+                    <h5>« Цитата дня</h5>
+                    <p>Любовь — это не взгляд друг на друга, а взгляд в одном направлении.</p>
+                    <author>— Антуан де Сент-Экзюпери</author>
+                </div>
+
+            </div>
 
         </main>
     </div>
