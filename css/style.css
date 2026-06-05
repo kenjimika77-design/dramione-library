@@ -92,41 +92,39 @@ body {
 /* ================= MAIN TITLE (РУНИЧЕСКИЙ СВЕТ) ================= */
 .main-title {
     font-family: 'Cinzel', serif;
-    font-weight: 300;
-
+    font-weight: 300; /* ключевой момент — тонкость */
     font-size: 3.8rem;
     letter-spacing: 14px;
     text-transform: uppercase;
 
-    color: rgba(195, 146, 76, 0.25);
-
-    text-shadow:
-        0 0 8px rgba(195, 146, 76, 0.25),
-        0 0 22px rgba(195, 146, 76, 0.18),
-        0 0 45px rgba(86, 15, 43, 0.25);
-
-    animation: runeGlow 6s ease-in-out infinite;
+    /* делаем текст “почти невидимым золотом” */
+    color: rgba(195, 146, 76, 0.18);
 
     position: relative;
     display: inline-block;
+
+    /* мягкое внутреннее свечение */
+    text-shadow:
+        0 0 6px rgba(195, 146, 76, 0.15),
+        0 0 18px rgba(195, 146, 76, 0.10),
+        0 0 40px rgba(86, 15, 43, 0.15);
+
+    /* лёгкое “дыхание” */
+    animation: titleFloat 6s ease-in-out infinite;
 }
 
-.main-title::before,
-.main-title::after {
-    content: "ᚱ ᛞ ᚨ ᛗ ᛁ ᛟ ᚾ ᛖ";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.7rem;
-    color: rgba(195,146,76,0.25);
-}
-
-.main-title::before { top: -26px; }
-.main-title::after { bottom: -26px; }
-
-@keyframes runeGlow {
-    0%,100% { transform: translateY(0); opacity: .75; }
-    50% { transform: translateY(-2px); opacity: 1; }
+/* тонкое живое движение */
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.85;
+        letter-spacing: 14px;
+    }
+    50% {
+        transform: translateY(-2px);
+        opacity: 1;
+        letter-spacing: 15px;
+    }
 }
 
 /* ================= MENU ================= */
