@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
-    <!-- Встроенные обязательные шрифты, иконки и стили -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <!-- Обязательные шрифты и иконки FontAwesome -->
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Анимированные магические искры -->
+    <!-- Магическая золотая пыль -->
     <div class="magic-sparkles">
         <div class="sparkle"></div>
         <div class="sparkle"></div>
@@ -20,22 +20,21 @@
         <div class="sparkle"></div>
     </div>
 
-    <!-- ОСНОВНОЙ КОНТЕЙНЕР ДАШБОРДА -->
+    <!-- ГЛАВНЫЙ КОНТЕЙНЕР (3 КОЛОНКИ ОДИН В ОДИН) -->
     <div class="app-container">
         
         <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <div class="vintage-logo volumetric-d">
+                <div class="vintage-logo">
                     <span class="letter">D</span>
                     <div class="floral-decor">❀</div>
                 </div>
-                <h2 class="volumetric-title">DRAMIONE LIBRARY</h2>
+                <h2 class="sidebar-title">DRAMIONE LIBRARY</h2>
                 <p class="subtitle">FORBIDDEN ARCHIVE</p>
-                <div class="stars-divider"></div>
+                <div class="stars-divider">✦ ── ⚜ ── ✦</div>
             </div>
 
-            <!-- Вертикальное меню навигации -->
             <nav class="sidebar-menu">
                 <a href="#" class="menu-item">
                     <i class="fa-solid fa-book-bookmark"></i>
@@ -71,28 +70,27 @@
                 </a>
             </nav>
 
-            <!-- Подвал сайдбара с цитатой и маленькой кнопкой смены атмосферы -->
-            <div class="sidebar-footer">
-                <div class="sidebar-footer-quote">
-                    <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
-                    <span class="author">— D & H</span>
-                </div>
-                <div class="theme-zone-mini">
-                    <button id="atmosphere-toggle" class="theme-btn-small" title="Сменить атмосферу">
-                        <i class="fa-solid fa-wand-sparkles"></i>
-                    </button>
-                </div>
+            <!-- Маленькая кнопка смены темы -->
+            <div class="theme-switch-zone">
+                <button id="atmosphere-toggle" class="theme-toggle-btn" title="Сменить атмосферу">
+                    <i class="fa-solid fa-wand-sparkles"></i> Тема
+                </button>
+            </div>
+
+            <div class="sidebar-footer-quote">
+                <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
+                <span class="author">— D & H</span>
             </div>
         </aside>
 
-        <!-- ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ (ГЕРОИ ОТКРЫТЫ) ================= -->
+        <!-- ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ (ПОЛНОСТЬЮ ПРОЗРАЧНАЯ) ================= -->
         <main class="main-content">
             
-            <!-- Секция приветствия (Текст слева) -->
+            <!-- Приветственный текст прижат влево -->
             <section class="hero-block">
                 <p class="welcome-text">Welcome to our<br>forbidden archive</p>
                 <div class="ornament-top">⚜</div>
-                <h1 class="main-title volumetric-title">DRAMIONE</h1>
+                <h1 class="main-title">DRAMIONE</h1>
                 <div class="handwritten-sub">forever</div>
                 
                 <p class="hero-description">
@@ -102,12 +100,12 @@
                 <button class="btn-enter">Enter Library ➔</button>
             </section>
 
-            <!-- Раздел моментов Our Moments (Выровнен по центру) -->
+            <!-- Блок Our Moments с декоративным винтажным разделителем -->
             <section class="moments-section">
                 <div class="moments-header">
-                    <span class="line-decor"></span>
+                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
                     <h2>Our Moments</h2>
-                    <span class="line-decor"></span>
+                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
                 </div>
 
                 <div class="moments-grid">
@@ -147,22 +145,20 @@
                 </div>
             </section>
 
-            <!-- Нижние виджеты: Плеер + Письмо -->
+            <!-- Плеер и Письмо -->
             <div class="bottom-widgets-row">
-                <!-- Плеер -->
+                <!-- Музыкальный плеер -->
                 <section class="widget-player">
                     <div class="album-art" style="background-image: url('images/player.jpg');"></div>
                     <div class="player-core">
                         <span class="status-tag">Now Playing</span>
                         <h3 class="song-title">Rewrite The Stars</h3>
                         <p class="song-author">James Arthur & Anne-Marie</p>
-
                         <div class="timeline-area">
                             <span>1:23</span>
                             <div class="progress-track"><div class="progress-fill"></div></div>
                             <span>3:37</span>
                         </div>
-
                         <div class="controls-row">
                             <button class="p-btn"><i class="fa-solid fa-shuffle"></i></button>
                             <button class="p-btn"><i class="fa-solid fa-backward-step"></i></button>
@@ -173,35 +169,43 @@
                     </div>
                 </section>
 
-                <!-- Письмо -->
+                <!-- Блок Письма -->
                 <section class="widget-letter">
                     <div class="letter-art" style="background-image: url('images/letter.jpg');"></div>
                     <div class="letter-core">
                         <span class="letter-tag">New Letter</span>
                         <h3>У вас новое письмо из Хогвартса</h3>
-                        <button class="btn-read-letter">Читать <i class="fa-solid fa-envelope"></i></button>
+                        <button class="btn-read-letter">Читать <i class="fa-solid fa-pen-fancy"></i></button>
                     </div>
                 </section>
             </div>
         </main>
 
-        <!-- ================= ПРАВАЯ ПАНЕЛЬ (ГЕРБЫ ВВЕРХУ, ЦИТАТА И СОЗВЕЗДИЕ СНИЗУ) ================= -->
+        <!-- ================= ПРАВАЯ ПАНЕЛЬ (ГЕРБЫ + ЦИТАТА + СОЗВЕЗДИЕ) ================= -->
         <aside class="right-sidebar">
             
-            <!-- ВЕРХНЯЯ ЗОНА: Сдвоенные гербы над головой Гермионы -->
+            <!-- Добавленные сдвоенные медальоны-гербы факультетов -->
             <div class="widget-crests">
                 <div class="crests-flex">
-                    <div class="shield-item lion-crest">
+                    <div class="shield-circle gryffindor" title="Гриффиндор">
                         <i class="fa-solid fa-shield-halved"></i>
-                        <span class="shield-animal">🦁</span>
+                        <span class="animal-icon">🦁</span>
                     </div>
-                    <div class="shield-item snake-crest">
+                    <div class="shield-circle slytherin" title="Слизерин">
                         <i class="fa-solid fa-shield-halved"></i>
-                        <span class="shield-animal">🐍</span>
+                        <span class="animal-icon">🐍</span>
                     </div>
                 </div>
             </div>
 
-            <!-- НИЖНЯЯ ГРУППА ВИДЖЕТОВ: Опущены на уровень карточек центрального контента -->
-            <div class="right-bottom-group">
-                <!-- Средний блок: Цитата дня -->
+            <!-- Блок Цитаты -->
+            <div class="widget-quote">
+                <h3>Цитата дня</h3>
+                <blockquote>
+                    «Любовь — это не взгляд друг на друга, а взгляд в одном направлении.»
+                </blockquote>
+                <cite>— Антуан де Сент-Экзюпери</cite>
+            </div>
+
+            <!-- Блок Созвездия -->
+            <div class="widget-constellation">
