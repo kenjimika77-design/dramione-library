@@ -1,23 +1,20 @@
-/* ================= ГЛОБАЛЬНАЯ ПАЛИТРА ================= */
+/* ================= ПАЛИТРА И НАСТРОЙКИ ================= */
 :root {
     --bg-dark-castle: #040103;
     --burgundy-velvet: #5c0a1c;
     --magic-glow: rgba(92, 10, 28, 0.35);
     --vintage-gold: #c3924c;
     --text-main: #a49da3;
-    --panel-bg: rgba(7, 3, 6, 0.75);
-    --card-border: rgba(195, 146, 76, 0.08);
+    --panel-bg: rgba(7, 3, 6, 0.85);
+    --card-border: rgba(195, 146, 76, 0.1);
 }
 
-/* ================= АЛЬТЕРНАТИВНАЯ ТЕМА ================= */
 body.alternative-magic-theme {
     --burgundy-velvet: #281140;
-    --magic-glow: rgba(40, 17, 64, 0.4);
     --vintage-gold: #9ca3af;
-    --panel-bg: rgba(4, 2, 6, 0.85);
+    --panel-bg: rgba(4, 2, 6, 0.9);
 }
 
-/* ================= BASE ================= */
 * {
     margin: 0;
     padding: 0;
@@ -25,86 +22,258 @@ body.alternative-magic-theme {
 }
 
 body {
+    background-color: var(--bg-dark-castle);
+    color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
-    background: #0b0b10;
-    color: #e5e5e5;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+    /* Фоновое готическое изображение с затемнением */
+    background: 
+        radial-gradient(circle at 50% 50%, transparent 10%, var(--bg-dark-castle) 85%),
+        url('https://unsplash.com') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: all 0.5s ease;
 }
 
-/* ================= CONTAINER ================= */
-.container {
+/* ================= НАВИГАЦИЯ ================= */
+.top-navbar {
     width: 100%;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 20px;
-    padding: 20px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(4,1,3,0.8), transparent);
 }
 
-/* ================= SIDEBAR ================= */
+.nav-center {
+    margin: 0 auto;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pulse-heart {
+    color: var(--burgundy-velvet);
+    animation: heartBeat 2s infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.nav-right-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right-icons button {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-right-icons button:hover {
+    color: var(--vintage-gold);
+}
+
+/* ================= СЕТКА ГЛАВНОГО БЛОКА ================= */
+.main-grid-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 280px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 40px 40px;
+    gap: 30px;
+    flex-grow: 1; /* Позволяет контейнеру занять всю оставшуюся высоту */
+    z-index: 5;
+}
+
+/* ================= ЛЕВАЯ ПАНЕЛЬ ================= */
 .sidebar {
-    background: #14141a;
+    background: var(--panel-bg);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
-    padding: 20px;
-    height: fit-content;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(15px);
+}
+
+.lovers-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+}
+
+.lovers-logo i {
+    color: var(--burgundy-velvet);
+    font-size: 1.1rem;
+    margin: 0 2px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 40px 0;
 }
 
 .menu-item {
     display: flex;
-    gap: 10px;
-    padding: 10px;
-    color: #aaa;
+    align-items: center;
+    gap: 15px;
+    color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
-    border-radius: 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
-.menu-item:hover,
-.menu-item.active {
-    background: rgba(180, 0, 60, 0.15);
-    color: white;
-}
-
-/* ================= MAIN ================= */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* ================= HERO ================= */
-.hero-block {
+.menu-item i {
+    font-size: 1.05rem;
+    width: 20px;
     text-align: center;
 }
 
+.menu-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+.menu-text span {
+    display: block;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+.menu-item:hover, .menu-item.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.menu-item.active i, .menu-item:hover i {
+    color: var(--burgundy-velvet);
+    text-shadow: 0 0 10px var(--burgundy-velvet);
+}
+
+.sidebar-footer-quote {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding-top: 20px;
+}
+
+.sidebar-footer-quote p {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.mini-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 0.75rem;
+}
+
+/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-block {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.pre-title {
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    color: var(--vintage-gold);
+    margin-bottom: 10px;
+}
+
 .main-title {
-    font-size: 48px;
-    letter-spacing: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    letter-spacing: 12px;
+    color: #ffffff;
+    font-weight: 400;
 }
 
 .handwritten-sub {
-    font-family: cursive;
-    color: #b0003c;
-    font-size: 40px;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3.5rem;
+    color: var(--burgundy-velvet);
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
-/* ================= BUTTON ================= */
+.hero-description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 480px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+}
+
 .btn-enter {
-    margin-top: 15px;
-    padding: 10px 25px;
-    border: 1px solid #b0003c;
-    background: transparent;
-    color: white;
-    border-radius: 20px;
+    background: rgba(92, 10, 28, 0.2);
+    border: 1px solid var(--burgundy-velvet);
+    color: #ffffff;
+    padding: 12px 35px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
     cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s;
 }
 
 .btn-enter:hover {
-    background: #b0003c;
+    background: var(--burgundy-velvet);
+    box-shadow: 0 0 20px var(--burgundy-velvet);
 }
 
-/* ================= MOMENTS ================= */
+/* СЕКЦИЯ МОМЕНТОВ */
+.moments-section {
+    width: 100%;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 15px;
+}
+
 .moments-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -112,73 +281,200 @@ body {
 }
 
 .moment-card {
-    background: #1a1a22;
-    border-radius: 10px;
+    background: rgba(10, 5, 8, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
     overflow: hidden;
 }
 
 .card-img {
-    height: 120px;
+    height: 110px;
     background-size: cover;
     background-position: center;
+    filter: brightness(0.5) sepia(0.3) hue-rotate(-40deg);
 }
 
-/* IMPORTANT FIX: реальные картинки */
-.moment-card:nth-child(1) .card-img {
-    background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac');
+.card-1 { background-image: url('https://unsplash.com'); }
+.card-2 { background-image: url('https://unsplash.com'); }
+.card-3 { background-image: url('https://unsplash.com'); }
+
+.card-body {
+    padding: 12px;
 }
 
-.moment-card:nth-child(2) .card-img {
-    background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7');
+.card-body h4 {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 4px;
 }
 
-.moment-card:nth-child(3) .card-img {
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+.card-date {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.2);
 }
 
-/* ================= PLAYER ================= */
-.bottom-layout {
-    margin-top: 20px;
+/* ================= ПРАВАЯ ПАНЕЛЬ С ВИДЖЕТАМИ ================= */
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.widget-player, .widget-quote {
+    background: var(--panel-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 25px 20px;
+    backdrop-filter: blur(15px);
 }
 
 .widget-player {
-    background: #14141a;
-    padding: 20px;
-    border-radius: 12px;
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+}
+
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .album-art {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background-size: cover;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
-.player-core {
+.vinyl-record {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: 
+        radial-gradient(circle, #000 18%, transparent 18%),
+        url('https://unsplash.com') no-repeat center center;
+    background-size: cover;
+    animation: rotateVinyl 12s linear infinite;
+    animation-play-state: paused; /* Запуск по кнопке */
+}
+
+@keyframes rotateVinyl {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.song-title {
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.song-author {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 15px;
+}
+
+.timeline-area {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 45%;
+    background: var(--burgundy-velvet);
+    box-shadow: 0 0 8px var(--burgundy-velvet);
+}
+
+.time-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.2);
+    margin-top: 6px;
+}
+
+.controls-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.control-btn:hover {
+    color: #ffffff;
+}
+
+.play-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.play-btn:hover {
+    background: var(--burgundy-velvet);
+    border-color: var(--burgundy-velvet);
+}
+
+/* ЦИТАТА */
+.widget-quote {
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.song-title {
-    color: #fff;
+.widget-quote blockquote {
+    font-style: italic;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
 }
 
-.song-author {
-    font-size: 0.7rem;
-    opacity: 0.6;
+.widget-quote cite {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.3);
 }
 
-.controls-row button {
-    background: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 10px;
+/* ================= ЭФФЕКТ ЗОЛОТОЙ ПЫЛИ ================= */
+.magic-sparkles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.controls-row button:hover {
-    color: var(--vintage-gold);
-}
+.sparkle {
+    position: absolute;
