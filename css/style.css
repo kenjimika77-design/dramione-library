@@ -90,42 +90,62 @@ body {
 }
 
 /* ================= MAIN TITLE (РУНИЧЕСКИЙ СВЕТ) ================= */
+/* ================= MAIN TITLE (УЛЬТРА ТОНКИЙ + СВЕЧЕНИЕ) ================= */
 .main-title {
     font-family: 'Cinzel', serif;
-    font-weight: 300; /* ключевой момент — тонкость */
+    font-weight: 200; /* ещё тоньше (если браузер поддерживает) */
     font-size: 3.8rem;
-    letter-spacing: 14px;
+    letter-spacing: 16px;
     text-transform: uppercase;
 
-    /* делаем текст “почти невидимым золотом” */
-    color: rgba(195, 146, 76, 0.18);
+    color: rgba(195, 146, 76, 0.14);
 
     position: relative;
     display: inline-block;
 
-    /* мягкое внутреннее свечение */
+    /* мягкое многослойное свечение */
     text-shadow:
-        0 0 6px rgba(195, 146, 76, 0.15),
-        0 0 18px rgba(195, 146, 76, 0.10),
-        0 0 40px rgba(86, 15, 43, 0.15);
+        0 0 4px rgba(195, 146, 76, 0.18),
+        0 0 12px rgba(195, 146, 76, 0.12),
+        0 0 30px rgba(86, 15, 43, 0.18),
+        0 0 60px rgba(195, 146, 76, 0.08);
 
-    /* лёгкое “дыхание” */
-    animation: titleFloat 6s ease-in-out infinite;
+    animation: titleBreath 6s ease-in-out infinite;
 }
 
-/* тонкое живое движение */
-@keyframes titleFloat {
+/* лёгкое “живое дыхание текста” */
+@keyframes titleBreath {
     0%, 100% {
         transform: translateY(0);
-        opacity: 0.85;
-        letter-spacing: 14px;
+        letter-spacing: 16px;
+        opacity: 0.8;
+        filter: blur(0px);
     }
+
     50% {
-        transform: translateY(-2px);
+        transform: translateY(-1.5px);
+        letter-spacing: 17px;
         opacity: 1;
-        letter-spacing: 15px;
+        filter: blur(0.15px);
     }
 }
+
+/* руны вокруг — оставляем, но делаем тоньше */
+.main-title::before,
+.main-title::after {
+    content: "ᚱ ᛞ ᚨ ᛗ ᛁ ᛟ ᚾ ᛖ";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    letter-spacing: 6px;
+    color: rgba(195,146,76,0.18);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.main-title::before { top: -24px; }
+.main-title::after { bottom: -24px; }
 
 /* ================= MENU ================= */
 .menu-item {
