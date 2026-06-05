@@ -270,6 +270,7 @@ body {
     height: 100%;
 }
 
+
 .constellation-lines line {
     stroke: rgba(195,146,76,0.35);
     stroke-width: 1;
@@ -280,4 +281,147 @@ body {
     color: #64748b;
     text-align: center;
     margin-top: 10px;
+}
+
+/* ================= MAGICAL BUTTON SYSTEM ================= */
+
+/* базовая магическая кнопка */
+.btn-enter,
+.theme-toggle-btn,
+.controls-row button,
+.play-main-btn {
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* эффект “рунической энергии” */
+.btn-enter::before,
+.theme-toggle-btn::before,
+.play-main-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(195, 146, 76, 0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+/* hover — вспышка магии */
+.btn-enter:hover::before,
+.theme-toggle-btn:hover::before,
+.play-main-btn:hover::before {
+    width: 220%;
+    height: 220%;
+}
+
+/* ENTER BUTTON — портал */
+.btn-enter {
+    background: rgba(18, 12, 22, 0.8);
+    border: 1px solid var(--vintage-gold);
+    color: var(--vintage-gold);
+
+    padding: 12px 28px;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+
+    cursor: pointer;
+    border-radius: 6px;
+
+    text-transform: uppercase;
+
+    box-shadow:
+        0 0 10px rgba(195,146,76,0.15),
+        inset 0 0 10px rgba(195,146,76,0.08);
+}
+
+.btn-enter:hover {
+    color: #050103;
+    background: var(--vintage-gold);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+        0 0 25px rgba(195,146,76,0.35),
+        0 0 60px rgba(195,146,76,0.15);
+}
+
+/* THEME BUTTON — артефакт */
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--vintage-gold);
+    color: var(--vintage-gold);
+
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--vintage-gold);
+    color: #050103;
+    transform: scale(1.05);
+}
+
+/* PLAYER BUTTONS — руны */
+.controls-row button {
+    background: transparent;
+    border: none;
+    color: rgba(195,146,76,0.6);
+    cursor: pointer;
+    font-size: 0.85rem;
+
+    transition: all 0.3s ease;
+}
+
+.controls-row button:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(195,146,76,0.5);
+}
+
+/* PLAY BUTTON — ядро заклинания */
+.play-main-btn {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+    border: 1px solid var(--vintage-gold);
+
+    background: rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    box-shadow:
+        0 0 12px rgba(195,146,76,0.2),
+        inset 0 0 8px rgba(195,146,76,0.1);
+}
+
+.play-main-btn:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 0 25px rgba(195,146,76,0.4),
+        0 0 60px rgba(195,146,76,0.15);
+}
+
+/* мягкое “дыхание интерфейса” */
+@keyframes magicPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(195,146,76,0.15);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(195,146,76,0.35);
+    }
+}
+
+.btn-enter {
+    animation: magicPulse 6s infinite ease-in-out;
 }
