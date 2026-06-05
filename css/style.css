@@ -1,223 +1,3 @@
-Ниже представлен полный, точный код для воссоздания этого интерфейса один в один. Структура строго разделена по вашему требованию: разметка находится в index.html, а всё оформление, шрифты и магическая атмосфера Слизерина прописаны в css/style.css.
-Я сохранил абсолютно все оригинальные англо-русские пункты меню, цитаты, названия блоков («Our Moments», «Constellation of Fate»), плеер внизу («Rewrite The Stars») и карточку письма. В качестве картинок-заглушек встроены качественные атмосферные фоны, идеально подходящие под Драмиону.
-------------------------------
-## Шаг 1. Структура файлов в проекте
-Убедитесь, что файлы лежат ровно по этой схеме, иначе браузер выдаст ошибку 404:
-
-📁 Название_Вашей_Папки
- ├── 📄 index.html
- └── 📁 css
-      └── 📄 style.css
-
-------------------------------
-## Шаг 2. Создайте файл index.html
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dramione Library — Forbidden Archive</title>
-    
-    <!-- Иконки и шрифты высокого качества -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <link href="https://googleapis.com" rel="stylesheet">
-    
-    <!-- Подключение стилей строго по вашему адресу -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <div class="container">
-        
-        <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="main-logo">D</div>
-                <h2>DRAMIONE LIBRARY</h2>
-                <p class="subtitle">— FORBIDDEN ARCHIVE —</p>
-            </div>
-
-            <nav class="sidebar-menu">
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-book-open"></i>
-                    <div class="menu-text">Archive <span>Архив историй</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-wand-sparkles"></i>
-                    <div class="menu-text">Magic Entries <span>Магические записи</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-heart"></i>
-                    <div class="menu-text">Love Stories <span>Истории любви</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-moon"></i>
-                    <div class="menu-text">Night Section <span>Ночные разделы</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-lock"></i>
-                    <div class="menu-text">Restricted <span>Запретное</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-hourglass-half"></i>
-                    <div class="menu-text">Memories <span>Воспоминания</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div class="menu-text">Letters <span>Письма</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-circle-user"></i>
-                    <div class="menu-text">About Us <span>О нас</span></div>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer-quote">
-                <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
-                <span class="author">— D & H</span>
-            </div>
-        </aside>
-
-        <!-- ================= ОСНОВНОЙ КОНТЕНТ (ЦЕНТР + ПРАВАЯ ЧАСТЬ) ================= -->
-        <main class="main-content">
-            
-            <div class="top-row">
-                <!-- Центральный блок приветствия -->
-                <section class="hero-center">
-                    <p class="welcome-tag">Welcome to our<br>forbidden archive</p>
-                    <h1 class="main-title">DRAMIONE</h1>
-                    <div class="script-title">forever</div>
-                    
-                    <p class="hero-subtext">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
-                    
-                    <button class="btn-library">Enter Library ➔</button>
-                </section>
-
-                <!-- Правая верхняя карточка: Цитата дня -->
-                <div class="widget-quote">
-                    <h3>Цитата дня</h3>
-                    <blockquote>
-                        Любовь — это не взгляд друг на друга, а взгляд в одном направлении.
-                    </blockquote>
-                    <cite>— Антуан де Сент-Экзюпери</cite>
-                </div>
-            </div>
-
-            <!-- Блок моментов (Our Moments) -->
-            <section class="moments-section">
-                <div class="section-divider">
-                    <span>✦ ───✦─── ✦</span>
-                    <h2>Our Moments</h2>
-                    <span>✦ ───✦─── ✦</span>
-                </div>
-
-                <div class="moments-grid">
-                    <!-- Карточка 1 -->
-                    <div class="moment-card">
-                        <div class="moment-image" style="background-image: url('https://unsplash.com');"></div>
-                        <div class="moment-footer">
-                            <h4>Первая встреча</h4>
-                            <div class="moment-meta">
-                                <span>14.02.2022</span>
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Карточка 2 -->
-                    <div class="moment-card">
-                        <div class="moment-image" style="background-image: url('https://unsplash.com');"></div>
-                        <div class="moment-footer">
-                            <h4>Ты сказал «Люблю»</h4>
-                            <div class="moment-meta">
-                                <span>07.07.2022</span>
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Карточка 3 -->
-                    <div class="moment-card">
-                        <div class="moment-image" style="background-image: url('https://unsplash.com');"></div>
-                        <div class="moment-footer">
-                            <h4>Навсегда</h4>
-                            <div class="moment-meta">
-                                <span>01.01.2023</span>
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Нижний ряд элементов -->
-            <div class="bottom-row">
-                
-                <!-- Аудиоплеер -->
-                <section class="audio-player">
-                    <div class="player-cover" style="background-image: url('https://unsplash.com');"></div>
-                    <div class="player-info">
-                        <span class="player-status">Now Playing</span>
-                        <h3 class="track-title">Rewrite The Stars</h3>
-                        <p class="track-artist">James Arthur & Anne-Marie</p>
-                        
-                        <div class="progress-container">
-                            <span class="time">1:23</span>
-                            <div class="progress-bar">
-                                <div class="progress-current"></div>
-                            </div>
-                            <span class="time">3:37</span>
-                        </div>
-
-                        <div class="player-controls">
-                            <i class="fa-solid fa-shuffle"></i>
-                            <i class="fa-solid fa-backward-step"></i>
-                            <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-                            <i class="fa-solid fa-forward-step"></i>
-                            <i class="fa-solid fa-repeat"></i>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Блок письма из Хогвартса -->
-                <section class="letter-widget">
-                    <div class="letter-bg" style="background-image: url('https://unsplash.com');">
-                        <div class="letter-overlay">
-                            <h3>New Letter</h3>
-                            <p>У вас новое письмо из Хогвартса</p>
-                            <button class="btn-read">Читать <i class="fa-solid fa-feather-pointed"></i></button>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Созвездие Судьбы -->
-                <section class="fate-widget">
-                    <h3>Constellation of Fate</h3>
-                    <div class="constellation-map">
-                        <!-- Стилизованный рисунок созвездия (SVG) один в один по форме макета -->
-                        <svg viewBox="0 0 200 100" class="stars-svg">
-                            <path d="M20,50 L50,30 L90,40 L130,20 L150,50 L180,45" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
-                            <circle cx="20" cy="50" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="50" cy="30" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="90" cy="40" r="4" fill="#a3b899" class="glow-star"/>
-                            <circle cx="130" cy="20" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="150" cy="50" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="180" cy="45" r="4" fill="#a3b899" class="glow-star"/>
-                        </svg>
-                    </div>
-                    <p class="fate-text">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
-                </section>
-
-            </div>
-
-        </main>
-    </div>
-
-</body>
-</html>
-
-------------------------------
-## Шаг 3. Создайте файл css/style.css
-
 /* ================= БАЗОВЫЕ НАСТРОЙКИ И ЦВЕТА СЛИЗЕРИНА ================= */
 * {
     margin: 0;
@@ -240,6 +20,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
 /* Главный контейнер сетки */
 .container {
     display: grid;
@@ -256,6 +37,7 @@ body {
     overflow: hidden;
     margin: 20px;
 }
+
 /* ================= ЛЕВОЕ МЕНЮ (SIDEBAR) ================= */
 .sidebar {
     background: rgba(3, 7, 5, 0.85);
@@ -296,6 +78,7 @@ body {
     color: #64748b;
     margin-top: 4px;
 }
+
 /* Список ссылок */
 .sidebar-menu {
     display: flex;
@@ -334,6 +117,7 @@ body {
     color: #475569;
     font-weight: 400;
 }
+
 /* Ховер в стиле факультета Слизерин */
 .menu-item:hover {
     background: rgba(42, 98, 61, 0.15);
@@ -342,6 +126,7 @@ body {
 .menu-item:hover i {
     color: #2a623d;
 }
+
 /* Подвал меню */
 .sidebar-footer-quote {
     border-top: 1px solid rgba(42, 98, 61, 0.2);
@@ -363,6 +148,7 @@ body {
     margin-top: 8px;
     letter-spacing: 1px;
 }
+
 /* ================= ОСНОВНОЙ КОНТЕНТ ================= */
 .main-content {
     padding: 40px;
@@ -378,6 +164,7 @@ body {
     gap: 40px;
     align-items: flex-start;
 }
+
 /* Центр: Текст */
 .hero-center {
     text-align: left;
@@ -436,6 +223,7 @@ body {
     color: #030605;
     box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
+
 /* Верхний правый виджет: Цитата */
 .widget-quote {
     background: rgba(3, 7, 5, 0.5);
@@ -469,6 +257,7 @@ body {
     color: #475569;
     margin-top: 12px;
 }
+
 /* ================= НАШИ МОМЕНТЫ (БЛОК С КАРТОЧКАМИ) ================= */
 .moments-section {
     margin: 30px 0;
@@ -549,12 +338,14 @@ body {
 .moment-meta i:hover {
     color: #f43f5e;
 }
+
 /* ================= НИЖНИЙ РЯД ВИДЖЕТОВ ================= */
 .bottom-row {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr;
     gap: 20px;
 }
+
 /* Аудио плеер */
 .audio-player {
     background: rgba(3, 7, 5, 0.6);
@@ -656,6 +447,7 @@ body {
     font-size: 0.7rem;
     padding-left: 2px;
 }
+
 /* Виджет Письма */
 .letter-widget {
     border-radius: 8px;
@@ -714,6 +506,7 @@ body {
     background: rgba(42, 98, 61, 0.3);
     border-color: #2a623d;
 }
+
 /* Виджет созвездия */
 .fate-widget {
     background: rgba(3, 7, 5, 0.6);
@@ -723,40 +516,3 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-text-align: center;
-}
-.fate-widget h3 {
-font-family: 'Cinzel', serif;
-font-size: 0.75rem;
-letter-spacing: 1px;
-color: #64748b;
-}
-.constellation-map {
-height: 60px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.stars-svg {
-width: 100%;
-height: 100%;
-}
-.glow-star {
-animation: starBlink 2s infinite ease-in-out;
-}
-.fate-text {
-font-size: 0.7rem;
-line-height: 1.4;
-color: #64748b;
-}
-/* ================= МАГИЧЕСКИЕ АНИМАЦИИ ================= */
-@keyframes starBlink {
-0%, 100% { opacity: 0.4; r: 2px; }
-50% { opacity: 1; r: 4px; filter: drop-shadow(0 0 4px #fff); }
-}
-
-
-Все компоненты теперь распределены по файлам и готовы к работе. Если вы захотите подключить настоящую музыку к плееру, я могу написать JavaScript-код для воспроизведения треков. Напишите, если это потребуется!
-
-
