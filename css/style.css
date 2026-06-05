@@ -1,4 +1,7 @@
-/* --- СТИЛИ В ТЕМЕ ХОГВАРТСА И СЛИЗЕРИНА (ДРАМИОНА) --- */
+/* =========================
+   DRAMIONE LIBRARY THEME
+   Indigo / Gold / Night Archive
+========================= */
 
 * {
     margin: 0;
@@ -7,29 +10,25 @@
 }
 
 body {
-    background-color: #030806; /* Старинный глубокий черный с зеленым отливом */
-    color: #e0e6e3; /* Серебристо-белый текст */
-    font-family: 'Montserrat', sans-serif;
-    min-height: 100vh;
+    font-family: 'Cinzel', serif;
+    background: #0f0d14;
+    color: #f3eee8;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* Фоновое свечение в изумрудных и серебряных тонах */
+/* фон с "космосом" */
 .background-glow {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 60% 40%, rgba(26, 71, 42, 0.25) 0%, transparent 65%),
-        radial-gradient(circle at 85% 85%, rgba(114, 118, 121, 0.1) 0%, transparent 50%),
-        #030806;
+    inset: 0;
     z-index: -1;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(212,180,131,0.08), transparent 50%),
+        radial-gradient(circle at 80% 40%, rgba(120,140,255,0.06), transparent 55%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.04), transparent 60%),
+        #0f0d14;
 }
 
-/* Общая сетка сайта */
+/* layout */
 .wrapper {
     display: grid;
     grid-template-columns: 240px 1fr;
@@ -38,411 +37,152 @@ body {
     gap: 25px;
 }
 
-/* --- БОКОВАЯ ПАНЕЛЬ (МЕНЮ) --- */
+/* sidebar */
 .sidebar {
-    background: rgba(10, 18, 14, 0.75);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(26, 71, 42, 0.3); /* Изумрудная тонкая рамка */
-    border-radius: 20px;
-    padding: 30px 20px;
+    background: rgba(26, 22, 37, 0.7);
+    border: 1px solid rgba(212,180,131,0.15);
+    border-radius: 18px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-}
-
-.logo-area {
-    text-align: center;
-    margin-bottom: 30px;
 }
 
 .logo-area h1 {
-    font-family: 'Cinzel', serif; /* Магический шрифт */
-    font-size: 1.6rem;
-    letter-spacing: 4px;
-    color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+    letter-spacing: 3px;
 }
 
 .logo-heart {
-    color: #2a623d; /* Слизеринский зеленый */
-    font-size: 1.4rem;
-    margin-top: 15px;
-    animation: magicPulse 3s infinite ease-in-out;
-    filter: drop-shadow(0 0 8px rgba(42, 98, 61, 0.8));
+    margin-top: 10px;
+    color: #d4b483;
 }
 
+/* menu */
 .menu-links {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: 30px;
 }
 
 .menu-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: rgba(224, 230, 227, 0.45);
     text-decoration: none;
-    padding: 12px 15px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: rgba(243,238,232,0.6);
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
-.menu-item i {
-    font-size: 1.1rem;
-    width: 20px;
-    color: rgba(224, 230, 227, 0.3);
+.menu-item:hover,
+.menu-item.active {
+    background: rgba(212,180,131,0.08);
+    color: #f3eee8;
 }
 
-.menu-item div span {
-    display: block;
-    font-size: 0.7rem;
-    color: rgba(224, 230, 227, 0.2);
-    text-transform: lowercase;
-    margin-top: 2px;
-}
-
-/* Эффект при наведении в серебряно-зеленых тонах */
-.menu-item:hover, .menu-item.active {
-    color: #ffffff;
-    background: rgba(42, 98, 61, 0.15);
-    border-left: 3px solid #2a623d;
-}
-
-.menu-item:hover i, .menu-item.active i {
-    color: #a3b899; /* Платиновое серебро */
-}
-
-.sidebar-quote {
-    font-size: 0.75rem;
-    color: rgba(224, 230, 227, 0.3);
-    text-align: center;
-    line-height: 1.5;
-    border-top: 1px solid rgba(26, 71, 42, 0.2);
-    padding-top: 20px;
-    font-style: italic;
-}
-
-/* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ --- */
+/* main */
 .main-pane {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
+/* top bar */
 .top-navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
 }
 
-.welcome-msg {
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(224, 230, 227, 0.35);
-}
-
-.top-actions {
-    display: flex;
-    gap: 20px;
-    color: rgba(224, 230, 227, 0.5);
-    font-size: 0.95rem;
-}
-
-.top-actions i {
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.top-actions i:hover {
-    color: #a3b899;
-}
-
-/* Сетка контента */
-.mid-section {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 25px;
-    align-items: center;
-}
-
+/* hero */
 .hero-banner {
-    text-align: left;
-    padding-left: 20px;
+    position: relative;
 }
 
 .hero-tag {
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    color: rgba(163, 184, 153, 0.6); /* Платиновый акцент */
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    display: block;
+    color: rgba(212,180,131,0.7);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.magic-divider {
+    width: 120px;
+    height: 1px;
+    margin: 15px 0;
+    background: linear-gradient(to right, transparent, #d4b483, transparent);
 }
 
 .hero-banner h2 {
-    font-family: 'Cinzel', serif;
     font-size: 3rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-weight: 400;
-    line-height: 1.2;
+    margin-top: 10px;
 }
 
 .hero-banner h2 span {
     display: block;
-    font-family: 'Cinzel', serif;
-    font-style: italic;
-    color: #a3b899; /* Благородное серебро Малфоев */
-    text-transform: lowercase;
-    font-size: 2.6rem;
-    margin-top: 5px;
-    text-shadow: 0 0 15px rgba(163, 184, 153, 0.2);
+    color: #d4b483;
+    font-size: 2rem;
 }
 
 .hero-desc {
-    font-size: 0.85rem;
-    color: rgba(224, 230, 227, 0.5);
+    margin: 20px 0;
+    color: rgba(243,238,232,0.6);
     max-width: 420px;
-    line-height: 1.6;
-    margin: 25px 0;
 }
 
-/* Старинная кнопка */
+/* button */
 .btn-enter {
+    padding: 12px 28px;
+    border: 1px solid #d4b483;
     background: transparent;
-    border: 1px solid #2a623d;
-    color: #ffffff;
-    padding: 12px 35px;
-    border-radius: 25px;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    color: #f3eee8;
+    border-radius: 999px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
+    transition: 0.3s;
 }
 
 .btn-enter:hover {
-    background: #1a472a;
-    border-color: #a3b899;
-    box-shadow: 0 0 20px rgba(26, 71, 42, 0.5);
+    background: #d4b483;
+    color: #0f0d14;
 }
 
-/* --- МУЗЫКАЛЬНЫЙ ПЛЕЕР --- */
-.music-player {
-    background: rgba(10, 18, 14, 0.5);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(26, 71, 42, 0.2);
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+/* fate card */
+.fate-card {
+    background: rgba(26,22,37,0.6);
+    border: 1px solid rgba(212,180,131,0.15);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
 }
 
-.player-title {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    color: rgba(224, 230, 227, 0.4);
-    text-transform: uppercase;
-    margin-bottom: 20px;
+.fate-card h3 {
+    color: #d4b483;
+    margin-bottom: 10px;
 }
 
-.vinyl-container {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 20px;
-    position: relative;
-}
-
-.vinyl-disk {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle, #2a623d 20%, #050d09 21%, #102116 50%, #000 70%);
-    border: 4px solid rgba(163, 184, 153, 0.2);
-    animation: rotateVinyl 12s linear infinite;
-    box-shadow: 0 0 25px rgba(26, 71, 42, 0.4);
-}
-
-.track-name {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
-.track-artist {
-    font-size: 0.75rem;
-    color: rgba(224, 230, 227, 0.4);
-    margin-bottom: 15px;
-}
-
-.track-time {
-    font-size: 0.7rem;
-    color: rgba(224, 230, 227, 0.3);
-    margin-bottom: 20px;
-}
-
-.player-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.control-btn {
-    background: none;
-    border: none;
-    color: rgba(224, 230, 227, 0.5);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.control-btn.play {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #2a623d;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 15px rgba(42, 98, 61, 0.4);
-}
-
-.control-btn:hover {
-    color: #a3b899;
-}
-.control-btn.play:hover {
-    transform: scale(1.05);
-    background: #1a472a;
-}
-
-/* --- НИЖНЯЯ СЕКЦИЯ --- */
-.bottom-section {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
-    margin-top: auto;
-}
-
-.moments-title {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(224, 230, 227, 0.4);
-    margin-bottom: 15px;
-}
-
+/* moments */
 .moments-row {
     display: flex;
     gap: 15px;
 }
 
 .moment-card {
-    flex: 1;
-    background: rgba(10, 18, 14, 0.4);
-    border: 1px solid rgba(26, 71, 42, 0.15);
-    border-radius: 15px;
+    background: rgba(26,22,37,0.5);
     padding: 15px;
-    transition: border-color 0.3s;
+    border-radius: 12px;
+    border: 1px solid rgba(212,180,131,0.1);
 }
 
-.moment-card:hover {
-    border-color: rgba(163, 184, 153, 0.4);
-}
-
-.moment-img-stub {
-    height: 80px;
-    background: linear-gradient(135deg, #0d2114, #020805);
-    border-radius: 10px;
-    margin-bottom: 12px;
-    border: 1px solid rgba(26, 71, 42, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.moment-img-stub::after {
-    content: '🐍';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.25;
-    font-size: 1.3rem;
-}
-
-.moment-card h4 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-}
-
-.moment-card span {
-    font-size: 0.65rem;
-    color: rgba(224, 230, 227, 0.3);
-}
-
-/* Цитата дня */
+/* quote */
 .quote-box {
-    background: rgba(10, 18, 14, 0.3);
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-left: 2px solid #2a623d;
+    background: rgba(26,22,37,0.5);
+    border-left: 2px solid #d4b483;
+    padding: 15px;
+    border-radius: 10px;
 }
 
-.quote-box h5 {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    color: #a3b899;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.quote-box p {
-    font-size: 0.8rem;
-    font-style: italic;
-    line-height: 1.5;
-    color: rgba(224, 230, 227, 0.7);
-}
-
-.quote-box author {
+.author {
     display: block;
     text-align: right;
-    font-size: 0.7rem;
-    color: rgba(224, 230, 227, 0.4);
-    margin-top: 8px;
-}
-
-/* --- АНИМАЦИИ --- */
-@keyframes magicPulse {
-    0%, 100% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.1); opacity: 1; color: #a3b899; }
-}
-
-@keyframes rotateVinyl {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Адаптивность */
-@media (max-width: 1024px) {
-    .wrapper { grid-template-columns: 1fr; }
-    .mid-section { grid-template-columns: 1fr; }
-    .bottom-section { grid-template-columns: 1fr; }
-    .moments-row { flex-direction: column; }
+    margin-top: 10px;
+    color: rgba(212,180,131,0.7);
 }
