@@ -1,3 +1,224 @@
+Ниже представлен полный, точный код для воссоздания этого интерфейса один в один. Структура строго разделена по вашему требованию: разметка находится в index.html, а всё оформление, шрифты и магическая атмосфера Слизерина прописаны в css/style.css.
+Я сохранил абсолютно все оригинальные англо-русские пункты меню, цитаты, названия блоков («Our Moments», «Constellation of Fate»), плеер внизу («Rewrite The Stars») и карточку письма. В качестве картинок-заглушек встроены качественные атмосферные фоны, идеально подходящие под Драмиону.
+------------------------------
+## Шаг 1. Структура файлов в проекте
+Убедитесь, что файлы лежат ровно по этой схеме, иначе браузер выдаст ошибку 404:
+
+📁 Название_Вашей_Папки
+ ├── 📄 index.html
+ └── 📁 css
+      └── 📄 style.css
+
+------------------------------
+## Шаг 2. Создайте файл index.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dramione Library — Forbidden Archive</title>
+    
+    <!-- Иконки и шрифты высокого качества -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <!-- Подключение стилей строго по вашему адресу -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="main-logo">D</div>
+                <h2>DRAMIONE LIBRARY</h2>
+                <p class="subtitle">— FORBIDDEN ARCHIVE —</p>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-book-open"></i>
+                    <div class="menu-text">Archive <span>Архив историй</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-wand-sparkles"></i>
+                    <div class="menu-text">Magic Entries <span>Магические записи</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-heart"></i>
+                    <div class="menu-text">Love Stories <span>Истории любви</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-moon"></i>
+                    <div class="menu-text">Night Section <span>Ночные разделы</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-lock"></i>
+                    <div class="menu-text">Restricted <span>Запретное</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <div class="menu-text">Memories <span>Воспоминания</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="menu-text">Letters <span>Письма</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <div class="menu-text">About Us <span>О нас</span></div>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer-quote">
+                <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
+                <span class="author">— D & H</span>
+            </div>
+        </aside>
+
+        <!-- ================= ОСНОВНОЙ КОНТЕНТ (ЦЕНТР + ПРАВАЯ ЧАСТЬ) ================= -->
+        <main class="main-content">
+            
+            <div class="top-row">
+                <!-- Центральный блок приветствия -->
+                <section class="hero-center">
+                    <p class="welcome-tag">Welcome to our<br>forbidden archive</p>
+                    <h1 class="main-title">DRAMIONE</h1>
+                    <div class="script-title">forever</div>
+                    
+                    <p class="hero-subtext">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
+                    
+                    <button class="btn-library">Enter Library ➔</button>
+                </section>
+
+                <!-- Правая верхняя карточка: Цитата дня -->
+                <div class="widget-quote">
+                    <h3>Цитата дня</h3>
+                    <blockquote>
+                        Любовь — это не взгляд друг на друга, а взгляд в одном направлении.
+                    </blockquote>
+                    <cite>— Антуан де Сент-Экзюпери</cite>
+                </div>
+            </div>
+
+            <!-- Блок моментов (Our Moments) -->
+            <section class="moments-section">
+                <div class="section-divider">
+                    <span>✦ ───✦─── ✦</span>
+                    <h2>Our Moments</h2>
+                    <span>✦ ───✦─── ✦</span>
+                </div>
+
+                <div class="moments-grid">
+                    <!-- Карточка 1 -->
+                    <div class="moment-card">
+                        <div class="moment-image" style="background-image: url('https://unsplash.com');"></div>
+                        <div class="moment-footer">
+                            <h4>Первая встреча</h4>
+                            <div class="moment-meta">
+                                <span>14.02.2022</span>
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка 2 -->
+                    <div class="moment-card">
+                        <div class="moment-image" style="background-image: url('https://unsplash.com');"></div>
+                        <div class="moment-footer">
+                            <h4>Ты сказал «Люблю»</h4>
+                            <div class="moment-meta">
+                                <span>07.07.2022</span>
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка 3 -->
+                    <div class="moment-card">
+                        <div class="moment-image" style="background-image: url('https://unsplash.com');"></div>
+                        <div class="moment-footer">
+                            <h4>Навсегда</h4>
+                            <div class="moment-meta">
+                                <span>01.01.2023</span>
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Нижний ряд элементов -->
+            <div class="bottom-row">
+                
+                <!-- Аудиоплеер -->
+                <section class="audio-player">
+                    <div class="player-cover" style="background-image: url('https://unsplash.com');"></div>
+                    <div class="player-info">
+                        <span class="player-status">Now Playing</span>
+                        <h3 class="track-title">Rewrite The Stars</h3>
+                        <p class="track-artist">James Arthur & Anne-Marie</p>
+                        
+                        <div class="progress-container">
+                            <span class="time">1:23</span>
+                            <div class="progress-bar">
+                                <div class="progress-current"></div>
+                            </div>
+                            <span class="time">3:37</span>
+                        </div>
+
+                        <div class="player-controls">
+                            <i class="fa-solid fa-shuffle"></i>
+                            <i class="fa-solid fa-backward-step"></i>
+                            <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                            <i class="fa-solid fa-forward-step"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Блок письма из Хогвартса -->
+                <section class="letter-widget">
+                    <div class="letter-bg" style="background-image: url('https://unsplash.com');">
+                        <div class="letter-overlay">
+                            <h3>New Letter</h3>
+                            <p>У вас новое письмо из Хогвартса</p>
+                            <button class="btn-read">Читать <i class="fa-solid fa-feather-pointed"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Созвездие Судьбы -->
+                <section class="fate-widget">
+                    <h3>Constellation of Fate</h3>
+                    <div class="constellation-map">
+                        <!-- Стилизованный рисунок созвездия (SVG) один в один по форме макета -->
+                        <svg viewBox="0 0 200 100" class="stars-svg">
+                            <path d="M20,50 L50,30 L90,40 L130,20 L150,50 L180,45" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="20" cy="50" r="3" fill="#fff" class="glow-star"/>
+                            <circle cx="50" cy="30" r="3" fill="#fff" class="glow-star"/>
+                            <circle cx="90" cy="40" r="4" fill="#a3b899" class="glow-star"/>
+                            <circle cx="130" cy="20" r="3" fill="#fff" class="glow-star"/>
+                            <circle cx="150" cy="50" r="3" fill="#fff" class="glow-star"/>
+                            <circle cx="180" cy="45" r="4" fill="#a3b899" class="glow-star"/>
+                        </svg>
+                    </div>
+                    <p class="fate-text">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
+
+------------------------------
+## Шаг 3. Создайте файл css/style.css
+
+/* ================= БАЗОВЫЕ НАСТРОЙКИ И ЦВЕТА СЛИЗЕРИНА ================= */
 * {
     margin: 0;
     padding: 0;
@@ -5,203 +226,537 @@
 }
 
 body {
+    background-color: #030605; /* Сверхглубокий винтажный черный */
+    color: #cbd5e1;
     font-family: 'Montserrat', sans-serif;
-    background: #0b0a10;
-    color: #eae6df;
-    overflow-x: hidden;
-}
-
-/* MAGIC BACKGROUND */
-.background-glow {
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(212,180,131,0.08), transparent 50%),
-        radial-gradient(circle at 80% 40%, rgba(120,140,255,0.05), transparent 55%),
-        #0b0a10;
-    z-index: -2;
-}
-
-.floating-dust {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: float 20s linear infinite;
-    opacity: 0.3;
-    z-index: -1;
-}
-
-@keyframes float {
-    from { transform: translateY(0); }
-    to { transform: translateY(-100px); }
-}
-
-/* LAYOUT */
-.wrapper {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 25px;
-    padding: 20px;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Большое фоновое изображение обнимающейся пары Драмионы из макета */
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(3, 6, 5, 0.2) 0%, rgba(3, 6, 5, 0.95) 75%),
+        url('https://unsplash.com') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
-
-/* SIDEBAR */
-.sidebar {
-    background: rgba(25, 22, 35, 0.7);
+/* Главный контейнер сетки */
+.container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    width: 100%;
+    max-width: 1400px;
+    height: 90vh;
+    min-height: 750px;
+    background: rgba(4, 10, 8, 0.4);
     backdrop-filter: blur(15px);
-    border-radius: 18px;
-    padding: 20px;
-    border: 1px solid rgba(212,180,131,0.12);
+    border: 1px solid rgba(42, 98, 61, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    margin: 20px;
+}
+/* ================= ЛЕВОЕ МЕНЮ (SIDEBAR) ================= */
+.sidebar {
+    background: rgba(3, 7, 5, 0.85);
+    border-right: 1px solid rgba(42, 98, 61, 0.2);
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
-.logo-area h1 {
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-logo {
     font-family: 'Cinzel', serif;
-    letter-spacing: 3px;
+    font-size: 2.2rem;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 60px;
+    height: 60px;
+    line-height: 56px;
+    margin: 0 auto 15px;
+    border-radius: 4px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.logo-heart {
-    color: #d4b483;
-    margin-top: 10px;
+.sidebar-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #e2e8f0;
 }
 
-/* MENU */
-.menu-links {
+.sidebar-header .subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-top: 4px;
+}
+/* Список ссылок */
+.sidebar-menu {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    flex: 1;
 }
 
 .menu-item {
-    padding: 10px;
-    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #94a3b8;
     text-decoration: none;
-    color: rgba(255,255,255,0.6);
-    transition: 0.3s;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: all 0.3s;
 }
 
 .menu-item i {
-    margin-right: 8px;
+    font-size: 1rem;
+    color: #475569;
+    width: 20px;
+    text-align: center;
 }
 
-.menu-item:hover,
-.menu-item.active {
-    background: rgba(212,180,131,0.08);
-    color: #fff;
-    transform: translateX(5px);
+.menu-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-/* MAIN */
-.main-pane {
+.menu-text span {
+    display: block;
+    font-size: 0.65rem;
+    color: #475569;
+    font-weight: 400;
+}
+/* Ховер в стиле факультета Слизерин */
+.menu-item:hover {
+    background: rgba(42, 98, 61, 0.15);
+    color: #ffffff;
+}
+.menu-item:hover i {
+    color: #2a623d;
+}
+/* Подвал меню */
+.sidebar-footer-quote {
+    border-top: 1px solid rgba(42, 98, 61, 0.2);
+    padding-top: 15px;
+    text-align: center;
+}
+
+.sidebar-footer-quote p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+.sidebar-footer-quote .author {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: #2a623d;
+    margin-top: 8px;
+    letter-spacing: 1px;
+}
+/* ================= ОСНОВНОЙ КОНТЕНТ ================= */
+.main-content {
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-}
-
-/* TOP */
-.top-navbar {
-    display: flex;
     justify-content: space-between;
+    overflow-y: auto;
 }
 
-/* HERO */
-.hero-banner h2 {
+.top-row {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 40px;
+    align-items: flex-start;
+}
+/* Центр: Текст */
+.hero-center {
+    text-align: left;
+    padding-top: 10px;
+}
+
+.welcome-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.main-title {
     font-family: 'Cinzel', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    letter-spacing: 8px;
+    color: #ffffff;
+    font-weight: 400;
 }
 
-.hero-banner h2 span {
-    color: #d4b483;
+.script-title {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3.2rem;
+    color: #a3b899; /* Платиновое серебро магии */
+    margin-top: -20px;
+    margin-bottom: 25px;
+    padding-left: 5px;
 }
 
-.hero-tag {
-    color: rgba(212,180,131,0.7);
+.hero-subtext {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    max-width: 450px;
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
-.magic-divider {
-    width: 140px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #d4b483, transparent);
-    margin: 15px 0;
-}
-
-.hero-desc {
-    max-width: 420px;
-    margin: 20px 0;
-    color: rgba(255,255,255,0.6);
-}
-
-/* BUTTON */
-.btn-enter {
-    padding: 12px 28px;
-    border: 1px solid #d4b483;
-    border-radius: 999px;
+.btn-library {
     background: transparent;
-    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 12px 30px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s;
+    border-radius: 4px;
 }
 
-.btn-enter:hover {
-    background: #d4b483;
-    color: #0b0a10;
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(212,180,131,0.3);
+.btn-library:hover {
+    background: #ffffff;
+    color: #030605;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
-
-/* FATE */
-.fate-card {
+/* Верхний правый виджет: Цитата */
+.widget-quote {
+    background: rgba(3, 7, 5, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
     padding: 20px;
-    border-radius: 14px;
-    background: rgba(25,22,35,0.5);
-    border: 1px solid rgba(212,180,131,0.12);
 }
 
-/* MOMENTS */
-.moments-row {
+.widget-quote h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.widget-quote blockquote {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #cbd5e1;
+    font-style: italic;
+}
+
+.widget-quote cite {
+    display: block;
+    text-align: right;
+    font-size: 0.7rem;
+    color: #475569;
+    margin-top: 12px;
+}
+/* ================= НАШИ МОМЕНТЫ (БЛОК С КАРТОЧКАМИ) ================= */
+.moments-section {
+    margin: 30px 0;
+}
+
+.section-divider {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.section-divider span {
+    color: rgba(42, 98, 61, 0.4);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.section-divider h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .moment-card {
-    flex: 1;
-    padding: 15px;
-    border-radius: 12px;
-    background: rgba(25,22,35,0.4);
-    transition: 0.3s;
+    background: rgba(3, 7, 5, 0.6);
+    border: 1px solid rgba(42, 98, 61, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .moment-card:hover {
-    transform: translateY(-6px);
-    border: 1px solid #d4b483;
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
 }
 
-/* QUOTE */
-.quote-box {
+.moment-image {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(40%) brightness(70%);
+}
+
+.moment-footer {
     padding: 15px;
-    border-left: 2px solid #d4b483;
-    background: rgba(25,22,35,0.4);
 }
 
-.author {
-    display: block;
-    margin-top: 10px;
-    text-align: right;
-    color: rgba(212,180,131,0.7);
+.moment-footer h4 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #f1f5f9;
+    margin-bottom: 6px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .moments-row {
-        flex-direction: column;
-    }
+.moment-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #64748b;
 }
+
+.moment-meta i {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.moment-meta i:hover {
+    color: #f43f5e;
+}
+/* ================= НИЖНИЙ РЯД ВИДЖЕТОВ ================= */
+.bottom-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 20px;
+}
+/* Аудио плеер */
+.audio-player {
+    background: rgba(3, 7, 5, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.player-cover {
+    width: 90px;
+    height: 90px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+}
+
+.player-info {
+    flex: 1;
+}
+
+.player-status {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #2a623d;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.track-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 2px 0;
+}
+
+.track-artist {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.time {
+    font-size: 0.65rem;
+    color: #475569;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 3px;
+    background: #1e293b;
+    border-radius: 2px;
+    position: relative;
+}
+
+.progress-current {
+    width: 38%;
+    height: 100%;
+    background: #a3b899;
+    border-radius: 2px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #475569;
+    font-size: 0.8rem;
+    padding: 0 5px;
+}
+
+.player-controls i {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.player-controls i:hover {
+    color: #ffffff;
+}
+
+.play-btn {
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    color: #030605;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    padding-left: 2px;
+}
+/* Виджет Письма */
+.letter-widget {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(42, 98, 61, 0.2);
+}
+
+.letter-bg {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.letter-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(3, 7, 5, 0.75);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.letter-overlay h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.letter-overlay p {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.btn-read {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #ffffff;
+    padding: 6px 16px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-read:hover {
+    background: rgba(42, 98, 61, 0.3);
+    border-color: #2a623d;
+}
+/* Виджет созвездия */
+.fate-widget {
+    background: rgba(3, 7, 5, 0.6);
+    border: 1px solid rgba(42, 98, 61, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+text-align: center;
+}
+.fate-widget h3 {
+font-family: 'Cinzel', serif;
+font-size: 0.75rem;
+letter-spacing: 1px;
+color: #64748b;
+}
+.constellation-map {
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.stars-svg {
+width: 100%;
+height: 100%;
+}
+.glow-star {
+animation: starBlink 2s infinite ease-in-out;
+}
+.fate-text {
+font-size: 0.7rem;
+line-height: 1.4;
+color: #64748b;
+}
+/* ================= МАГИЧЕСКИЕ АНИМАЦИИ ================= */
+@keyframes starBlink {
+0%, 100% { opacity: 0.4; r: 2px; }
+50% { opacity: 1; r: 4px; filter: drop-shadow(0 0 4px #fff); }
+}
+
+
+Все компоненты теперь распределены по файлам и готовы к работе. Если вы захотите подключить настоящую музыку к плееру, я могу написать JavaScript-код для воспроизведения треков. Напишите, если это потребуется!
+
+
