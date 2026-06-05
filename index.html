@@ -5,22 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
     
-    <!-- Иконки и шрифты высокого качества -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <!-- ЗАМЕНЕННЫЙ ФРАГМЕНТ СТРОГО ПО ВАШЕМУ ЗАПРОСУ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <!-- Подключение стилей строго по вашему адресу -->
-   <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Элементы для эффекта золотой магической пыли -->
+    <div class="magic-dust">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
     <div class="container">
         
         <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <div class="main-logo">D</div>
+                <!-- Декорированная буква D с цветами (через встроенный SVG-декор) -->
+                <div class="main-logo">
+                    <span class="logo-letter">D</span>
+                    <div class="logo-flowers">❀</div>
+                </div>
                 <h2>DRAMIONE LIBRARY</h2>
                 <p class="subtitle">— FORBIDDEN ARCHIVE —</p>
+                
+                <!-- Настоящий винтажный герб факультета под логотипом -->
+                <div class="hogwarts-crest">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span class="crest-snake">🐍</span>
+                </div>
             </div>
 
             <nav class="sidebar-menu">
@@ -64,14 +83,14 @@
             </div>
         </aside>
 
-        <!-- ================= ОСНОВНОЙ КОНТЕНТ (ЦЕНТР + ПРАВАЯ ЧАСТЬ) ================= -->
+        <!-- ================= ОСНОВНОЙ КОНТЕНТ ================= -->
         <main class="main-content">
             
             <div class="top-row">
                 <!-- Центральный блок приветствия -->
                 <section class="hero-center">
                     <p class="welcome-tag">Welcome to our<br>forbidden archive</p>
-                    <h1 class="main-title">DRAMIONE</h1>
+                    <h1 class="main-title animate-text">DRAMIONE</h1>
                     <div class="script-title">forever</div>
                     
                     <p class="hero-subtext">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
@@ -79,8 +98,15 @@
                     <button class="btn-library">Enter Library ➔</button>
                 </section>
 
-                <!-- Правая верхняя карточка: Цитата дня -->
+                <!-- Правая верхняя карточка: Цитата дня + КНОПКА СМЕНЫ ТЕМЫ -->
                 <div class="widget-quote">
+                    <div class="theme-toggle-container">
+                        <span>Сменить атмосферу:</span>
+                        <!-- Кнопка переключения темы -->
+                        <button id="theme-toggle-btn" class="theme-btn" title="Переключить тему">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </div>
                     <h3>Цитата дня</h3>
                     <blockquote>
                         Любовь — это не взгляд друг на друга, а взгляд в одном направлении.
@@ -92,9 +118,9 @@
             <!-- Блок моментов (Our Moments) -->
             <section class="moments-section">
                 <div class="section-divider">
-                    <span>✦ ───✦─── ✦</span>
+                    <span>✦ ─── 🔮 ─── ✦</span>
                     <h2>Our Moments</h2>
-                    <span>✦ ───✦─── ✦</span>
+                    <span>✦ ─── 🔮 ─── ✦</span>
                 </div>
 
                 <div class="moments-grid">
@@ -178,24 +204,4 @@
                 <section class="fate-widget">
                     <h3>Constellation of Fate</h3>
                     <div class="constellation-map">
-                        <!-- Стилизованный рисунок созвездия (SVG) один в один по форме макета -->
                         <svg viewBox="0 0 200 100" class="stars-svg">
-                            <path d="M20,50 L50,30 L90,40 L130,20 L150,50 L180,45" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
-                            <circle cx="20" cy="50" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="50" cy="30" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="90" cy="40" r="4" fill="#a3b899" class="glow-star"/>
-                            <circle cx="130" cy="20" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="150" cy="50" r="3" fill="#fff" class="glow-star"/>
-                            <circle cx="180" cy="45" r="4" fill="#a3b899" class="glow-star"/>
-                        </svg>
-                    </div>
-                    <p class="fate-text">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
-                </section>
-
-            </div>
-
-        </main>
-    </div>
-
-</body>
-</html>
