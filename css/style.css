@@ -1,18 +1,20 @@
-/* ================= ПЕРЕМЕННЫЕ ЦВЕТА ОДИН В ОДИН КАК НА КАРТИНКЕ ================= */
+/* ================= ИСПРАВЛЕННЫЕ ЦВЕТА СТРОГО ПО КАРТИНКЕ ================= */
 :root {
-    --bg-main: #020805;              /* Изумрудно-черный фон */
-    --accent-magic: #1b4d3e;         /* Слизеринский глубокий зеленый */
+    --bg-main: #060104;              /* Сверхтемный винный/черный фон */
+    --accent-magic: #4a0d24;         /* Глубокий бордовый / бургунди */
+    --glow-color: #721c42;           /* Насыщенный винный для свечения */
     --gold-dust: #d4af37;            /* Винтажное золото для декора */
-    --text-light: #e2e8f0;
-    --sidebar-bg: rgba(2, 6, 4, 0.9);
+    --text-light: #cbd5e1;
+    --sidebar-bg: rgba(8, 2, 5, 0.92);
 }
 
-/* Серебряная тема Драко Малфоя (включается кнопкой) */
+/* Вторая тема (по кнопке): мистический глубокий фиолетовый */
 body.silver-theme {
-    --bg-main: #0b0f12;              /* Стальной темно-серый */
-    --accent-magic: #4a5568;         /* Платиновое серебро */
-    --gold-dust: #cbd5e1;            /* Лунное свечение вместо золота */
-    --sidebar-bg: rgba(11, 15, 18, 0.95);
+    --bg-main: #040106;              /* Сверхтемный фиолетовый/черный */
+    --accent-magic: #2e0d4a;         /* Глубокий готический фиолетовый */
+    --glow-color: #511c72;           /* Фиолетовое магическое свечение */
+    --gold-dust: #e2e8f0;            /* Серебряный лунный декор */
+    --sidebar-bg: rgba(5, 2, 8, 0.95);
 }
 
 * {
@@ -29,8 +31,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Основной фон с мягким винно-бордовым радиальным градиентом */
     background: 
-        radial-gradient(circle at 75% 30%, rgba(27, 77, 62, 0.25) 0%, rgba(2, 8, 5, 0.98) 80%),
+        radial-gradient(circle at 75% 30%, rgba(114, 28, 66, 0.25) 0%, rgba(6, 1, 4, 0.98) 85%),
         url('https://unsplash.com') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
@@ -59,7 +62,6 @@ body {
     animation: floatDust 8s infinite linear;
     opacity: 0;
 }
-/* Разбрасываем частицы по экрану */
 .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
 .particle:nth-child(2) { left: 40%; top: 60%; animation-delay: 2s; }
 .particle:nth-child(3) { left: 70%; top: 15%; animation-delay: 4s; }
@@ -80,9 +82,9 @@ body {
     max-width: 1400px;
     height: 90vh;
     min-height: 780px;
-    background: rgba(2, 8, 5, 0.4);
+    background: rgba(6, 1, 4, 0.4);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(212, 175, 55, 0.15); /* Золотая винтажная каемка */
+    border: 1px solid rgba(212, 175, 55, 0.15); /* Золотая каемка */
     border-radius: 12px;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
     overflow: hidden;
@@ -90,7 +92,7 @@ body {
     z-index: 1;
 }
 
-/* ================= ДЕКОР ЛЕВОЙ ПАНЕЛИ ================= */
+/* ================= ЛЕВАЯ ПАНЕЛЬ ================= */
 .sidebar {
     background: var(--sidebar-bg);
     border-right: 1px solid rgba(212, 175, 55, 0.15);
@@ -143,10 +145,10 @@ body {
     margin-bottom: 15px;
 }
 
-/* Герб Слизерина */
+/* Магический герб */
 .hogwarts-crest {
     font-size: 1.5rem;
-    color: var(--accent-magic);
+    color: var(--glow-color);
     margin-bottom: 25px;
     position: relative;
     display: inline-block;
@@ -179,7 +181,7 @@ body {
 
 .menu-item i {
     font-size: 1rem;
-    color: var(--accent-magic);
+    color: var(--glow-color);
     width: 20px;
 }
 
@@ -195,7 +197,7 @@ body {
 }
 
 .menu-item:hover {
-    background: rgba(27, 77, 62, 0.2);
+    background: rgba(114, 28, 66, 0.2);
     border-left: 2px solid var(--gold-dust);
     color: #ffffff;
 }
@@ -209,7 +211,7 @@ body {
 .sidebar-footer-quote p { font-size: 0.75rem; color: #64748b; }
 .sidebar-footer-quote .author { display: block; font-family: 'Cinzel', serif; color: var(--gold-dust); margin-top: 5px; }
 
-/* ================= ОСНОВНОЙ КОНТЕНТ С АНИМАЦИЕЙ ТЕКСТА ================= */
+/* ================= ОСНОВНОЙ КОНТЕНТ ================= */
 .main-content {
     padding: 40px;
     display: flex;
@@ -224,14 +226,14 @@ body {
     gap: 40px;
 }
 
-/* Красивое проявление заголовка DRAMIONE */
+/* Мерцание в винных оттенках */
 .animate-text {
     animation: ancientGlow 4s infinite alternate;
 }
 
 @keyframes ancientGlow {
     0% { text-shadow: 0 0 10px rgba(255,255,255,0.1); }
-    100% { text-shadow: 0 0 25px var(--accent-magic), 0 0 10px var(--gold-dust); }
+    100% { text-shadow: 0 0 25px var(--glow-color), 0 0 10px var(--gold-dust); }
 }
 
 .main-title {
@@ -269,7 +271,7 @@ body {
     color: #000;
 }
 
-/* Переключатель тем внутри блока цитаты */
+/* Контейнер переключения тем */
 .theme-toggle-container {
     display: flex;
     justify-content: space-between;
@@ -301,7 +303,7 @@ body {
 }
 
 .widget-quote {
-    background: rgba(2, 6, 4, 0.6);
+    background: rgba(6, 1, 4, 0.6);
     border: 1px solid rgba(212, 175, 55, 0.15);
     border-radius: 8px;
     padding: 20px;
@@ -318,7 +320,7 @@ body {
 .section-divider h2 { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 4px; font-weight: 400; }
 
 .moments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.moment-card { background: rgba(2, 6, 4, 0.6); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 8px; overflow: hidden; }
+.moment-card { background: rgba(6, 1, 4, 0.6); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 8px; overflow: hidden; }
 .moment-image { height: 110px; background-size: cover; background-position: center; filter: grayscale(20%) brightness(60%); }
 .moment-footer { padding: 15px; }
 .moment-footer h4 { font-size: 0.8rem; margin-bottom: 5px; }
@@ -327,7 +329,7 @@ body {
 .bottom-row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; }
 
 /* Плеер */
-.audio-player { background: rgba(2, 6, 4, 0.7); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 8px; padding: 15px; display: flex; gap: 15px; align-items: center; }
+.audio-player { background: rgba(6, 1, 4, 0.7); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 8px; padding: 15px; display: flex; gap: 15px; align-items: center; }
 .player-cover { width: 85px; height: 85px; background-size: cover; border-radius: 6px; }
 .player-status { font-size: 0.65rem; text-transform: uppercase; color: var(--gold-dust); font-weight: 600; }
 .track-title { font-size: 0.9rem; color: #ffffff; }
@@ -336,4 +338,3 @@ body {
 .time { font-size: 0.65rem; color: #475569; }
 .progress-bar { flex: 1; height: 3px; background: #1e293b; position: relative; }
 .progress-current { width: 45%; height: 100%; background: var(--gold-dust); }
-.player-controls { display: flex; align-items: center; justify-content: space-between; color: #475569; font-size: 0.8rem; }
