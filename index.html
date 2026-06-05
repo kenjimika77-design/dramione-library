@@ -159,39 +159,53 @@
                 </div>
             </section>
 
-            <!-- Нижняя секция: Плеер + Письмо + Созвездие -->
-            <div class="bottom-layout">
-                
-                <!-- Аудиоплеер Rewrite The Stars -->
-                <section class="widget-player">
-                    <div class="album-art" style="background-image: url('https://unsplash.com');"></div>
-                    <div class="player-core">
-                        <span class="status-tag">Now Playing</span>
-                        <h3 class="song-title">Rewrite The Stars</h3>
-                        <p class="song-author">James Arthur & Anne-Marie</p>
-                        
-                        <div class="timeline-area">
-                            <span class="time-stamp" id="current-time">1:23</span>
-                            <div class="progress-track">
-                                <div class="progress-fill"></div>
-                            </div>
-                            <span class="time-stamp">3:37</span>
-                        </div>
+   <!-- Нижняя секция -->
+<div class="bottom-layout">
 
-                        <div class="controls-row">
-                            <button class="player-icon-btn"><i class="fa-solid fa-shuffle"></i></button>
-                            <button class="player-icon-btn"><i class="fa-solid fa-backward-step"></i></button>
-                            <button class="main-play-btn" id="play-trigger"><i class="fa-solid fa-play"></i></button>
-                            <button class="player-icon-btn"><i class="fa-solid fa-forward-step"></i></button>
-                            <button class="player-icon-btn"><i class="fa-solid fa-repeat"></i></button>
-                        </div>
-                    </div>
-                </section>
+    <!-- Плеер -->
+    <section class="widget-player">
 
-                <!-- Письмо из Хогвартса -->
-                <section class="widget-letter">
-                    <div class="letter-background-wrapper" style="background-image: url('https://unsplash.com');">
-                        <div class="letter-dark-blur">
-                            <h3>New Letter</h3>
-                            <p>У вас новое письмо из Хогвартса</p>
-    
+        <div class="album-art"
+             style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');">
+        </div>
+
+        <div class="player-core">
+            <span class="status-tag">Now Playing</span>
+            <h3 class="song-title">Rewrite The Stars</h3>
+            <p class="song-author">James Arthur & Anne-Marie</p>
+
+            <div class="timeline-area">
+                <span>1:23</span>
+
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <span>3:37</span>
+            </div>
+
+            <div class="controls-row">
+                <button><i class="fa-solid fa-backward-step"></i></button>
+                <button><i class="fa-solid fa-play"></i></button>
+                <button><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Письмо -->
+    <section class="widget-letter">
+        <div class="letter-background-wrapper"
+             style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');">
+
+            <div class="letter-dark-blur">
+                <h3>New Letter</h3>
+                <p>У вас новое письмо из Хогвартса</p>
+
+                <button class="btn-read">Читать</button>
+            </div>
+
+        </div>
+    </section>
+
+</div>
