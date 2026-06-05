@@ -4,134 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovers — Наша история вечна</title>
-    <!-- Подключение иконок FontAwesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Готические и магические шрифты -->
-   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Подключение внешнего CSS из папки css -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <!-- Фоновое свечение -->
-    <div class="background-glow"></div>
+<div class="background-glow"></div>
+<div class="floating-dust"></div>
 
-    <div class="wrapper">
-        <!-- ЛЕВОЕ МЕНЮ (Sidebar) -->
-        <aside class="sidebar">
-            <div class="logo-area">
-                <h1>Lovers</h1>
-                <div class="logo-heart"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+<div class="wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <h1>Lovers</h1>
+            <div class="logo-heart"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        </div>
+
+        <nav class="menu-links">
+            <a class="menu-item active" href="#"><i class="fa-solid fa-castle"></i> Home</a>
+            <a class="menu-item" href="#"><i class="fa-solid fa-book"></i> Diary</a>
+            <a class="menu-item" href="#"><i class="fa-solid fa-feather"></i> Messages</a>
+            <a class="menu-item" href="#"><i class="fa-solid fa-scroll"></i> Gallery</a>
+            <a class="menu-item" href="#"><i class="fa-solid fa-music"></i> Playlist</a>
+        </nav>
+
+        <div class="sidebar-quote">
+            «Ты — мое любимое “что, если”»
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-pane">
+
+        <header class="top-navbar">
+            <div class="welcome-msg">Добро пожаловать</div>
+            <div class="top-actions">
+                <i class="fa-regular fa-moon"></i>
             </div>
+        </header>
 
-            <nav class="menu-links">
-                <a href="#" class="menu-item active">
-                    <i class="fa-solid fa-castle"></i>
-                    <div>Home <span>вернуться домой</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-book-bible"></i>
-                    <div>Diary <span>мои мысли</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-feather"></i>
-                    <div>Messages <span>наши письма</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-scroll"></i>
-                    <div>Gallery <span>наши моменты</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-music"></i>
-                    <div>Playlist <span>мелодии любви</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-ring"></i>
-                    <div>Store <span>наши вещи</span></div>
-                </a>
-            </nav>
+        <!-- HERO -->
+        <section class="hero-banner">
+            <span class="hero-tag">— чистокровный и маглорожденная —</span>
 
-            <div class="sidebar-quote">
-                «Ты — мое любимое "что, если", которое сбылось»
-            </div>
-        </aside>
+            <div class="magic-divider"></div>
 
-        <!-- ОСНОВНОЙ КОНТЕНТ -->
-        <main class="main-pane">
-            
-            <!-- Верхний бар -->
-            <header class="top-navbar">
-                <div class="welcome-msg">Добро пожаловать в наш мир</div>
-               <div class="top-actions">
-             <i class="fa-regular fa-moon"></i>
-            </div>
-            </header>
+            <h2>Наша история<br><span>вечна...</span></h2>
 
-            <!-- Середина: Главный баннер и Музыкальный Плеер -->
-            <div class="mid-section">
-                
-                <section class="hero-banner">
-                    <span class="hero-tag">— чистокровный и маглорожденная —</span>
-                    <div class="magic-divider"></div>
-                    <h2>Наша история<br><span>вечна... 🐍</span></h2>
-                    <p class="hero-desc">
-                        Добро пожаловать в наш личный портал. Здесь живет наша любовь, наши воспоминания и наши мечты под сводами Хогвартса.
-                    </p>
-                    <button class="btn-enter">
-                        Войти в мир <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </section>
+            <p class="hero-desc">
+                Здесь живет наша любовь, воспоминания и магия, которую невозможно разрушить.
+            </p>
 
-                <!-- Плеер -->
-               <section class="fate-card">
-    <div class="constellation"></div>
+            <button class="btn-enter">
+                Войти в мир <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
 
-    <h3>Созвездие Судьбы</h3>
+        <!-- FATE CARD -->
+        <section class="fate-card">
+            <div class="constellation"></div>
+            <h3>Созвездие Судьбы</h3>
+            <p>Лев и Дракон связаны нитями магии навсегда.</p>
+        </section>
 
-    <p>
-        Лев и Дракон связаны нитями магии,
-        которые невозможно разорвать.
-    </p>
-</section>
+        <!-- MOMENTS -->
+        <section class="moments">
+            <h4 class="section-title">Наши моменты</h4>
 
-            </div>
-
-            <!-- Низ: Карточки воспоминаний и цитата -->
-            <div class="bottom-section">
-                
-                <div>
-                    <div class="moments-title">Наши моменты</div>
-                    <div class="moments-row">
-                        <div class="moment-card">
-                            <div class="moment-img-stub"></div>
-                            <h4>Первая встреча</h4>
-                            <span>14.02.2022</span>
-                        </div>
-                        <div class="moment-card">
-                            <div class="moment-img-stub"></div>
-                            <h4>Ты сказал «Люблю»</h4>
-                            <span>07.07.2022</span>
-                        </div>
-                        <div class="moment-card">
-                            <div class="moment-img-stub"></div>
-                            <h4>Навсегда</h4>
-                            <span>01.01.2023</span>
-                        </div>
-                    </div>
+            <div class="moments-row">
+                <div class="moment-card">
+                    <div class="img"></div>
+                    <h5>Первая встреча</h5>
+                    <span>14.02.2022</span>
                 </div>
 
-                <div class="quote-box">
-                    <h5>« Цитата дня</h5>
-                    <p>Любовь — это не взгляд друг на друга, а взгляд в одном направлении.</p>
-                   <span class=
-                "author"> — Антуан де Сент-Экзюпери</span>
+                <div class="moment-card">
+                    <div class="img"></div>
+                    <h5>Любовь</h5>
+                    <span>07.07.2022</span>
                 </div>
 
+                <div class="moment-card">
+                    <div class="img"></div>
+                    <h5>Навсегда</h5>
+                    <span>01.01.2023</span>
+                </div>
             </div>
+        </section>
 
-        </main>
-    </div>
+        <!-- QUOTE -->
+        <section class="quote-box">
+            <p>«Любовь — это смотреть в одном направлении»</p>
+            <span class="author">— Антуан де Сент-Экзюпери</span>
+        </section>
+
+    </main>
+</div>
 
 </body>
 </html>
