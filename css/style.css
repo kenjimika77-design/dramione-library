@@ -28,20 +28,21 @@ body {
     background-color: var(--bg-dark-castle);
     color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
+
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: 
+
+    background:
         radial-gradient(circle at 75% 35%, rgba(86, 15, 43, 0.28) 0%, var(--bg-dark-castle) 80%),
-        url('https://unsplash.com') no-repeat center center;
+        url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center center;
+
     background-size: cover;
     background-attachment: fixed;
+
     position: relative;
     overflow-x: hidden;
+
     transition: all 0.5s ease;
 }
-
 /* ================= ЭФФЕКТ ЗОЛОТОЙ МАГИЧЕСКОЙ ПЫЛИ ================= */
 .magic-sparkles {
     position: fixed;
