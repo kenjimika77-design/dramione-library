@@ -1,10 +1,18 @@
 /* ================= ОРИГИНАЛЬНАЯ ГОТИЧЕСКАЯ ПАЛИТРА МАКЕТА ================= */
 :root {
     --bg-dark-castle: #050103;         
-    --burgundy-velvet: #19030b; /* Насыщенный темно-бордовый цвет блоков со скрина */
-    --vintage-gold: #c5a880;    /* Позолоченный благородный оттенок текста */
-    --text-main: rgba(255, 255, 255, 0.65);
-    --card-border: rgba(197, 168, 128, 0.3); /* Тонкая золотая рамка */
+    --burgundy-dark: #120107; /* Истинный темный бордово-черный цвет блоков с фото */
+    --burgundy-light: #2d0414; /* Внутреннее бордовое свечение градиента */
+    --vintage-gold: #e5c185; /* Позолоченный яркий цвет для текста */
+    --text-muted: rgba(255, 255, 255, 0.55);
+    --card-border: rgba(229, 193, 133, 0.25); /* Тонкие золотые рамочки */
+}
+
+body.alternative-magic-theme {
+    --burgundy-dark: #05010a;
+    --burgundy-light: #160326;
+    --vintage-gold: #c0c0c0; /* Переключение на серебряную лунную тему */
+    --card-border: rgba(192, 192, 192, 0.25);
 }
 
 * {
@@ -15,7 +23,7 @@
 
 body {
     background-color: var(--bg-dark-castle);
-    color: var(--text-main);
+    color: var(--text-muted);
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
     display: flex;
@@ -24,14 +32,14 @@ body {
     overflow: hidden;
     position: relative;
     
-    /* ИДЕАЛЬНО ОТКРЫТЫЙ ФОН: тень убрана от центра, голова Гермионы и Драко полностью видны */
+    /* Идеальная центровка вашей картинки 1536x1024 */
     background: 
-        radial-gradient(circle at 72% 26%, rgba(5, 1, 3, 0) 30%, var(--bg-dark-castle) 85%),
+        radial-gradient(circle at 68% 28%, rgba(5, 1, 3, 0) 25%, var(--bg-dark-castle) 80%),
         url('../images/bg.jpg') no-repeat center center;
     background-size: cover;
 }
 
-/* ================= ГЛАВНЫЙ ПРОЗРАЧНЫЙ ФРЕЙМ ================= */
+/* ================= МОНОЛИТНЫЙ ИГРОВОЙ КОНТЕЙНЕР ================= */
 .app-container {
     display: grid;
     grid-template-columns: 240px 1fr 265px; 
@@ -39,45 +47,21 @@ body {
     max-width: 1400px;
     height: 90vh;
     min-height: 650px;
-    background: transparent; /* Полностью прозрачный фон интерфейса */
+    border: 1px solid rgba(229, 193, 133, 0.1);
+    border-radius: 12px;
     overflow: hidden;
-}
-
-/* ================= ЭФФЕКТ ТЕМНО-БОРДОВЫХ РЕЗНЫХ БЛОКОВ С ЗОЛОТОМ ================= */
-.gothic-block {
-    background-color: var(--burgundy-velvet) !important;
-    border: 1px solid var(--card-border);
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.6);
-}
-
-/* Отрисовка изящных резных золотых уголков на чистом CSS */
-.gothic-block .corner {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border: 1px solid var(--vintage-gold);
-    z-index: 2;
-}
-.gothic-block .corner.tl { top: 3px; left: 3px; border-right: none; border-bottom: none; }
-.gothic-block .corner.tr { top: 3px; right: 3px; border-left: none; border-bottom: none; }
-.gothic-block .corner.bl { bottom: 3px; left: 3px; border-right: none; border-top: none; }
-.gothic-block .corner.br { bottom: 3px; right: 3px; border-left: none; border-top: none; }
-
-/* ПОЗОЛОЧЕННЫЙ ШРИФТ ЗАГОЛОВКОВ */
-.gold-text-shimmer {
-    color: var(--vintage-gold) !important;
-    font-family: 'Cinzel', serif;
-    text-shadow: 0 0 6px rgba(197, 168, 128, 0.35);
+    box-shadow: 0 45px 95px rgba(0, 0, 0, 0.95);
 }
 
 /* ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= */
 .sidebar {
-    padding: 30px 15px;
+    background: linear-gradient(to bottom, #090205, #040103);
+    border-right: 1px solid var(--card-border);
+    padding: 30px 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 8px 0 0 8px;
+    backdrop-filter: blur(25px);
 }
 
 .vintage-logo {
@@ -101,30 +85,50 @@ body {
     color: var(--vintage-gold);
     bottom: -6px;
     right: -6px;
-    background: var(--burgundy-velvet);
+    background: #050103;
     border-radius: 50%;
     width: 18px;
     height: 18px;
     line-height: 16px;
 }
 
-.sidebar-header .subtitle { font-size: 0.55rem; letter-spacing: 3px; color: var(--vintage-gold); text-align: center; margin-top: 2px; }
-.stars-divider { text-align: center; font-size: 0.6rem; color: rgba(197, 168, 128, 0.25); margin: 15px 0; }
+.sidebar-header h2 { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px; color: var(--vintage-gold); text-align: center; text-shadow: 0 0 5px rgba(229, 193, 133, 0.3); }
+.sidebar-header .subtitle { font-size: 0.55rem; letter-spacing: 3px; color: #ffffff; opacity: 0.7; text-align: center; margin-top: 2px; }
+.stars-divider { text-align: center; font-size: 0.6rem; color: rgba(229, 193, 133, 0.3); margin: 15px 0; }
 
 .sidebar-menu { display: flex; flex-direction: column; gap: 4px; }
 .menu-item { display: flex; align-items: center; gap: 12px; color: rgba(255, 255, 255, 0.45); text-decoration: none; padding: 8px 12px; border-radius: 6px; transition: all 0.3s; }
-.menu-item i { font-size: 0.85rem; color: var(--vintage-gold); opacity: 0.6; width: 15px; text-align: center; }
+.menu-item i { font-size: 0.85rem; color: var(--vintage-gold); opacity: 0.7; width: 15px; text-align: center; }
 .menu-text { font-size: 0.75rem; font-weight: 500; }
 .menu-text span { display: block; font-size: 0.6rem; color: rgba(255, 255, 255, 0.18); }
 
-.menu-item:hover, .menu-item.active { background: rgba(255, 255, 255, 0.03); border-left: 1px solid var(--vintage-gold); color: #ffffff; }
+.menu-item:hover, .menu-item.active { background: rgba(45, 4, 20, 0.4); border-left: 2px solid var(--vintage-gold); color: #ffffff; }
 .menu-item:hover i, .menu-item.active i { opacity: 1; }
 
-.sidebar-footer-quote { border-top: 1px solid rgba(255, 255, 255, 0.04); padding-top: 15px; text-align: center; }
+/* Кнопка смены темы в левом блоке */
+.sidebar-theme-btn {
+    background: transparent;
+    border: 1px solid rgba(229, 193, 133, 0.25);
+    color: var(--vintage-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+.sidebar-theme-btn:hover { background: rgba(229, 193, 133, 0.1); border-color: var(--vintage-gold); }
+
+.sidebar-footer-quote { border-top: 1px solid rgba(229, 193, 133, 0.15); padding-top: 15px; text-align: center; }
 .sidebar-footer-quote p { font-size: 0.7rem; color: rgba(255, 255, 255, 0.3); line-height: 1.4; }
 .sidebar-footer-quote .author { display: block; font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--vintage-gold); margin-top: 3px; }
 
-/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= */
+/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ (ОТКРЫТАЯ) ================= */
 .main-content {
     padding: 30px;
     display: flex;
@@ -134,13 +138,15 @@ body {
 }
 
 .hero-block { text-align: left; max-width: 420px; } 
-.welcome-text { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.4); line-height: 1.4; }
-.ornament-top { color: var(--vintage-gold); font-size: 0.8rem; margin: 4px 0 0px; opacity: 0.4; }
+.welcome-text { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--vintage-gold); opacity: 0.8; line-height: 1.4; }
+.ornament-top { color: var(--vintage-gold); font-size: 0.8rem; margin: 4px 0 0px; opacity: 0.6; }
 
 .main-title {
+    font-family: 'Cinzel', serif;
     font-size: 3rem;
     letter-spacing: 8px;
-    font-weight: 400;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(229, 193, 133, 0.4);
 }
 
 .handwritten-sub {
@@ -149,39 +155,39 @@ body {
     color: var(--vintage-gold);
     margin-top: -20px;
     margin-bottom: 12px;
-    padding-left: 5px;
+    text-shadow: 0 0 10px rgba(229, 193, 133, 0.5);
 }
 
-.hero-description { font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 15px; }
+.hero-description { font-size: 0.75rem; color: #ffffff; opacity: 0.7; line-height: 1.5; margin-bottom: 15px; }
 
-/* УТОНЧЕННАЯ КНОПКА С ЗОЛОТОЙ ОБВОДКОЙ */
+/* УТОНЧЕННАЯ КНОПКА С ЗОЛОТОЙ РАМКОЙ */
 .btn-enter {
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, var(--burgundy-light) 0%, var(--burgundy-dark) 100%);
     border: 1px solid var(--vintage-gold);
-    color: var(--vintage-gold);
+    color: #ffffff;
     padding: 10px 24px;
     font-family: 'Montserrat', sans-serif; 
     font-size: 0.75rem;
     cursor: pointer;
     border-radius: 4px;
-    box-shadow: 0 0 15px rgba(197, 168, 128, 0.1);
+    box-shadow: 0 0 15px rgba(229, 193, 133, 0.2);
     transition: all 0.3s;
 }
-.btn-enter:hover { background: var(--vintage-gold); color: #000; box-shadow: 0 0 20px var(--vintage-gold); }
+.btn-enter:hover { box-shadow: 0 0 25px var(--vintage-gold); transform: translateY(-1px); }
 
-/* СЕКЦИЯ КАРТОЧЕК OUR MOMENTS */
+/* РЕЗНЫЕ КАРТОЧКИ С ТЕМНЫМ БОРДОВЫМ ЦВЕТОМ */
+.moments-header h2 { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--vintage-gold); text-align: center; letter-spacing: 2px; }
 .moments-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px; }
-.line-decor { color: rgba(197, 168, 128, 0.3); font-size: 0.65rem; }
+.line-decor { color: var(--vintage-gold); opacity: 0.5; font-size: 0.65rem; }
 
-.moments-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
+.moments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 
 .moment-card {
+    background: radial-gradient(circle, var(--burgundy-light) 0%, var(--burgundy-dark) 100%); 
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.7), inset 0 0 15px rgba(229,193,133,0.05);
 }
 
 .card-img {
@@ -192,69 +198,49 @@ body {
 }
 
 .card-body { padding: 10px 12px; }
-.card-body h4 { font-size: 0.75rem; margin-bottom: 4px; }
-.card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: rgba(255,255,255,0.3); }
-.like-btn { background: transparent; border: none; color: rgba(255,255,255,0.3); cursor: pointer; font-size: 0.75rem; }
+.card-body h4 { font-size: 0.75rem; color: #ffffff; font-weight: 500; margin-bottom: 4px; }
+.card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--vintage-gold); opacity: 0.6; }
+.like-btn { background: transparent; border: none; color: rgba(255,255,255,0.4); cursor: pointer; }
 .like-btn:hover { color: #ef4444; }
 
-/* НИЖНИЙ РЯД ВИДЖЕТОВ */
-.bottom-widgets-row {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 15px;
-}
+/* ТЕМНЫЕ ВИДЖЕТЫ ПЛЕЕРА И ПИСЬМА */
+.bottom-widgets-row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 15px; }
 
 .widget-player, .widget-letter {
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle, var(--burgundy-light) 0%, var(--burgundy-dark) 100%);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 12px;
+    gap: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
 .album-art, .letter-art { width: 70px; height: 70px; border-radius: 4px; background-size: cover; background-position: center; flex-shrink: 0; }
 .player-core, .letter-core { flex-grow: 1; display: flex; flex-direction: column; }
 .status-tag, .letter-tag { font-size: 0.55rem; text-transform: uppercase; color: var(--vintage-gold); letter-spacing: 1px; margin-bottom: 2px; }
-.song-title, .widget-letter h3 { font-size: 0.8rem; font-weight: 500; }
-.song-author { font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
+.song-title, .widget-letter h3 { font-size: 0.8rem; color: #ffffff; font-weight: 500; }
+.song-author { font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
 
-.timeline-area { display: flex; align-items: center; gap: 8px; font-size: 0.6rem; color: rgba(255,255,255,0.25); margin-bottom: 6px; }
-.progress-track { flex-grow: 1; height: 2px; background: rgba(255,255,255,0.04); position: relative; }
-.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 35%; background: var(--vintage-gold); }
+.timeline-area { display: flex; align-items: center; gap: 8px; font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+.progress-track { flex-grow: 1; height: 2px; background: rgba(255,255,255,0.06); position: relative; }
+.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 35%; background: var(--vintage-gold); box-shadow: 0 0 5px var(--vintage-gold); }
 
 .controls-row { display: flex; gap: 14px; align-items: center; }
-.p-btn { background: transparent; border: none; color: rgba(255,255,255,0.3); cursor: pointer; font-size: 0.7rem; }
-.p-btn:hover { color: #fff; }
+.p-btn { background: transparent; border: none; color: rgba(255,255,255,0.4); cursor: pointer; font-size: 0.7rem; }
+.p-btn:hover { color: var(--vintage-gold); }
 
-.play-main-btn { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid rgba(197, 168, 128, 0.4); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem; cursor: pointer; }
-.play-main-btn i { margin-left: 2px; }
+.play-main-btn { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid var(--vintage-gold); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem; cursor: pointer; }
+.play-main-btn i { margin-left: 2px; color: var(--vintage-gold); }
 
 .btn-read-letter {
-    background: rgba(0, 0, 0, 0.3); border: 1px solid var(--vintage-gold);
-    color: var(--vintage-gold); padding: 5px 16px; font-size: 0.65rem; border-radius: 4px;
+    background: rgba(255,255,255,0.02); border: 1px solid var(--vintage-gold);
+    color: #ffffff; padding: 5px 16px; font-size: 0.65rem; border-radius: 4px;
     cursor: pointer; margin-top: 6px; width: fit-content; display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'Montserrat', sans-serif;
 }
+.btn-read-letter:hover { box-shadow: 0 0 10px var(--vintage-gold); }
 
-/* ================= ПРАВАЯ ПАНЕЛЬ (ПОЛНОСТЬЮ ОТКРЫТАЯ И ПРОЗРАЧНАЯ) ================= */
+/* ================= ПРАВАЯ ПАНЕЛЬ (ПЕРЕДВИНУТАЯ ВНИЗ) ================= */
 .right-sidebar {
-    background: transparent; /* Убран плотный черный цвет — волосы Гермионы идеально видны */
-    border-left: 1px solid var(--card-border);
-    padding: 25px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Распределение строго по вертикали */
-}
-
-/* ВЕРХНИЙ БЛОК: ГЕРБЫ ПАРИЯТ НАД ВОЛОСАМИ */
-.crests-flex {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.shield-item {
-    position: relative;
-    font-size: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.shield-item.lion-crest i { color: #8c152a; filter: drop-shadow(0 0 10px rgba(140, 21, 42, 0.5)); }
-.shield-item.snake-crest i { color: #174e37; filter: drop-shadow(0 0 10px rgba(23, 78, 55, 0.5)); }
+    background: transparent; /* Полная прозрачность — лица героев идеально открыты */
