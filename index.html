@@ -10,194 +10,140 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <!-- Магическая золотая пыль на фоне -->
-    <div class="magic-sparkles">
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-    </div>
+<!-- магия -->
+<div class="magic-sparkles">
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+</div>
 
-    <div class="container">
-        
-        <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <!-- Кастомный вензель буквы D с узорами цветов -->
-                <div class="vintage-logo">
-                    <span class="letter">D</span>
-                    <div class="floral-decor">❀</div>
-                </div>
-                <h2>DRAMIONE LIBRARY</h2>
-                <p class="subtitle">FORBIDDEN ARCHIVE</p>
-                <div class="stars-divider">✦ ── ⚜ ── ✦</div>
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+
+            <div class="vintage-logo">
+                D
+                <div class="floral-decor">❀</div>
             </div>
 
-            <!-- Вертикальное навигационное меню -->
-            <nav class="sidebar-menu">
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-book-bookmark"></i>
-                    <div class="menu-text">Archive <span>Архив историй</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <div class="menu-text">Magic Entries <span>Магические записи</span></div>
-                </a>
-                <a href="#" class="menu-item active">
-                    <i class="fa-solid fa-heart"></i>
-                    <div class="menu-text">Love Stories <span>Истории любви</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-moon"></i>
-                    <div class="menu-text">Night Section <span>Ночные разделы</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-key"></i>
-                    <div class="menu-text">Restricted <span>Запретное</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-hourglass-half"></i>
-                    <div class="menu-text">Memories <span>Воспоминания</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-envelope-open-text"></i>
-                    <div class="menu-text">Letters <span>Письма</span></div>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-user-shield"></i>
-                    <div class="menu-text">About Us <span>О нас</span></div>
-                </a>
-            </nav>
+            <h2>DRAMIONE LIBRARY</h2>
+            <p class="subtitle">FORBIDDEN ARCHIVE</p>
+            <div class="stars-divider">✦ ── ⚜ ── ✦</div>
+        </div>
 
-            <!-- Цитата внизу сайдбара -->
-            <div class="sidebar-footer-quote">
-                <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
-                <span class="author">— D & H</span>
-            </div>
-        </aside>
+        <nav class="sidebar-menu">
+            <a href="#" class="menu-item active"><i class="fa-solid fa-heart"></i>
+                <div class="menu-text">Love Stories <span>Истории любви</span></div>
+            </a>
+        </nav>
 
-        <!-- ================= ОСНОВНОЙ КОНТЕНТ ================= -->
-        <main class="main-content">
-            
-            <!-- Верхняя секция: Приветствие + Главный блок + Цитата -->
-            <div class="top-layout">
-                
-                <section class="hero-block">
-                    <p class="welcome-text">Welcome to our<br>forbidden archive</p>
-                    <div class="ornament-top">⚜</div>
-                    <h1 class="main-title">DRAMIONE</h1>
-                    <div class="handwritten-sub">forever</div>
-                    
-                    <p class="hero-description">
-                        Два сердца. Два мира. Одна любовь, которую невозможно разрушить.
-                    </p>
-                    
-                    <button class="btn-enter">Enter Library ➔</button>
-                </section>
+        <div class="sidebar-footer-quote">
+            <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
+            <span class="author">— D & H</span>
+        </div>
+    </aside>
 
-                <!-- Правый верхний виджет: Цитата дня + Активная кнопка темы -->
-                <div class="widget-quote">
-                    <div class="theme-switch-zone">
-                        <span>Атмосфера:</span>
-                        <button id="atmosphere-toggle" class="theme-toggle-btn" title="Сменить атмосферу Хогвартса">
-                            <i class="fa-solid fa-wand-sparkles"></i>
-                        </button>
-                    </div>
-                    <h3>Цитата дня</h3>
-                    <blockquote>
-                        «Любовь — это не взгляд друг на друга, а взгляд в одном направлении.»
-                    </blockquote>
-                    <cite>— Антуан де Сент-Экзюпери</cite>
-                </div>
-            </div>
+    <!-- MAIN -->
+    <main class="main-content">
 
-            <!-- Центральная секция: Our Moments -->
-            <section class="moments-section">
-                <div class="moments-header">
-                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
-                    <h2>Our Moments</h2>
-                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
-                </div>
+        <div class="top-layout">
 
-                <div class="moments-grid">
-                    <!-- Карточка 1 -->
-                    <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                        <div class="card-body">
-                            <h4>Первая встреча</h4>
-                            <div class="card-meta">
-                                <span>14.02.2022</span>
-                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Карточка 2 -->
-                    <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                        <div class="card-body">
-                            <h4>Ты сказал «Люблю»</h4>
-                            <div class="card-meta">
-                                <span>07.07.2022</span>
-                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Карточка 3 -->
-                    <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                        <div class="card-body">
-                            <h4>Навсегда</h4>
-                            <div class="card-meta">
-                                <span>01.01.2023</span>
-                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <section class="hero-block">
+                <p class="welcome-text">Welcome</p>
+
+                <div class="ornament-top">⚜</div>
+
+                <h1 class="main-title">DRAMIONE</h1>
+
+                <div class="handwritten-sub">forever</div>
+
+                <p class="hero-description">
+                    Два сердца. Два мира. Одна любовь.
+                </p>
+
+                <button class="btn-enter">Enter Library ➔</button>
             </section>
 
-            <!-- Нижняя секция -->
-            <div class="bottom-layout">
+            <div class="widget-quote">
+                <div class="theme-switch-zone">
+                    <span>Атмосфера</span>
+                    <button id="atmosphere-toggle" class="theme-toggle-btn">
+                        <i class="fa-solid fa-wand-sparkles"></i>
+                    </button>
+                </div>
 
-                <!-- Плеер -->
-                <section class="widget-player">
+                <h3>Цитата дня</h3>
 
-                    <div class="album-art"
-                         style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');">
+                <blockquote>
+                    «Любовь — это взгляд в одном направлении.»
+                </blockquote>
+
+                <cite>— Экзюпери</cite>
+            </div>
+
+        </div>
+
+        <!-- MOMENTS -->
+        <section class="moments-section">
+            <h2>Our Moments</h2>
+
+            <div class="moments-grid">
+
+                <div class="moment-card">
+                    <div class="card-img"></div>
+                    <div class="card-body">
+                        <h4>Первая встреча</h4>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PLAYER -->
+        <div class="bottom-layout">
+
+            <section class="widget-player">
+
+                <div class="album-art"
+                     style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');">
+                </div>
+
+                <div class="player-core">
+
+                    <h3 class="song-title">Rewrite The Stars</h3>
+                    <p class="song-author">James Arthur & Anne-Marie</p>
+
+                    <div class="controls-row">
+                        <button><i class="fa-solid fa-backward-step"></i></button>
+                        <button><i class="fa-solid fa-play"></i></button>
+                        <button><i class="fa-solid fa-forward-step"></i></button>
                     </div>
 
-                    <div class="player-core">
-                        <span class="status-tag">Now Playing</span>
-                        <h3 class="song-title">Rewrite The Stars</h3>
-                        <p class="song-author">James Arthur & Anne-Marie</p>
+                </div>
 
-                        <div class="timeline-area">
-                            <span>1:23</span>
+            </section>
 
-                            <div class="progress-track">
-                                <div class="progress-fill"></div>
-                            </div>
+        </div>
 
-                            <span>3:37</span>
-                        </div>
+    </main>
 
-                        <div class="controls-row">
-                            <button><i class="fa-solid fa-backward-step"></i></button>
-                            <button><i class="fa-solid fa-play"></i></button>
-                            <button><i class="fa-solid fa-forward-step"></i></button>
-                        </div>
-                    </div>
+</div>
 
-                </section>
-                
-            </div> <!-- Конец bottom-layout -->
+<!-- JS ТЕМА -->
+<script>
+const btn = document.getElementById("atmosphere-toggle");
 
-        </main> <!-- Конец main-content -->
-
-    </div> <!-- Конец container -->
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("alternative-magic-theme");
+});
+</script>
 
 </body>
 </html>
