@@ -1,18 +1,21 @@
-/* ================= ОРИГИНАЛЬНАЯ ГОТИЧЕСКАЯ ПАЛИТРА МАКЕТА ================= */
+/* ================= ОРИГИНАЛЬНАЯ ГОТИЧЕСКАЯ ПАЛИТРА С ХАРАКТЕРИСТИКАМИ АРТА ================= */
 :root {
     --bg-dark-castle: #050103;         
-    --burgundy-dark: #120107; /* Истинный темный бордово-черный цвет блоков с фото */
-    --burgundy-light: #2d0414; /* Внутреннее бордовое свечение градиента */
-    --vintage-gold: #e5c185; /* Позолоченный яркий цвет для текста */
-    --text-muted: rgba(255, 255, 255, 0.55);
-    --card-border: rgba(229, 193, 133, 0.25); /* Тонкие золотые рамочки */
+    --burgundy-velvet: #2d0414;        
+    --vintage-gold: #bfa16f; /* Мягкое золото */
+    --text-main: rgba(255, 255, 255, 0.6);
+    --card-border: rgba(191, 161, 111, 0.08);
+    
+    /* ТЕМНЫЙ ЦВЕТ БЛОКОВ СБЛИЖЕННЫЙ К СИНЕМУ ПО ВАШЕМУ ЗАПРОСУ */
+    --widget-bg-custom: #120c16; 
+    
+    /* ЦВЕТ ДЛЯ ОПИСАНИЯ СОЗВЕЗДИЯ */
+    --constellation-text-color: #845e48;
 }
 
 body.alternative-magic-theme {
-    --burgundy-dark: #05010a;
-    --burgundy-light: #160326;
-    --vintage-gold: #c0c0c0; /* Переключение на серебряную лунную тему */
-    --card-border: rgba(192, 192, 192, 0.25);
+    --widget-bg-custom: #08111e; /* Альтернативный мистический сине-черный */
+    --vintage-gold: #9ca3af;
 }
 
 * {
@@ -23,7 +26,7 @@ body.alternative-magic-theme {
 
 body {
     background-color: var(--bg-dark-castle);
-    color: var(--text-muted);
+    color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
     display: flex;
@@ -32,9 +35,10 @@ body {
     overflow: hidden;
     position: relative;
     
-    /* Идеальная центровка вашей картинки 1536x1024 */
+    /* Круг градиента смещен строго в область между персонажами, 
+       чтобы голова Гермионы и область гербов сверху были полностью открыты */
     background: 
-        radial-gradient(circle at 68% 28%, rgba(5, 1, 3, 0) 25%, var(--bg-dark-castle) 80%),
+        radial-gradient(circle at 65% 25%, rgba(5, 1, 3, 0) 30%, var(--bg-dark-castle) 78%),
         url('../images/bg.jpg') no-repeat center center;
     background-size: cover;
 }
@@ -47,7 +51,7 @@ body {
     max-width: 1400px;
     height: 90vh;
     min-height: 650px;
-    border: 1px solid rgba(229, 193, 133, 0.1);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 45px 95px rgba(0, 0, 0, 0.95);
@@ -55,15 +59,16 @@ body {
 
 /* ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= */
 .sidebar {
-    background: linear-gradient(to bottom, #090205, #040103);
+    background: var(--widget-bg-custom); /* Перекрашена в темный #120c16 */
     border-right: 1px solid var(--card-border);
-    padding: 30px 18px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(15px);
 }
 
+/* ОБЪЕМНАЯ БУКВА D В ЛОГОТИПЕ */
 .vintage-logo {
     font-family: 'Cinzel', serif;
     font-size: 2.2rem;
@@ -76,7 +81,13 @@ body {
     border-radius: 4px;
     position: relative;
     text-align: center;
-    text-shadow: 0 0 10px var(--vintage-gold);
+    
+    /* Многослойные тени для создания честного эффекта объема */
+    text-shadow: 
+        1px 1px 0px #8b6d37,
+        2px 2px 0px #6e5428,
+        3px 3px 5px rgba(0,0,0,0.8),
+        0 0 10px rgba(191, 161, 111, 0.4);
 }
 
 .floral-decor {
@@ -85,50 +96,71 @@ body {
     color: var(--vintage-gold);
     bottom: -6px;
     right: -6px;
-    background: #050103;
+    background: #120c16;
     border-radius: 50%;
     width: 18px;
     height: 18px;
     line-height: 16px;
 }
 
-.sidebar-header h2 { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px; color: var(--vintage-gold); text-align: center; text-shadow: 0 0 5px rgba(229, 193, 133, 0.3); }
-.sidebar-header .subtitle { font-size: 0.55rem; letter-spacing: 3px; color: #ffffff; opacity: 0.7; text-align: center; margin-top: 2px; }
-.stars-divider { text-align: center; font-size: 0.6rem; color: rgba(229, 193, 133, 0.3); margin: 15px 0; }
+/* ОБЪЕМНОЕ НАЗВАНИЕ САЙТА */
+.site-title-3d {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    
+    /* Объемные текстовые тени */
+    text-shadow: 
+        1px 1px 0px rgba(191, 161, 111, 0.5),
+        2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.sidebar-header .subtitle { font-size: 0.55rem; letter-spacing: 3px; color: var(--vintage-gold); text-align: center; margin-top: 2px; }
+.stars-divider { text-align: center; font-size: 0.6rem; color: rgba(191, 161, 111, 0.25); margin: 10px 0; }
 
 .sidebar-menu { display: flex; flex-direction: column; gap: 4px; }
 .menu-item { display: flex; align-items: center; gap: 12px; color: rgba(255, 255, 255, 0.45); text-decoration: none; padding: 8px 12px; border-radius: 6px; transition: all 0.3s; }
-.menu-item i { font-size: 0.85rem; color: var(--vintage-gold); opacity: 0.7; width: 15px; text-align: center; }
+.menu-item i { font-size: 0.85rem; color: var(--vintage-gold); opacity: 0.6; width: 15px; text-align: center; }
 .menu-text { font-size: 0.75rem; font-weight: 500; }
 .menu-text span { display: block; font-size: 0.6rem; color: rgba(255, 255, 255, 0.18); }
 
-.menu-item:hover, .menu-item.active { background: rgba(45, 4, 20, 0.4); border-left: 2px solid var(--vintage-gold); color: #ffffff; }
+.menu-item:hover, .menu-item.active { background: rgba(86, 15, 43, 0.2); border-left: 1px solid var(--vintage-gold); color: #ffffff; }
 .menu-item:hover i, .menu-item.active i { opacity: 1; }
 
-/* Кнопка смены темы в левом блоке */
-.sidebar-theme-btn {
-    background: transparent;
-    border: 1px solid rgba(229, 193, 133, 0.25);
-    color: var(--vintage-gold);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    padding: 6px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+/* МАЛЕНЬКАЯ КНОПКА СМЕНЫ ТЕМЫ В СИДБАРЕ */
+.theme-switch-container {
+    display: flex;
     justify-content: center;
+    margin: 10px 0;
 }
-.sidebar-theme-btn:hover { background: rgba(229, 193, 133, 0.1); border-color: var(--vintage-gold); }
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(191, 161, 111, 0.3);
+    color: var(--vintage-gold);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+.theme-toggle-btn:hover {
+    border-color: var(--vintage-gold);
+    background: rgba(191, 161, 111, 0.1);
+    box-shadow: 0 0 10px rgba(191, 161, 111, 0.3);
+}
 
-.sidebar-footer-quote { border-top: 1px solid rgba(229, 193, 133, 0.15); padding-top: 15px; text-align: center; }
+.sidebar-footer-quote { border-top: 1px solid rgba(255, 255, 255, 0.04); padding-top: 12px; text-align: center; }
 .sidebar-footer-quote p { font-size: 0.7rem; color: rgba(255, 255, 255, 0.3); line-height: 1.4; }
 .sidebar-footer-quote .author { display: block; font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--vintage-gold); margin-top: 3px; }
 
-/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ (ОТКРЫТАЯ) ================= */
+/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= */
 .main-content {
     padding: 30px;
     display: flex;
@@ -138,109 +170,80 @@ body {
 }
 
 .hero-block { text-align: left; max-width: 420px; } 
-.welcome-text { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--vintage-gold); opacity: 0.8; line-height: 1.4; }
-.ornament-top { color: var(--vintage-gold); font-size: 0.8rem; margin: 4px 0 0px; opacity: 0.6; }
+.welcome-text { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.35); line-height: 1.4; }
+.ornament-top { color: var(--vintage-gold); font-size: 0.8rem; margin: 4px 0 0px; opacity: 0.4; }
 
-.main-title {
-    font-family: 'Cinzel', serif;
-    font-size: 3rem;
-    letter-spacing: 8px;
-    color: #ffffff;
-    text-shadow: 0 0 15px rgba(229, 193, 133, 0.4);
-}
+.main-title { font-family: 'Cinzel', serif; font-size: 3rem; letter-spacing: 8px; color: #ffffff; font-weight: 400; }
+.handwritten-sub { font-family: 'Pinyon Script', cursive; font-size: 3rem; color: var(--vintage-gold); margin-top: -20px; margin-bottom: 12px; padding-left: 5px; }
+.hero-description { font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 15px; }
 
-.handwritten-sub {
-    font-family: 'Pinyon Script', cursive;
-    font-size: 3rem;
-    color: var(--vintage-gold);
-    margin-top: -20px;
-    margin-bottom: 12px;
-    text-shadow: 0 0 10px rgba(229, 193, 133, 0.5);
-}
-
-.hero-description { font-size: 0.75rem; color: #ffffff; opacity: 0.7; line-height: 1.5; margin-bottom: 15px; }
-
-/* УТОНЧЕННАЯ КНОПКА С ЗОЛОТОЙ РАМКОЙ */
 .btn-enter {
-    background: linear-gradient(135deg, var(--burgundy-light) 0%, var(--burgundy-dark) 100%);
-    border: 1px solid var(--vintage-gold);
+    background: rgba(42, 4, 18, 0.4);
+    border: 1px solid rgba(191, 161, 111, 0.35);
     color: #ffffff;
     padding: 10px 24px;
     font-family: 'Montserrat', sans-serif; 
     font-size: 0.75rem;
     cursor: pointer;
     border-radius: 4px;
-    box-shadow: 0 0 15px rgba(229, 193, 133, 0.2);
     transition: all 0.3s;
 }
-.btn-enter:hover { box-shadow: 0 0 25px var(--vintage-gold); transform: translateY(-1px); }
+.btn-enter:hover { border-color: var(--vintage-gold); background: var(--burgundy-velvet); }
 
-/* РЕЗНЫЕ КАРТОЧКИ С ТЕМНЫМ БОРДОВЫМ ЦВЕТОМ */
-.moments-header h2 { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--vintage-gold); text-align: center; letter-spacing: 2px; }
+/* СЕКЦИЯ КАРТОЧЕК (ЗАКРАШЕНЫ В #120c16) */
+.moments-header h2 { font-family: 'Cinzel', serif; font-size: 1rem; color: #ffffff; text-align: center; letter-spacing: 2px; }
 .moments-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px; }
-.line-decor { color: var(--vintage-gold); opacity: 0.5; font-size: 0.65rem; }
+.line-decor { color: rgba(191, 161, 111, 0.25); font-size: 0.65rem; }
 
 .moments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-
 .moment-card {
-    background: radial-gradient(circle, var(--burgundy-light) 0%, var(--burgundy-dark) 100%); 
+    background: var(--widget-bg-custom); /* Покрашена в тёмный #120c16 */
     border: 1px solid var(--card-border);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.7), inset 0 0 15px rgba(229,193,133,0.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    transition: transform 0.3s;
 }
+.moment-card:hover { transform: translateY(-4px); border-color: rgba(191, 161, 111, 0.3); }
 
-.card-img {
-    height: 105px;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.55) contrast(1.05);
-}
-
+.card-img { height: 105px; background-size: cover; background-position: center; filter: brightness(0.5) contrast(1.05); }
 .card-body { padding: 10px 12px; }
-.card-body h4 { font-size: 0.75rem; color: #ffffff; font-weight: 500; margin-bottom: 4px; }
-.card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--vintage-gold); opacity: 0.6; }
-.like-btn { background: transparent; border: none; color: rgba(255,255,255,0.4); cursor: pointer; }
-.like-btn:hover { color: #ef4444; }
+.card-body h4 { font-size: 0.75rem; color: #f1f5f9; font-weight: 500; margin-bottom: 4px; }
+.card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: rgba(255,255,255,0.25); }
+.like-btn { background: transparent; border: none; color: rgba(255,255,255,0.25); cursor: pointer; }
 
-/* ТЕМНЫЕ ВИДЖЕТЫ ПЛЕЕРА И ПИСЬМА */
+/* НИЖНИЙ РЯД ВИДЖЕТОВ (ЗАКРАШЕНЫ В #120c16) */
 .bottom-widgets-row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 15px; }
-
 .widget-player, .widget-letter {
     display: flex;
     align-items: center;
-    background: radial-gradient(circle, var(--burgundy-light) 0%, var(--burgundy-dark) 100%);
+    background: var(--widget-bg-custom); /* Покрашена в тёмный #120c16 */
     border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 12px;
     gap: 15px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
 .album-art, .letter-art { width: 70px; height: 70px; border-radius: 4px; background-size: cover; background-position: center; flex-shrink: 0; }
 .player-core, .letter-core { flex-grow: 1; display: flex; flex-direction: column; }
 .status-tag, .letter-tag { font-size: 0.55rem; text-transform: uppercase; color: var(--vintage-gold); letter-spacing: 1px; margin-bottom: 2px; }
 .song-title, .widget-letter h3 { font-size: 0.8rem; color: #ffffff; font-weight: 500; }
-.song-author { font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+.song-author { font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
 
-.timeline-area { display: flex; align-items: center; gap: 8px; font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-.progress-track { flex-grow: 1; height: 2px; background: rgba(255,255,255,0.06); position: relative; }
-.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 35%; background: var(--vintage-gold); box-shadow: 0 0 5px var(--vintage-gold); }
+.timeline-area { display: flex; align-items: center; gap: 8px; font-size: 0.6rem; color: rgba(255,255,255,0.25); margin-bottom: 6px; }
+.progress-track { flex-grow: 1; height: 2px; background: rgba(255,255,255,0.04); position: relative; }
+.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 35%; background: var(--vintage-gold); }
 
 .controls-row { display: flex; gap: 14px; align-items: center; }
-.p-btn { background: transparent; border: none; color: rgba(255,255,255,0.4); cursor: pointer; font-size: 0.7rem; }
-.p-btn:hover { color: var(--vintage-gold); }
-
-.play-main-btn { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid var(--vintage-gold); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem; cursor: pointer; }
-.play-main-btn i { margin-left: 2px; color: var(--vintage-gold); }
+.p-btn { background: transparent; border: none; color: rgba(255,255,255,0.3); cursor: pointer; font-size: 0.7rem; }
+.play-main-btn { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid rgba(191, 161, 111, 0.25); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem; cursor: pointer; }
+.play-main-btn i { margin-left: 2px; }
 
 .btn-read-letter {
-    background: rgba(255,255,255,0.02); border: 1px solid var(--vintage-gold);
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(191, 161, 111, 0.25);
     color: #ffffff; padding: 5px 16px; font-size: 0.65rem; border-radius: 4px;
     cursor: pointer; margin-top: 6px; width: fit-content; display: inline-flex; align-items: center; gap: 6px;
 }
-.btn-read-letter:hover { box-shadow: 0 0 10px var(--vintage-gold); }
 
-/* ================= ПРАВАЯ ПАНЕЛЬ (ПЕРЕДВИНУТАЯ ВНИЗ) ================= */
+/* ================= ПРАВАЯ ПАНЕЛЬ С ИСПРАВЛЕННЫМ РАСПОЛОЖЕНИЕМ КАРТИНОК ИЗ СКРИНШОТА ================= */
 .right-sidebar {
-    background: transparent; /* Полная прозрачность — лица героев идеально открыты */
