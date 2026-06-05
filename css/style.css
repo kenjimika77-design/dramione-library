@@ -93,42 +93,59 @@ body {
 /* ================= MAIN TITLE (УЛЬТРА ТОНКИЙ + СВЕЧЕНИЕ) ================= */
 .main-title {
     font-family: 'Cinzel', serif;
-    font-weight: 200; /* ещё тоньше (если браузер поддерживает) */
+
+    /* вместо 200 — стабильный 400 */
+    font-weight: 400;
+
     font-size: 3.8rem;
     letter-spacing: 16px;
     text-transform: uppercase;
 
-    color: rgba(195, 146, 76, 0.14);
+    color: rgba(195, 146, 76, 0.16);
 
     position: relative;
     display: inline-block;
 
-    /* мягкое многослойное свечение */
+    /* более чистое магическое свечение */
     text-shadow:
-        0 0 4px rgba(195, 146, 76, 0.18),
-        0 0 12px rgba(195, 146, 76, 0.12),
-        0 0 30px rgba(86, 15, 43, 0.18),
-        0 0 60px rgba(195, 146, 76, 0.08);
+        0 0 5px rgba(195, 146, 76, 0.18),
+        0 0 15px rgba(195, 146, 76, 0.12),
+        0 0 35px rgba(86, 15, 43, 0.15);
 
     animation: titleBreath 6s ease-in-out infinite;
 }
 
-/* лёгкое “живое дыхание текста” */
+/* мягкое дыхание БЕЗ blur (важно!) */
 @keyframes titleBreath {
     0%, 100% {
         transform: translateY(0);
         letter-spacing: 16px;
-        opacity: 0.8;
-        filter: blur(0px);
+        opacity: 0.85;
     }
 
     50% {
-        transform: translateY(-1.5px);
+        transform: translateY(-1px);
         letter-spacing: 17px;
         opacity: 1;
-        filter: blur(0.15px);
     }
 }
+
+/* руны — чище и мягче */
+.main-title::before,
+.main-title::after {
+    content: "ᚱ ᛞ ᚨ ᛗ ᛁ ᛟ ᚾ ᛖ";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    letter-spacing: 6px;
+    color: rgba(195,146,76,0.16);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.main-title::before { top: -24px; }
+.main-title::after { bottom: -24px; }
 
 /* руны вокруг — оставляем, но делаем тоньше */
 .main-title::before,
