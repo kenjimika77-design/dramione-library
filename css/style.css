@@ -121,31 +121,82 @@ body {
 /* Объемное кастомное название сайта DRAMIONE */
 .main-title {
     font-family: 'Cinzel', serif;
-    font-size: 3.6rem;
-    letter-spacing: 8px;
-    color: #ffffff;
-    /* Эффект позолоченного гравированного объема */
-    text-shadow: 
-        1px 1px 0px #bfa16f,
-        2px 2px 0px #9e7333,
-        3px 3px 5px rgba(0, 0, 0, 0.9),
-        0 0 25px rgba(195, 146, 76, 0.4);
+    font-weight: 300;
+    font-size: 3.8rem;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+
+    position: relative;
+    display: inline-block;
+
+    /* БАЗА — почти пергаментное золото */
+    color: rgba(195, 146, 76, 0.18);
+
+    /* МАГИЧЕСКОЕ СВЕЧЕНИЕ (РУНЫ) */
+    text-shadow:
+        0 0 6px rgba(195, 146, 76, 0.25),
+        0 0 18px rgba(195, 146, 76, 0.18),
+        0 0 40px rgba(86, 15, 43, 0.25);
+
+    animation: runeGlow 6s ease-in-out infinite;
 }
 
-.handwritten-sub { font-family: 'Pinyon Script', cursive; font-size: 3.5rem; color: var(--vintage-gold); margin-top: -25px; margin-bottom: 15px; }
-.hero-description { font-size: 0.85rem; color: #94a3b8; line-height: 1.6; margin-bottom: 20px; }
+/* РУНИЧЕСКОЕ ДЫХАНИЕ */
+@keyframes runeGlow {
+    0%, 100% {
+        transform: translateY(0px);
+        letter-spacing: 12px;
+        opacity: 0.75;
+        text-shadow:
+            0 0 6px rgba(195, 146, 76, 0.2),
+            0 0 18px rgba(195, 146, 76, 0.15),
+            0 0 35px rgba(86, 15, 43, 0.2);
+    }
 
-.btn-enter {
-    background: var(--block-dark-blue);
-    border: 1px solid var(--vintage-gold);
-    color: #ffffff;
-    padding: 10px 25px;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    box-shadow: 0 0 15px rgba(195, 146, 76, 0.2);
+    50% {
+        transform: translateY(-2px);
+        letter-spacing: 14px;
+        opacity: 1;
+        text-shadow:
+            0 0 10px rgba(195, 146, 76, 0.45),
+            0 0 30px rgba(195, 146, 76, 0.25),
+            0 0 60px rgba(195, 146, 76, 0.15);
+    }
+}
+
+/* РУНЫ ВОКРУГ ТЕКСТА */
+.main-title::before,
+.main-title::after {
+    content: "ᚱ ᛞ ᚨ ᛗ ᛁ ᛟ ᚾ ᛖ";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    color: rgba(195, 146, 76, 0.25);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.main-title::before {
+    top: -26px;
+    animation: runeFloat 5s ease-in-out infinite;
+}
+
+.main-title::after {
+    bottom: -28px;
+    animation: runeFloat 5s ease-in-out infinite reverse;
+}
+
+@keyframes runeFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateX(-50%) translateY(-3px);
+        opacity: 0.7;
+    }
 }
 
 /* СЕКЦИЯ КАРТОЧЕК */
