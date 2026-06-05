@@ -7,7 +7,7 @@
     <!-- Подключение шрифтов и иконок -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -26,9 +26,11 @@
         <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <div class="vintage-logo">
-                    <span class="letter">D</span>
-                    <div class="floral-decor">❀</div>
+                <!-- Объединенный герб Гриффиндора и Слизерина из макета арта -->
+                <div class="vintage-logo-crest">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span class="crest-animal lion">🦁</span>
+                    <span class="crest-animal snake">🐍</span>
                 </div>
                 <h2>DRAMIONE LIBRARY</h2>
                 <p class="subtitle">FORBIDDEN ARCHIVE</p>
@@ -91,7 +93,7 @@
                 <button class="btn-enter">Enter Library ➔</button>
             </section>
 
-            <!-- Блок Our Moments с карточками -->
+            <!-- Блок Our Moments с исправленными карточками -->
             <section class="moments-section">
                 <div class="moments-header">
                     <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
@@ -100,8 +102,11 @@
                 </div>
 
                 <div class="moments-grid">
-                    <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
+                    <!-- Карточка 1 -->
+                    <div class="moment-card glow-purple">
+                        <div class="card-img" style="background-image: url('images/card1.jpg');">
+                            <div class="card-image-overlay"></div>
+                        </div>
                         <div class="card-body">
                             <h4>Первая встреча</h4>
                             <div class="card-meta">
@@ -110,8 +115,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
+                    <!-- Карточка 2 -->
+                    <div class="moment-card glow-burgundy">
+                        <div class="card-img" style="background-image: url('images/card2.jpg');">
+                            <div class="card-image-overlay"></div>
+                        </div>
                         <div class="card-body">
                             <h4>Ты сказал «Люблю»</h4>
                             <div class="card-meta">
@@ -120,8 +128,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
+                    <!-- Карточка 3 -->
+                    <div class="moment-card glow-purple">
+                        <div class="card-img" style="background-image: url('images/card3.jpg');">
+                            <div class="card-image-overlay"></div>
+                        </div>
                         <div class="card-body">
                             <h4>Навсегда</h4>
                             <div class="card-meta">
@@ -137,7 +148,7 @@
             <div class="bottom-widgets-row">
                 <!-- Музыкальный плеер -->
                 <section class="widget-player">
-                    <div class="album-art" style="background-image: url('https://unsplash.com');"></div>
+                    <div class="album-art" style="background-image: url('images/player.jpg');"></div>
                     <div class="player-core">
                         <span class="status-tag">Now Playing</span>
                         <h3 class="song-title">Rewrite The Stars</h3>
@@ -161,7 +172,7 @@
 
                 <!-- Блок нового письма из Хогвартса -->
                 <section class="widget-letter">
-                    <div class="letter-art" style="background-image: url('https://unsplash.com');"></div>
+                    <div class="letter-art" style="background-image: url('images/letter.jpg');"></div>
                     <div class="letter-core">
                         <span class="letter-tag">New Letter</span>
                         <h3>У вас новое письмо из Хогвартса</h3>
@@ -195,16 +206,3 @@
                 <p class="constellation-desc">
                     Лев и Змея связаны нитями магии, которые невозможно разорвать.
                 </p>
-            </div>
-        </aside>
-
-    </div>
-
-    <!-- Простой скрипт для смены атмосферы на альтернативную -->
-    <script>
-        document.getElementById('atmosphere-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('alternative-magic-theme');
-        });
-    </script>
-</body>
-</html>
