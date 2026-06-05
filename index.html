@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
-    <!-- Подключение шрифтов и иконок -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Шрифты и иконки FontAwesome -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Магическая золотая пыль -->
+    <!-- Магическая золотая пыль на фоне -->
     <div class="magic-sparkles">
         <div class="sparkle"></div>
         <div class="sparkle"></div>
@@ -20,21 +20,19 @@
         <div class="sparkle"></div>
     </div>
 
-    <!-- ГЛАВНЫЙ КОНТЕЙНЕР РАЗМЕТКИ -->
+    <!-- ГЛАВНАЯ СЕТКА ИНТЕРФЕЙСА (ОДИН В ОДИН С МАКЕТА) -->
     <div class="app-container">
         
         <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <!-- Объединенный герб Гриффиндора и Слизерина из макета арта -->
-                <div class="vintage-logo-crest">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span class="crest-animal lion"></span>
-                    <span class="crest-animal snake"></span>
+                <div class="vintage-logo">
+                    <span class="letter">D</span>
+                    <div class="floral-decor">❀</div>
                 </div>
                 <h2>DRAMIONE LIBRARY</h2>
                 <p class="subtitle">FORBIDDEN ARCHIVE</p>
-                <div class="stars-divider">✦ ── ⚜ ── ✦</div>
+                <div class="stars-divider"></div>
             </div>
 
             <nav class="sidebar-menu">
@@ -78,35 +76,35 @@
             </div>
         </aside>
 
-        <!-- ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ И СЕКЦИЯ МОМЕНТОВ ================= -->
+        <!-- ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= -->
         <main class="main-content">
             
-            <!-- Главный баннер -->
+            <!-- Верхняя приветственная часть -->
             <section class="hero-block">
                 <p class="welcome-text">Welcome to our<br>forbidden archive</p>
                 <div class="ornament-top">⚜</div>
                 <h1 class="main-title">DRAMIONE</h1>
                 <div class="handwritten-sub">forever</div>
+                
                 <p class="hero-description">
                     Два сердца. Два мира. Одна любовь, которую невозможно разрушить.
                 </p>
+                
                 <button class="btn-enter">Enter Library ➔</button>
             </section>
 
-            <!-- Блок Our Moments с исправленными карточками -->
+            <!-- Центральный блок Our Moments -->
             <section class="moments-section">
                 <div class="moments-header">
-                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
+                    <span class="line-decor"></span>
                     <h2>Our Moments</h2>
-                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
+                    <span class="line-decor"></span>
                 </div>
 
                 <div class="moments-grid">
                     <!-- Карточка 1 -->
-                    <div class="moment-card glow-purple">
-                        <div class="card-img" style="background-image: url('images/card1.jpg');">
-                            <div class="card-image-overlay"></div>
-                        </div>
+                    <div class="moment-card">
+                        <div class="card-img" style="background-image: url('images/card1.jpg');"></div>
                         <div class="card-body">
                             <h4>Первая встреча</h4>
                             <div class="card-meta">
@@ -116,10 +114,8 @@
                         </div>
                     </div>
                     <!-- Карточка 2 -->
-                    <div class="moment-card glow-burgundy">
-                        <div class="card-img" style="background-image: url('images/card2.jpg');">
-                            <div class="card-image-overlay"></div>
-                        </div>
+                    <div class="moment-card">
+                        <div class="card-img" style="background-image: url('images/card2.jpg');"></div>
                         <div class="card-body">
                             <h4>Ты сказал «Люблю»</h4>
                             <div class="card-meta">
@@ -129,10 +125,8 @@
                         </div>
                     </div>
                     <!-- Карточка 3 -->
-                    <div class="moment-card glow-purple">
-                        <div class="card-img" style="background-image: url('images/card3.jpg');">
-                            <div class="card-image-overlay"></div>
-                        </div>
+                    <div class="moment-card">
+                        <div class="card-img" style="background-image: url('images/card3.jpg');"></div>
                         <div class="card-body">
                             <h4>Навсегда</h4>
                             <div class="card-meta">
@@ -144,7 +138,7 @@
                 </div>
             </section>
 
-            <!-- Сдвоенные нижние виджеты плеера и письма -->
+            <!-- Нижний ряд: Плеер + Письмо -->
             <div class="bottom-widgets-row">
                 <!-- Музыкальный плеер -->
                 <section class="widget-player">
@@ -161,16 +155,16 @@
                         </div>
 
                         <div class="controls-row">
-                            <button><i class="fa-solid fa-shuffle"></i></button>
-                            <button><i class="fa-solid fa-backward-step"></i></button>
+                            <button class="player-icon-btn"><i class="fa-solid fa-shuffle"></i></button>
+                            <button class="player-icon-btn"><i class="fa-solid fa-backward-step"></i></button>
                             <button class="play-btn"><i class="fa-solid fa-play"></i></button>
-                            <button><i class="fa-solid fa-forward-step"></i></button>
-                            <button><i class="fa-solid fa-repeat"></i></button>
+                            <button class="player-icon-btn"><i class="fa-solid fa-forward-step"></i></button>
+                            <button class="player-icon-btn"><i class="fa-solid fa-repeat"></i></button>
                         </div>
                     </div>
                 </section>
 
-                <!-- Блок нового письма из Хогвартса -->
+                <!-- Блок Нового Письма -->
                 <section class="widget-letter">
                     <div class="letter-art" style="background-image: url('images/letter.jpg');"></div>
                     <div class="letter-core">
@@ -182,9 +176,9 @@
             </div>
         </main>
 
-        <!-- ================= ПРАВАЯ ПАНЕЛЬ С ВИДЖЕТАМИ ================= -->
+        <!-- ================= ПРАВАЯ ПАНЕЛЬ (ВИДЖЕТЫ) ================= -->
         <aside class="right-sidebar">
-            <!-- Цитата дня -->
+            <!-- Блок Цитаты -->
             <div class="widget-quote">
                 <div class="theme-switch-zone">
                     <span>Атмосфера:</span>
@@ -199,10 +193,21 @@
                 <cite>— Антуан де Сент-Экзюпери</cite>
             </div>
 
-            <!-- Виджет Созвездия Судьбы -->
+            <!-- Виджет Созвездия -->
             <div class="widget-constellation">
                 <h3>Constellation of Fate</h3>
-                <div class="constellation-map"></div>
+                <div class="constellation-map">
+                    <!-- Точки звездного неба созвездия Драмионы -->
+                    <div class="star s1"></div><div class="star s2"></div>
+                    <div class="star s3"></div><div class="star s4"></div>
+                    <div class="star s5"></div><div class="star s6"></div>
+                    <div class="star s7"></div><div class="star s8"></div>
+                </div>
                 <p class="constellation-desc">
                     Лев и Змея связаны нитями магии, которые невозможно разорвать.
                 </p>
+            </div>
+        </aside>
+
+    </div>
+
