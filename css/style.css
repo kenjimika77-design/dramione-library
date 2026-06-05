@@ -1,11 +1,11 @@
 /* ================= ГЛУБОКАЯ СИНЕ-ЧЕРНИЛЬНАЯ ПАЛИТРА И ЗОЛОТО ================= */
 :root {
     --bg-dark-castle: #050103;         
-    --block-dark-blue: #120c16;        /* Роскошный чернильно-синий цвет блоков */
+    --block-dark-blue: #120c16;
     --magic-glow: #560f2b;             
-    --vintage-gold: #c3924c;           /* Матовое благородное золото */
+    --vintage-gold: #c3924c;
     --text-main: #cbd5e1;
-    --card-border: rgba(195, 146, 76, 0.28); /* Золотые резные рамочки */
+    --card-border: rgba(195, 146, 76, 0.28);
 }
 
 * {
@@ -14,35 +14,41 @@
     box-sizing: border-box;
 }
 
+/* ================= BODY (ПОЧИНЕНО ЛЕЙАУТ) ================= */
 body {
     background-color: var(--bg-dark-castle);
     color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
+
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    align-items: flex-start;
+
+    padding-top: 30px;
+    overflow: auto;
+
     position: relative;
-    /* Идеальный фокус на лицах персонажей, уводящий края в глубокую тень */
+
     background: 
         radial-gradient(circle at 72% 32%, rgba(5, 1, 3, 0) 22%, var(--bg-dark-castle) 82%),
         url('../images/bg.jpg') no-repeat center center;
     background-size: cover;
 }
 
-/* ================= КАРКАС ИНТЕРФЕЙСА ================= */
+/* ================= КАРКАС ================= */
 .app-container {
     display: grid;
     grid-template-columns: 250px 1fr 275px; 
     width: 98vw;
     max-width: 1440px;
     height: 92vh;
+
     border: 1px solid var(--card-border);
     border-radius: 14px;
     overflow: hidden;
+
     box-shadow: 0 35px 70px rgba(0, 0, 0, 0.95);
-    z-index: 1;
 }
 
 /* ================= ЛЕВАЯ ПАНЕЛЬ ================= */
@@ -50,121 +56,55 @@ body {
     background: rgba(6, 2, 4, 0.93);
     border-right: 1px solid var(--card-border);
     padding: 30px 18px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 5;
 }
 
-/* Объемная буква D с 3D-тиснением */
+/* ================= ЛОГО ================= */
 .vintage-logo {
     font-family: 'Cinzel', serif;
     font-size: 2.6rem;
-    color: #ffffff;
+    color: #fff;
+
     border: 1.5px solid var(--vintage-gold);
     width: 65px;
     height: 65px;
     line-height: 60px;
     margin: 0 auto 12px;
+
     border-radius: 4px;
-    position: relative;
     text-align: center;
+
     text-shadow: 
-        1px 1px 0px #9e7333, 
-        2px 2px 0px #7a5624, 
+        1px 1px 0 #9e7333,
+        2px 2px 0 #7a5624,
         0 0 15px var(--vintage-gold);
-    box-shadow: inset 0 0 10px rgba(195, 146, 76, 0.25), 0 4px 10px rgba(0,0,0,0.5);
 }
 
-.sidebar-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    color: #f1f5f9;
-    text-align: center;
-    /* Легкий объем для названия библиотеки */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.floral-decor { position: absolute; font-size: 1.1rem; color: var(--vintage-gold); bottom: -8px; right: -8px; background: #060104; border-radius: 50%; width: 22px; height: 22px; line-height: 20px; }
-.sidebar-header .subtitle { font-size: 0.6rem; letter-spacing: 3px; color: var(--vintage-gold); text-align: center; }
-.stars-divider { text-align: center; font-size: 0.65rem; color: rgba(195, 146, 76, 0.3); margin-top: 10px; }
-
-.sidebar-menu { display: flex; flex-direction: column; gap: 6px; }
-.menu-item { display: flex; align-items: center; gap: 15px; color: #94a3b8; text-decoration: none; padding: 10px 14px; border-radius: 8px; transition: all 0.3s; }
-.menu-item i { font-size: 0.95rem; color: var(--vintage-gold); width: 20px; text-align: center; }
-.menu-text { font-size: 0.8rem; font-weight: 500; }
-.menu-text span { display: block; font-size: 0.65rem; color: #475569; }
-
-.menu-item:hover, .menu-item.active { background: rgba(18, 12, 22, 0.6); border-left: 2px solid var(--vintage-gold); color: #ffffff; }
-
-.theme-switch-zone { text-align: center; padding: 5px 0; }
-.theme-toggle-btn { background: transparent; border: 1px solid var(--vintage-gold); color: var(--vintage-gold); padding: 6px 16px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
-.theme-toggle-btn:hover { background: var(--vintage-gold); color: #000; }
-
-.sidebar-footer-quote p { font-size: 0.75rem; color: #64748b; text-align: center; }
-.sidebar-footer-quote .author { display: block; font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--vintage-gold); text-align: center; }
-
-/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ (ПРОЗРАЧНАЯ) ================= */
-.main-content {
-    padding: 35px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: transparent; /* Полная прозрачность под персонажей */
-}
-
-.hero-block { text-align: left; max-width: 440px; }
-.welcome-text { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3.5px; color: #64748b; }
-.ornament-top { color: var(--vintage-gold); font-size: 0.9rem; opacity: 0.5; margin-top: 5px; }
-
-/* Объемное кастомное название сайта DRAMIONE */
+/* ================= ЗАГОЛОВОК (НОВЫЙ РУНИЧЕСКИЙ СТИЛЬ) ================= */
 .main-title {
     font-family: 'Cinzel', serif;
     font-weight: 300;
     font-size: 3.8rem;
-    letter-spacing: 12px;
+    letter-spacing: 14px;
     text-transform: uppercase;
+
+    color: rgba(195, 146, 76, 0.25);
+
+    text-shadow:
+        0 0 8px rgba(195, 146, 76, 0.25),
+        0 0 22px rgba(195, 146, 76, 0.18),
+        0 0 45px rgba(86, 15, 43, 0.25);
+
+    animation: runeGlow 6s ease-in-out infinite;
 
     position: relative;
     display: inline-block;
-
-    /* БАЗА — почти пергаментное золото */
-    color: rgba(195, 146, 76, 0.18);
-
-    /* МАГИЧЕСКОЕ СВЕЧЕНИЕ (РУНЫ) */
-    text-shadow:
-        0 0 6px rgba(195, 146, 76, 0.25),
-        0 0 18px rgba(195, 146, 76, 0.18),
-        0 0 40px rgba(86, 15, 43, 0.25);
-
-    animation: runeGlow 6s ease-in-out infinite;
 }
 
-/* РУНИЧЕСКОЕ ДЫХАНИЕ */
-@keyframes runeGlow {
-    0%, 100% {
-        transform: translateY(0px);
-        letter-spacing: 12px;
-        opacity: 0.75;
-        text-shadow:
-            0 0 6px rgba(195, 146, 76, 0.2),
-            0 0 18px rgba(195, 146, 76, 0.15),
-            0 0 35px rgba(86, 15, 43, 0.2);
-    }
-
-    50% {
-        transform: translateY(-2px);
-        letter-spacing: 14px;
-        opacity: 1;
-        text-shadow:
-            0 0 10px rgba(195, 146, 76, 0.45),
-            0 0 30px rgba(195, 146, 76, 0.25),
-            0 0 60px rgba(195, 146, 76, 0.15);
-    }
-}
-
-/* РУНЫ ВОКРУГ ТЕКСТА */
+/* руны */
 .main-title::before,
 .main-title::after {
     content: "ᚱ ᛞ ᚨ ᛗ ᛁ ᛟ ᚾ ᛖ";
@@ -172,142 +112,130 @@ body {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.7rem;
-    letter-spacing: 6px;
-    color: rgba(195, 146, 76, 0.25);
-    opacity: 0.6;
-    pointer-events: none;
+    color: rgba(195,146,76,0.25);
 }
 
-.main-title::before {
-    top: -26px;
-    animation: runeFloat 5s ease-in-out infinite;
+.main-title::before { top: -26px; }
+.main-title::after { bottom: -26px; }
+
+@keyframes runeGlow {
+    0%,100% { opacity: .75; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-2px); }
 }
 
-.main-title::after {
-    bottom: -28px;
-    animation: runeFloat 5s ease-in-out infinite reverse;
-}
-
-@keyframes runeFloat {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0px);
-        opacity: 0.3;
-    }
-    50% {
-        transform: translateX(-50%) translateY(-3px);
-        opacity: 0.7;
-    }
-}
-
-/* СЕКЦИЯ КАРТОЧЕК */
-.moments-header h2 { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #ffffff; text-align: center; }
-.line-decor { font-size: 0.7rem; color: rgba(195, 146, 76, 0.3); }
-
-.moments-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* ================= МЕНЮ ================= */
+.menu-item {
+    display: flex;
+    align-items: center;
     gap: 15px;
-    margin-bottom: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #94a3b8;
+    text-decoration: none;
 }
 
+.menu-item:hover,
+.menu-item.active {
+    background: rgba(18, 12, 22, 0.6);
+    border-left: 2px solid var(--vintage-gold);
+    color: #fff;
+}
+
+/* ================= КНОПКА ТЕМЫ (ПОЧИНЕНА ВИЗУАЛЬНО) ================= */
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--vintage-gold);
+    color: var(--vintage-gold);
+
+    padding: 6px 16px;
+    border-radius: 4px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--vintage-gold);
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* ================= ЦЕНТР ================= */
+.main-content {
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: transparent;
+}
+
+/* ================= КАРТОЧКИ ================= */
 .moment-card {
     background: var(--block-dark-blue);
     border: 1px solid var(--card-border);
     border-radius: 8px;
-    overflow: hidden;
 }
 
-.card-img { height: 110px; background-size: cover; background-position: center; filter: brightness(0.6); }
-.card-body { padding: 12px; }
-.card-body h4 { font-size: 0.8rem; color: #f1f5f9; margin-bottom: 5px; }
-
-/* Восстановленные мета-данные карточек: даты и сердечки */
-.card-meta { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    font-size: 0.7rem; 
-    color: #64748b; 
-}
-.like-btn { 
-    background: transparent; 
-    border: none; 
-    color: rgba(195, 146, 76, 0.5); 
-    cursor: pointer; 
-    font-size: 0.85rem; 
-    transition: color 0.3s;
-}
-.like-btn:hover { color: #ef4444; }
-
-/* НИЖНИЕ ВИДЖЕТЫ (ПЛЕЕР + ПИСЬМО) */
-.bottom-widgets-row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 15px; }
-.widget-player, .widget-letter {
+/* ================= ПЛЕЕР ================= */
+.widget-player,
+.widget-letter {
     background: var(--block-dark-blue);
     border: 1px solid var(--card-border);
     border-radius: 10px;
     padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
 }
 
-.album-art, .letter-art { width: 75px; height: 75px; border-radius: 6px; background-size: cover; background-position: center; flex-shrink: 0; }
-.player-core, .letter-core { flex-grow: 1; display: flex; flex-direction: column; }
-.status-tag, .letter-tag { font-size: 0.55rem; text-transform: uppercase; color: var(--vintage-gold); }
-.song-title, .widget-letter h3 { font-size: 0.85rem; color: #ffffff; }
-.song-author { font-size: 0.7rem; color: #64748b; margin-bottom: 5px; }
-
-.timeline-area { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: #64748b; margin-bottom: 8px; }
-.progress-track { flex-grow: 1; height: 3px; background: rgba(255,255,255,0.05); position: relative; }
-.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 40%; background: var(--vintage-gold); }
-
-/* Полный комплект кнопок управления плеера */
-.controls-row { display: flex; gap: 15px; align-items: center; }
-.controls-row button { background: transparent; border: none; color: rgba(195, 146, 76, 0.6); cursor: pointer; font-size: 0.75rem; }
-.controls-row button:hover { color: #fff; }
-
-/* Круглая винтажная кнопка Play */
-.play-main-btn, .play-btn { 
-    width: 32px; height: 32px; border-radius: 50%;
-    border: 1px solid var(--vintage-gold);
-    background: rgba(255,255,255,0.03);
-    display: inline-flex; align-items: center; justify-content: center;
-    color: #fff !important; font-size: 0.75rem !important;
-}
-.play-btn i { margin-left: 2px; }
-
-.btn-read-letter {
-    background: rgba(255,255,255,0.02); border: 1px solid var(--card-border);
-    color: #ffffff; padding: 6px 18px; font-size: 0.7rem; cursor: pointer; border-radius: 4px; margin-top: 8px; width: fit-content;
-}
-
-/* ================= ПРАВАЯ ПАНЕЛЬ (ПОД ВОЛОСАМИ ГЕРМИОНЫ) ================= */
+/* ================= ПРАВАЯ ПАНЕЛЬ ================= */
 .right-sidebar {
-    background: transparent; /* Прозрачность сохранена */
+    background: transparent;
     border-left: 1px solid var(--card-border);
     padding: 35px 15px;
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Опускает контент к уровню карточек */
+    justify-content: flex-end;
     gap: 20px;
-    z-index: 5;
 }
 
-/* РОСКОШНЫЕ СДВОЕННЫЕ КРУГЛЫЕ МЕДАЛЬОНЫ-ГЕРБЫ */
-.widget-crests {
-    margin-bottom: 10px;
-    align-self: center;
-}
-.crests-flex { display: flex; gap: 20px; }
-.shield-circle {
-    width: 55px; height: 55px;
-    border-radius: 50%;
-    border: 1.5px solid var(--vintage-gold);
+/* ================= СОЗВЕЗДИЕ (ДОБАВЛЕНО И ПОЧИНЕНО) ================= */
+.widget-constellation {
     background: var(--block-dark-blue);
-    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 220px;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 0 8px rgba(195, 146, 76, 0.2);
+    overflow: hidden;
 }
-.shield-circle i { font-size: 2.2rem; position: absolute; opacity: 0.15; }
-.shield-circle.gryffindor i { color: #8c152a; }
-.shield-circle.slytherin i { color: #174e37; }
+
+.constellation-box {
+    position: relative;
+    height: 160px;
+}
+
+.star {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--vintage-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(195,146,76,0.6);
+    animation: starPulse 3s infinite ease-in-out;
+}
+
+@keyframes starPulse {
+    0%,100% { transform: scale(1); opacity: .6; }
+    50% { transform: scale(1.3); opacity: 1; }
+}
+
+.constellation-lines line {
+    stroke: rgba(195,146,76,0.35);
+    stroke-width: 1;
+}
+
+.constellation-text {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-align: center;
+    margin-top: 10px;
+}
