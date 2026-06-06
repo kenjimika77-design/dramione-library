@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
-    <!-- Шрифты и готические иконки FontAwesome -->
+    <!-- Подключение шрифтов и иконок FontAwesome -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="css/style.css">
@@ -71,7 +71,7 @@
                 </a>
             </nav>
 
-            <!-- Кнопка «Тема» со значком палочки, как на макете -->
+            <!-- Кнопка «Тема» со значком палочки -->
             <div class="theme-switch-zone">
                 <button id="atmosphere-toggle" class="theme-toggle-btn">
                     <i class="fa-solid fa-wand-sparkles"></i> Тема
@@ -149,7 +149,7 @@
 
             <!-- Нижние горизонтальные виджеты -->
             <div class="bottom-widgets-row">
-                <!-- Музыкальный плеер -->
+                <!-- Музыкальный плеер (Точно по сетке макета) -->
                 <section class="widget-player">
                     <div class="album-art" style="background-image: url('images/player.jpg');"></div>
                     <div class="player-core">
@@ -185,24 +185,10 @@
             </div>
         </main>
 
-        <!-- ================= ПРАВАЯ ПАНЕЛЬ (СТРОГО КАК НА СКРИНШОТЕ №2) ================= -->
+        <!-- ================= ПРАВАЯ ПАНЕЛЬ (ТОЛЬКО ЦИТАТА И СОЗВЕЗДИЕ) ================= -->
         <aside class="right-sidebar">
             
-            <!-- ВЕРХНИЙ БЛОК: СДВОЕННЫЕ КРУГЛЫЕ МЕДАЛЬОНЫ-ГЕРБЫ -->
-            <div class="widget-crests">
-                <div class="crests-flex">
-                    <div class="shield-circle gryffindor" title="Гриффиндор">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span class="animal-icon">🦁</span>
-                    </div>
-                    <div class="shield-circle slytherin" title="Слизерин">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span class="animal-icon">🐍</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- СРЕДНИЙ БЛОК: ЦИТАТА ДНЯ (СПРАВА ОТ КАРТОЧЕК) -->
+            <!-- СРЕДНИЙ БЛОК: ЦИТАТА ДНЯ -->
             <div class="widget-quote">
                 <h3>Цитата дня</h3>
                 <blockquote>
@@ -211,3 +197,14 @@
                 <cite>— Антуан де Сент-Экзюпери</cite>
             </div>
 
+            <!-- НИЖНИЙ БЛОК: СОЗВЕЗДИЕ СУДЬБЫ -->
+            <div class="widget-constellation">
+                <h3>Constellation of Fate</h3>
+                <div class="constellation-map">
+                    <div class="star st1"></div><div class="star st2"></div>
+                    <div class="star st3"></div><div class="star st4"></div>
+                    <div class="star st5"></div><div class="star st6"></div>
+                    <div class="star st7"></div><div class="star st8"></div>
+                </div>
+                <p class="constellation-desc">
+                    Лев и Змея связаны нитями магии, которые невозможно разорвать.
