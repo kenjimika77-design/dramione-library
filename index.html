@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
-
-    <!-- ✅ ПРАВИЛЬНЫЙ FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- ТВОЙ CSS -->
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
+    <!-- Магическая золотая пыль на фоне -->
     <div class="magic-sparkles">
         <div class="sparkle"></div>
         <div class="sparkle"></div>
@@ -22,85 +19,183 @@
         <div class="sparkle"></div>
     </div>
 
+    <!-- ГЛАВНЫЙ СЕТОЧНЫЙ КОНТЕЙНЕР -->
     <div class="app-container">
-
-        <!-- LEFT -->
+        
+        <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
         <aside class="sidebar lace-border">
             <div class="sidebar-header">
-
                 <div class="vintage-logo gold-text-3d">
                     <span class="letter">D</span>
                     <div class="floral-decor">❀</div>
                 </div>
-
-                <h2 class="sidebar-title font-literatura gold-gradient-text">
-                    DRAMIONE LIBRARY
-                </h2>
-
+                <h2 class="sidebar-title font-literatura gold-gradient-text">DRAMIONE LIBRARY</h2>
                 <p class="subtitle font-bell">FORBIDDEN ARCHIVE</p>
-
                 <div class="stars-divider">✦ ── ⚜ ── ✦</div>
             </div>
 
+            <!-- Меню -->
             <nav class="sidebar-menu">
-                <a href="#" class="menu-item"><i class="fa-solid fa-book-bookmark"></i> Archive</a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Magic</a>
-                <a href="#" class="menu-item active"><i class="fa-solid fa-heart"></i> Love</a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-moon"></i> Night</a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <div class="menu-text font-montserrat">Archive <span>Архив историй</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <div class="menu-text font-montserrat">Magic Entries <span>Магические записи</span></div>
+                </a>
+                <a href="#" class="menu-item active">
+                    <i class="fa-solid fa-heart"></i>
+                    <div class="menu-text font-montserrat">Love Stories <span>Истории любви</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-moon"></i>
+                    <div class="menu-text font-montserrat">Night Section <span>Ночные разделы</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-key"></i>
+                    <div class="menu-text font-montserrat">Restricted <span>Запретное</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <div class="menu-text font-montserrat">Memories <span>Воспоминания</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <div class="menu-text font-montserrat">Letters <span>Письма</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <div class="menu-text font-montserrat">About Us <span>О нас</span></div>
+                </a>
             </nav>
 
             <div class="theme-switch-zone">
-                <button id="atmosphere-toggle" class="theme-toggle-btn">
+                <button id="atmosphere-toggle" class="theme-toggle-btn font-montserrat">
                     <i class="fa-solid fa-wand-sparkles"></i> Тема
                 </button>
             </div>
 
-            <div class="sidebar-footer-quote">
+            <div class="sidebar-footer-quote font-montserrat">
                 <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
-                <span class="author">— D & H</span>
+                <span class="author font-literatura">— D & H</span>
             </div>
         </aside>
 
-        <!-- CENTER -->
+        <!-- ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= -->
         <main class="main-content">
-
+            
+            <!-- Приветствие -->
             <section class="hero-block">
-                <p class="welcome-text">Welcome to our forbidden archive</p>
-
-                <h1 class="main-title gold-text-3d">DRAMIONE</h1>
-
-                <div class="handwritten-sub">forever</div>
-
-                <p class="hero-description">
-                    Два сердца. Два мира. Одна любовь.
+                <p class="welcome-text font-bell gold-gradient-text">Welcome to our<br>forbidden archive</p>
+                <div class="ornament-top">⚜</div>
+                <h1 class="main-title font-literatura gold-text-3d">DRAMIONE</h1>
+                <div class="handwritten-sub font-salve gold-gradient-text">forever</div>
+                
+                <p class="hero-description font-montserrat">
+                    Два сердца. Два мира. Одна любовь, которую невозможно разрушить.
                 </p>
-
-                <button class="btn-enter">Enter Library ➔</button>
+                
+                <button class="btn-enter font-montserrat">Enter Library ➔</button>
             </section>
 
+            <!-- Раздел Our Moments (Стрелочки возвращены в текстовую строку) -->
+            <section class="moments-section">
+                <div class="moments-header">
+                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
+                    <h2 class="font-literatura gold-gradient-text">Our Moments</h2>
+                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
+                </div>
+
+                <div class="moments-grid">
+                    <!-- Карточка 1 -->
+                    <div class="moment-card lace-border">
+                        <div class="card-img" style="background-image: url('images/card1.jpg');"></div>
+                        <div class="card-body font-montserrat">
+                            <h4>Первая встреча</h4>
+                            <div class="card-meta">
+                                <span>14.02.2022</span>
+                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка 2 -->
+                    <div class="moment-card lace-border">
+                        <div class="card-img" style="background-image: url('images/card2.jpg');"></div>
+                        <div class="card-body font-montserrat">
+                            <h4>Ты сказал «Люблю»</h4>
+                            <div class="card-meta">
+                                <span>07.07.2022</span>
+                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка 3 -->
+                    <div class="moment-card lace-border">
+                        <div class="card-img" style="background-image: url('images/card3.jpg');"></div>
+                        <div class="card-body font-montserrat">
+                            <h4>Навсегда</h4>
+                            <div class="card-meta">
+                                <span>01.01.2023</span>
+                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Нижние виджеты -->
+            <div class="bottom-widgets-row">
+                <!-- Плеер -->
+                <section class="widget-player lace-border">
+                    <div class="album-art" style="background-image: url('images/player.jpg');"></div>
+                    <div class="player-core font-montserrat">
+                        <span class="status-tag gold-gradient-text">Now Playing</span>
+                        <h3 class="song-title">Rewrite The Stars</h3>
+                        <p class="song-author">James Arthur & Anne-Marie</p>
+
+                        <div class="timeline-area">
+                            <span>1:23</span>
+                            <div class="progress-track"><div class="progress-fill"></div></div>
+                            <span>3:37</span>
+                        </div>
+
+                        <div class="controls-row">
+                            <button class="p-btn"><i class="fa-solid fa-shuffle"></i></button>
+                            <button class="p-btn"><i class="fa-solid fa-backward-step"></i></button>
+                            <button class="play-main-btn"><i class="fa-solid fa-play"></i></button>
+                            <button class="p-btn"><i class="fa-solid fa-forward-step"></i></button>
+                            <button class="p-btn"><i class="fa-solid fa-repeat"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Письмо -->
+                <section class="widget-letter lace-border">
+                    <div class="letter-art" style="background-image: url('images/letter.jpg');"></div>
+                    <div class="letter-core font-montserrat">
+                        <span class="letter-tag gold-gradient-text">New Letter</span>
+                        <h3>У вас новое письмо из Хогвартса</h3>
+                        <button class="btn-read-letter">Читать <i class="fa-solid fa-location-arrow"></i></button>
+                    </div>
+                </section>
+            </div>
         </main>
 
-        <!-- RIGHT -->
+        <!-- ================= ПРАВАЯ ПАНЕЛЬ ================= -->
         <aside class="right-sidebar">
-
+            <!-- Цитата дня -->
             <div class="widget-quote lace-border">
-                <h3>Цитата дня</h3>
-                <blockquote>
-                    «Любовь — это не взгляд друг на друга...»
+                <h3 class="font-literatura gold-gradient-text">Цитата дня</h3>
+                <blockquote class="font-montserrat">
+                    «Любовь — это не взгляд друг на друга, а взгляд в одном направлении.»
                 </blockquote>
-                <cite>— Экзюпери</cite>
+                <cite class="font-montserrat">— Антуан де Сент-Экзюпери</cite>
             </div>
 
+            <!-- Созвездие -->
             <div class="widget-constellation lace-border">
-                <h3>Constellation of Fate</h3>
+                <h3 class="font-literatura gold-gradient-text">Constellation of Fate</h3>
                 <div class="constellation-map"></div>
-            </div>
-
-        </aside>
-
-    </div>
-
-    <!-- ✅ ПУСТОЙ SCRIPT УБРАН (или можно потом JS добавить) -->
-
-</body>
-</html>
+                <p class="constellation-desc font-montserrat">
+                    Лев и Змея связаны нитями магии, которые невозможно разорвать.
