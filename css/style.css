@@ -1,302 +1,211 @@
-/* ================= FONT IMPORTS ================= */
+/* ================= IMPORT ШРИФТОВ ================= */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap');
 
-@font-face {
-    font-family: 'Literatura Pro Book';
-    src: url('../fonts/literatura-pro.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Salve Script 2';
-    src: url('../fonts/salve-script2.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Bell Std Medium';
-    src: url('../fonts/bell-std.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* ================= ROOT ================= */
-
+/* ================= ПАЛИТРА ================= */
 :root {
-    --bg-dark-castle: #050103;
-    --block-dark-blue: #120c16;
-    --vintage-gold: #c3924c;
-    --text-main: #cbd5e1;
-    --card-border: rgba(195, 146, 76, 0.28);
+    --bg: #050103;
+    --panel: #120c16;
+    --gold: #c3924c;
+    --gold-soft: rgba(195,146,76,0.25);
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: rgba(195,146,76,0.25);
 }
 
 /* ================= RESET ================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ================= BODY ================= */
-
 body {
-    background-color: var(--bg-dark-castle);
-    color: var(--text-main);
+    background: radial-gradient(circle at 50% 30%, #1a0f18 0%, var(--bg) 60%);
+    color: var(--text);
     font-family: 'Montserrat', sans-serif;
-
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-
-    padding-top: 30px;
-    overflow-x: hidden;
-
-    background:
-        radial-gradient(circle at 72% 32%, rgba(5, 1, 3, 0) 22%, var(--bg-dark-castle) 82%),
-        url('../images/bg.jpg') no-repeat center center;
-    background-size: cover;
+    align-items: center;
 }
 
-/* ================= LAYOUT ================= */
-
+/* ================= MAIN GRID ================= */
 .app-container {
+    width: 95vw;
+    height: 92vh;
     display: grid;
-    grid-template-columns: 250px 1fr 275px;
-
-    width: 98vw;
-    max-width: 1440px;
-    min-height: 92vh;
-
-    border: 1px solid var(--card-border);
-    border-radius: 14px;
-    overflow: hidden;
-
-    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.95);
+    grid-template-columns: 260px 1fr 320px;
+    border: 1px solid var(--border);
+    background: rgba(10,6,10,0.6);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8);
 }
 
 /* ================= SIDEBAR ================= */
-
 .sidebar {
-    background: rgba(6, 2, 4, 0.93);
-    border-right: 1px solid var(--card-border);
-
-    padding: 30px 18px;
+    background: rgba(10,6,10,0.85);
+    border-right: 1px solid var(--border);
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* ================= LOGO ================= */
-
 .vintage-logo {
     font-family: 'Cinzel', serif;
-    font-size: 2.6rem;
-
-    width: 65px;
-    height: 65px;
-    line-height: 60px;
-
-    margin: 0 auto 12px;
-
-    border: 1px solid var(--vintage-gold);
-    border-radius: 6px;
-
+    font-size: 2.2rem;
     text-align: center;
-
-    color: #fff;
-    text-shadow:
-        0 0 10px rgba(195,146,76,0.5),
-        0 0 25px rgba(195,146,76,0.2);
+    color: var(--gold);
+    border: 1px solid var(--gold-soft);
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(195,146,76,0.2);
 }
 
 /* ================= MENU ================= */
-
 .menu-item {
     display: flex;
     align-items: center;
     gap: 12px;
-
-    padding: 10px 14px;
-    border-radius: 8px;
-
-    color: #94a3b8;
+    padding: 10px;
+    color: var(--muted);
     text-decoration: none;
-
-    transition: 0.3s ease;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
 .menu-item:hover,
 .menu-item.active {
-    background: rgba(18, 12, 22, 0.6);
-    border-left: 2px solid var(--vintage-gold);
-    color: #fff;
+    background: rgba(195,146,76,0.08);
+    color: white;
+    border-left: 2px solid var(--gold);
 }
 
-/* ================= BUTTONS ================= */
-
-button {
-    font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
-}
-
-/* ENTER BUTTON */
-.btn-enter {
-    background: rgba(18, 12, 22, 0.85);
-    border: 1px solid var(--vintage-gold);
-
-    color: var(--vintage-gold);
-
-    padding: 10px 26px;
-    border-radius: 6px;
-
-    letter-spacing: 2px;
-
-    transition: 0.3s ease;
-}
-
-.btn-enter:hover {
-    background: var(--vintage-gold);
-    color: #050103;
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(195,146,76,0.35);
-}
-
-/* THEME BUTTON */
-.theme-toggle-btn {
-    background: transparent;
-    border: 1px solid var(--vintage-gold);
-    color: var(--vintage-gold);
-
-    padding: 6px 16px;
-    border-radius: 4px;
-
-    transition: 0.3s ease;
-}
-
-.theme-toggle-btn:hover {
-    background: var(--vintage-gold);
-    color: #050103;
-}
-
-/* ================= MAIN ================= */
-
+/* ================= CENTER HERO ================= */
 .main-content {
-    padding: 35px 30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-/* ================= HERO ================= */
-
 .hero-block {
-    max-width: 450px;
+    max-width: 520px;
 }
 
 .welcome-text {
-    font-size: 0.9rem;
-    letter-spacing: 4px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
 }
 
 .main-title {
     font-family: 'Cinzel', serif;
-    font-weight: 200;
-    font-size: 3.8rem;
-
-    color: rgba(195,146,76,0.18);
-
-    text-shadow:
-        0 0 6px rgba(195,146,76,0.2),
-        0 0 25px rgba(195,146,76,0.15);
-
-    animation: breathe 6s ease-in-out infinite;
-}
-
-@keyframes breathe {
-    0%,100% { transform: translateY(0); opacity: 0.8; }
-    50% { transform: translateY(-2px); opacity: 1; }
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 6px;
+    text-shadow: 0 0 30px rgba(195,146,76,0.2);
 }
 
 .handwritten-sub {
-    font-family: 'Salve Script 2', cursive;
-    font-size: 2rem;
-    margin-top: -10px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 48px;
+    color: var(--gold-soft);
+    margin-top: -20px;
 }
 
-/* ================= CARDS ================= */
+.hero-description {
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
 
-.moment-card,
-.widget-player,
-.widget-letter,
-.widget-quote,
-.widget-constellation {
-    background: var(--block-dark-blue);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    padding: 15px;
+/* ================= BUTTON ================= */
+.btn-enter {
+    margin-top: 20px;
+    padding: 10px 22px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 2px;
+}
+
+.btn-enter:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 25px rgba(195,146,76,0.4);
 }
 
 /* ================= MOMENTS ================= */
-
 .moments-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
+.moment-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
 .card-img {
-    height: 110px;
+    height: 120px;
     background-size: cover;
     background-position: center;
     filter: brightness(0.7);
 }
 
-/* ================= RIGHT ================= */
+.card-body {
+    padding: 10px;
+}
 
+.card-body h4 {
+    font-size: 13px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* ================= RIGHT PANEL ================= */
 .right-sidebar {
-    border-left: 1px solid var(--card-border);
-    padding: 35px 15px;
+    padding: 25px;
+    border-left: 1px solid var(--border);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
-/* ================= CONSTELLATION ================= */
-
-.star {
-    width: 6px;
-    height: 6px;
-    background: var(--vintage-gold);
-    border-radius: 50%;
-    box-shadow: 0 0 12px rgba(195,146,76,0.6);
-    animation: pulse 3s infinite ease-in-out;
+.widget-quote,
+.widget-constellation {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 15px;
 }
 
-@keyframes pulse {
-    0%,100% { transform: scale(1); opacity: .6; }
-    50% { transform: scale(1.3); opacity: 1; }
+.widget-quote h3,
+.widget-constellation h3 {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
 }
 
-/* ================= TEXT HELPERS ================= */
-
-.font-literatura { font-family: 'Literatura Pro Book', serif; }
-.font-bell { font-family: 'Bell Std Medium', serif; }
-.font-salve { font-family: 'Salve Script 2', cursive; }
-.font-montserrat { font-family: 'Montserrat', sans-serif; }
-
-/* ================= GOLD EFFECTS ================= */
-
-.gold-gradient-text {
-    background: linear-gradient(180deg, #f5e6b3, #c3924c, #7a4f22);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.gold-text-3d {
-    color: #e6c27a;
-    text-shadow:
-        0 1px 0 #7a5624,
-        0 0 20px rgba(195,146,76,0.3);
+blockquote {
+    font-style: italic;
+    color: var(--muted);
 }
