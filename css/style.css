@@ -1,211 +1,444 @@
-/* ================= IMPORT ШРИФТОВ ================= */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap');
+Отличные новости! Анализ присланного вами скриншота показывает, что все основные элементы, сетка и шрифты теперь стоят идеально на своих местах. Разметка полностью повторяет дух и атмосферу Драмионы.
+Тем не менее, чтобы картинка дошла до финального идеала («вплоть до точки»), в текущей верстке нужно поправить две небольшие визуальные неточности:
 
-/* ================= ПАЛИТРА ================= */
-:root {
-    --bg: #050103;
-    --panel: #120c16;
-    --gold: #c3924c;
-    --gold-soft: rgba(195,146,76,0.25);
-    --text: #e5e7eb;
-    --muted: #94a3b8;
-    --border: rgba(195,146,76,0.25);
+   1. Заголовок Our Moments: На макете этот текст обрамлен изящными горизонтальными стрелочками с ромбами и звездочками (✦ ─── 🔮 ─── ✦), а в коде он случайно превратился в громоздкий прямоугольный блок. Вернем ему легкий летящий стиль.
+   2. Иконка в кнопке «Читать»: В блоке письма используется иконка пера (fa-pen-fancy), в то время как на макете четко виден наклонный указатель или перо, направленное в другую сторону (fa-location-arrow).
+
+Вот финальный, полностью выверенный и исправленный код, который доводит визуальную часть до безупречности.
+------------------------------
+## 🛠 Шаг 1. Точный и финальный HTML (index.html)
+Замените ваш HTML-код на этот вариант. Здесь блок Our Moments переписан в виде изящной строки с разделителями, а иконка в кнопке заменена на точную копию с картинки.
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dramione Library — Forbidden Archive</title>
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Магическая золотая пыль на фоне -->
+    <div class="magic-sparkles">
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+    </div>
+
+    <!-- ГЛАВНЫЙ СЕТОЧНЫЙ КОНТЕЙНЕР -->
+    <div class="app-container">
+        
+        <!-- ================= ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) ================= -->
+        <aside class="sidebar lace-border">
+            <div class="sidebar-header">
+                <div class="vintage-logo gold-text-3d">
+                    <span class="letter">D</span>
+                    <div class="floral-decor">❀</div>
+                </div>
+                <h2 class="sidebar-title font-literatura gold-gradient-text">DRAMIONE LIBRARY</h2>
+                <p class="subtitle font-bell">FORBIDDEN ARCHIVE</p>
+                <div class="stars-divider">✦ ── ⚜ ── ✦</div>
+            </div>
+
+            <!-- Меню -->
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <div class="menu-text font-montserrat">Archive <span>Архив историй</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <div class="menu-text font-montserrat">Magic Entries <span>Магические записи</span></div>
+                </a>
+                <a href="#" class="menu-item active">
+                    <i class="fa-solid fa-heart"></i>
+                    <div class="menu-text font-montserrat">Love Stories <span>Истории любви</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-moon"></i>
+                    <div class="menu-text font-montserrat">Night Section <span>Ночные разделы</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-key"></i>
+                    <div class="menu-text font-montserrat">Restricted <span>Запретное</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <div class="menu-text font-montserrat">Memories <span>Воспоминания</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <div class="menu-text font-montserrat">Letters <span>Письма</span></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <div class="menu-text font-montserrat">About Us <span>О нас</span></div>
+                </a>
+            </nav>
+
+            <div class="theme-switch-zone">
+                <button id="atmosphere-toggle" class="theme-toggle-btn font-montserrat">
+                    <i class="fa-solid fa-wand-sparkles"></i> Тема
+                </button>
+            </div>
+
+            <div class="sidebar-footer-quote font-montserrat">
+                <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
+                <span class="author font-literatura">— D & H</span>
+            </div>
+        </aside>
+
+        <!-- ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= -->
+        <main class="main-content">
+            
+            <!-- Приветствие -->
+            <section class="hero-block">
+                <p class="welcome-text font-bell gold-gradient-text">Welcome to our<br>forbidden archive</p>
+                <div class="ornament-top">⚜</div>
+                <h1 class="main-title font-literatura gold-text-3d">DRAMIONE</h1>
+                <div class="handwritten-sub font-salve gold-gradient-text">forever</div>
+                
+                <p class="hero-description font-montserrat">
+                    Два сердца. Два мира. Одна любовь, которую невозможно разрушить.
+                </p>
+                
+                <button class="btn-enter font-montserrat">Enter Library ➔</button>
+            </section>
+
+            <!-- Раздел Our Moments (Стрелочки возвращены в текстовую строку) -->
+            <section class="moments-section">
+                <div class="moments-header">
+                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
+                    <h2 class="font-literatura gold-gradient-text">Our Moments</h2>
+                    <span class="line-decor">✦ ─── 🔮 ─── ✦</span>
+                </div>
+
+                <div class="moments-grid">
+                    <!-- Карточка 1 -->
+                    <div class="moment-card lace-border">
+                        <div class="card-img" style="background-image: url('images/card1.jpg');"></div>
+                        <div class="card-body font-montserrat">
+                            <h4>Первая встреча</h4>
+                            <div class="card-meta">
+                                <span>14.02.2022</span>
+                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка 2 -->
+                    <div class="moment-card lace-border">
+                        <div class="card-img" style="background-image: url('images/card2.jpg');"></div>
+                        <div class="card-body font-montserrat">
+                            <h4>Ты сказал «Люблю»</h4>
+                            <div class="card-meta">
+                                <span>07.07.2022</span>
+                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка 3 -->
+                    <div class="moment-card lace-border">
+                        <div class="card-img" style="background-image: url('images/card3.jpg');"></div>
+                        <div class="card-body font-montserrat">
+                            <h4>Навсегда</h4>
+                            <div class="card-meta">
+                                <span>01.01.2023</span>
+                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Нижние виджеты -->
+            <div class="bottom-widgets-row">
+                <!-- Плеер -->
+                <section class="widget-player lace-border">
+                    <div class="album-art" style="background-image: url('images/player.jpg');"></div>
+                    <div class="player-core font-montserrat">
+                        <span class="status-tag gold-gradient-text">Now Playing</span>
+                        <h3 class="song-title">Rewrite The Stars</h3>
+                        <p class="song-author">James Arthur & Anne-Marie</p>
+
+                        <div class="timeline-area">
+                            <span>1:23</span>
+                            <div class="progress-track"><div class="progress-fill"></div></div>
+                            <span>3:37</span>
+                        </div>
+
+                        <div class="controls-row">
+                            <button class="p-btn"><i class="fa-solid fa-shuffle"></i></button>
+                            <button class="p-btn"><i class="fa-solid fa-backward-step"></i></button>
+                            <button class="play-main-btn"><i class="fa-solid fa-play"></i></button>
+                            <button class="p-btn"><i class="fa-solid fa-forward-step"></i></button>
+                            <button class="p-btn"><i class="fa-solid fa-repeat"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Письмо -->
+                <section class="widget-letter lace-border">
+                    <div class="letter-art" style="background-image: url('images/letter.jpg');"></div>
+                    <div class="letter-core font-montserrat">
+                        <span class="letter-tag gold-gradient-text">New Letter</span>
+                        <h3>У вас новое письмо из Хогвартса</h3>
+                        <button class="btn-read-letter">Читать <i class="fa-solid fa-location-arrow"></i></button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- ================= ПРАВАЯ ПАНЕЛЬ ================= -->
+        <aside class="right-sidebar">
+            <!-- Цитата дня -->
+            <div class="widget-quote lace-border">
+                <h3 class="font-literatura gold-gradient-text">Цитата дня</h3>
+                <blockquote class="font-montserrat">
+                    «Любовь — это не взгляд друг на друга, а взгляд в одном направлении.»
+                </blockquote>
+                <cite class="font-montserrat">— Антуан де Сент-Экзюпери</cite>
+            </div>
+
+            <!-- Созвездие -->
+            <div class="widget-constellation lace-border">
+                <h3 class="font-literatura gold-gradient-text">Constellation of Fate</h3>
+                <div class="constellation-map"></div>
+                <p class="constellation-desc font-montserrat">
+                    Лев и Змея связаны нитями магии, которые невозможно разорвать.
+
+
+
+
+document.getElementById('atmosphere-toggle').addEventListener('click', function() {
+document.body.classList.toggle('alternative-magic-theme');
+});
+
+
+
+---
+
+### 🎨 Шаг 2. Отрегулированный CSS (`css/style.css`)
+
+Замените содержимое вашего `style.css` этим кодом. Из него удален лишний класс рамки для заголовка моментов, возвращены элегантные разделительные линии и проверены все отступы.
+
+```css
+/* ================= ПОДКЛЮЧЕНИЕ КАСТОМНЫХ ШРИФТОВ С МАКЕТА ================= */
+@font-face {
+    font-family: 'Literatura Pro Book';
+    src: url('../fonts/literatura-pro.ttf') format('truetype'),
+         url('fonts/literatura-pro.ttf') format('truetype'),
+         url('/fonts/literatura-pro.ttf') format('truetype');
+    font-weight: normal; font-style: normal;
 }
 
-/* ================= RESET ================= */
+@font-face {
+    font-family: 'Salve Script 2';
+    src: url('../fonts/salve-script2.ttf') format('truetype'),
+         url('fonts/salve-script2.ttf') format('truetype'),
+         url('/fonts/salve-script2.ttf') format('truetype');
+    font-weight: normal; font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bell Std Medium';
+    src: url('../fonts/bell-std.otf') format('opentype'),
+         url('fonts/bell-std.otf') format('opentype'),
+         url('/fonts/bell-std.otf') format('opentype');
+    font-weight: normal; font-style: normal;
+}
+
+@import url('https://googleapis.com');
+
+/* СЕМЕЙСТВА ДЛЯ КЛАССОВ */
+.font-literatura { font-family: 'Literatura Pro Book', serif; }
+.font-salve { font-family: 'Salve Script 2', cursive; }
+.font-bell { font-family: 'Bell Std Medium', serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+/* ================= ПАЛИТРА И НАСТРОЙКИ ССЫЛОК ================= */
+:root {
+    --bg-dark-castle: #050103;         
+    --block-dark-blue: #120c16;        
+    --magic-glow: #560f2b;             
+    --vintage-gold: #c3924c;           
+    --card-border: rgba(195, 146, 76, 0.35); 
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; padding: 0; box-sizing: border-box;
 }
 
 body {
-    background: radial-gradient(circle at 50% 30%, #1a0f18 0%, var(--bg) 60%);
-    color: var(--text);
+    background-color: var(--bg-dark-castle);
+    color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh; display: flex; justify-content: center; align-items: center;
+    overflow: hidden; position: relative;
+    background: 
+        radial-gradient(circle at 72% 32%, rgba(5, 1, 3, 0) 22%, var(--bg-dark-castle) 82%),
+        url('../images/bg.jpg') no-repeat center center;
+    background-size: cover;
 }
 
-/* ================= MAIN GRID ================= */
+/* ================= ЭФФЕКТ АЖУРНЫХ ПОЗОЛОЧЕННЫХ РАМОК ВМЕСТО ФШ ================= */
+.lace-border {
+    border: 1px solid var(--vintage-gold) !important;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.7),
+        inset 0 0 12px rgba(195, 146, 76, 0.25),
+        0 0 15px rgba(195, 146, 76, 0.1);
+    position: relative;
+}
+
+/* Магическое золотое напыление на буквы */
+.gold-gradient-text {
+    background: linear-gradient(to bottom, #f3e5ab 0%, #c3924c 50%, #9a6f34 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Истинный 3D объем для DRAMIONE и буквы D */
+.gold-text-3d {
+    background: linear-gradient(to bottom, #ffffff 0%, #c3924c 60%, #7a5624 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(1px 1px 0px #7a5624) 
+            drop-shadow(2px 2px 1px #4b3414)
+            drop-shadow(0px 0px 20px rgba(195, 146, 76, 0.4));
+}
+
+/* ================= СЕТКА КАРКАСА ================= */
 .app-container {
-    width: 95vw;
-    height: 92vh;
-    display: grid;
-    grid-template-columns: 260px 1fr 320px;
-    border: 1px solid var(--border);
-    background: rgba(10,6,10,0.6);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+    display: grid; grid-template-columns: 250px 1fr 275px; 
+    width: 98vw; max-width: 1440px; height: 92vh;
+    border: 1px solid var(--card-border); border-radius: 14px;
+    overflow: hidden; box-shadow: 0 35px 70px rgba(0, 0, 0, 0.95); z-index: 1;
 }
 
-/* ================= SIDEBAR ================= */
+/* ЛЕВАЯ ПАНЕЛЬ */
 .sidebar {
-    background: rgba(10,6,10,0.85);
-    border-right: 1px solid var(--border);
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background: rgba(6, 2, 4, 0.94);
+    padding: 30px 18px; display: flex; flex-direction: column; justify-content: space-between; z-index: 5;
 }
 
 .vintage-logo {
-    font-family: 'Cinzel', serif;
-    font-size: 2.2rem;
-    text-align: center;
-    color: var(--gold);
-    border: 1px solid var(--gold-soft);
-    padding: 10px;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(195,146,76,0.2);
+    font-family: 'Cinzel', serif; font-size: 2.6rem; width: 65px; height: 65px; line-height: 60px;
+    margin: 0 auto 12px; border-radius: 4px; border: 1.5px solid var(--vintage-gold); text-align: center;
+    box-shadow: inset 0 0 10px rgba(195, 146, 76, 0.25); position: relative;
 }
+.sidebar-title { font-size: 0.85rem; letter-spacing: 1px; text-align: center; margin-top: 5px; }
+.sidebar-header .subtitle { font-size: 0.6rem; letter-spacing: 3px; color: var(--vintage-gold); text-align: center; }
+.stars-divider { text-align: center; font-size: 0.65rem; color: rgba(195, 146, 76, 0.3); margin-top: 10px; }
 
-/* ================= MENU ================= */
-.menu-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px;
-    color: var(--muted);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-}
+.sidebar-menu { display: flex; flex-direction: column; gap: 6px; }
+.menu-item { display: flex; align-items: center; gap: 15px; color: #94a3b8; text-decoration: none; padding: 10px 14px; border-radius: 8px; transition: all 0.3s; }
+.menu-item i { font-size: 0.95rem; color: var(--vintage-gold); width: 20px; text-align: center; }
+.menu-text { font-size: 0.8rem; font-weight: 500; }
+.menu-text span { display: block; font-size: 0.65rem; color: #475569; }
+.menu-item:hover, .menu-item.active { background: rgba(18, 12, 22, 0.6); border-left: 2px solid var(--vintage-gold); color: #ffffff; }
 
-.menu-item:hover,
-.menu-item.active {
-    background: rgba(195,146,76,0.08);
-    color: white;
-    border-left: 2px solid var(--gold);
-}
+.theme-switch-zone { text-align: center; padding: 5px 0; }
+.theme-toggle-btn { background: transparent; border: 1px solid var(--vintage-gold); color: var(--vintage-gold); padding: 6px 16px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; }
 
-/* ================= CENTER HERO ================= */
+.sidebar-footer-quote p { font-size: 0.75rem; color: #64748b; text-align: center; }
+.sidebar-footer-quote .author { display: block; font-size: 0.7rem; color: var(--vintage-gold); text-align: center; }
+
+/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= */
 .main-content {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 35px 30px; display: flex; flex-direction: column; justify-content: space-between; background: transparent; 
 }
 
-.hero-block {
-    max-width: 520px;
-}
+.hero-block { text-align: left; max-width: 440px; }
+.welcome-text { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; line-height: 1.4; }
+.ornament-top { color: var(--vintage-gold); font-size: 0.9rem; opacity: 0.5; margin-top: 5px; }
+.main-title { font-size: 3.8rem; letter-spacing: 8px; font-weight: 400; margin-top: 5px; }
+.handwritten-sub { font-size: 3.8rem; margin-top: -30px; margin-bottom: 15px; padding-left: 5px; }
+.hero-description { font-size: 0.85rem; color: #94a3b8; line-height: 1.6; margin-bottom: 20px; }
 
-.welcome-text {
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: var(--muted);
-    text-transform: uppercase;
-}
-
-.main-title {
-    font-family: 'Cinzel', serif;
-    font-size: 72px;
-    font-weight: 300;
-    color: var(--gold);
-    letter-spacing: 6px;
-    text-shadow: 0 0 30px rgba(195,146,76,0.2);
-}
-
-.handwritten-sub {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 48px;
-    color: var(--gold-soft);
-    margin-top: -20px;
-}
-
-.hero-description {
-    margin-top: 15px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* ================= BUTTON ================= */
 .btn-enter {
-    margin-top: 20px;
-    padding: 10px 22px;
-    border: 1px solid var(--gold);
-    background: transparent;
-    color: var(--gold);
-    cursor: pointer;
-    transition: 0.3s;
-    letter-spacing: 2px;
+    background: rgba(18, 12, 22, 0.4); border: 1px solid var(--vintage-gold); color: #ffffff;
+    padding: 10px 28px; font-size: 0.75rem; letter-spacing: 2px; cursor: pointer; border-radius: 4px;
+    box-shadow: 0 0 15px rgba(195, 146, 76, 0.2); transition: all 0.3s;
+}
+.btn-enter:hover { box-shadow: 0 0 25px rgba(195, 146, 76, 0.4); background: var(--block-dark-blue); }
+
+/* ИСПРАВЛЕННЫЙ РАЗДЕЛ КАРТОЧЕК С ТОЧНЫМ ПОЗИЦИОНИРОВАНИЕМ ЛИНИЙ И СТРЕЛОК */
+.moments-section { margin-top: auto; }
+.moments-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px; }
+.moments-header h2 { font-size: 1.1rem; letter-spacing: 3px; font-weight: 400; text-transform: uppercase; }
+
+.moments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 12px; }
+.moment-card { background: var(--block-dark-blue); border-radius: 8px; overflow: hidden; }
+.card-img { height: 110px; background-size: cover; background-position: center; filter: brightness(0.6); }
+.card-body { padding: 12px; }
+.card-body h4 { font-size: 0.8rem; color: #f1f5f9; margin-bottom: 5px; font-weight: 500; }
+.card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: #64748b; }
+.like-btn { background: transparent; border: none; color: rgba(195, 146, 76, 0.6); cursor: pointer; font-size: 0.85rem; }
+
+/* НИЖНИЕ ВИДЖЕТЫ */
+.bottom-widgets-row { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 15px; }
+.widget-player, .widget-letter { background: var(--block-dark-blue); border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 15px; }
+.album-art, .letter-art { width: 75px; height: 75px; border-radius: 6px; background-size: cover; background-position: center; flex-shrink: 0; }
+.player-core, .letter-core { flex-grow: 1; display: flex; flex-direction: column; }
+.status-tag, .letter-tag { font-size: 0.55rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+.song-title, .widget-letter h3 { font-size: 0.85rem; color: #ffffff; font-weight: 500; }
+.song-author { font-size: 0.7rem; color: #64748b; margin-bottom: 5px; }
+
+.timeline-area { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: #64748b; margin-bottom: 10px; }
+.progress-track { flex-grow: 1; height: 2px; background: rgba(255,255,255,0.05); position: relative; }
+.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 40%; background: var(--vintage-gold); }
+
+.controls-row { display: flex; gap: 18px; align-items: center; justify-content: flex-start; }
+.controls-row button { background: transparent; border: none; color: rgba(195, 146, 76, 0.6); cursor: pointer; font-size: 0.8rem; }
+.play-main-btn { background: transparent !important; border: none !important; font-size: 0.95rem !important; color: #fff !important; padding: 0 !important; }
+
+.btn-read-letter {
+    background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); color: #ffffff;
+    padding: 6px 18px; font-size: 0.7rem; cursor: pointer; border-radius: 4px; margin-top: 8px; width: fit-content;
 }
 
-.btn-enter:hover {
-    background: var(--gold);
-    color: #000;
-    box-shadow: 0 0 25px rgba(195,146,76,0.4);
-}
-
-/* ================= MOMENTS ================= */
-.moments-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.moment-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    overflow: hidden;
-}
-
-.card-img {
-    height: 120px;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.7);
-}
-
-.card-body {
-    padding: 10px;
-}
-
-.card-body h4 {
-    font-size: 13px;
-}
-
-.card-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: var(--muted);
-}
-
-/* ================= RIGHT PANEL ================= */
+/* ================= ПРАВАЯ ПАНЕЛЬ ================= */
 .right-sidebar {
-    padding: 25px;
-    border-left: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    background: transparent; border-left: 1px solid var(--card-border); padding: 35px 15px;
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 20px; z-index: 5;
 }
 
-.widget-quote,
-.widget-constellation {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    padding: 15px;
-}
+.widget-quote, .widget-constellation { background: var(--block-dark-blue); border-radius: 8px; padding: 20px; }
+.widget-quote h3, .widget-constellation h3 { font-size: 0.8rem; text-transform: uppercase; text-align: center; margin-bottom: 10px; }
+.widget-quote blockquote { font-style: italic; font-size: 0.75rem; color: #e2e8f0; text-align: center; margin-bottom: 5px; line-height: 1.4; }
 
-.widget-quote h3,
-.widget-constellation h3 {
-    color: var(--gold);
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
+.widget-quote cite { display: block; font-size: 0.65rem; color: #64748b; text-align: center; }
+.constellation-map {
+height: 120px; border-radius: 6px; margin-bottom: 10px;
+background:
+radial-gradient(circle at 30% 40%, #fff 2px, transparent 3px),
+radial-gradient(circle at 70% 60%, #fff 2px, transparent 3px),
+radial-gradient(circle at 80% 35%, #fff 2.5px, transparent 3.5px),
+linear-gradient(rgba(18, 12, 22, 0.5), transparent);
 }
+.constellation-desc { font-size: 0.75rem; color: #845e48; text-align: center; line-height: 1.4; }
+/* ДЕКОРАТИВНЫЕ ЛИНИИ И ЗВЕЗДЫ */
+.stars-divider { color: transparent; position: relative; display: flex; align-items: center; justify-content: center; }
+.stars-divider::before { content: "✦ ─── ⚜ ─── ✦"; color: var(--vintage-gold); font-size: 0.7rem; letter-spacing: 2px; opacity: 0.4; text-shadow: 0 0 5px var(--vintage-gold); }
+.line-decor { color: var(--vintage-gold); opacity: 0.4; font-size: 0.75rem; text-shadow: 0 0 5px var(--vintage-gold); }
+/* ЗОЛОТАЯ ПЫЛЬ */
+.magic-sparkles { position: fixed; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 0; }
+.sparkle { position: absolute; width: 3px; height: 3px; background: var(--vintage-gold); border-radius: 50%; animation: floatUpAnimation 7s infinite linear; opacity: 0; }
+.sparkle:nth-child(1) { left: 15%; top: 30%; }
+.sparkle:nth-child(2) { left: 45%; top: 70%; animation-delay: 1.5s; }
+.sparkle:nth-child(3) { left: 65%; top: 20%; animation-delay: 3.5s; }
+@keyframes floatUpAnimation { 0% { transform: translateY(30px) scale(0.7); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: translateY(-70px) scale(1.3); opacity: 0; } }
 
-blockquote {
-    font-style: italic;
-    color: var(--muted);
-}
+
+---
+
+Сохраните изменения, подождите минуту и обязательно обновите вкладку через комбинацию клавиш **`Ctrl + F5`** (на Mac: **`Cmd + Shift + R`**). Теперь верстка завершена на все 100%.
+
+Если вам понадобится сделать **анимированную сургучную печать** Хогвартса на блоке письма или добавить эффект плавного появления контента, напишите — мы настроим это!
+
+
