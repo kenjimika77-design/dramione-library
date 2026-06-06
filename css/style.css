@@ -1,3 +1,31 @@
+/* ================= ПОДКЛЮЧЕНИЕ ВАШИХ ШРИФТОВ ДЛЯ GITHUB (.TTF и .OTF) ================= */
+@font-face {
+    font-family: 'Literatura Pro Book';
+    src: url('../fonts/literatura-pro.ttf') format('truetype'),
+         url('fonts/literatura-pro.ttf') format('truetype'),
+         url('/fonts/literatura-pro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Salve Script 2';
+    src: url('../fonts/salve-script2.ttf') format('truetype'),
+         url('fonts/salve-script2.ttf') format('truetype'),
+         url('/fonts/salve-script2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bell Std Medium';
+    src: url('../fonts/bell-std.otf') format('opentype'),
+         url('fonts/bell-std.otf') format('opentype'),
+         url('/fonts/bell-std.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* ================= ПАЛИТРА И НАСТРОЙКИ ССЫЛОК ================= */
 :root {
     --bg-dark-castle: #050103;         
