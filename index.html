@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dramione Library - Forbidden Archive">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- CSS -->
-   <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-<h1 style="color:red; position:fixed; top:10px; left:10px; z-index:9999;">
-TEST HTML
-</h1>
+    <title>Dramione Library - Forbidden Archive</title>
     
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Подключение иконок Font Awesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
     <div class="app-container">
         
         <!-- ЛЕВОЕ МЕНЮ (SIDEBAR) -->
@@ -74,13 +72,15 @@ TEST HTML
         <!-- ГЛАВНЫЙ КОНТЕНТ -->
         <main class="main-content">
             
-            <!-- ХЕДЕР И ЗАГОЛОВОК -->
-            <section class="hero">
-                <p class="welcome-text">Welcome to our<br>forbidden archive</p>
-                <h1 class="main-title">DRAMIONE</h1>
-                <div class="cursive-text">forever</div>
-                <p class="hero-desc">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
-                <button class="btn-enter">Enter Library <span class="arrow">→</span></button>
+            <!-- ХЕДЕР С БОЛЬШИМ АРТОМ -->
+            <section class="hero-section">
+                <div class="hero-text-content">
+                    <p class="welcome-text">Welcome to our<br>forbidden archive</p>
+                    <h1 class="main-title">DRAMIONE</h1>
+                    <div class="cursive-text">forever</div>
+                    <p class="hero-desc">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
+                    <button class="btn-enter">Enter Library <span class="arrow">→</span></button>
+                </div>
             </section>
 
             <!-- БЛОК НАШИ МОМЕНТЫ -->
@@ -92,8 +92,9 @@ TEST HTML
                 </div>
                 
                 <div class="cards-grid">
+                    <!-- Карточка 1 -->
                     <div class="moment-card">
-                <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
                         <div class="card-footer">
                             <div>
                                 <h4>Первая встреча</h4>
@@ -102,8 +103,9 @@ TEST HTML
                             <span class="heart"><i class="fa-regular fa-heart"></i></span>
                         </div>
                     </div>
+                    <!-- Карточка 2 -->
                     <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
                         <div class="card-footer">
                             <div>
                                 <h4>Ты сказал «Люблю»</h4>
@@ -112,8 +114,9 @@ TEST HTML
                             <span class="heart"><i class="fa-regular fa-heart"></i></span>
                         </div>
                     </div>
+                    <!-- Карточка 3 -->
                     <div class="moment-card">
-                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
                         <div class="card-footer">
                             <div>
                                 <h4>Навсегда</h4>
@@ -129,33 +132,34 @@ TEST HTML
             <section class="bottom-widgets">
                 <!-- Музыкальный плеер -->
                 <div class="player-widget">
-                    <div class="track-info">
-                        <div class="track-cover" style="background-image: url('https://placehold.co');"></div>
-                        <div class="track-text">
-                            <span class="status">Now Playing</span>
-                            <h5>Rewrite The Stars</h5>
-                            <p>James Arthur & Anne-Marie</p>
-                        </div>
+                    <div class="track-text">
+                        <span class="status">Now Playing</span>
+                        <h5>Rewrite The Stars</h5>
+                        <p>James Arthur & Anne-Marie</p>
                     </div>
+                    
                     <div class="player-controls">
                         <span class="time">1:23</span>
                         <div class="progress-bar"><div class="progress"></div></div>
                         <span class="time">3:37</span>
                     </div>
+                    
                     <div class="player-buttons">
-                        <button><i class="fa-solid fa-shuffle"></i></button>
-                        <button><i class="fa-solid fa-backward-step"></i></button>
-                        <button class="play-btn"><i class="fa-solid fa-circle-play"></i></button>
-                        <button><i class="fa-solid fa-forward-step"></i></button>
-                        <button><i class="fa-solid fa-repeat"></i></button>
+                        <button class="control-btn"><i class="fa-solid fa-shuffle"></i></button>
+                        <button class="control-btn"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+                        <button class="control-btn"><i class="fa-solid fa-forward-step"></i></button>
+                        <button class="control-btn"><i class="fa-solid fa-repeat"></i></button>
                     </div>
                 </div>
 
                 <!-- Новое письмо -->
                 <div class="letter-widget">
                     <div class="letter-content">
-                        <h5>New Letter</h5>
-                        <p>У вас новое письмо из Хогвартса</p>
+                        <div>
+                            <h5>New Letter</h5>
+                            <p>У вас новое письмо из Хогвартса</p>
+                        </div>
                         <button class="btn-read">Читать <i class="fa-solid fa-pen-nib"></i></button>
                     </div>
                 </div>
@@ -172,7 +176,7 @@ TEST HTML
 
             <div class="constellation-box">
                 <h3>Constellation of Fate</h3>
-            <div class="stars-img" style="background-image: url('https://placehold.co');"></div>
+                <div class="stars-img" style="background-image: url('https://unsplash.com');"></div>
                 <p class="constellation-text">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
             </div>
         </aside>
