@@ -17,14 +17,15 @@ body {
     overflow-x: hidden;
 }
 
-/* Элемент размытия заднего плана для мистики */
+/* Элемент размытия заднего плана удален — теперь фон идеально чистый */
 .site-wrapper {
     display: grid;
     grid-template-columns: 260px 1fr 280px;
     min-height: 100vh;
-    background: rgba(10, 4, 6, 0.65); /* Затемнение поверх картинки */
-    backdrop-filter: blur(2px);
+    background: transparent; /* Полностью прозрачный фон для чистоты картинки */
+    position: relative;
 }
+
 
 /* ==========================================
    ЛЕВАЯ ПАНЕЛЬ (МЕНЮ)
@@ -249,10 +250,12 @@ body {
    БЛОК КАРТОЧЕК (OUR MOMENTS)
    ========================================== */
 .moments-section {
-    background: rgba(18, 9, 11, 0.6);
-    border: 1px solid rgba(139, 107, 72, 0.15);
+    background: rgba(13, 6, 9, 0.88); /* Плотный благородный винный оттенок для читаемости */
+    border: 1px solid rgba(176, 141, 92, 0.2); 
     border-radius: 6px;
     padding: 25px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6), 
+                0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 .section-divider {
@@ -331,10 +334,11 @@ body {
 }
 
 .widget {
-    background: rgba(20, 11, 13, 0.7);
-    border: 1px solid rgba(139, 107, 72, 0.15);
+    background: rgba(13, 6, 9, 0.88); /* Плотная заливка плеера и письма */
+    border: 1px solid rgba(176, 141, 92, 0.15);
     border-radius: 6px;
     padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 /* Плеер */
