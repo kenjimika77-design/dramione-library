@@ -1,11 +1,10 @@
 @font-face {
-    font-family: 'Alex Brush Local';
-    src: url('../fonts/AlexBrush-Regular.ttf') format('truetype');
+    font-family: 'Salve Script2 Local';
+    /* Убедитесь, что имя файла в папке совпадает с этим значением до буквы */
+    src: url('../fonts/SalveScript2-Regular.ttf') format('truetype'); 
     font-weight: normal;
     font-style: normal;
 }
-
-
 
 
 
@@ -338,26 +337,27 @@ body {
 }
 
 /* ==========================================
-   СТИЛЬ ДЛЯ КАЛЛИГРАФИЧЕСКОГО FOREVER
+   ФИНАЛЬНЫЙ СТИЛЬ ДЛЯ FOREVER (SALVE SCRIPT2)
    ========================================== */
 .cursive {
-    display: block !important;
-    font-family: 'Alex Brush Local', cursive !important;
-    font-size: 52px !important;
-    color: #b08d5c !important;
-    letter-spacing: 2px !important;
+    position: absolute;
+    /* Мягкая посадка: росчерки букв будут проходить изящно под словом */
+    bottom: -32px; 
+    
+    /* ТОЧНЫЙ СДВИГ: теперь надпись начинается ровно под буквой "А" */
+    left: 114px; 
+    
+    font-family: 'Salve Script2 Local', cursive !important; /* Включаем ваш шрифт */
+    font-size: 54px !important; 
+    font-weight: 300 !important; 
+    color: #b08d5c !important; 
+    letter-spacing: 1px !important;
     text-transform: lowercase !important;
+    white-space: nowrap; 
     
-    /* ИЗМЕНИТЕ ТОЛЬКО ЭТУ СТРОКУ (сделали -22px вместо -45px) */
-    margin-top: -22px !important; /* Слово плавно опустится ниже и перестанет липнуть */
-    
-    margin-left: 210px !important; /* Оставляем идеальный сдвиг вправо под буквы M, I, O, N */
-    
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.6)) !important;
-    position: relative;
+    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.7)) !important;
     z-index: 10;
 }
-
 /* ==========================================
    БЛОК КАРТОЧЕК (OUR MOMENTS)
    ========================================== */
