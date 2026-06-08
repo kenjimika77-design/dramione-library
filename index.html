@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
     
-    <!-- Подключение шрифтов и иконок -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Подключение шрифтов и иконок (Исправленные оригинальные ссылки) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
     
     <link rel="stylesheet" href="css/style.css">
@@ -16,8 +16,6 @@
 <body>
 
 <div class="site-wrapper">
-    <!-- Фоновый арт с Драко и Гермионой (позиционируется абсолютно справа вверху) -->
-    <div class="hero-art-bg"></div>
 
     <!-- ================= ЛЕВАЯ КОЛОНКА (SIDEBAR) ================= -->
     <aside class="sidebar-left">
@@ -110,8 +108,11 @@
         </div>
     </aside>
 
-    <!-- ================= ЦЕНТРАЛЬНЫЙ КОНТЕНТ ================= -->
+   <!-- ================= ЦЕНТРАЛЬНЫЙ КОНТЕНТ ================= -->
     <main class="main-content">
+        <!-- Картинка установлена ровно здесь (дубликат снизу удален) -->
+        <div class="hero-art-bg"></div>
+
         <header class="hero-section">
             <span class="welcome-text">Welcome to our<br>forbidden archive</span>
             <h1 class="main-title">DRAMIONE</h1>
@@ -165,7 +166,7 @@
 
         <!-- Нижний ряд виджетов (Плеер и Письмо) -->
         <div class="bottom-widgets">
-            <!-- Плеер -->
+            <!-- Плеер (Восстановлен отрезанный код) -->
             <div class="widget-player">
                 <div class="widget-hdr">Now Playing</div>
                 <div class="player-container">
@@ -191,7 +192,7 @@
                 </div>
             </div>
 
-            <!-- Новое письмо -->
+            <!-- Виджет нового письма -->
             <div class="widget-letter">
                 <div class="letter-content">
                     <div class="letter-paper"></div>
@@ -216,14 +217,11 @@
             </blockquote>
         </div>
 
-        <!-- Созвездие судьбы -->
+        <!-- Созвездие судьбы (Встроенный векторный рисунок) -->
         <div class="widget-constellation">
             <h4 class="widget-title">Constellation of Fate</h4>
-            <div class="stars-map-bg"></div>
-            <p class="constellation-desc">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
-        </div>
-    </aside>
-</div>
-
-</body>
-</html>
+            
+            <div class="stars-map-svg">
+                <svg viewBox="0 0 200 140" width="100%" height="100%" xmlns="http://w3.org">
+                    <defs>
+                        <filter id="glow-effect" x="-30%" y="-30%" width="160%" height="160%">
