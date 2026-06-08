@@ -1,4 +1,9 @@
-/* ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ */
+/* =========================
+   DRAMIONE LIBRARY — CLEAN BASE
+   NO 404 / NO EXTERNAL IMAGES
+========================= */
+
+/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,27 +11,33 @@
 }
 
 body {
-    background: radial-gradient(circle at center, #140d21 0%, #05040a 100%);
+    background:
+        radial-gradient(circle at 50% 30%, rgba(223, 183, 108, 0.05), transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(191, 174, 189, 0.04), transparent 55%),
+        linear-gradient(180deg, #0b0712, #05040a);
     color: #a496a7;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
     font-size: 13px;
-    line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* СЕТКА ИНТЕРФЕЙСА */
+/* =========================
+   LAYOUT
+========================= */
+
 .app-container {
     display: grid;
     grid-template-columns: 240px 1fr 280px;
     min-height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
 }
 
-/* ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) */
+/* =========================
+   SIDEBAR
+========================= */
+
 .sidebar {
-    background: rgba(8, 5, 13, 0.93);
+    background: rgba(8, 5, 13, 0.95);
     border-right: 1px solid rgba(143, 113, 153, 0.12);
     padding: 40px 20px;
     display: flex;
@@ -34,214 +45,89 @@ body {
     justify-content: space-between;
 }
 
-.logo-section {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
 .logo-d {
     font-family: 'Cinzel', serif;
     font-size: 46px;
     color: #dfb76c;
-    text-shadow: 0 0 15px rgba(223, 183, 108, 0.35);
-    font-weight: 700;
+    text-align: center;
 }
 
 .logo-section h2 {
+    text-align: center;
     font-family: 'Cinzel', serif;
     font-size: 11px;
-    letter-spacing: 2.5px;
     color: #dfb76c;
-    margin-top: 5px;
+    letter-spacing: 2px;
 }
 
 .logo-section .subtitle {
-    font-size: 8.5px;
-    letter-spacing: 3.5px;
+    text-align: center;
+    font-size: 9px;
     color: #5d5161;
-    margin-top: 2px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    margin-top: 20px;
 }
 
 .menu-item {
-    position: relative;
     display: flex;
-    align-items: center;
-    gap: 15px;
-    color: #897e8c;
+    gap: 12px;
+    padding: 10px;
+    color: #bfaebd;
     text-decoration: none;
-    padding: 10px 12px;
+    transition: 0.3s;
     border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .menu-item i {
-    font-size: 15px;
     color: #dfb76c;
-    width: 20px;
-    text-align: center;
-    transition: all 0.3s ease;
 }
 
-.menu-item span {
-    display: block;
-    font-size: 12.5px;
-    color: #bfaebd;
-    font-weight: 400;
-}
-
-.menu-item small {
-    display: block;
-    font-size: 9.5px;
-    color: #5d5161;
-}
-
-/* Эффект наведения меню */
 .menu-item:hover {
     background: rgba(223, 183, 108, 0.08);
-    color: #ffffff;
     transform: translateX(5px);
-    box-shadow: inset 0 0 15px rgba(223, 183, 108, 0.1);
 }
 
-.menu-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 15%;
-    width: 2px;
-    height: 70%;
-    background: transparent;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
+/* =========================
+   MAIN
+========================= */
 
-.menu-item:hover::before {
-    background: #dfb76c;
-    box-shadow: 0 0 10px rgba(223, 183, 108, 0.8);
-}
-
-.menu-item:hover i {
-    transform: scale(1.15);
-    text-shadow: 0 0 8px rgba(223, 183, 108, 0.6);
-}
-
-.sidebar-quote {
-    font-size: 11px;
-    font-style: italic;
-    text-align: center;
-    color: #645a66;
-    border-top: 1px solid rgba(143, 113, 153, 0.12);
-    padding-top: 25px;
-    line-height: 1.5;
-}
-
-.sidebar-quote .author {
-    display: block;
-    margin-top: 6px;
-    color: #dfb76c;
-    font-family: 'Cinzel', serif;
-    font-style: normal;
-    letter-spacing: 1px;
-}
-
-/* ГЛАВНЫЙ КОНТЕНТ */
 .main-content {
-    padding: 30px 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 30px;
 }
 
-/* ХЕДЕР С СЕКРЕТНЫМ АРТОМ НА ФОНЕ */
+/* =========================
+   HERO (без картинок)
+========================= */
+
 .hero-section {
     text-align: center;
     padding: 60px 20px;
     border-radius: 8px;
-    position: relative;
-    /* Затемнение + Фоновое изображение целующейся пары */
-    background: linear-gradient(rgba(10, 6, 18, 0.5), rgba(5, 4, 10, 0.85)), 
-                url('https://unsplash.com') no-repeat center 30%/cover;
-    border: 1px solid rgba(143, 113, 153, 0.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
 
-.welcome-text {
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #7a6e80;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(223, 183, 108, 0.08), transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(191, 174, 189, 0.05), transparent 45%),
+        linear-gradient(180deg, rgba(10, 6, 18, 0.7), rgba(5, 4, 10, 0.95));
 }
 
 .main-title {
     font-family: 'Cinzel', serif;
-    font-size: 58px;
-    letter-spacing: 12px;
+    font-size: 56px;
     color: #dfb76c;
-    margin-top: 15px;
-    font-weight: 400;
-    text-shadow: 0 0 20px rgba(223, 183, 108, 0.2);
+    letter-spacing: 10px;
 }
 
-.cursive-text {
-    font-family: 'Great Vibes', cursive;
-    font-size: 48px;
-    color: #bfaebd;
-    margin-top: -22px;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(191, 174, 189, 0.3);
-}
-
-.hero-desc {
-    font-size: 13.5px;
-    color: #7a6e80;
-    max-width: 480px;
-    margin: 0 auto 30px auto;
-}
-
-.btn-enter {
-    background: transparent;
-    border: 1px solid rgba(223, 183, 108, 0.5);
-    color: #dfb76c;
-    font-family: 'Cinzel', serif;
-    padding: 11px 35px;
-    font-size: 11.5px;
-    letter-spacing: 2.5px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.btn-enter:hover {
-    background: #dfb76c;
-    color: #05040a;
-    box-shadow: 0 0 20px rgba(223, 183, 108, 0.5);
-    border-color: #dfb76c;
-}
-
-/* КАРТОЧКИ OUR MOMENTS */
-.section-divider {
-    text-align: center;
-    color: #dfb76c;
-    letter-spacing: 3px;
-    font-size: 11.5px;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-.section-divider .line {
-    display: inline-block;
-    height: 1px;
-    width: 60px;
-    background: rgba(223, 183, 108, 0.25);
-}
+/* =========================
+   MOMENTS
+========================= */
 
 .cards-grid {
     display: grid;
@@ -253,215 +139,66 @@ body {
     background: rgba(14, 9, 23, 0.6);
     border: 1px solid rgba(143, 113, 153, 0.15);
     border-radius: 6px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+    padding: 10px;
 }
 
-.moment-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(223, 183, 108, 0.35);
-    box-shadow: 0 10px 25px rgba(223, 183, 108, 0.04), 0 8px 20px rgba(0, 0, 0, 0.5);
-}
+/* =========================
+   BOTTOM WIDGETS
+========================= */
 
-.card-img {
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-}
-.moment-card:hover .card-img {
-    opacity: 0.85;
-}
-
-.card-footer {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(5, 4, 10, 0.4);
-}
-
-.card-footer h4 {
-    font-size: 12.5px;
-    color: #bfaebd;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
-.card-footer .date {
-    font-size: 10px;
-    color: #5d5161;
-    display: block;
-    margin-top: 2px;
-}
-
-.card-footer .heart {
-    color: rgba(223, 183, 108, 0.6);
-    cursor: pointer;
-    font-size: 14px;
-    transition: color 0.2s, transform 0.2s;
-}
-.card-footer .heart:hover {
-    color: #dfb76c;
-    transform: scale(1.15);
-}
-
-/* ==========================================
-   🔥 НИЖНИЕ ВИДЖЕТЫ (ПЛЕЕР И ПИСЬМО)
-   ========================================== */
 .bottom-widgets {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-.player-widget, .letter-widget {
-    border: 1px solid rgba(143, 113, 153, 0.16);
-    border-radius: 6px;
-    padding: 22px 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 175px;
-    transition: all 0.3s ease;
-}
-
-.player-widget:hover, .letter-widget:hover {
-    border-color: rgba(223, 183, 108, 0.3);
-    box-shadow: 0 10px 25px rgba(223, 183, 108, 0.03), 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* ПЛЕЕР (ЛЕВЫЙ БЛОК) */
+/* PLAYER */
 .player-widget {
-    background: linear-gradient(180deg, rgba(12, 8, 20, 0.8) 0%, rgba(5, 4, 10, 0.92) 100%), 
-                url('https://unsplash.com') no-repeat center/cover;
+    padding: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(143, 113, 153, 0.2);
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(223, 183, 108, 0.07), transparent 45%),
+        linear-gradient(180deg, rgba(12, 8, 20, 0.9), rgba(5, 4, 10, 0.95));
 }
 
-.track-text .status {
-    display: block;
-    font-size: 9.5px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #5d5161;
-    margin-bottom: 4px;
-}
-
-.track-text h5 {
-    font-family: 'Cinzel', serif;
-    font-size: 15.5px;
-    color: #dfb76c;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
-.track-text p {
-    font-size: 11px;
-    color: #7a6e80;
-    margin-top: 1px;
-}
-
-/* ТАЙМЛАЙН */
-.player-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin: 12px 0;
-}
-
-.player-controls .time {
-    font-size: 10px;
-    color: #5d5161;
-}
-
-.player-controls .progress-bar {
-    flex: 1;
-    height: 2px;
-    background: rgba(143, 113, 153, 0.15);
-    border-radius: 2px;
-    position: relative;
-}
-
-.player-controls .progress {
-    width: 38%; /* Текущая позиция воспроизведения */
-    height: 100%;
-    background: #dfb76c;
-    border-radius: 2px;
-    box-shadow: 0 0 8px rgba(223, 183, 108, 0.6);
-}
-
-/* КНОПКИ ПЛЕЕРА */
-.player-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.player-buttons .control-btn {
-    background: none !important;
-    border: none !important;
-    outline: none !important;
-    color: #645a66;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 5px;
-}
-
-.player-buttons .control-btn:hover {
-    color: #dfb76c;
-    transform: scale(1.1);
-}
-
-/* ЦЕНТРАЛЬНАЯ КНОПКА PLAY */
-.player-buttons .play-btn {
-    background: #09060f !important;
-    border: 1px solid rgba(223, 183, 108, 0.35) !important;
-    border-radius: 50% !important;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #dfb76c !important;
-    font-size: 11px !important;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: all 0.2s ease;
-}
-
-.player-buttons .play-btn:hover {
-    background: #dfb76c !important;
-    color: #05040a !important;
-    border-color: #dfb76c !important;
-    box-shadow: 0 0 12px rgba(223, 183, 108, 0.5);
-}
-
-/* ВИДЖЕТ ПИСЬМА (ПРАВЫЙ БЛОК) */
+/* LETTER */
 .letter-widget {
-    background: linear-gradient(180deg, rgba(12, 8, 20, 0.72) 0%, rgba(5, 4, 10, 0.92) 100%), 
-                url('https://unsplash.com') no-repeat center/cover;
+    padding: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(143, 113, 153, 0.2);
+
+    background:
+        radial-gradient(circle at 80% 20%, rgba(191, 174, 189, 0.06), transparent 45%),
+        linear-gradient(180deg, rgba(12, 8, 20, 0.85), rgba(5, 4, 10, 0.95));
 }
 
-.letter-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-}
-
+/* TEXT */
+.track-text h5,
 .letter-content h5 {
     font-family: 'Cinzel', serif;
-    font-size: 15.5px;
     color: #dfb76c;
-    font-weight: 400;
-    letter-spacing: 0.5px;
 }
 
+.track-text p,
 .letter-content p {
-    font-size: 11px;
+    color: #7a6e80;
+}
+
+/* BUTTONS */
+.btn-enter,
+.btn-read {
+    border: 1px solid #dfb76c;
+    background: transparent;
+    color: #dfb76c;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-enter:hover,
+.btn-read:hover {
+    background: #dfb76c;
+    color: #05040a;
+}
