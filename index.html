@@ -3,361 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dramione Library</title>
-    <style>
-        /* Общие стили и фон */
-        body {
-            background-color: #0b070d;
-            background-image: linear-gradient(135deg, #110914 0%, #050306 100%);
-            color: #b5a2b8;
-            font-family: 'Times New Roman', Times, serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .wrapper {
-            width: 1200px;
-            display: grid;
-            grid-template-columns: 250px 1fr 300px;
-            gap: 20px;
-            background: rgba(15, 10, 18, 0.95);
-            border: 1px solid #2a1b30;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            border-radius: 4px;
-        }
-
-        /* Левая панель (Навигация) */
-        .sidebar-left {
-            border-right: 1px solid #2a1b30;
-            padding-right: 20px;
-        }
-
-        .logo-area {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .logo-d {
-            font-size: 48px;
-            color: #d4af37;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-            font-family: Georgia, serif;
-        }
-
-        .logo-text {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #a89475;
-            margin-top: 5px;
-        }
-
-        .menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 40px 0;
-        }
-
-        .menu-item {
-            padding: 12px 10px;
-            border-bottom: 1px solid #1a1020;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .menu-item:hover {
-            background: rgba(212, 175, 55, 0.05);
-            color: #e5c158;
-        }
-
-        .menu-title-en {
-            font-size: 14px;
-            color: #d5cad6;
-            margin-bottom: 2px;
-        }
-
-        .menu-title-ru {
-            font-size: 11px;
-            color: #6e5973;
-        }
-
-        /* Центральная часть */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 10px;
-        }
-
-        .welcome-text {
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #8c7355;
-            margin-bottom: 10px;
-        }
-
-        .main-title {
-            font-size: 42px;
-            color: #d4af37;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 0 0 5px 0;
-            font-weight: normal;
-        }
-
-        .main-subtitle {
-            font-style: italic;
-            font-size: 24px;
-            color: #bfa886;
-            margin-bottom: 20px;
-        }
-
-        .hero-quote {
-            font-size: 14px;
-            color: #8f7e91;
-            text-align: center;
-            margin-bottom: 25px;
-            max-width: 400px;
-        }
-
-        .btn-enter {
-            background: transparent;
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            padding: 10px 30px;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: 0.4s;
-            margin-bottom: 40px;
-        }
-
-        .btn-enter:hover {
-            background: #d4af37;
-            color: #0b070d;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Блок Our Moments */
-        .moments-section {
-            width: 100%;
-            border-top: 1px solid #2a1b30;
-            padding-top: 20px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 18px;
-            color: #bfa886;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .moments-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .moment-card {
-            background: #130d1a;
-            border: 1px solid #23172e;
-            padding: 10px;
-            border-radius: 2px;
-        }
-
-        .moment-img {
-            width: 100%;
-            height: 100px;
-            background: #221829;
-            object-fit: cover;
-            border-radius: 2px;
-        }
-
-        .moment-name {
-            font-size: 12px;
-            color: #d5cad6;
-            margin: 8px 0 2px 0;
-        }
-
-        .moment-date {
-            font-size: 10px;
-            color: #5c4961;
-        }
-
-        /* Нижний плеер и письмо */
-        .bottom-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .player-box, .letter-box {
-            background: #110a17;
-            border: 1px solid #23172e;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .track-info {
-            flex-grow: 1;
-        }
-
-        .track-title {
-            font-size: 14px;
-            color: #d4af37;
-        }
-
-        .track-artist {
-            font-size: 11px;
-            color: #7d6982;
-        }
-
-        .btn-read {
-            background: #2a1836;
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            padding: 5px 15px;
-            font-size: 11px;
-            cursor: pointer;
-        }
-
-        /* Правая панель (Цитаты и Созвездия) */
-        .sidebar-right {
-            border-left: 1px solid #2a1b30;
-            padding-left: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .widget-box {
-            background: rgba(20, 13, 26, 0.6);
-            border: 1px solid #23172e;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .widget-title {
-            font-size: 14px;
-            color: #bfa886;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #23172e;
-            padding-bottom: 8px;
-        }
-
-        .quote-text {
-            font-style: italic;
-            font-size: 13px;
-            line-height: 1.6;
-            color: #a693ab;
-        }
-
-        .quote-author {
-            font-size: 11px;
-            color: #6e5973;
-            margin-top: 10px;
-        }
-
-        .constellation-img {
-            width: 100%;
-            height: auto;
-            opacity: 0.7;
-            margin: 15px 0;
-        }
-
-        /* Левая нижняя цитата */
-        .left-bottom-quote {
-            margin-top: 40px;
-            font-size: 12px;
-            color: #6e5973;
-            text-align: center;
-            line-height: 1.5;
-            padding: 10px;
-            border-top: 1px solid #1a1020;
-        }
-    </style>
+    <title>Dramione Library - Forbidden Archive</title>
+    <!-- Подключаем шрифты из Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Путь к стилям теперь правильный, если файл лежит в папке css -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="wrapper">
-    
-    <!-- ЛЕВАЯ КОЛОНКА -->
-    <div class="sidebar-left">
-        <div class="logo-area">
-            <div class="logo-d">D</div>
-            <div class="logo-text">Dramione Library<br><span style="font-size: 9px; color:#5c4961;">Forbidden Archive</span></div>
-        </div>
+    <div class="app-container">
         
-        <ul class="menu-list">
-            <li class="menu-item">
-                <div class="menu-title-en">Archive</div>
-                <div class="menu-title-ru">Архив историй</div>
-            </li>
-            <li class="menu-item">
-                <div class="menu-title-en">Magic Entries</div>
-                <div class="menu-title-ru">Магические записи</div>
-            </li>
-            <li class="menu-item">
-                <div class="menu-title-en">Love Stories</div>
-                <div class="menu-title-ru">Истории любви</div>
-            </li>
-            <li class="menu-item">
-                <div class="menu-title-en">Night Section</div>
-                <div class="menu-title-ru">Ночные разделы</div>
-            </li>
-            <li class="menu-item">
-                <div class="menu-title-en">Restricted</div>
-                <div class="menu-title-ru">Запретное</div>
-            </li>
-            <li class="menu-item">
-                <div class="menu-title-en">Memories</div>
-                <div class="menu-title-ru">Воспоминания</div>
-            </li>
-            <li class="menu-item">
-                <div class="menu-title-en">Letters</div>
-                <div class="menu-title-ru">Письма</div>
-            </li>
-            <li class="menu-item">
-                <div class="menu-title-en">About Us</div>
-                <div class="menu-title-ru">О нас</div>
-            </li>
-        </ul>
+        <!-- ЛЕВОЕ МЕНЮ (SIDEBAR) -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-d">D</div>
+                <h2>DRAMIONE LIBRARY</h2>
+                <p class="subtitle">FORBIDDEN ARCHIVE</p>
+            </div>
+            
+            <nav class="menu">
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-book-open"></i> 
+                    <div><span>Archive</span><small>Архив историй</small></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> 
+                    <div><span>Magic Entries</span><small>Магические записи</small></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-heart"></i> 
+                    <div><span>Love Stories</span><small>Истории любви</small></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-moon"></i> 
+                    <div><span>Night Section</span><small>Ночные разделы</small></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-lock"></i> 
+                    <div><span>Restricted</span><small>Запретное</small></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-box-archive"></i> 
+                    <div><span>Memories</span><small>Воспоминания</small></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <div><span>Letters</span><small>Письма</small></div>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-circle-info"></i> 
+                    <div><span>About Us</span><small>О нас</small></div>
+                </a>
+            </nav>
+            
+            <div class="sidebar-quote">
+                Любовь — это магия, которую нельзя изучить, но можно почувствовать.
+                <span class="author">— D & H</span>
+            </div>
+        </aside>
 
-        <div class="left-bottom-quote">
-            Любовь — это магия, которую нельзя изучить, но можно почувствовать.<br><br>
-            <span style="color: #8c7355;">— D & H</span>
-        </div>
+        <!-- ГЛАВНЫЙ КОНТЕНТ -->
+        <main class="main-content">
+            
+            <!-- ХЕДЕР И ЗАГОЛОВОК -->
+            <section class="hero">
+                <p class="welcome-text">Welcome to our<br>forbidden archive</p>
+                <h1 class="main-title">DRAMIONE</h1>
+                <div class="cursive-text">forever</div>
+                <p class="hero-desc">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
+                <button class="btn-enter">Enter Library <span class="arrow">→</span></button>
+            </section>
+
+            <!-- БЛОК НАШИ МОМЕНТЫ -->
+            <section class="moments-section">
+                <div class="section-divider">
+                    <span class="line"></span>
+                    <span class="stars">✦ ─── Our Moments ─── ✦</span>
+                    <span class="line"></span>
+                </div>
+                
+                <div class="cards-grid">
+                    <div class="moment-card">
+                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-footer">
+                            <div>
+                                <h4>Первая встреча</h4>
+                                <span class="date">14.02.2022</span>
+                            </div>
+                            <span class="heart"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <div class="moment-card">
+                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-footer">
+                            <div>
+                                <h4>Ты сказал «Люблю»</h4>
+                                <span class="date">07.07.2022</span>
+                            </div>
+                            <span class="heart"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <div class="moment-card">
+                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-footer">
+                            <div>
+                                <h4>Навсегда</h4>
+                                <span class="date">01.01.2023</span>
+                            </div>
+                            <span class="heart"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- НИЖНЯЯ ПАНЕЛЬ (ПЛЕЕР И ПИСЬМО) -->
+            <section class="bottom-widgets">
+                <!-- Музыкальный плеер -->
+                <div class="player-widget">
+                    <div class="track-info">
+                        <div class="track-cover" style="background-image: url('https://placehold.co');"></div>
+                        <div class="track-text">
+                            <span class="status">Now Playing</span>
+                            <h5>Rewrite The Stars</h5>
+                            <p>James Arthur & Anne-Marie</p>
+                        </div>
+                    </div>
+                    <div class="player-controls">
+                        <span class="time">1:23</span>
+                        <div class="progress-bar"><div class="progress"></div></div>
+                        <span class="time">3:37</span>
+                    </div>
+                    <div class="player-buttons">
+                        <button><i class="fa-solid fa-shuffle"></i></button>
+                        <button><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="play-btn"><i class="fa-solid fa-circle-play"></i></button>
+                        <button><i class="fa-solid fa-forward-step"></i></button>
+                        <button><i class="fa-solid fa-repeat"></i></button>
+                    </div>
+                </div>
+
+                <!-- Новое письмо -->
+                <div class="letter-widget">
+                    <div class="letter-content">
+                        <h5>New Letter</h5>
+                        <p>У вас новое письмо из Хогвартса</p>
+                        <button class="btn-read">Читать <i class="fa-solid fa-pen-nib"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ПРАВАЯ ПАНЕЛЬ -->
+        <aside class="right-bar">
+            <div class="quote-day-box">
+                <h3>Цитата дня</h3>
+                <p class="quote-text">Любовь — это не взгляд друг на друга, а взгляд в одном направлении.</p>
+                <span class="author">— Антуан де Сент-Экзюпери</span>
+            </div>
+
+            <div class="constellation-box">
+                <h3>Constellation of Fate</h3>
+                <div class="stars-img" style="background-image: url('https://placehold.co[Constellation]');"></div>
+                <p class="constellation-text">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
+            </div>
+        </aside>
+
     </div>
 
-    <!-- ЦЕНТРАЛЬНАЯ ЧАСТЬ -->
-    <div class="main-content">
-        <div class="welcome-text">Welcome to our forbidden archive</div>
-        <h1 class="main-title">Dramione</h1>
-        <div class="main-subtitle">forever</div>
-        
-        <p class="hero-quote">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
-        
-        <button class="btn-enter">Enter Library ➔</button>
-
-        <!-- Секция Our Moments -->
-        <div class="moments-section">
-            <div class="section-title">✦ Our Moments ✦</div>
-            <div class="moments-grid">
-                <div class="moment-card">
-                    <img src="https://placeholder.com" alt="Первая встреча" class="moment-img">
-                    <div class="moment-name">Первая встреча</div>
-                    <div class="moment-date">14.02.2022</div>
-                </div>
-                <div class="moment-card">
+</body>
+</html>
