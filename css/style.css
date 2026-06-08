@@ -141,16 +141,36 @@ body {
     border: none;
 }
 
-/* Приветственный текст сверху */
+/* Контейнер для сдвига вправо и выравнивания */
+.welcome-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует текст и линию относительно друг друга */
+    margin-left: 45px; /* Сдвиг вправо, чтобы блок встал аккурат по центру слова DRAMIONE */
+    margin-bottom: 12px;
+}
+
+/* Приветственный текст */
 .welcome-text {
     font-family: 'Cinzel', serif;
-    font-size: 11px; /* Чуть уменьшили для большей изящности */
-    letter-spacing: 4px; /* Увеличили интервал как на фото */
+    font-size: 11px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: #8b7355;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    text-align: center; /* Текст внутри блока центрируется */
+    line-height: 1.5;
 }
+
+/* Изящное подчеркивание с символами */
+.welcome-line {
+    font-size: 9px;
+    color: rgba(176, 141, 92, 0.4); /* Тонкий золотистый оттенок */
+    letter-spacing: 2px;
+    margin-top: 6px; /* Небольшой отступ от текста до линии */
+    text-shadow: 0 0 5px rgba(176, 141, 92, 0.2); /* Легкое магическое мерцание */
+    user-select: none;
+}
+
 
 /* Главное слово DRAMIONE — сдвинуто влево */
 .main-title {
