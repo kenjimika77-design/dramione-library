@@ -39,102 +39,176 @@ body {
 
 
 /* ==========================================
-   ЛЕВАЯ ПАНЕЛЬ (МЕНЮ)
+   ЛЕВАЯ ПАНЕЛЬ С КРУГЛЫМИ ИКОНКАМИ И ДЕКОРОМ
    ========================================== */
 .sidebar {
-    background: rgba(15, 8, 10, 0.85);
-    border-right: 1px solid rgba(139, 107, 72, 0.2);
-    padding: 30px 20px;
+    background: rgba(10, 7, 15, 0.95); /* Глубокий цвет вашей темы */
+    border-right: 1px solid rgba(139, 107, 72, 0.15);
+    padding: 45px 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative; /* Нужно для позиционирования уголков */
+    z-index: 10;
 }
 
+/* Декоративные уголки в стиле ретро-книги */
+.corner-decor {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;
+    pointer-events: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* Подготовьте маленькую картинку уголка и положите в images/corner.png */
+.top-left { top: 12px; left: 12px; background-image: url('../images/corner.png'); }
+.top-right { top: 12px; right: 12px; background-image: url('../images/corner.png'); transform: rotate(90deg); }
+.bottom-left { bottom: 12px; left: 12px; background-image: url('../images/corner.png'); transform: rotate(-90deg); }
+.bottom-right { bottom: 12px; right: 12px; background-image: url('../images/corner.png'); transform: rotate(180deg); }
+
+/* Зона логотипа */
 .logo-area {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+}
+
+.logo-wreath-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Сюда мы загрузим картинку готического венка из роз */
+.logo-wreath {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/wreath.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.7;
+    filter: sepia(40%) hue-rotate(330deg); /* Придает розам благородный пыльный оттенок */
 }
 
 .logo-d {
-    font-family: 'Cinzel', serif;
-    font-size: 45px;
+    font-family: 'Cinzel Local', 'Cinzel', serif;
+    font-size: 38px;
     color: #cca474;
-    text-shadow: 0 0 10px rgba(204, 164, 116, 0.4);
+    font-weight: 700;
     line-height: 1;
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(204, 164, 116, 0.3);
 }
 
 .logo-area h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: #dcd0c0;
-    margin-top: 10px;
+    font-family: 'Cinzel Local', 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    color: #dfcbd6;
+    margin-top: 14px;
+    font-weight: 400;
 }
 
 .logo-area .subtitle {
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: #8b6b48;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #7a6350;
+    margin-top: 4px;
     text-transform: uppercase;
 }
 
+/* Навигация и круглые иконки */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+    margin: 20px 0;
 }
 
 .menu-item {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
     text-decoration: none;
-    color: #bfae9e;
-    padding: 8px 12px;
-    border-radius: 4px;
+    color: #a895a1;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Объемные круги для иконок точь-в-точь как на фото */
+.icon-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #1b1326 0%, #0d0914 100%);
+    border: 1px solid rgba(139, 107, 72, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
     transition: all 0.3s ease;
-    border-left: 2px solid transparent;
-}
-
-.menu-item:hover {
-    background: rgba(139, 107, 72, 0.1);
-    color: #f5ebd9;
-    border-left-color: #cca474;
-    padding-left: 16px;
-}
-
-.menu-item .icon {
-    font-size: 16px;
-    opacity: 0.7;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
 }
 
 .menu-item .text {
-    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.3;
 }
 
 .menu-item small {
     display: block;
     font-size: 11px;
-    color: #7d6b5b;
+    color: #594754;
+    font-family: 'Cormorant Garamond', serif;
 }
 
+/* Эффекты при наведении и активном пункте */
+.menu-item:hover, .menu-item.active {
+    color: #cca474;
+}
+
+.menu-item:hover .icon-circle, .menu-item.active .icon-circle {
+    border-color: rgba(204, 164, 116, 0.5);
+    background: radial-gradient(circle at center, #291d3a 0%, #110c1a 100%);
+    box-shadow: 0 0 10px rgba(204, 164, 116, 0.2), 
+                inset 0 0 5px rgba(204, 164, 116, 0.1);
+}
+
+/* Нижний блок цитаты — текст теперь разбит на короткие красивые строки */
 .sidebar-quote {
-    margin-top: 30px;
-    border-top: 1px solid rgba(139, 107, 72, 0.15);
-    padding-top: 20px;
+    border-top: 1px solid rgba(139, 107, 72, 0.12);
+    padding-top: 25px;
     text-align: center;
+}
+
+.sidebar-quote p {
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 13px;
-    color: #8b7968;
+    font-size: 14px;
+    color: #7a6875;
+    line-height: 1.7;
+    max-width: 180px;
+    margin: 0 auto;
 }
 
 .sidebar-quote .author {
     display: block;
-    margin-top: 5px;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
+    margin-top: 12px;
+    font-family: 'Cinzel Local', 'Cinzel', serif;
+    font-size: 10px;
     color: #cca474;
+    letter-spacing: 1px;
 }
+
 /* ==========================================
    ЦЕНТРАЛЬНАЯ ЧАСТЬ (HERO)
    ========================================== */
