@@ -21,26 +21,33 @@ body {
     background: radial-gradient(circle at 50% 30%, #1a0b12 0%, #070305 70%);
 }
 
-/* Главный фоновый арт (Драко и Гермиона) */
 .hero-art-bg {
     position: absolute;
-    top: -20px; /* Прижимает картинку к самому верху контента */
-    right: -40px; /* Смещает персонажей в правый угол центральной колонки */
-    width: 520px; /* Идеальная ширина для отображения лиц */
-    height: 480px; /* Высота, чтобы картинка заканчивалась ровно перед блоком Our Moments */
-    background: url('../images/bg.jpg') no-repeat right top;
-    background-size: cover;
-    opacity: 0.65; /* Возвращаем яркость как на макете */
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%; /* Занимает всю высоту контента сайта */
+    
+    /* Указываем путь к вашей чистой картинке */
+    background-image: url('../images/bg.jpg'); 
+    background-repeat: no-repeat;
+    
+    /* Магия позиционирования: прижимает картинку к правому верхнему углу */
+    background-position: right top; 
+    
+    /* Сохраняет оригинальные пропорции героев, подстраивая фото под высоту шапки */
+    background-size: 1536px 1024px; 
+    
+    opacity: 0.65; /* Идеальная яркость как на макете */
     pointer-events: none;
-    z-index: -1; /* Уводит картинку за текст, чтобы ссылки оставались кликабельными */
+    z-index: 1;
 
-    /* Маска для плавного растворения краев (убирает резкие границы фото) */
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%),
-                linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%),
-                        linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    /* Плавное растворение краев в темноту библиотеки (вниз и влево под текст) */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 350px, rgba(0,0,0,0) 650px),
+                linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 350px, rgba(0,0,0,0) 650px),
+                        linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
 }
-
 
 /* ================= ЛЕВАЯ КОЛОНКА ================= */
 .sidebar-left {
