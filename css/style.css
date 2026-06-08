@@ -25,10 +25,10 @@ body {
 .hero-art-bg {
     position: absolute;
     top: 0;
-    right: 280px; /* Заканчивается строго перед правой колонкой */
+    right: 280px;
     width: 600px;
     height: 550px;
-    background: url('../img/draco-hermione-art.jpg') no-repeat top right;
+    background: url('../images/bg.jpg') no-repeat top right; /* СТАЛО */
     background-size: cover;
     opacity: 0.65;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%),
