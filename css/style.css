@@ -1,18 +1,32 @@
+/* ==========================================================================
+   1. ПОДКЛЮЧЕНИЕ ЛОКАЛЬНЫХ ШРИФТОВ ИЗ ВАШЕЙ ПАПКИ FONTS
+   ========================================================================== */
+
 @font-face {
     font-family: 'BellStd';
     src: url('../fonts/bell-std.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
+
 @font-face {
     font-family: 'LiteraturaPro';
     src: url('../fonts/literatura-pro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
 @font-face {
     font-family: 'SalveScript';
     src: url('../fonts/salve-script2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
+/* ==========================================================================
+   2. ОСНОВНЫЕ СТИЛИ САЙТА И НАСТРОЙКА ФОНА
+   ========================================================================== */
 
-/* Базовые настройки страницы */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,9 +34,16 @@
 }
 
 body {
-    background-color: #0b0a0d; /* Просто сплошной темный фон */
+    /* Подключение фоновой картинки bg.jpg из вашей папки images */
+    background-image: url('../images/bg.jpg');
+    background-color: #0b0a0d; /* Запасной цвет, если картинка не загрузится */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
     color: #a392a8;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'LiteraturaPro', sans-serif; /* Основной text */
     font-size: 13px;
     line-height: 1.6;
     display: flex;
@@ -39,16 +60,17 @@ body {
     display: grid;
     grid-template-columns: 280px 1fr 310px;
     gap: 25px;
-    background: #110e14; /* Сплошной темный цвет блока */
+    background: rgba(17, 14, 20, 0.9); /* Сделан слегка прозрачным, чтобы фон просвечивал */
     border: 1px solid #231c26;
     padding: 30px;
     border-radius: 4px;
+    backdrop-filter: blur(5px); /* Легкое размытие заднего плана */
 }
 
 /* Общие рамки для внутренних блоков макета */
 .block-border {
     border: 1px solid #362a20;
-    background: #16121a;
+    background: rgba(22, 18, 26, 0.8);
     padding: 20px;
     border-radius: 2px;
 }
@@ -67,15 +89,14 @@ body {
 }
 
 .logo-letter {
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif; /* Буква D */
     font-size: 56px;
     color: #c9a054;
     line-height: 1;
-    font-weight: 400;
 }
 
 .logo-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif;
     font-size: 12px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -130,7 +151,7 @@ body {
 }
 
 .menu-link:hover {
-    background: #1c1621;
+    background: rgba(28, 22, 33, 0.5);
     padding-left: 15px;
     border-bottom-color: #c9a054;
 }
@@ -157,7 +178,7 @@ body {
     display: block;
     margin-top: 8px;
     color: #8f7447;
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif;
     letter-spacing: 1px;
 }
 
@@ -179,17 +200,16 @@ body {
 }
 
 .title-main {
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif; /* Заголовок Dramione */
     font-size: 52px;
     color: #c9a054;
     text-transform: uppercase;
     letter-spacing: 6px;
-    font-weight: 400;
     line-height: 1;
 }
 
 .title-sub {
-    font-family: 'Pinyon Script', cursive;
+    font-family: 'SalveScript', cursive; /* Рукописный forever */
     font-size: 46px;
     color: #dbcaa4;
     margin-top: -10px;
@@ -203,14 +223,13 @@ body {
     max-width: 460px;
     margin-bottom: 25px;
     font-style: italic;
-    font-weight: 300;
 }
 
 .btn-main-enter {
     background: transparent;
     border: 1px solid #c9a054;
     color: #c9a054;
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif;
     padding: 12px 35px;
     font-size: 11.5px;
     letter-spacing: 3px;
@@ -235,7 +254,7 @@ body {
 }
 
 .section-divider {
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif;
     font-size: 15px;
     color: #bfa780;
     letter-spacing: 3px;
@@ -250,7 +269,7 @@ body {
 }
 
 .moment-card {
-    background: #16121a;
+    background: rgba(22, 18, 26, 0.6);
     border: 1px solid #231c26;
     padding: 10px;
     border-radius: 3px;
@@ -260,7 +279,7 @@ body {
 .moment-image-holder {
     width: 100%;
     height: 110px;
-    background-color: #231c26; /* Темный бокс вместо картинок */
+    background-color: #231c26;
     border-radius: 2px;
     margin-bottom: 10px;
 }
@@ -300,7 +319,7 @@ body {
 }
 
 .player-widget {
-    background: #16121a;
+    background: rgba(22, 18, 26, 0.6);
     border: 1px solid #231c26;
     padding: 15px;
     border-radius: 3px;
@@ -368,7 +387,7 @@ body {
 }
 
 .letter-widget {
-    background: #16121a;
+    background: rgba(22, 18, 26, 0.6);
     border: 1px solid #231c26;
     padding: 15px;
     border-radius: 3px;
@@ -384,7 +403,7 @@ body {
 }
 
 .letter-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif;
     font-size: 12px;
     color: #bfa780;
 }
@@ -412,7 +431,7 @@ body {
     color: #0a060e;
 }
 
-/* === ПРАВАЯ КОЛОНКА === */
+/* === ПРАВАЯ КОЛОНКА (Дописанный хвостик кода) === */
 .sidebar-right {
     display: flex;
     flex-direction: column;
@@ -422,7 +441,7 @@ body {
 }
 
 .widget-header {
-    font-family: 'Cinzel', serif;
+    font-family: 'BellStd', serif;
     font-size: 13px;
     color: #bfa780;
     letter-spacing: 2px;
