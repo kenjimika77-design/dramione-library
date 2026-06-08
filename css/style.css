@@ -30,13 +30,15 @@
 }
 
 
-/* --- 1. МУЗЫКАЛЬНЫЙ ПЛЕЕР (ЛЕВЫЙ БЛОК) --- */
 .player-widget {
-    /* Фоновое атмосферное изображение с затемнением. Замените URL на локальный при необходимости */
-    background: linear-gradient(180deg, rgba(14, 9, 23, 0.75) 0%, rgba(7, 5, 13, 0.9) 100%), 
-                url('https://unsplash.com') no-repeat center/cover;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(14, 9, 23, 0.82) 0%,
+            rgba(7, 5, 13, 0.95) 100%
+        ),
+        url('../images/music-bg.jpg') center center / cover no-repeat;
 }
-
 /* Скрываем ненужный мелкий квадрат обложки, так как картинка теперь идет на весь фон */
 .track-cover {
     display: none;
@@ -151,11 +153,14 @@
 }
 
 
-/* --- 2. ВИДЖЕТ «НОВОЕ ПИСЬМО» (ПРАВЫЙ БЛОК) --- */
 .letter-widget {
-    /* Картинка старинного конверта/пергамента на фоне с затемнением */
-    background: linear-gradient(180deg, rgba(14, 9, 23, 0.65) 0%, rgba(7, 5, 13, 0.9) 100%), 
-                url('https://unsplash.com') no-repeat center/cover;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(14, 9, 23, 0.65) 0%,
+            rgba(7, 5, 13, 0.90) 100%
+        ),
+        url('../images/letter-bg.jpg') center center / cover no-repeat;
 }
 
 .letter-content {
