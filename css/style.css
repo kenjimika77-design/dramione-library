@@ -150,6 +150,15 @@ body {
     margin-bottom: 12px;
 }
 
+/* Контейнер для сдвига вправо и выравнивания (Обязательно добавьте его!) */
+.welcome-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует текст и линию строго друг под другом */
+    margin-left: 65px; /* Сдвиг всей конструкции вправо, чтобы она встала по центру слова DRAMIONE */
+    margin-bottom: 12px;
+}
+
 /* Приветственный текст */
 .welcome-text {
     font-family: 'Cinzel', serif;
@@ -170,7 +179,6 @@ body {
     text-shadow: 0 0 5px rgba(176, 141, 92, 0.2); /* Легкое магическое мерцание */
     user-select: none;
 }
-
 
 /* Главное слово DRAMIONE — сдвинуто влево */
 .main-title {
