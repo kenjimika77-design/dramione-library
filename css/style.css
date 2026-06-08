@@ -47,7 +47,9 @@ body {
     font-size: 13px;
     line-height: 1.6;
     display: flex;
-    justify-content: center;
+    
+    /* ИСПРАВЛЕНО: Отключаем центровку страницы и прижимаем всё к левому краю экрана */
+    justify-content: flex-start !important; 
     align-items: center;
     min-height: 100vh;
     padding: 40px 20px;
@@ -65,21 +67,20 @@ body {
     width: 100%;
     max-width: 1260px;
     display: grid;
+    /* Сдвигаем центральную и правую колонки влево (до 480px и 310px), 
+       а справа создаем автоматический отступ 1fr, освобождая место для героев */
     grid-template-columns: 280px 480px 310px 1fr;
     gap: 25px;
     
-    /* ИСПРАВЛЕНО: Прижимаем левое меню с буквой "D" к левому краю экрана.
-       Цифра 40px — это аккуратный отступ от самого края монитора. 
-       Вы можете уменьшить её до 20px, чтобы сдвинуть ЕЩЕ КРУЧЕ влево. */
-    margin-left: 40px !important; 
-    margin-right: auto !important;
-
-    
-    /* ИСПРАВЛЕНО: Возвращаем чистый плотный темный фон без прозрачности */
+    /* Плотный темный фон без прозрачности */
     background: #0f0b14 !important; 
     border: 1px solid #1f1824;
     padding: 30px;
     border-radius: 4px;
+    
+    /* ИСПРАВЛЕНО: Жестко сдвигаем весь сайт влево на 40 пикселей от края экрана монитора */
+    margin-left: 40px !important; 
+    margin-right: 0 !important;
     
     /* Отключаем любые эффекты матового размытия стекла */
     backdrop-filter: none !important;
@@ -92,7 +93,7 @@ body {
 /* Общие рамки для внутренних блоков макета (Цитата дня, Созвездие) */
 .block-border {
     border: 1px solid #2e241b;
-    /* ИСПРАВЛЕНО: Плотный темный фон, без прозрачности */
+    /* Плотный темный фон, без прозрачности */
     background: #140f1a !important; 
     padding: 22px;
     border-radius: 2px;
@@ -299,7 +300,7 @@ body {
 }
 
 .moment-card {
-    /* ИСПРАВЛЕНО: Плотный темный фон карточек моментов */
+    /* Плотный темный фон карточек моментов */
     background: #140f1a !important; 
     border: 1px solid #1f1824;
     padding: 12px;
@@ -384,7 +385,7 @@ body {
 }
 
 .player-widget {
-    /* ИСПРАВЛЕНО: Плотный темный фон виджета музыкального плеера */
+    /* Плотный темный фон виджета музыкального плеера */
     background: #140f1a !important; 
     border: 1px solid #1f1824;
     padding: 18px;
@@ -459,16 +460,3 @@ body {
 
 .player-controls {
     display: flex;
-    gap: 12px;
-    margin-top: 12px;
-    align-items: center;
-    font-size: 12px;
-    color: #8c7e91;
-}
-
-.player-controls i {
-    cursor: pointer;
-}
-
-.player-controls .play-btn {
-    font-size: 16px;
