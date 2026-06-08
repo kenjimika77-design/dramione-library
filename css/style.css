@@ -100,12 +100,20 @@ body {
 .logo-d {
     font-family: 'Cinzel Local', 'Cinzel', serif;
     font-size: 38px;
-    color: #cca474;
-    font-weight: 700;
+    font-weight: 700; /* Делаем букву плотнее, чтобы объем читался лучше */
     line-height: 1;
     z-index: 2;
-    text-shadow: 0 0 10px rgba(204, 164, 116, 0.3);
+
+    /* Создаем металлический золотой градиент сверху вниз */
+    background: linear-gradient(to bottom, #fff5eb 0%, #cca474 45%, #805e34 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Окрашиваем букву в градиент */
+    
+    /* Эффект тиснения, объемной тени и деликатного золотого сияния вокруг */
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.9)) 
+            drop-shadow(0px 0px 12px rgba(204, 164, 116, 0.4));
 }
+
 
 .logo-area h2 {
     font-family: 'Cinzel Local', 'Cinzel', serif;
