@@ -1,9 +1,4 @@
-/* =========================
-   DRAMIONE LIBRARY — CLEAN BASE
-   NO 404 / NO EXTERNAL IMAGES
-========================= */
-
-/* RESET */
+/* Базовые настройки страницы */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,194 +6,445 @@
 }
 
 body {
-    background:
-        radial-gradient(circle at 50% 30%, rgba(223, 183, 108, 0.05), transparent 60%),
-        radial-gradient(circle at 20% 80%, rgba(191, 174, 189, 0.04), transparent 55%),
-        linear-gradient(180deg, #0b0712, #05040a);
-    color: #a496a7;
+    background-color: #0b0a0d; /* Просто сплошной темный фон */
+    color: #a392a8;
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* =========================
-   LAYOUT
-========================= */
-
-.app-container {
-    display: grid;
-    grid-template-columns: 240px 1fr 280px;
-    min-height: 100vh;
-}
-
-/* =========================
-   SIDEBAR
-========================= */
-
-.sidebar {
-    background: rgba(8, 5, 13, 0.95);
-    border-right: 1px solid rgba(143, 113, 153, 0.12);
     padding: 40px 20px;
+}
+
+/* Главный контейнер-сетка сайта */
+.site-container {
+    width: 100%;
+    max-width: 1260px;
+    display: grid;
+    grid-template-columns: 280px 1fr 310px;
+    gap: 25px;
+    background: #110e14; /* Сплошной темный цвет блока */
+    border: 1px solid #231c26;
+    padding: 30px;
+    border-radius: 4px;
+}
+
+/* Общие рамки для внутренних блоков макета */
+.block-border {
+    border: 1px solid #362a20;
+    background: #16121a;
+    padding: 20px;
+    border-radius: 2px;
+}
+
+/* === ЛЕВАЯ КОЛОНКА === */
+.sidebar-left {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #231c26;
+    padding-right: 25px;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.logo-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 56px;
+    color: #c9a054;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.logo-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #d1c2d6;
+    margin-top: 8px;
+}
+
+.logo-subtitle {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #634f69;
+    margin-top: 4px;
+}
+
+.navigation-menu {
+    list-style: none;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    padding: 11px 10px;
+    color: #a392a8;
+    text-decoration: none;
+    border-bottom: 1px solid #1c1621;
+    transition: all 0.3s ease;
+}
+
+.menu-link i {
+    width: 25px;
+    font-size: 13px;
+    color: #634f69;
+}
+
+.menu-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.menu-en {
+    font-size: 13px;
+    font-weight: 500;
+    color: #cbbccf;
+}
+
+.menu-ru {
+    font-size: 10.5px;
+    color: #59475e;
+    margin-top: 1px;
+}
+
+.menu-link:hover {
+    background: #1c1621;
+    padding-left: 15px;
+    border-bottom-color: #c9a054;
+}
+
+.menu-link:hover i {
+    color: #c9a054;
+}
+
+.menu-link:hover .menu-en {
+    color: #c9a054;
+}
+
+.sidebar-footer-quote {
+    margin-top: auto;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 11.5px;
+    color: #5c4a61;
+    line-height: 1.7;
+    border-top: 1px solid #1c1621;
+}
+
+.sidebar-footer-quote .author {
+    display: block;
+    margin-top: 8px;
+    color: #8f7447;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+
+/* === ЦЕНТРАЛЬНЫЙ БЛОК === */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.welcome-header {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8c7147;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.title-main {
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    color: #c9a054;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.title-sub {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 46px;
+    color: #dbcaa4;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.main-description {
+    font-size: 13.5px;
+    color: #8c7e91;
+    text-align: center;
+    max-width: 460px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.btn-main-enter {
+    background: transparent;
+    border: 1px solid #c9a054;
+    color: #c9a054;
+    font-family: 'Cinzel', serif;
+    padding: 12px 35px;
+    font-size: 11.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-bottom: 45px;
+    border-radius: 2px;
+}
+
+.btn-main-enter:hover {
+    background: #c9a054;
+    color: #0a060e;
+}
+
+/* Блок Our Moments */
+.moments-container {
+    width: 100%;
+    border-top: 1px solid #231c26;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.section-divider {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: #bfa780;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.moment-card {
+    background: #16121a;
+    border: 1px solid #231c26;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.moment-image-holder {
+    width: 100%;
+    height: 110px;
+    background-color: #231c26; /* Темный бокс вместо картинок */
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.moment-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.moment-title {
+    font-size: 11.5px;
+    color: #d1c2d6;
+}
+
+.moment-date {
+    font-size: 9.5px;
+    color: #514057;
+}
+
+.moment-heart {
+    color: #514057;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+/* Нижний ряд (Плеер и Письмо) */
+.bottom-row {
+    width: 100%;
+}
+
+.bottom-widgets-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+.player-widget {
+    background: #16121a;
+    border: 1px solid #231c26;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.player-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #5c4a61;
+    margin-bottom: 10px;
+}
+
+.player-body {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.player-cover {
+    width: 45px;
+    height: 45px;
+    background: #231c26;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-cover i {
+    color: #c9a054;
+    font-size: 16px;
+}
+
+.track-details {
+    flex-grow: 1;
+}
+
+.track-name {
+    font-size: 13px;
+    color: #c9a054;
+}
+
+.track-author {
+    font-size: 11px;
+    color: #6e5a75;
+}
+
+.player-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    align-items: center;
+    font-size: 12px;
+    color: #8c7e91;
+}
+
+.player-controls i {
+    cursor: pointer;
+}
+
+.player-controls .play-btn {
+    font-size: 16px;
+    color: #c9a054;
+}
+
+.letter-widget {
+    background: #16121a;
+    border: 1px solid #231c26;
+    padding: 15px;
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.logo-d {
-    font-family: 'Cinzel', serif;
-    font-size: 46px;
-    color: #dfb76c;
-    text-align: center;
+.letter-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.logo-section h2 {
-    text-align: center;
+.letter-title {
     font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: #bfa780;
+}
+
+.letter-desc {
     font-size: 11px;
-    color: #dfb76c;
-    letter-spacing: 2px;
+    color: #6e5a75;
+    margin-top: 4px;
 }
 
-.logo-section .subtitle {
-    text-align: center;
-    font-size: 9px;
-    color: #5d5161;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.menu-item {
-    display: flex;
-    gap: 12px;
-    padding: 10px;
-    color: #bfaebd;
-    text-decoration: none;
-    transition: 0.3s;
-    border-radius: 4px;
-}
-
-.menu-item i {
-    color: #dfb76c;
-}
-
-.menu-item:hover {
-    background: rgba(223, 183, 108, 0.08);
-    transform: translateX(5px);
-}
-
-/* =========================
-   MAIN
-========================= */
-
-.main-content {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-/* =========================
-   HERO (без картинок)
-========================= */
-
-.hero-section {
-    text-align: center;
-    padding: 60px 20px;
-    border-radius: 8px;
-
-    background:
-        radial-gradient(circle at 30% 20%, rgba(223, 183, 108, 0.08), transparent 40%),
-        radial-gradient(circle at 70% 80%, rgba(191, 174, 189, 0.05), transparent 45%),
-        linear-gradient(180deg, rgba(10, 6, 18, 0.7), rgba(5, 4, 10, 0.95));
-}
-
-.main-title {
-    font-family: 'Cinzel', serif;
-    font-size: 56px;
-    color: #dfb76c;
-    letter-spacing: 10px;
-}
-
-/* =========================
-   MOMENTS
-========================= */
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.moment-card {
-    background: rgba(14, 9, 23, 0.6);
-    border: 1px solid rgba(143, 113, 153, 0.15);
-    border-radius: 6px;
-    padding: 10px;
-}
-
-/* =========================
-   BOTTOM WIDGETS
-========================= */
-
-.bottom-widgets {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* PLAYER */
-.player-widget {
-    padding: 22px;
-    border-radius: 6px;
-    border: 1px solid rgba(143, 113, 153, 0.2);
-
-    background:
-        radial-gradient(circle at 20% 30%, rgba(223, 183, 108, 0.07), transparent 45%),
-        linear-gradient(180deg, rgba(12, 8, 20, 0.9), rgba(5, 4, 10, 0.95));
-}
-
-/* LETTER */
-.letter-widget {
-    padding: 22px;
-    border-radius: 6px;
-    border: 1px solid rgba(143, 113, 153, 0.2);
-
-    background:
-        radial-gradient(circle at 80% 20%, rgba(191, 174, 189, 0.06), transparent 45%),
-        linear-gradient(180deg, rgba(12, 8, 20, 0.85), rgba(5, 4, 10, 0.95));
-}
-
-/* TEXT */
-.track-text h5,
-.letter-content h5 {
-    font-family: 'Cinzel', serif;
-    color: #dfb76c;
-}
-
-.track-text p,
-.letter-content p {
-    color: #7a6e80;
-}
-
-/* BUTTONS */
-.btn-enter,
-.btn-read {
-    border: 1px solid #dfb76c;
-    background: transparent;
-    color: #dfb76c;
-    padding: 10px 20px;
+.btn-read-letter {
+    align-self: flex-end;
+    background: #231c26;
+    border: 1px solid #362a20;
+    color: #dbcaa4;
+    padding: 5px 15px;
+    font-size: 11px;
     cursor: pointer;
-    transition: 0.3s;
+    border-radius: 2px;
+    margin-top: 10px;
 }
 
-.btn-enter:hover,
-.btn-read:hover {
-    background: #dfb76c;
-    color: #05040a;
+.btn-read-letter:hover {
+    background: #c9a054;
+    color: #0a060e;
+}
+
+/* === ПРАВАЯ КОЛОНКА === */
+.sidebar-right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border-left: 1px solid #231c26;
+    padding-left: 25px;
+}
+
+.widget-header {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: #bfa780;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #231c26;
+    padding-bottom: 8px;
+}
+
+.quote-content {
+    font-style: italic;
+    font-size: 12.5px;
+    color: #9c8b9f;
+    text-align: center;
+}
+
+.quote-sign {
+    display: block;
+    text-align: center;
+    font-size: 10.5px;
+    color: #5c4a61;
+    margin-top: 10px;
+}
+
+.constellation-map {
+    width: 100%;
+    height: 140px;
+    background-color: #231c26;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+.constellation-text {
+    font-size: 11.5px;
+    color: #826e85;
+    text-align: center;
+    font-style: italic;
 }
