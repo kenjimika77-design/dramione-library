@@ -1,11 +1,9 @@
-/* Подключаем ваш локальный каллиграфический шрифт */
 @font-face {
     font-family: 'Alex Brush Local';
     src: url('../fonts/AlexBrush-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
 
 
 
