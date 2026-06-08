@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'BellStd';
+    src: url('../fonts/bell-std.otf') format('opentype');
+}
+@font-face {
+    font-family: 'LiteraturaPro';
+    src: url('../fonts/literatura-pro.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'SalveScript';
+    src: url('../fonts/salve-script2.ttf') format('truetype');
+}
+
+
 /* Базовые настройки страницы */
 * {
     box-sizing: border-box;
