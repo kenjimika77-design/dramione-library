@@ -1,452 +1,516 @@
-/* ==========================================================================
-   1. ПОДКЛЮЧЕНИЕ ЛОКАЛЬНЫХ ШРИФТОВ ИЗ ВАШЕЙ ПАПКИ FONTS
-   ========================================================================== */
-@font-face {
-    font-family: 'BellStd';
-    src: url('../fonts/bell-std.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'LiteraturaPro';
-    src: url('../fonts/literatura-pro.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SalveScript';
-    src: url('../fonts/salve-script2.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* ==========================================================================
-   2. ОСНОВНЫЕ СТИЛИ САЙТА И НАПРАВЛЕННАЯ ФИКСАЦИЯ ФОНА (БЕЗ РАСТЯГИВАНИЯ)
-   ========================================================================== */
+/* ================= ОБЩИЕ СТИЛИ ================= */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-image: url('../images/bg.jpg');
-    background-color: #0b0a0d; 
-    
-    /* ИСПРАВЛЕНО: Задаем жесткий фиксированный размер картинки оригинала (FullHD). 
-       Картинка больше НИКОГДА не будет растягиваться, сжиматься или уплывать вниз! */
-    background-size: 1920px 1080px !important;
-    
-    /* ИСПРАВЛЕНО: Намертво прижимаем фон к правому верхнему углу. 
-       Герои встанут ровно сверху, а цитата окажется строго за спиной Гермионы */
-    background-position: right top !important; 
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    
-    color: #a392a8;
-    font-family: 'LiteraturaPro', serif; 
-    font-size: 13px;
-    line-height: 1.6;
-    display: flex;
-    justify-content: flex-start !important; 
-    align-items: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-    position: relative;
+    background-color: #070305;
+    color: #e5d1dc;
+    font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 }
 
-/* Главная невидимая сетка, разделяющая блоки между собой */
-.site-container {
-    width: 100%;
-    max-width: 1120px; 
+/* Сетка всего интерфейса (Трехколоночная структура из макета) */
+.site-wrapper {
     display: grid;
-    /* Точные размеры колонок: левое меню, центр, правая колонка */
-    grid-template-columns: 260px 410px 270px; 
-    gap: 25px; 
-    
-    background: transparent !important; 
-    border: none !important; 
-    padding: 0px; 
-    
-    margin-left: 50px !important; 
-    margin-right: 0 !important;
-    
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    z-index: 2;
-    box-shadow: none !important;
+    grid-template-columns: 260px 1fr 280px;
+    min-height: 100vh;
+    position: relative;
+    background: radial-gradient(circle at 50% 30%, #1a0b12 0%, #070305 70%);
 }
 
-/* === ЛЕВАЯ КОЛОНКА (Длинный плотный блок с буквой Д) === */
+/* Главный фоновый арт (Драко и Гермиона) */
+.hero-art-bg {
+    position: absolute;
+    top: 0;
+    right: 280px; /* Заканчивается строго перед правой колонкой */
+    width: 600px;
+    height: 550px;
+    background: url('../img/draco-hermione-art.jpg') no-repeat top right;
+    background-size: cover;
+    opacity: 0.65;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%),
+                linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%),
+                        linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ================= ЛЕВАЯ КОЛОНКА ================= */
 .sidebar-left {
+    background: rgba(13, 6, 10, 0.85);
+    border-right: 1px solid rgba(138, 92, 117, 0.2);
+    padding: 40px 24px;
     display: flex;
     flex-direction: column;
-    background: #0d0912 !important; /* Плотный темный готический цвет */
-    border: 1px solid #1c1424;
-    padding: 30px 20px;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-    height: 100%;
+    justify-content: space-between;
+    z-index: 2;
+    backdrop-filter: blur(10px);
 }
 
 .logo-section {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .logo-letter {
-    font-family: 'BellStd', serif; 
-    font-size: 56px;
-    color: #c9a054;
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    color: #bfa38a;
     line-height: 1;
+    text-shadow: 0 0 10px rgba(191, 163, 138, 0.3);
 }
 
 .logo-title {
-    font-family: 'BellStd', serif;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #d1c2d6;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #d1b399;
     margin-top: 8px;
 }
 
 .logo-subtitle {
-    font-size: 10px;
-    letter-spacing: 2px;
+    font-size: 9px;
     text-transform: uppercase;
-    color: #634f69;
+    letter-spacing: 1px;
+    color: #705465;
     margin-top: 4px;
 }
 
-.navigation-menu {
+/* Навигация */
+.navigation-menu ul {
     list-style: none;
+}
+
+.navigation-menu li {
+    margin-bottom: 12px;
 }
 
 .menu-link {
     display: flex;
     align-items: center;
-    padding: 12px 10px;
-    color: #a392a8;
     text-decoration: none;
-    border-bottom: 1px solid rgba(144, 105, 161, 0.05);
+    color: #8c7381;
+    padding: 8px 12px;
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
-/* Иконки в левом меню */
 .menu-link i {
+    font-size: 16px;
     width: 25px;
-    font-size: 13px;
-    color: #8c7355; 
+    color: #a68194;
 }
 
-.menu-text-wrapper {
+.menu-text {
     display: flex;
     flex-direction: column;
-    margin-left: 8px;
+    margin-left: 10px;
 }
 
-.menu-en {
+.menu-text .en {
     font-size: 13px;
     font-weight: 500;
-    color: #cbbccf;
+    color: #d9c5d0;
 }
 
-.menu-ru {
-    font-size: 10.5px;
-    color: #59475e;
-    margin-top: 1px;
+.menu-text .ru {
+    font-size: 10px;
+    color: #634b58;
 }
 
-.menu-link:hover {
-    background: rgba(144, 105, 161, 0.08);
-    padding-left: 15px;
-    border-bottom-color: #c9a054;
+.menu-link:hover, .menu-link.active {
+    background: rgba(138, 92, 117, 0.1);
+    border-left: 2px solid #bfa38a;
 }
 
-.menu-link:hover i {
-    color: #c9a054;
+.menu-link:hover .en, .menu-link.active .en {
+    color: #bfa38a;
 }
 
-.sidebar-footer-quote {
-    margin-top: auto;
-    padding-top: 30px;
+.sidebar-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 12px;
     text-align: center;
-    font-size: 11.5px;
-    color: #5c4a61;
-    line-height: 1.7;
-    border-top: 1px solid rgba(144, 105, 161, 0.05);
+    color: #947e8a;
+    border-top: 1px solid rgba(138, 92, 117, 0.15);
+    padding-top: 20px;
+    line-height: 1.6;
 }
 
-.sidebar-footer-quote .author {
+.sidebar-quote .author {
     display: block;
-    margin-top: 8px;
-    color: #8f7447;
-    font-family: 'BellStd', serif;
+    font-size: 10px;
+    margin-top: 6px;
+    color: #bfa38a;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
 }
 
-/* === ЦЕНТРАЛЬНЫЙ БЛОК === */
+/* ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= */
 .main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: transparent !important; 
+    padding: 60px 40px;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-/* Название Драмиона пишется на чистом фоне */
-.welcome-header {
-    font-size: 11px;
+.hero-section {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.welcome-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #8f7281;
+    letter-spacing: 1px;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: #dfcbd6;
     letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #8c7147;
-    margin-bottom: 12px;
-    font-weight: 500;
-}
-
-.title-main {
-    font-family: 'BellStd', serif; 
-    font-size: 52px;
-    color: #c9a054;
-    text-transform: uppercase;
-    letter-spacing: 6px;
+    margin-top: 10px;
     line-height: 1;
 }
 
-.title-sub {
-    font-family: 'SalveScript', cursive; 
-    font-size: 46px;
-    color: #dbcaa4;
-    margin-top: -10px;
+.sub-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: #bfa38a;
+    margin-left: 80px;
+    margin-top: -5px;
     margin-bottom: 20px;
 }
 
-.main-description {
-    font-size: 13.5px;
-    color: #8c7e91;
-    text-align: center;
-    max-width: 460px;
+.hero-desc {
+    font-size: 13px;
+    color: #a6929e;
+    max-width: 400px;
+    line-height: 1.6;
     margin-bottom: 25px;
-    font-style: italic;
 }
 
-.btn-main-enter {
-    background: #0d0912 !important; 
-    border: 1px solid #c9a054;
-    color: #c9a054;
-    font-family: 'BellStd', serif;
-    padding: 12px 35px;
-    font-size: 11.5px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+.btn-enter {
+    background: transparent;
+    border: 1px solid #bfa38a;
+    color: #bfa38a;
+    padding: 10px 24px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.4s ease;
-    margin-bottom: 45px;
-    border-radius: 2px;
-}
-
-.btn-main-enter:hover {
-    background: #c9a054;
-    color: #0a060e;
-}
-
-/* Три карточки слитно внутри одной большой закрашенной плашки */
-.moments-container {
-    width: 100%;
-    text-align: center;
-    background: #0d0912 !important; 
-    border: 1px solid #1c1424;
-    padding: 22px 16px;
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    margin-bottom: 25px; 
+    transition: all 0.3s;
+}
+
+.btn-enter i {
+    font-size: 10px;
+    margin-left: 8px;
+}
+
+.btn-enter:hover {
+    background: #bfa38a;
+    color: #070305;
+    box-shadow: 0 0 15px rgba(191, 163, 138, 0.4);
+}
+
+/* Блок Our Moments */
+.moments-section {
+    background: rgba(20, 11, 16, 0.6);
+    border: 1px solid rgba(138, 92, 117, 0.2);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
 }
 
 .section-divider {
-    font-family: 'BellStd', serif;
-    font-size: 15px;
-    color: #bfa780;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: #dfcbd6;
+    margin-bottom: 24px;
 }
 
-.divider-decor {
-    color: #56445c;
-    margin: 0 10px;
+.section-divider .decor {
+    color: #6e4659;
     font-size: 12px;
+    margin: 0 10px;
 }
 
 .moments-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px; 
+    gap: 16px;
 }
 
 .moment-card {
-    background: #130e1a !important; 
-    border: 1px solid #22182e;
-    padding: 10px;
-    border-radius: 3px;
-    text-align: left;
+    background: #0f070b;
+    border: 1px solid rgba(138, 92, 117, 0.15);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-.moment-card:hover {
-    border-color: rgba(188, 156, 101, 0.4);
+.moment-img {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    filter: sepia(30%) hue-rotate(310deg) brightness(80%);
 }
 
-.moment-image-holder {
-    width: 100%;
-    height: 90px; 
-    border-radius: 2px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(0,0,0,0.5);
-}
+.img-1 { background-image: url('../img/moment1.jpg'); }
+.img-2 { background-image: url('../img/moment2.jpg'); }
+.img-3 { background-image: url('../img/moment3.jpg'); }
 
-/* Нарезка картинок моментов прямо из оригинального фона */
-.moment-img-1 { 
-    background-image: url('../images/bg.jpg') !important;
-    background-size: 440% auto !important; 
-    background-position: 18.5% 69.5% !important; 
-    background-repeat: no-repeat !important;
-}
-
-.moment-img-2 { 
-    background-image: url('../images/bg.jpg') !important;
-    background-size: 380% auto !important;
-    background-position: 48.2% 67.8% !important; 
-    background-repeat: no-repeat !important;
-}
-
-.moment-img-3 { 
-    background-image: url('../images/bg.jpg') !important;
-    background-size: 440% auto !important;
-    background-position: 67.2% 69.5% !important; 
-    background-repeat: no-repeat !important;
-}
-
-.moment-info {
+.moment-footer {
+    padding: 12px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
-.moment-title { font-size: 11px; color: #d1c2d6; }
-.moment-date { font-size: 9px; color: #514057; }
-.moment-heart { color: #514057; font-size: 11px; }
-
-/* Нижний ряд (Плеер и Письмо — раздельные плашки) */
-.bottom-row {
-    width: 100%;
+.moment-meta {
+    display: flex;
+    flex-direction: column;
 }
 
-.bottom-widgets-row {
+.moment-meta .title {
+    font-size: 11px;
+    color: #dfcbd6;
+    font-weight: 500;
+}
+
+.moment-meta .date {
+    font-size: 9px;
+    color: #6e5564;
+    margin-top: 3px;
+}
+
+.heart-icon {
+    font-size: 12px;
+    color: #8a5c75;
+    cursor: pointer;
+}
+
+/* Нижний блок виджетов */
+.bottom-widgets {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     gap: 20px;
-    width: 100%;
 }
 
-.player-widget {
-    background: #0d0912 !important; 
-    border: 1px solid #1c1424;
-    padding: 15px 12px;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+/* Виджет плеера */
+.widget-player {
+    background: rgba(20, 11, 16, 0.6);
+    border: 1px solid rgba(138, 92, 117, 0.2);
+    border-radius: 8px;
+    padding: 16px;
 }
 
-.player-header {
+.widget-hdr {
     font-size: 10px;
     text-transform: uppercase;
+    color: #6e5564;
     letter-spacing: 1px;
-    color: #5c4a61;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.player-body {
+.player-container {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
-.player-cover {
-    width: 50px;
-    height: 50px;
-    background-image: url('../images/bg.jpg') !important; 
-    background-size: 610% auto !important;
-    background-position: 21.2% 91.5% !important; 
+.track-cover {
+    width: 80px;
+    height: 80px;
+    background: url('../img/player-cover.jpg') no-repeat center;
+    background-size: cover;
     border-radius: 4px;
-    border: 1px solid rgba(188, 156, 101, 0.2);
 }
 
-.track-details { flex-grow: 1; }
-.track-name { font-size: 12.5px; color: #c9a054; }
-.track-author { font-size: 11px; color: #6e5a75; }
+.player-info {
+    flex: 1;
+}
 
-.player-timeline {
+.track-name {
+    font-size: 13px;
+    color: #dfcbd6;
+    font-weight: 500;
+}
+
+.track-artist {
+    font-size: 11px;
+    color: #8c7381;
+    margin-top: 2px;
+}
+
+.progress-area {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 8px;
+    margin-top: 12px;
+}
+
+.progress-area .time {
     font-size: 9px;
-    color: #514057;
+    color: #6e5564;
 }
 
-.timeline-bar {
-    flex-grow: 1;
+.bar-bg {
+    flex: 1;
     height: 3px;
-    background: #231c26;
+    background: rgba(138, 92, 117, 0.15);
     border-radius: 2px;
+    position: relative;
 }
 
-.timeline-progress {
-    width: 40%; 
+.bar-fill {
+    width: 38%;
     height: 100%;
-    background: #c9a054;
+    background: #bfa38a;
     border-radius: 2px;
 }
 
-.player-controls {
+.controls {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
-    align-items: center;
-    font-size: 11px;
-    color: #8c7e91;
+    color: #a68194;
+    padding: 0 10px;
 }
 
-.play-btn-circle {
-    width: 28px;
-    height: 28px;
-    background: rgba(144, 105, 161, 0.15);
-    border: 1px solid #c9a054;
-    border-radius: 50%;
+.controls i {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.controls .play-btn {
+    font-size: 20px;
+    color: #bfa38a;
+}
+
+/* Виджет письма */
+.widget-letter {
+    background: rgba(20, 11, 16, 0.6);
+    border: 1px solid rgba(138, 92, 117, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.letter-content {
     display: flex;
+    gap: 16px;
     align-items: center;
-    justify-content: center;
-    color: #c9a054;
+    height: 100%;
 }
 
-.letter-widget {
-    background: #0d0912 !important; 
-    border: 1px solid #1c1424;
-    padding: 15px 12px;
+.letter-paper {
+    width: 90px;
+    height: 80px;
+    background: url('../img/letter-envelope.jpg') no-repeat center;
+    background-size: cover;
     border-radius: 4px;
+    border: 1px solid rgba(191, 163, 138, 0.2);
+}
+
+.letter-text h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: #bfa38a;
+}
+
+.letter-text p {
+    font-size: 11px;
+    color: #a6929e;
+    margin: 4px 0 12px 0;
+}
+
+.btn-read {
+    background: rgba(138, 92, 117, 0.15);
+    border: 1px solid rgba(138, 92, 117, 0.3);
+    color: #dfcbd6;
+    font-size: 10px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-read i {
+    font-size: 9px;
+    margin-left: 4px;
+    color: #bfa38a;
+}
+
+/* ================= ПРАВАЯ КОЛОНКА ================= */
+.sidebar-right {
+    background: rgba(13, 6, 10, 0.85);
+    border-left: 1px solid rgba(138, 92, 117, 0.2);
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    gap: 24px;
+    z-index: 2;
+    backdrop-filter: blur(10px);
 }
 
-.letter-body-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+.widget-quote-day, .widget-constellation {
+    background: rgba(20, 11, 16, 0.5);
+    border: 1px solid rgba(138, 92, 117, 0.15);
+    border-radius: 6px;
+    padding: 16px;
 }
 
-.letter-title { font-family: 'BellStd', serif; font-size: 12px; color: #bfa780; }
-.letter-desc { font-size: 10.5px; color: #5c4a61; margin-top: 4px; }
+.widget-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: #bfa38a;
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
 
-.letter-image-right {
-    width: 70px;
+.day-blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #a6929e;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.day-blockquote cite {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 9px;
+    color: #6e5564;
+    margin-top: 8px;
+}
+
+.stars-map-bg {
+    height: 130px;
+    background: url('../img/constellation.png') no-repeat center;
+    background-size: contain;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.constellation-desc {
+    font-size: 10px;
+    color: #8c7381;
+    text-align: center;
+    line-height: 1.4;
+}
