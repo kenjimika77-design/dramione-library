@@ -277,36 +277,51 @@ body {
    ЦЕНТРАЛЬНАЯ ЧАСТЬ (HERO) — ЗАГОЛОВОК И КНОПКА
    ========================================== */
 
-/* Главное слово DRAMIONE — объемное, золотое, точь-в-точь как на фото */
+/* Главное слово DRAMIONE — объемное, золотое */
 .main-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel Local', 'Cinzel', serif;
     font-size: 58px; 
-    font-weight: 700; /* Сделали буквы чуть плотнее для объема */
+    font-weight: 700; 
     letter-spacing: 7px;
     line-height: 1;
     margin: 0;
-    position: relative;
-
-    /* Создаем золотой металлический градиент от светлого к темному сверху вниз */
-    background: linear-gradient(to bottom, #f3e7da 0%, #cca474 45%, #967041 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Окрашиваем сам текст в градиент */
-    
-    /* Сложные многослойные тени: создают эффект объема (тиснения) и мягкого свечения вокруг */
-    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.8)) 
-            drop-shadow(0px 0px 15px rgba(204, 164, 116, 0.25));
+    color: #cca474; 
+    text-shadow: 0px 2px 0px #967041,                  
+                 0px 4px 5px rgba(0, 0, 0, 0.9),       
+                 0px 0px 20px rgba(204, 164, 116, 0.4);
 }
 
+/* Безопасный и точный стиль для слова forever */
+.cursive {
+    display: block !important;
+    font-family: 'Salve Script2 Local', 'Alex Brush Local', cursive !important; /* Подключение вашего шрифта */
+    font-size: 54px !important; 
+    color: #b08d5c !important; 
+    letter-spacing: 1px !important;
+    text-transform: lowercase !important;
+    
+    /* Вертикальное положение: слегка накладываем на DRAMIONE, чтобы буквы изящно пересекались */
+    margin-top: -24px !important; 
+    margin-bottom: 0 !important;
+    
+    /* ГОРИЗОНТАЛЬНЫЙ СДВИГ: фиксирует начало слова ровно под буквой "А" */
+    margin-left: 95px !important; 
+    
+    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.7)) !important;
+    position: relative;
+    z-index: 99; /* Выталкивает слово на самый передний план, чтобы оно не пропадало под текстурами */
+}
 
 /* Описание под заголовком */
 .hero-desc {
     font-size: 15px;
     color: #a89689;
-    margin-top: 25px;
+    margin-top: 25px !important; /* Мягкий отступ, чтобы текст описания не лип к forever */
     margin-bottom: 30px;
     max-width: 420px;
     line-height: 1.6;
 }
+
 
 /* Кнопка Enter Library — точь-в-точь по макету */
 .btn-enter {
