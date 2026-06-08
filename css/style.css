@@ -25,19 +25,22 @@ body {
 .hero-art-bg {
     position: absolute;
     top: 0;
-    right: 280px;
-    width: 600px;
-    height: 550px;
-    background: url('../images/bg.jpg') no-repeat top right; /* СТАЛО */
-    background-size: cover;
-    opacity: 0.65;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%),
-                linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%),
-                        linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    pointer-events: none;
-    z-index: 1;
+    right: 280px; /* В точности до пикселя перед правой колонкой */
+    width: 610px; /* Фиксированная ширина макета для идеального кадрирования */
+    height: 520px; /* Высота арта из оригинального дизайна */
+    background: url('../images/bg.jpg') no-repeat right top;
+    background-size: cover; /* Картинка масштабируется без искажения пропорций */
+    opacity: 0.65; /* Полупрозрачность, чтобы арт сливался с темным фоном */
+    pointer-events: none; /* Чтобы картинку нельзя было случайно выделить или перетащить */
+    z-index: 1; /* Картинка уходит под текст, но остается над фоном сайта */
+    
+    /* Эффект сложного градиентного растворения (маска) */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%),
+                linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%),
+                        linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
 }
+
 
 /* ================= ЛЕВАЯ КОЛОНКА ================= */
 .sidebar-left {
