@@ -1,55 +1,162 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dramione Library — Forbidden Archive</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dramione Library</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<div class="layout">
-<aside class="sidebar">
-<h2>Dramione Library</h2>
-<ul>
-<li>Archive</li>
-<li>Magic Entries</li>
-<li>Love Stories</li>
-<li>Night Section</li>
-<li>Restricted</li>
-<li>Memories</li>
-<li>Letters</li>
-<li>About Us</li>
-</ul>
-</aside>
 
-<main class="content">
-<section class="hero">
-<div>
-<p>Welcome to our forbidden archive</p>
-<h1>DRAMIONE</h1>
-<h3>forever</h3>
-<p>Два сердца. Два мира. Одна любовь.</p>
-<button>Enter Library</button>
-</div>
-</section>
+    <div class="site-wrapper">
 
-<section class="moments">
-<h2>Our Moments</h2>
-<div class="cards">
-<div class="card">Первая встреча</div>
-<div class="card">Ты сказал «Люблю»</div>
-<div class="card">Навсегда</div>
-</div>
-</section>
+        <!-- Весь остальной контент сайта -->
 
-<section class="widgets">
-<div class="widget">Now Playing — Rewrite The Stars</div>
-<div class="widget">New Letter</div>
-<div class="widget">Цитата дня</div>
-<div class="widget">Constellation of Fate</div>
-</section>
-</main>
-</div>
-<script src="script.js"></script>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+        <!-- ЛЕВАЯ ПАНЕЛЬ: НАВИГАЦИЯ -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-d">D</div>
+                <h2>DRAMIONE LIBRARY</h2>
+                <p class="subtitle">FORBIDDEN ARCHIVE</p>
+            </div>
+            
+            <nav class="menu">
+                <a href="#" class="menu-item"><span class="icon">📖</span> <span class="text">Archive<br><small>Архив историй</small></span></a>
+                <a href="#" class="menu-item"><span class="icon">✨</span> <span class="text">Magic Entries<br><small>Магические записи</small></span></a>
+                <a href="#" class="menu-item"><span class="icon">💖</span> <span class="text">Love Stories<br><small>Истории любви</small></span></a>
+                <a href="#" class="menu-item"><span class="icon">🌙</span> <span class="text">Night Section<br><small>Ночные разделы</small></span></a>
+                <a href="#" class="menu-item"><span class="icon">🔒</span> <span class="text">Restricted<br><small>Запретное</small></span></a>
+                <a href="#" class="menu-item"><span class="icon">🖼️</span> <span class="text">Memories<br><small>Воспоминания</small></span></a>
+                <a href="#" class="menu-item"><span class="icon">✉️</span> <span class="text">Letters<br><small>Письма</small></span></a>
+                <a href="#" class="menu-item"><span class="icon">👁️</span> <span class="text">About Us<br><small>О нас</small></span></a>
+            </nav>
+
+            <div class="sidebar-quote">
+                <p>«Любовь — это магия, которую нельзя изучить, но можно почувствовать»</p>
+                <span class="author">— D & H</span>
+            </div>
+        </aside>
+
+        <!-- ЦЕНТРАЛЬНАЯ ЧАСТЬ -->
+        <main class="main-content">
+            <header class="hero-section">
+                <p class="welcome-text">Welcome to our<br>forbidden archive</p>
+                <h1 class="main-title">DRAMIONE <span class="cursive">forever</span></h1>
+                <p class="hero-desc">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
+                <button class="btn-enter">Enter Library ➔</button>
+            </header>
+
+            <!-- Блок Our Moments -->
+            <section class="moments-section">
+                <div class="section-divider">✦ ─── ❖ ─── ✦ Our Moments ✦ ─── ❖ ─── ✦</div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-footer">
+                            <div>
+                                <h4>Первая встреча</h4>
+                                <span class="date">14.02.2022</span>
+                            </div>
+                            <span class="heart-icon">♡</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-footer">
+                            <div>
+                                <h4>Ты сказал «Люблю»</h4>
+                                <span class="date">07.07.2022</span>
+                            </div>
+                            <span class="heart-icon">♡</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img" style="background-image: url('https://placehold.co');"></div>
+                        <div class="card-footer">
+                            <div>
+                                <h4>Навсегда</h4>
+                                <span class="date">01.01.2023</span>
+                            </div>
+                            <span class="heart-icon">♡</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Нижняя панель: Плеер и Новое письмо -->
+            <div class="bottom-widgets">
+                <!-- Плеер -->
+                <div class="widget player-widget">
+                    <div class="track-info">
+                        <div class="track-cover" style="background-image: url('https://placehold.co');"></div>
+                        <div class="track-text">
+                            <span class="status">Now Playing</span>
+                            <h5>Rewrite The Stars</h5>
+                            <p>James Arthur & Anne-Marie</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <span class="time">1:23</span>
+                        <div class="progress-bar"><div class="progress-current"></div></div>
+                        <span class="time">3:37</span>
+                    </div>
+                    <div class="player-controls">
+                        <span>🔀</span> <span>⏮</span> <span class="play-btn">▶</span> <span>⏭</span> <span>🔁</span>
+                    </div>
+                </div>
+
+                <!-- Новое письмо -->
+                <div class="widget letter-widget">
+                    <div class="letter-content">
+                        <h5>New Letter</h5>
+                        <p>У вас новое письмо из Хогвартса</p>
+                        <button class="btn-read">Читать ✎</button>
+                    </div>
+                    <div class="letter-preview-img"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ПРАВАЯ ПАНЕЛЬ: ЦИТАТА И СОЗВЕЗДИЕ -->
+        <aside class="right-sidebar">
+            <!-- Блок с цитатой дня -->
+            <div class="widget-box quote-box">
+                <h3>Цитата дня</h3>
+                <p>«Любовь — это не взгляд друг на друга, а взгляд в одном направлении»</p>
+                <span class="author">— Антуан де Сент-Экзюпери</span>
+            </div>
+
+            <!-- Блок с созвездием -->
+            <div class="widget-box constellation-box">
+                <h3>Constellation of Fate</h3>
+                <!-- Имитация созвездия с помощью SVG линий и точек со свечением -->
+                <div class="stars-svg">
+                    <svg viewBox="0 0 200 150">
+                        <polyline points="30,80 60,40 100,50 130,90 170,60" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="1" />
+                        <circle cx="30" cy="80" r="3" fill="#fff" class="glow-star" />
+                        <circle cx="60" cy="40" r="4" fill="#fff" class="glow-star" />
+                        <circle cx="100" cy="50" r="3" fill="#fff" class="glow-star" />
+                        <circle cx="130" cy="90" r="5" fill="#fff" class="glow-star" />
+                        <circle cx="170" cy="60" r="3" fill="#fff" class="glow-star" />
+                    </svg>
+                </div>
+                <p class="const-text">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
+            </div>
+        </aside>
+
+    </div>
+
 </body>
 </html>
