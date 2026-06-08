@@ -23,6 +23,7 @@
     font-style: normal;
 }
 
+
 /* ==========================================================================
    2. ОСНОВНЫЕ СТИЛИ САЙТА И НАСТРОЙКА ФОНА
    ========================================================================== */
@@ -36,14 +37,15 @@
 body {
     /* Подключение фоновой картинки bg.jpg из вашей папки images */
     background-image: url('../images/bg.jpg');
-    background-color: #0b0a0d; /* Запасной цвет, если картинка не загрузится */
+    background-color: #0b0a0d;
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     background-attachment: fixed;
     background-repeat: no-repeat;
     
     color: #a392a8;
-    font-family: 'LiteraturaPro', sans-serif; /* Основной text */
+    /* ИСПРАВЛЕНО: Возвращаем ваш рабочий шрифт для основного текста */
+    font-family: 'LiteraturaPro', serif; 
     font-size: 13px;
     line-height: 1.6;
     display: flex;
@@ -51,7 +53,10 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
 }
+
 
 /* Главный контейнер-сетка сайта */
 .site-container {
