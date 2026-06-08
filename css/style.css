@@ -123,78 +123,99 @@ body {
     font-size: 11px;
     color: #cca474;
 }
-
 /* ==========================================
    ЦЕНТРАЛЬНАЯ ЧАСТЬ (HERO)
    ========================================== */
 .main-content {
-    padding: 40px;
+    padding: 40px 50px;
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
+/* Выравниваем всю текстовую шапку по левому краю */
 .hero-section {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(20, 10, 12, 0.3);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: left;
+    padding: 20px 0;
+    background: transparent;
+    border: none;
 }
 
+/* Приветственный текст сверху */
 .welcome-text {
     font-family: 'Cinzel', serif;
-    font-size: 12px;
-    letter-spacing: 4px;
+    font-size: 11px; /* Чуть уменьшили для большей изящности */
+    letter-spacing: 4px; /* Увеличили интервал как на фото */
     text-transform: uppercase;
     color: #8b7355;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
+/* Главное слово DRAMIONE — сдвинуто влево */
 .main-title {
     font-family: 'Cinzel', serif;
-    font-size: 54px;
+    font-size: 58px; /* Немного крупнее и монументальнее */
     font-weight: 400;
-    letter-spacing: 5px;
+    letter-spacing: 7px;
     color: #f5eedc;
-    text-shadow: 0 0 20px rgba(245, 238, 220, 0.2);
+    text-shadow: 0 0 25px rgba(245, 238, 220, 0.15);
+    line-height: 1;
+    margin: 0;
+    position: relative;
 }
 
+/* Рукописное слово forever — смещено чуть вправо под главное название */
 .main-title .cursive {
     display: block;
     font-family: 'Great Vibes', cursive;
-    font-size: 45px;
+    font-size: 46px;
     color: #b08d5c;
-    letter-spacing: 0;
-    margin-top: -10px;
-    text-transform: lowercase;
-}
-
-.hero-desc {
-    font-size: 18px;
-    color: #b39f8f;
-    margin: 20px auto;
-    max-width: 500px;
-}
-
-.btn-enter {
-    background: transparent;
-    border: 1px solid #b08d5c;
-    color: #e6d3b8;
-    padding: 10px 28px;
-    font-family: 'Cinzel', serif;
-    font-size: 12px;
     letter-spacing: 2px;
+    text-transform: lowercase;
+    margin-top: -8px;
+    margin-left: 120px; /* Сдвинули чуть дальше вправо, создавая оригинальный баланс */
+    text-shadow: 0 0 10px rgba(176, 141, 92, 0.3);
+}
+
+/* Описание под заголовком */
+.hero-desc {
+    font-size: 15px;
+    color: #a89689;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    max-width: 420px;
+    line-height: 1.6;
+}
+
+/* Кнопка Enter Library — точь-в-точь по макету */
+.btn-enter {
+    background: rgba(20, 11, 13, 0.4); /* Полупрозрачная подложка */
+    border: 1px solid rgba(176, 141, 92, 0.5); /* Тонкая рамка */
+    color: #e6d3b8;
+    padding: 12px 35px; /* Сделали более вытянутой по горизонтали */
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: inset 0 0 10px rgba(176, 141, 92, 0.1);
+    border-radius: 4px; /* Легкое скругление углов */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: inset 0 0 10px rgba(176, 141, 92, 0.05);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Пространство перед стрелочкой */
 }
 
 .btn-enter:hover {
-    background: #b08d5c;
-    color: #1a0b0e;
-    box-shadow: 0 0 15px rgba(176, 141, 92, 0.4);
+    background: rgba(176, 141, 92, 0.12);
+    border-color: #cca474;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(176, 141, 92, 0.25),
+                inset 0 0 15px rgba(176, 141, 92, 0.1);
+    transform: translateY(-1px); /* Легкий интерактивный подъем */
 }
+
 
 /* ==========================================
    БЛОК КАРТОЧЕК (OUR MOMENTS)
