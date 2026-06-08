@@ -5,223 +5,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
     
-    <!-- Подключение библиотеки иконок Font Awesome (Исправлено, теперь все иконки отобразятся) -->
+    <!-- Подключение шрифтов и иконок -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
-
-    <!-- Подключение вашего файла стилей -->
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Главный большой арт с Драко и Гермионой из макета -->
-<div class="main-hero-art"></div>
+<div class="site-wrapper">
+    <!-- Фоновый арт с Драко и Гермионой (позиционируется абсолютно справа вверху) -->
+    <div class="hero-art-bg"></div>
 
-<div class="site-container">
-
-    <!-- ================= ЛЕВАЯ КОЛОНКА ================= -->
-    <div class="sidebar-left">
+    <!-- ================= ЛЕВАЯ КОЛОНКА (SIDEBAR) ================= -->
+    <aside class="sidebar-left">
         <div class="logo-section">
             <div class="logo-letter">D</div>
-            <div class="logo-title">Dramione Library</div>
-            <div class="logo-subtitle">Forbidden Archive</div>
+            <div class="logo-title">DRAMIONE LIBRARY</div>
+            <div class="logo-subtitle">FORBIDDEN ARCHIVE</div>
         </div>
         
-        <nav>
-            <ul class="navigation-menu">
+        <nav class="navigation-menu">
+            <ul>
                 <li>
-                    <a href="#" class="menu-link">
+                    <a href="#" class="menu-link active">
                         <i class="fa-solid fa-book-bookmark"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">Archive</span>
-                            <span class="menu-ru">Архив историй</span>
+                        <div class="menu-text">
+                            <span class="en">Archive</span>
+                            <span class="ru">Архив историй</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="menu-link">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">Magic Entries</span>
-                            <span class="menu-ru">Магические записи</span>
+                        <div class="menu-text">
+                            <span class="en">Magic Entries</span>
+                            <span class="ru">Магические записи</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="menu-link">
                         <i class="fa-solid fa-heart"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">Love Stories</span>
-                            <span class="menu-ru">Истории любви</span>
+                        <div class="menu-text">
+                            <span class="en">Love Stories</span>
+                            <span class="ru">Истории любви</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="menu-link">
                         <i class="fa-solid fa-moon"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">Night Section</span>
-                            <span class="menu-ru">Ночные разделы</span>
+                        <div class="menu-text">
+                            <span class="en">Night Section</span>
+                            <span class="ru">Ночные разделы</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="menu-link">
                         <i class="fa-solid fa-lock"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">Restricted</span>
-                            <span class="menu-ru">Запретное</span>
+                        <div class="menu-text">
+                            <span class="en">Restricted</span>
+                            <span class="ru">Запретное</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="menu-link">
                         <i class="fa-solid fa-box-archive"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">Memories</span>
-                            <span class="menu-ru">Воспоминания</span>
+                        <div class="menu-text">
+                            <span class="en">Memories</span>
+                            <span class="ru">Воспоминания</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="menu-link">
                         <i class="fa-solid fa-envelope"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">Letters</span>
-                            <span class="menu-ru">Письма</span>
+                        <div class="menu-text">
+                            <span class="en">Letters</span>
+                            <span class="ru">Письма</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="menu-link">
                         <i class="fa-solid fa-circle-user"></i>
-                        <div class="menu-text-wrapper">
-                            <span class="menu-en">About Us</span>
-                            <span class="menu-ru">О нас</span>
+                        <div class="menu-text">
+                            <span class="en">About Us</span>
+                            <span class="ru">О нас</span>
                         </div>
                     </a>
                 </li>
             </ul>
         </nav>
 
-        <div class="sidebar-footer-quote">
-            Любовь — это магия, которую нельзя изучить, но можно почувствовать.
+        <div class="sidebar-quote">
+            <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
             <span class="author">— D & H</span>
         </div>
-    </div>
+    </aside>
 
-    <!-- ================= ЦЕНТРАЛЬНАЯ ЧАСТЬ ================= -->
-    <div class="main-content">
-        <div class="welcome-header">Welcome to our forbidden archive</div>
-        <h1 class="title-main">Dramione</h1>
-        <div class="title-sub">forever</div>
-        
-        <p class="main-description">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
-        
-        <button class="btn-main-enter">Enter Library <i class="fa-solid fa-arrow-right-long" style="margin-left: 8px; font-size: 11px;"></i></button>
+    <!-- ================= ЦЕНТРАЛЬНЫЙ КОНТЕНТ ================= -->
+    <main class="main-content">
+        <header class="hero-section">
+            <span class="welcome-text">Welcome to our<br>forbidden archive</span>
+            <h1 class="main-title">DRAMIONE</h1>
+            <div class="sub-title">forever</div>
+            <p class="hero-desc">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
+            <button class="btn-enter">Enter Library <i class="fa-solid fa-arrow-right-long"></i></button>
+        </header>
 
         <!-- Блок Our Moments -->
-        <div class="moments-container">
+        <section class="moments-section">
             <div class="section-divider">
-                <span class="divider-decor">✦ ─── ✦</span> Our Moments <span class="divider-decor">✦ ─── ✦</span>
+                <span class="decor">✦ ─── ✦</span> Our Moments <span class="decor">✦ ─── ✦</span>
             </div>
             
             <div class="moments-grid">
                 <!-- Карточка 1 -->
                 <div class="moment-card">
-                    <div class="moment-image-holder moment-img-1"></div>
-                    <div class="moment-info">
-                        <div>
-                            <div class="moment-title">Первая встреча</div>
-                            <div class="moment-date">14.02.2022</div>
+                    <div class="moment-img img-1"></div>
+                    <div class="moment-footer">
+                        <div class="moment-meta">
+                            <span class="title">Первая встреча</span>
+                            <span class="date">14.02.2022</span>
                         </div>
-                        <i class="fa-regular fa-heart moment-heart"></i>
+                        <i class="fa-regular fa-heart heart-icon"></i>
                     </div>
                 </div>
                 <!-- Карточка 2 -->
                 <div class="moment-card">
-                    <div class="moment-image-holder moment-img-2"></div>
-                    <div class="moment-info">
-                        <div>
-                            <div class="moment-title">Ты сказал «Люблю»</div>
-                            <div class="moment-date">07.07.2022</div>
+                    <div class="moment-img img-2"></div>
+                    <div class="moment-footer">
+                        <div class="moment-meta">
+                            <span class="title">Ты сказал «Люблю»</span>
+                            <span class="date">07.07.2022</span>
                         </div>
-                        <i class="fa-regular fa-heart moment-heart"></i>
+                        <i class="fa-regular fa-heart heart-icon"></i>
                     </div>
                 </div>
                 <!-- Карточка 3 -->
                 <div class="moment-card">
-                    <div class="moment-image-holder moment-img-3"></div>
-                    <div class="moment-info">
-                        <div>
-                            <div class="moment-title">Навсегда</div>
-                            <div class="moment-date">01.01.2023</div>
+                    <div class="moment-img img-3"></div>
+                    <div class="moment-footer">
+                        <div class="moment-meta">
+                            <span class="title">Навсегда</span>
+                            <span class="date">01.01.2023</span>
                         </div>
-                        <i class="fa-regular fa-heart moment-heart"></i>
+                        <i class="fa-regular fa-heart heart-icon"></i>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Нижний ряд виджетов (Плеер и Письмо) -->
-        <div class="bottom-row">
-            <div class="bottom-widgets-row">
-                
-                <!-- Полноценный плеер из макета -->
-                <div class="player-widget">
-                    <div class="player-header">Now Playing</div>
-                    <div class="player-body">
-                        <div class="player-cover"></div>
-                        <div class="track-details">
-                            <div class="track-name">Rewrite The Stars</div>
-                            <div class="track-author">James Arthur & Anne-Marie</div>
-                            
-                            <div class="player-timeline">
-                                <span class="time-current">1:23</span>
-                                <div class="timeline-bar">
-                                    <div class="timeline-progress"></div>
-                                </div>
-                                <span class="time-total">3:37</span>
+        <div class="bottom-widgets">
+            <!-- Плеер -->
+            <div class="widget-player">
+                <div class="widget-hdr">Now Playing</div>
+                <div class="player-container">
+                    <div class="track-cover"></div>
+                    <div class="player-info">
+                        <div class="track-name">Rewrite The Stars</div>
+                        <div class="track-artist">James Arthur & Anne-Marie</div>
+                        <div class="progress-area">
+                            <span class="time">1:23</span>
+                            <div class="bar-bg">
+                                <div class="bar-fill"></div>
                             </div>
-
-                            <div class="player-controls">
-                                <i class="fa-solid fa-shuffle"></i>
-                                <i class="fa-solid fa-backward-step"></i>
-                                <div class="play-btn-circle">
-                                    <i class="fa-solid fa-play play-btn"></i>
-                                </div>
-                                <i class="fa-solid fa-forward-step"></i>
-                                <i class="fa-solid fa-repeat"></i>
-                            </div>
+                            <span class="time">3:37</span>
+                        </div>
+                        <div class="controls">
+                            <i class="fa-solid fa-shuffle"></i>
+                            <i class="fa-solid fa-backward-step"></i>
+                            <i class="fa-solid fa-circle-play play-btn"></i>
+                            <i class="fa-solid fa-forward-step"></i>
+                            <i class="fa-solid fa-repeat"></i>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Блок Нового Письма -->
-                <div class="letter-widget">
-                    <div class="letter-body-content">
-                        <div class="letter-text-left">
-                            <div class="letter-title">New Letter</div>
-                            <div class="letter-desc">У вас новое письмо из Хогвартса</div>
-                        </div>
-                        <div class="letter-image-right"></div>
+            <!-- Новое письмо -->
+            <div class="widget-letter">
+                <div class="letter-content">
+                    <div class="letter-paper"></div>
+                    <div class="letter-text">
+                        <h3>New Letter</h3>
+                        <p>У вас новое письмо из Хогвартса</p>
+                        <button class="btn-read">Читать <i class="fa-solid fa-feather-pointed"></i></button>
                     </div>
-                    <button class="btn-read-letter">Читать <i class="fa-solid fa-feather-pointed" style="margin-left: 5px; font-size: 10px;"></i></button>
                 </div>
-
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- ================= ПРАВАЯ КОЛОНКА ================= -->
-    <div class="sidebar-right">
-        
-        <div class="block-border">
-            <div class="widget-header">Цитата дня</div>
-            <p class="quote-content">Любовь — это не взгляд друг на друга, а взгляд в одном направлении.</p>
-            <span class="quote-sign">— Антуан де Сент-Экзюпери</span>
+    <!-- ================= ПРАВАЯ КОЛОНКА (SIDEBAR RIGHT) ================= -->
+    <aside class="sidebar-right">
+        <!-- Цитата дня -->
+        <div class="widget-quote-day">
+            <h4 class="widget-title">Цитата дня</h4>
+            <blockquote class="day-blockquote">
+                «Любовь — это не взгляд друг на друга, а взгляд в одном направлении.»
+                <cite>— Антуан де Сент-Экзюпери</cite>
+            </blockquote>
         </div>
 
-        <div class="block-border">
-            <div class="widget-header">Constellation of Fate</div>
-            <div class="constellation-map"></div>
-            <p class="constellation-text">
+        <!-- Созвездие судьбы -->
+        <div class="widget-constellation">
+            <h4 class="widget-title">Constellation of Fate</h4>
+            <div class="stars-map-bg"></div>
+            <p class="constellation-desc">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
+        </div>
+    </aside>
+</div>
+
+</body>
+</html>
