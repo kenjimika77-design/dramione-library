@@ -23,7 +23,7 @@
 }
 
 /* ==========================================================================
-   2. ОСНОВНЫЕ СТИЛИ САЙТА И ФИКСАЦИЯ ГЕРОЕВ КАК НА ФОТО
+   2. ОСНОВНЫЕ СТИЛИ САЙТА И ФИКСАЦИЯ ГЕРОЕВ ОДИН В ОДИН КАК НА ОРИГИНАЛЕ
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -35,9 +35,11 @@ body {
     background-image: url('../images/bg.jpg');
     background-color: #0b0a0d; 
     
-    /* ИСПРАВЛЕНО: Герои не увеличиваются, встают ровно по размеру экрана как на фото */
-    background-size: 100% 100%;
-    background-position: center top; 
+    /* ИСПРАВЛЕНО: Запрещаем картинке растягиваться и искажаться, сохраняем оригинальные пропорции */
+    background-size: cover;
+    
+    /* ИСПРАВЛЕНО: Намертво прижимаем картинку к правому верхнему углу, чтобы лица героев встали ровно сверху */
+    background-position: right top; 
     background-attachment: fixed;
     background-repeat: no-repeat;
     
@@ -54,13 +56,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Главная невидимая сетка (Блоки разделены между собой) */
+/* Главная невидимая сетка, разделяющая блоки между собой воздуха */
 .site-container {
     width: 100%;
     max-width: 1120px; 
     display: grid;
+    /* Точные размеры колонок: левое меню, центр, правая колонка */
     grid-template-columns: 260px 410px 270px; 
-    gap: 25px; /* Зазор создает прозрачный фон между плашками */
+    gap: 25px; 
     
     background: transparent !important; 
     border: none !important; 
@@ -79,7 +82,7 @@ body {
 .sidebar-left {
     display: flex;
     flex-direction: column;
-    background: #0d0912 !important; /* Глухой непрозрачный цвет */
+    background: #0d0912 !important; /* Плотный темный готический цвет */
     border: 1px solid #1c1424;
     padding: 30px 20px;
     border-radius: 4px;
@@ -130,11 +133,11 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Иконки в меню */
+/* Иконки в левом меню */
 .menu-link i {
     width: 25px;
     font-size: 13px;
-    color: #8c7355; /* Винтажный золотистый цвет иконок */
+    color: #8c7355; 
 }
 
 .menu-text-wrapper {
@@ -190,7 +193,7 @@ body {
     background: transparent !important; 
 }
 
-/* Название Драмиона (На чистом фоне, без закраски подложки) */
+/* Название Драмиона пишется на чистом фоне */
 .welcome-header {
     font-size: 11px;
     letter-spacing: 4px;
@@ -246,16 +249,16 @@ body {
     color: #0a060e;
 }
 
-/* ИСПРАВЛЕНО: Три карточки слитно внутри одной большой закрашенной плашки */
+/* Три карточки слитно внутри одной большой закрашенной плашки */
 .moments-container {
     width: 100%;
     text-align: center;
-    background: #0d0912 !important; /* Единый глухой фон для трех карточек */
+    background: #0d0912 !important; 
     border: 1px solid #1c1424;
     padding: 22px 16px;
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    margin-bottom: 25px; /* Разделяет блок моментов от нижнего плеера */
+    margin-bottom: 25px; 
 }
 
 .section-divider {
@@ -275,15 +278,19 @@ body {
 .moments-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px; /* Слитное, аккуратное расположение карточек внутри плашки */
+    gap: 12px; 
 }
 
 .moment-card {
-    background: #130e1a !important; /* Темный фон самих карточек моментов */
+    background: #130e1a !important; 
     border: 1px solid #22182e;
     padding: 10px;
     border-radius: 3px;
     text-align: left;
+}
+
+.moment-card:hover {
+    border-color: rgba(188, 156, 101, 0.4);
 }
 
 .moment-image-holder {
@@ -294,7 +301,7 @@ body {
     border: 1px solid rgba(0,0,0,0.5);
 }
 
-/* Нарезка картинок */
+/* Нарезка картинок моментов прямо из оригинального фона */
 .moment-img-1 { 
     background-image: url('../images/bg.jpg') !important;
     background-size: 440% auto !important; 
@@ -339,7 +346,7 @@ body {
 }
 
 .player-widget {
-    background: #0d0912 !important; /* Отдельный закрашенный блок */
+    background: #0d0912 !important; 
     border: 1px solid #1c1424;
     padding: 15px 12px;
     border-radius: 4px;
@@ -419,7 +426,7 @@ body {
 }
 
 .letter-widget {
-    background: #0d0912 !important; /* Отдельный закрашенный блок */
+    background: #0d0912 !important; 
     border: 1px solid #1c1424;
     padding: 15px 12px;
     border-radius: 4px;
@@ -443,3 +450,4 @@ body {
     width: 70px;
     height: 45px;
     background-image: url('../images/bg.jpg') !important; 
+    background-size: 400% auto !important;
