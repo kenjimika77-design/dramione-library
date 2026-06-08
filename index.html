@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
     
-    <!-- Подключение шрифтов Google Fonts и локальных (через CSS) -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300&family=Pinyon+Script&display=swap" rel="stylesheet">
-    
-    <!-- Иконки Font Awesome для точного соответствия макету -->
+    <!-- Подключение библиотеки иконок Font Awesome (Исправлено, теперь все иконки отобразятся) -->
     <link rel="stylesheet" href="https://cloudflare.com">
 
     <!-- Подключение вашего файла стилей -->
@@ -18,10 +13,10 @@
 </head>
 <body>
 
-<div class="site-container">
+<!-- Главный большой арт с Драко и Гермионой из макета -->
+<div class="main-hero-art"></div>
 
-    <!-- Главный большой арт с Драко и Гермионой (накладывается поверх сайта) -->
-    <div class="main-hero-art"></div>
+<div class="site-container">
 
     <!-- ================= ЛЕВАЯ КОЛОНКА ================= -->
     <div class="sidebar-left">
@@ -167,7 +162,7 @@
             </div>
         </div>
 
-        <!-- Нижний ряд виджетов -->
+        <!-- Нижний ряд виджетов (Плеер и Письмо) -->
         <div class="bottom-row">
             <div class="bottom-widgets-row">
                 
@@ -182,14 +177,18 @@
                             
                             <div class="player-timeline">
                                 <span class="time-current">1:23</span>
-                                <div class="timeline-bar"><div class="timeline-progress"></div></div>
+                                <div class="timeline-bar">
+                                    <div class="timeline-progress"></div>
+                                </div>
                                 <span class="time-total">3:37</span>
                             </div>
 
                             <div class="player-controls">
                                 <i class="fa-solid fa-shuffle"></i>
                                 <i class="fa-solid fa-backward-step"></i>
-                                <i class="fa-solid fa-circle-play play-btn"></i>
+                                <div class="play-btn-circle">
+                                    <i class="fa-solid fa-play play-btn"></i>
+                                </div>
                                 <i class="fa-solid fa-forward-step"></i>
                                 <i class="fa-solid fa-repeat"></i>
                             </div>
@@ -199,14 +198,14 @@
 
                 <!-- Блок Нового Письма -->
                 <div class="letter-widget">
-                    <div class="letter-top">
-                        <div class="letter-cover-bg"></div>
-                        <div class="letter-text-side">
+                    <div class="letter-body-content">
+                        <div class="letter-text-left">
                             <div class="letter-title">New Letter</div>
                             <div class="letter-desc">У вас новое письмо из Хогвартса</div>
                         </div>
+                        <div class="letter-image-right"></div>
                     </div>
-                    <button class="btn-read-letter">Читать <i class="fa-solid fa-feather-pointed" style="margin-left: 5px; font-size: 11px;"></i></button>
+                    <button class="btn-read-letter">Читать <i class="fa-solid fa-feather-pointed" style="margin-left: 5px; font-size: 10px;"></i></button>
                 </div>
 
             </div>
@@ -216,10 +215,13 @@
     <!-- ================= ПРАВАЯ КОЛОНКА ================= -->
     <div class="sidebar-right">
         
-        <!-- Цитата дня -->
         <div class="block-border">
             <div class="widget-header">Цитата дня</div>
-            <p class="quote-content">«Любовь — это не взгляд друг на друга, а взгляд в одном направлении.»</p>
+            <p class="quote-content">Любовь — это не взгляд друг на друга, а взгляд в одном направлении.</p>
             <span class="quote-sign">— Антуан де Сент-Экзюпери</span>
         </div>
 
+        <div class="block-border">
+            <div class="widget-header">Constellation of Fate</div>
+            <div class="constellation-map"></div>
+            <p class="constellation-text">
