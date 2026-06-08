@@ -1,3 +1,16 @@
+/* Подключаем ваш локальный каллиграфический шрифт */
+@font-face {
+    font-family: 'Alex Brush Local';
+    src: url('../fonts/AlexBrush-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+
 /* ==========================================
    ОБЩИЕ СТИЛИ И СБРОС
    ========================================== */
@@ -181,31 +194,30 @@ body {
     user-select: none;
 }
 
-/* Главное слово DRAMIONE — сдвинуто влево */
+/* ==========================================
+   ЦЕНТРАЛЬНАЯ ЧАСТЬ (HERO) — ЗАГОЛОВОК И КНОПКА
+   ========================================== */
+
+/* Главное слово DRAMIONE — объемное, золотое, точь-в-точь как на фото */
 .main-title {
     font-family: 'Cinzel', serif;
-    font-size: 58px; /* Немного крупнее и монументальнее */
-    font-weight: 400;
+    font-size: 58px; 
+    font-weight: 700; /* Сделали буквы чуть плотнее для объема */
     letter-spacing: 7px;
-    color: #f5eedc;
-    text-shadow: 0 0 25px rgba(245, 238, 220, 0.15);
     line-height: 1;
     margin: 0;
     position: relative;
+
+    /* Создаем золотой металлический градиент от светлого к темному сверху вниз */
+    background: linear-gradient(to bottom, #f3e7da 0%, #cca474 45%, #967041 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Окрашиваем сам текст в градиент */
+    
+    /* Сложные многослойные тени: создают эффект объема (тиснения) и мягкого свечения вокруг */
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.8)) 
+            drop-shadow(0px 0px 15px rgba(204, 164, 116, 0.25));
 }
 
-/* Рукописное слово forever — смещено чуть вправо под главное название */
-.main-title .cursive {
-    display: block;
-    font-family: 'Great Vibes', cursive;
-    font-size: 46px;
-    color: #b08d5c;
-    letter-spacing: 2px;
-    text-transform: lowercase;
-    margin-top: -8px;
-    margin-left: 120px; /* Сдвинули чуть дальше вправо, создавая оригинальный баланс */
-    text-shadow: 0 0 10px rgba(176, 141, 92, 0.3);
-}
 
 /* Описание под заголовком */
 .hero-desc {
