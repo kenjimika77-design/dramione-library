@@ -459,26 +459,32 @@ body {
     background: rgba(139, 107, 72, 0.4);
     box-shadow: 0 0 10px rgba(139, 107, 72, 0.3);
 }
-
 /* ==========================================
    ПРАВАЯ ПАНЕЛЬ (ЦИТАТЫ, СОЗВЕЗДИЯ)
    ========================================== */
 .right-sidebar {
-    background: rgba(15, 8, 10, 0.85);
+    background: transparent; /* Делаем саму панель прозрачной, чтобы была видна картинка сверху */
     border-left: 1px solid rgba(139, 107, 72, 0.2);
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
+    
+    /* Магия сдвига: этот отступ опустит цитату вниз, ровно на уровень начала блока Our Moments */
+    padding-top: 325px; 
 }
 
+/* Настраиваем плотную закрашенную заливку для блоков цитаты и созвездия */
 .widget-box {
-    background: rgba(10, 5, 6, 0.6);
-    border: 1px solid rgba(139, 107, 72, 0.2);
+    background: rgba(13, 6, 9, 0.88); /* Плотный винный оттенок, точь-в-точь как у Our Moments */
+    border: 1px solid rgba(176, 141, 92, 0.2); /* Тонкая золотистая неоновая рамка */
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 6px;
     text-align: center;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6), 
+                0 10px 25px rgba(0, 0, 0, 0.6); /* Красивая тень */
 }
+
 
 .widget-box h3 {
     font-family: 'Cinzel', serif;
