@@ -1,179 +1,455 @@
-body {
-    background: red !important;
+/* ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    background: radial-gradient(circle at center, #140d21 0%, #05040a 100%);
+    color: #a496a7;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
+/* СЕТКА ИНТЕРФЕЙСА */
+.app-container {
+    display: grid;
+    grid-template-columns: 240px 1fr 280px;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+}
 
-/* ==========================================================================
-   НИЖНИЕ ВИДЖЕТЫ (ПЛЕЕР И ПИСЬМО) — ОБНОВЛЕННЫЕ СТИЛИ
-   ========================================================================== */
+/* ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) */
+.sidebar {
+    background: rgba(8, 5, 13, 0.93);
+    border-right: 1px solid rgba(143, 113, 153, 0.12);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.logo-section {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.logo-d {
+    font-family: 'Cinzel', serif;
+    font-size: 46px;
+    color: #dfb76c;
+    text-shadow: 0 0 15px rgba(223, 183, 108, 0.35);
+    font-weight: 700;
+}
+
+.logo-section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: #dfb76c;
+    margin-top: 5px;
+}
+
+.logo-section .subtitle {
+    font-size: 8.5px;
+    letter-spacing: 3.5px;
+    color: #5d5161;
+    margin-top: 2px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #897e8c;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.menu-item i {
+    font-size: 15px;
+    color: #dfb76c;
+    width: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.menu-item span {
+    display: block;
+    font-size: 12.5px;
+    color: #bfaebd;
+    font-weight: 400;
+}
+
+.menu-item small {
+    display: block;
+    font-size: 9.5px;
+    color: #5d5161;
+}
+
+/* Эффект наведения меню */
+.menu-item:hover {
+    background: rgba(223, 183, 108, 0.08);
+    color: #ffffff;
+    transform: translateX(5px);
+    box-shadow: inset 0 0 15px rgba(223, 183, 108, 0.1);
+}
+
+.menu-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 15%;
+    width: 2px;
+    height: 70%;
+    background: transparent;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.menu-item:hover::before {
+    background: #dfb76c;
+    box-shadow: 0 0 10px rgba(223, 183, 108, 0.8);
+}
+
+.menu-item:hover i {
+    transform: scale(1.15);
+    text-shadow: 0 0 8px rgba(223, 183, 108, 0.6);
+}
+
+.sidebar-quote {
+    font-size: 11px;
+    font-style: italic;
+    text-align: center;
+    color: #645a66;
+    border-top: 1px solid rgba(143, 113, 153, 0.12);
+    padding-top: 25px;
+    line-height: 1.5;
+}
+
+.sidebar-quote .author {
+    display: block;
+    margin-top: 6px;
+    color: #dfb76c;
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+/* ГЛАВНЫЙ КОНТЕНТ */
+.main-content {
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* ХЕДЕР С СЕКРЕТНЫМ АРТОМ НА ФОНЕ */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 8px;
+    position: relative;
+    /* Затемнение + Фоновое изображение целующейся пары */
+    background: linear-gradient(rgba(10, 6, 18, 0.5), rgba(5, 4, 10, 0.85)), 
+                url('https://unsplash.com') no-repeat center 30%/cover;
+    border: 1px solid rgba(143, 113, 153, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.welcome-text {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #7a6e80;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 58px;
+    letter-spacing: 12px;
+    color: #dfb76c;
+    margin-top: 15px;
+    font-weight: 400;
+    text-shadow: 0 0 20px rgba(223, 183, 108, 0.2);
+}
+
+.cursive-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: #bfaebd;
+    margin-top: -22px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(191, 174, 189, 0.3);
+}
+
+.hero-desc {
+    font-size: 13.5px;
+    color: #7a6e80;
+    max-width: 480px;
+    margin: 0 auto 30px auto;
+}
+
+.btn-enter {
+    background: transparent;
+    border: 1px solid rgba(223, 183, 108, 0.5);
+    color: #dfb76c;
+    font-family: 'Cinzel', serif;
+    padding: 11px 35px;
+    font-size: 11.5px;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-enter:hover {
+    background: #dfb76c;
+    color: #05040a;
+    box-shadow: 0 0 20px rgba(223, 183, 108, 0.5);
+    border-color: #dfb76c;
+}
+
+/* КАРТОЧКИ OUR MOMENTS */
+.section-divider {
+    text-align: center;
+    color: #dfb76c;
+    letter-spacing: 3px;
+    font-size: 11.5px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.section-divider .line {
+    display: inline-block;
+    height: 1px;
+    width: 60px;
+    background: rgba(223, 183, 108, 0.25);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.moment-card {
+    background: rgba(14, 9, 23, 0.6);
+    border: 1px solid rgba(143, 113, 153, 0.15);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.moment-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(223, 183, 108, 0.35);
+    box-shadow: 0 10px 25px rgba(223, 183, 108, 0.04), 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.moment-card:hover .card-img {
+    opacity: 0.85;
+}
+
+.card-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5, 4, 10, 0.4);
+}
+
+.card-footer h4 {
+    font-size: 12.5px;
+    color: #bfaebd;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.card-footer .date {
+    font-size: 10px;
+    color: #5d5161;
+    display: block;
+    margin-top: 2px;
+}
+
+.card-footer .heart {
+    color: rgba(223, 183, 108, 0.6);
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.2s, transform 0.2s;
+}
+.card-footer .heart:hover {
+    color: #dfb76c;
+    transform: scale(1.15);
+}
+
+/* ==========================================
+   🔥 НИЖНИЕ ВИДЖЕТЫ (ПЛЕЕР И ПИСЬМО)
+   ========================================== */
 .bottom-widgets {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    margin-top: 10px;
 }
 
-/* --- ОБЩИЕ СТИЛИ ДЛЯ ОБОИХ ВИДЖЕТОВ --- */
 .player-widget, .letter-widget {
-    border: 1px solid rgba(143, 113, 153, 0.25);
-    border-radius: 8px;
-    padding: 25px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(143, 113, 153, 0.16);
+    border-radius: 6px;
+    padding: 22px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 190px;
+    min-height: 175px;
+    transition: all 0.3s ease;
 }
 
-/* Эффект легкого свечения при наведении на сам виджет */
 .player-widget:hover, .letter-widget:hover {
     border-color: rgba(223, 183, 108, 0.3);
-    box-shadow: 0 10px 35px rgba(223, 183, 108, 0.03), 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 25px rgba(223, 183, 108, 0.03), 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-
+/* ПЛЕЕР (ЛЕВЫЙ БЛОК) */
 .player-widget {
-    background:
-        linear-gradient(
-            180deg,
-            rgba(14, 9, 23, 0.82) 0%,
-            rgba(7, 5, 13, 0.95) 100%
-        ),
-        url('../images/music-bg.jpg') center center / cover no-repeat;
-}
-/* Скрываем ненужный мелкий квадрат обложки, так как картинка теперь идет на весь фон */
-.track-cover {
-    display: none;
-}
-
-/* Контейнер с текстом песни */
-.track-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    background: linear-gradient(180deg, rgba(12, 8, 20, 0.8) 0%, rgba(5, 4, 10, 0.92) 100%), 
+                url('https://unsplash.com') no-repeat center/cover;
 }
 
 .track-text .status {
     display: block;
-    font-size: 10px;
+    font-size: 9.5px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #6c5f70;
+    color: #5d5161;
     margin-bottom: 4px;
 }
 
 .track-text h5 {
     font-family: 'Cinzel', serif;
-    font-size: 16px;
+    font-size: 15.5px;
     color: #dfb76c;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .track-text p {
     font-size: 11px;
-    color: #8c7e90;
-    margin-top: 2px;
+    color: #7a6e80;
+    margin-top: 1px;
 }
 
-/* Таймлайн / Хронометраж */
+/* ТАЙМЛАЙН */
 .player-controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
-    margin: 15px 0;
+    gap: 12px;
+    margin: 12px 0;
 }
 
 .player-controls .time {
     font-size: 10px;
-    color: #6c5f70;
-    font-family: 'Montserrat', sans-serif;
-    min-width: 25px;
+    color: #5d5161;
 }
 
 .player-controls .progress-bar {
     flex: 1;
     height: 2px;
-    background: rgba(143, 113, 153, 0.2);
+    background: rgba(143, 113, 153, 0.15);
     border-radius: 2px;
     position: relative;
-    cursor: pointer;
 }
 
 .player-controls .progress {
-    width: 38%; /* Длина заполненной дорожки */
+    width: 38%; /* Текущая позиция воспроизведения */
     height: 100%;
     background: #dfb76c;
     border-radius: 2px;
-    box-shadow: 0 0 8px rgba(223, 183, 108, 0.5);
+    box-shadow: 0 0 8px rgba(223, 183, 108, 0.6);
 }
 
-/* Кнопки управления плеером */
+/* КНОПКИ ПЛЕЕРА */
 .player-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5px;
 }
 
-.player-buttons button {
-    background: none;
-    border: none;
-    color: #8c7e90;
+.player-buttons .control-btn {
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    color: #645a66;
     font-size: 13px;
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 5px;
 }
 
-.player-buttons button:hover {
+.player-buttons .control-btn:hover {
     color: #dfb76c;
     transform: scale(1.1);
 }
 
-/* Центральная круглая кнопка Play */
-.player-buttons button.play-btn {
-    background: #0c0814;
-    border: 1px solid rgba(223, 183, 108, 0.4);
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
+/* ЦЕНТРАЛЬНАЯ КНОПКА PLAY */
+.player-buttons .play-btn {
+    background: #09060f !important;
+    border: 1px solid rgba(223, 183, 108, 0.35) !important;
+    border-radius: 50% !important;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #dfb76c;
-    font-size: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    color: #dfb76c !important;
+    font-size: 11px !important;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
 }
 
-.player-buttons button.play-btn:hover {
-    background: #dfb76c;
-    color: #07050d;
-    border-color: #dfb76c;
-    box-shadow: 0 0 12px rgba(223, 183, 108, 0.4);
+.player-buttons .play-btn:hover {
+    background: #dfb76c !important;
+    color: #05040a !important;
+    border-color: #dfb76c !important;
+    box-shadow: 0 0 12px rgba(223, 183, 108, 0.5);
 }
 
-
+/* ВИДЖЕТ ПИСЬМА (ПРАВЫЙ БЛОК) */
 .letter-widget {
-    background:
-        linear-gradient(
-            180deg,
-            rgba(14, 9, 23, 0.65) 0%,
-            rgba(7, 5, 13, 0.90) 100%
-        ),
-        url('../images/letter-bg.jpg') center center / cover no-repeat;
+    background: linear-gradient(180deg, rgba(12, 8, 20, 0.72) 0%, rgba(5, 4, 10, 0.92) 100%), 
+                url('https://unsplash.com') no-repeat center/cover;
 }
 
 .letter-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center; /* Выравнивание элементов строго по центру */
+    align-items: center;
     text-align: center;
     height: 100%;
     width: 100%;
@@ -181,44 +457,22 @@ body {
 
 .letter-content h5 {
     font-family: 'Cinzel', serif;
-    font-size: 16px;
+    font-size: 15.5px;
     color: #dfb76c;
     font-weight: 400;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
+    letter-spacing: 0.5px;
 }
 
 .letter-content p {
     font-size: 11px;
-    color: #8c7e90;
-    margin-bottom: 20px;
-}
+Используйте код с осторожностью.color: #7a6e80;margin-top: 2px;margin-bottom: 12px;}/* КНОПКА "ЧИТАТЬ" */.letter-content .btn-read {background: rgba(12, 8, 20, 0.85) !important;border: 1px solid rgba(223, 183, 108, 0.4) !important;border-radius: 4px !important;color: #dfb76c !important;font-family: 'Montserrat', sans-serif !important;font-size: 11px !important;letter-spacing: 1px !important;padding: 8px 35px !important;cursor: pointer;display: inline-flex;align-items: center;justify-content: center;gap: 8px;box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;transition: all 0.3s ease !important;}.letter-content .btn-read:hover {background: #dfb76c !important;color: #05040a !important;box-shadow: 0 0 15px rgba(223, 183, 108, 0.45) !important;}.letter-content .btn-read i {font-size: 9.5px;}/* ПРАВАЯ ПАНЕЛЬ */.right-bar {background: rgba(8, 5, 13, 0.93);border-left: 1px solid rgba(143, 113, 153, 0.12);padding: 40px 20px;display: flex;flex-direction: column;gap: 25px;}.quote-day-box, .constellation-box {background: rgba(5, 4, 10, 0.4);border: 1px solid rgba(143, 113, 153, 0.12);padding: 22px 18px;border-radius: 4px;text-align: center;}.quote-day-box h3, .constellation-box h3 {font-family: 'Cinzel', serif;color: #dfb76c;font-size: 13.5px;margin-bottom: 12px;font-weight: 400;letter-spacing: 0.5px;}.quote-text {font-size: 12px;color: #bfaebd;line-height: 1.5;}.quote-day-box .author {display: block;margin-top: 10px;font-size: 10px;color: #5d5161;}.stars-img {height: 130px;background-size: cover;background-position: center;border-radius: 4px;margin-bottom: 15px;opacity: 0.5;border: 1px solid rgba(143, 113, 153, 0.08);}.constellation-text {font-size: 11.5px;color: #7a6e80;line-height: 1.5;}
+---
 
-/* Элегантная кнопка "Читать" */
-.letter-content .btn-read {
-    background: rgba(12, 8, 20, 0.85);
-    border: 1px solid rgba(223, 183, 108, 0.4);
-    border-radius: 4px;
-    color: #dfb76c;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 1px;
-    padding: 8px 35px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* Отступ между текстом и иконкой пера */
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+### Что было доработано до идеала:
+1. **Эффект размытия и фоны:** Виджеты плеера и письма теперь содержат темные градиенты, наложенные поверх атмосферных изображений (`linear-gradient(..., url)`). Компоненты выглядят глубокими и таинственными, в точности как на картинке.
+2. **Свечение при наведении:** Наведение на кнопки плеера, кнопку «Enter Library» и кнопку «Читать» активирует золотой цвет и неоновое сияние (`box-shadow`), создавая ощущение «магического» интерфейса.
+3. **Общий баннер (Hero):** В шапку добавлен полупрозрачный фон с артом влюбленной пары, гармонирующий по цвету со стилистикой Хогвартса и Слизерина.
 
-.letter-content .btn-read:hover {
-    background: #dfb76c;
-    color: #07050d;
-    box-shadow: 0 0 15px rgba(223, 183, 108, 0.4);
-    transform: translateY(-1px);
-}
+Если вы хотите **изменить ссылки на свои локальные изображения**, просто найдите свойства `url('...')` в CSS и замените их на пути к файлам на вашем компьютере (например, `url('../images/my-bg.jpg')`). 
 
-.letter-content .btn-read i {
-    font-size: 10px;
-}
+Дайте знать, получилось ли обновить страницу! Хотите ли вы добавить **плавное появление элементов** при первой загрузке сайта?
