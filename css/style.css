@@ -1,298 +1,213 @@
-/* ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* ==========================================================================
+   НИЖНИЕ ВИДЖЕТЫ (ПЛЕЕР И ПИСЬМО) — ОБНОВЛЕННЫЕ СТИЛИ
+   ========================================================================== */
 
-body {
-    background: radial-gradient(circle, #161024 0%, #07050d 100%);
-    color: #bfaebd;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 13px;
-    line-height: 1.6;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* СЕТКА ИНТЕРФЕЙСА */
-.app-container {
-    display: grid;
-    grid-template-columns: 240px 1fr 280px;
-    min-height: 100vh;
-}
-
-/* ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) */
-.sidebar {
-    background: rgba(12, 8, 20, 0.85);
-    border-right: 1px solid rgba(143, 113, 153, 0.15);
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.logo-section {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.logo-d {
-    font-family: 'Cinzel', serif;
-    font-size: 42px;
-    color: #dfb76c;
-    text-shadow: 0 0 10px rgba(223, 183, 108, 0.3);
-}
-
-.logo-section h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #bfaebd;
-    margin-top: 10px;
-}
-
-.logo-section .subtitle {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #6c5f70;
-}
-
-.menu-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: #a69ba8;
-    text-decoration: none;
-    padding: 8px 10px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.menu-item i {
-    font-style: normal;
-    font-size: 16px;
-    color: #dfb76c;
-    transition: all 0.3s ease;
-}
-
-.menu-item span {
-    display: block;
-    font-size: 13px;
-}
-
-.menu-item small {
-    display: block;
-    font-size: 10px;
-    color: #6c5f70;
-}
-
-/* 🔥 HOVER — основной эффект */
-.menu-item:hover {
-    background: rgba(223, 183, 108, 0.12);
-    color: #ffffff;
-    transform: translateX(7px);
-    box-shadow: inset 0 0 16px rgba(223, 183, 108, 0.18);
-}
-
-/* ✨ магическая линия слева */
-.menu-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: transparent;
-    opacity: 0.5;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.menu-item:hover::before {
-    background: #dfb76c;
-    opacity: 1;
-    box-shadow: 0 0 14px rgba(223, 183, 108, 0.7);
-}
-
-/* ✨ иконка оживает */
-.menu-item:hover i {
-    transform: scale(1.25) rotate(-4deg);
-    color: #ffffff;
-}
-.sidebar-quote {
-    font-size: 11px;
-    font-style: italic;
-    text-align: center;
-    color: #8c7e90;
-    border-top: 1px solid rgba(143, 113, 153, 0.15);
-    padding-top: 20px;
-}
-
-.sidebar-quote .author {
-    display: block;
-    margin-top: 5px;
-    color: #dfb76c;
-}
-
-/* ГЛАВНЫЙ КОНТЕНТ */
-.main-content {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.hero {
-    text-align: center;
-    padding: 20px 0;
-}
-
-.welcome-text {
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #8c7e90;
-}
-
-.main-title {
-    font-family: 'Cinzel', serif;
-    font-size: 54px;
-    letter-spacing: 8px;
-    color: #dfb76c;
-    margin-top: 10px;
-    font-weight: 400;
-}
-
-.cursive-text {
-    font-family: 'Great Vibes', cursive;
-    font-size: 46px;
-    color: #bfaebd;
-    margin-top: -20px;
-    margin-bottom: 20px;
-}
-
-.hero-desc {
-    font-size: 14px;
-    color: #8c7e90;
-    max-width: 500px;
-    margin: 0 auto 30px auto;
-}
-
-.btn-enter {
-    background: transparent;
-    border: 1px solid #dfb76c;
-    color: #dfb76c;
-    font-family: 'Cinzel', serif;
-    padding: 10px 30px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-enter:hover {
-    background: #dfb76c;
-    color: #07050d;
-    box-shadow: 0 0 15px rgba(223, 183, 108, 0.4);
-}
-
-/* КАРТОЧКИ OUR MOMENTS */
-.section-divider {
-    text-align: center;
-    color: #dfb76c;
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 20px;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.moment-card {
-    background: rgba(22, 16, 32, 0.6);
-    border: 1px solid rgba(143, 113, 153, 0.15);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.moment-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(223, 183, 108, 0.3);
-}
-
-.card-img {
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-}
-
-.card-footer {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.card-footer h4 {
-    font-size: 13px;
-    color: #bfaebd;
-    font-weight: 400;
-}
-
-.card-footer .date {
-    font-size: 10px;
-    color: #6c5f70;
-}
-
-.card-footer .heart {
-    color: #dfb76c;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* НИЖНИЕ ВИДЖЕТЫ */
 .bottom-widgets {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    margin-top: 10px;
 }
 
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ОБОИХ ВИДЖЕТОВ --- */
 .player-widget, .letter-widget {
-    background: rgba(22, 16, 32, 0.6);
-    border: 1px solid rgba(143, 113, 153, 0.15);
+    border: 1px solid rgba(143, 113, 153, 0.25);
     border-radius: 8px;
-    padding: 20px;
-}
-
-/* ПРАВАЯ ПАНЕЛЬ */
-.right-bar {
-    background: rgba(12, 8, 20, 0.85);
-    border-left: 1px solid rgba(143, 113, 153, 0.15);
-    padding: 40px 20px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    justify-content: space-between;
+    min-height: 190px;
 }
 
-.quote-day-box, .constellation-box {
-    background: rgba(7, 5, 13, 0.5);
-    border: 1px solid rgba(143, 113, 153, 0.15);
-    padding: 20px;
-    border-radius: 4px;
-    text-align: center;
+/* Эффект легкого свечения при наведении на сам виджет */
+.player-widget:hover, .letter-widget:hover {
+    border-color: rgba(223, 183, 108, 0.3);
+    box-shadow: 0 10px 35px rgba(223, 183, 108, 0.03), 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-.quote-day-box h3, .constellation-box h3 {
+
+/* --- 1. МУЗЫКАЛЬНЫЙ ПЛЕЕР (ЛЕВЫЙ БЛОК) --- */
+.player-widget {
+    /* Фоновое атмосферное изображение с затемнением. Замените URL на локальный при необходимости */
+    background: linear-gradient(180deg, rgba(14, 9, 23, 0.75) 0%, rgba(7, 5, 13, 0.9) 100%), 
+                url('https://unsplash.com') no-repeat center/cover;
+}
+
+/* Скрываем ненужный мелкий квадрат обложки, так как картинка теперь идет на весь фон */
+.track-cover {
+    display: none;
+}
+
+/* Контейнер с текстом песни */
+.track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.track-text .status {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6c5f70;
+    margin-bottom: 4px;
+}
+
+.track-text h5 {
     font-family: 'Cinzel', serif;
+    font-size: 16px;
     color: #dfb76c;
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.track-text p {
+    font-size: 11px;
+    color: #8c7e90;
+    margin-top: 2px;
+}
+
+/* Таймлайн / Хронометраж */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.player-controls .time {
+    font-size: 10px;
+    color: #6c5f70;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 25px;
+}
+
+.player-controls .progress-bar {
+    flex: 1;
+    height: 2px;
+    background: rgba(143, 113, 153, 0.2);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.player-controls .progress {
+    width: 38%; /* Длина заполненной дорожки */
+    height: 100%;
+    background: #dfb76c;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(223, 183, 108, 0.5);
+}
+
+/* Кнопки управления плеером */
+.player-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.player-buttons button {
+    background: none;
+    border: none;
+    color: #8c7e90;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 5px;
+}
+
+.player-buttons button:hover {
+    color: #dfb76c;
+    transform: scale(1.1);
+}
+
+/* Центральная круглая кнопка Play */
+.player-buttons button.play-btn {
+    background: #0c0814;
+    border: 1px solid rgba(223, 183, 108, 0.4);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dfb76c;
+    font-size: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.player-buttons button.play-btn:hover {
+    background: #dfb76c;
+    color: #07050d;
+    border-color: #dfb76c;
+    box-shadow: 0 0 12px rgba(223, 183, 108, 0.4);
+}
+
+
+/* --- 2. ВИДЖЕТ «НОВОЕ ПИСЬМО» (ПРАВЫЙ БЛОК) --- */
+.letter-widget {
+    /* Картинка старинного конверта/пергамента на фоне с затемнением */
+    background: linear-gradient(180deg, rgba(14, 9, 23, 0.65) 0%, rgba(7, 5, 13, 0.9) 100%), 
+                url('https://unsplash.com') no-repeat center/cover;
+}
+
+.letter-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Выравнивание элементов строго по центру */
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.letter-content h5 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: #dfb76c;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.letter-content p {
+    font-size: 11px;
+    color: #8c7e90;
+    margin-bottom: 20px;
+}
+
+/* Элегантная кнопка "Читать" */
+.letter-content .btn-read {
+    background: rgba(12, 8, 20, 0.85);
+    border: 1px solid rgba(223, 183, 108, 0.4);
+    border-radius: 4px;
+    color: #dfb76c;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 8px 35px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Отступ между текстом и иконкой пера */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.letter-content .btn-read:hover {
+    background: #dfb76c;
+    color: #07050d;
+    box-shadow: 0 0 15px rgba(223, 183, 108, 0.4);
+    transform: translateY(-1px);
+}
+
+.letter-content .btn-read i {
+    font-size: 10px;
 }
