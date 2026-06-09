@@ -21,13 +21,13 @@
 }
 
 /* ==========================================================================
-   2. ГЛОБАЛЬНЫЕ НАСТРОЙКИ И ФОН ИЗ IMAGES/BG.JPG
+   2. ГЛОБАЛЬНЫЕ НАСТРОЙКИ И ИСПРАВЛЕННЫЙ ФОН
    ========================================================================== */
 :root {
     --bg-color: #100b18;       /* Строго цвет блоков 100b18 */
     --gold: #d4af37;           /* Золотой цвет */
-    --gold-bright: #f3e5ab;    /* Светлое золото для магии */
-    --text-muted: #8e8396;     /* Приглушенный текст текста */
+    --gold-bright: #f3e5ab;    /* Светлое золото */
+    --text-muted: #8e8396;     /* Приглушенный текст */
     
     --font-main: 'Literatura Pro', serif;
     --font-title: 'Bell Std', serif;
@@ -44,305 +44,55 @@
 }
 
 body {
-    /* Подключаем ваш готовый фон 1920х1080 */
+    /* Подключаем ваш фон images/bg.jpg */
     background-image: url('../images/bg.jpg');
     
-    /* ФИКСИРУЕМ МАСШТАБ: запрещаем картинке растягиваться больше, чем она есть на самом деле.
-       1920px — фиксированная ширина, auto — сохраняет оригинальные пропорции героев по пояс */
-    background-size: 1920px auto;
+    /* ИСПРАВЛЕНИЕ: Растягиваем картинку ровно по ширине окна, чтобы Драко и Гермиона 
+       встали в центре и по пояс, не улетая наверх отдельным блоком */
+    background-size: 100vw auto;
     
-    /* ЮВЕЛИРНОЕ ПОЗИЦИОНИРОВАНИЕ:
-       53% — двигает фон по горизонтали (лица встанут ровно между левым текстом и правой цитатой).
-       -40px — ПРИПОДНИМАЕТ картинку чуть-чуть вверх, чтобы лица вышли из-за нижних блоков */
-    background-position: 53% -40px;
+    /* Точно центрируем персонажей и прижимаем картинку к верхнему краю экрана */
+    background-position: center top;
     
     background-repeat: no-repeat;
+    
+    /* ИСПРАВЛЕНИЕ: Делаем фон фиксированным относительно окна, 
+       чтобы контент сайта скользил прямо по нему */
     background-attachment: fixed;
-    background-color: #050308; /* Заполняет края, если экран пользователя шире 1920px */
+    background-color: #050308;
     
     color: var(--gold);
     font-family: var(--font-main);
     font-size: 13px;
     line-height: 1.4;
-    min-height: 100vh;
+    
+    /* Фиксируем высоту страницы строго под высоту экрана смартфона/монитора, 
+       чтобы убрать бесконечную пустую черную прокрутку вниз */
+    height: 100vh;
+    width: 100vw;
+    
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow: hidden;
+    align-items: flex-end; /* Опускаем сетку блоков к нижней части, как на макете */
+    
+    padding: 16px;
+    overflow: hidden; /* Запрещаем появление двойных полос прокрутки */
 }
 
-
-/* Главный контейнер (Идеально ложится поверх вашей новой картинки 1920х1080) */
+/* Главный контейнер (Идеально садится поверх нижней части силуэтов персонажей) */
 .container {
     display: grid;
     /* Левая панель 240px, правая панель 260px, центр забирает всё свободное место */
     grid-template-columns: 240px 1fr 260px;
-    gap: 20px; /* Зазор между колонками, чтобы они не наезжали на лица */
+    gap: 16px;
     width: 100%;
-    max-width: 1340px;
-    height: 750px;
+    max-width: 1280px;
+    
+    /* ИСПРАВЛЕНИЕ: Задаем высоту контейнера так, чтобы верхняя часть блоков 
+       начиналась ровно под грудью персонажей, открывая их лица */
+    height: 60vh; 
+    
     position: relative;
     z-index: 1;
-    margin: 0 auto; /* Авто-центрирование */
+    margin: 0 auto;
 }
-
-.logo-d {
-    font-family: var(--font-title);
-    font-size: 46px;
-    line-height: 1;
-    margin-bottom: 2px;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-}
-
-.logo-section h1 {
-    font-family: var(--font-title);
-    font-size: 14px;
-    letter-spacing: 1.5px;
-}
-
-.logo-section .subtitle {
-    font-size: 9px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    letter-spacing: 2px;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--gold);
-    text-decoration: none;
-    padding: 6px 4px;
-    border-radius: 2px;
-}
-
-.menu-item i {
-    font-size: 14px;
-    width: 18px;
-    text-align: center;
-}
-
-.menu-item span {
-    display: block;
-    font-family: var(--font-title);
-    font-size: 12px;
-    letter-spacing: 0.5px;
-}
-
-.menu-item small {
-    display: block;
-    font-size: 10px;
-    color: var(--text-muted);
-}
-
-.sidebar-quote {
-    border-top: var(--border-gold);
-    padding-top: 14px;
-    font-style: italic;
-    font-size: 11px;
-    text-align: center;
-    color: var(--text-muted);
-}
-
-.sidebar-quote .author {
-    display: block;
-    margin-top: 4px;
-    color: var(--gold);
-    font-family: var(--font-title);
-}
-
-/* ==========================================================================
-   4. ЦЕНТРАЛЬНЫЙ БЛОК
-   ========================================================================== */
-.main-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    border-bottom: var(--border-gold);
-    padding-bottom: 20px;
-}
-
-.hero-text { flex: 1; }
-
-.welcome-tag {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-}
-
-.main-title {
-    font-family: var(--font-title);
-    font-size: 42px;
-    letter-spacing: 4px;
-    line-height: 1;
-}
-
-.cursive-title {
-    font-family: var(--font-cursive);
-    font-size: 34px;
-    color: var(--text-muted);
-    margin-top: -6px;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-
-.hero-desc {
-    color: var(--text-muted);
-    font-size: 12px;
-    max-width: 290px;
-    margin-bottom: 16px;
-}
-
-.btn-enter {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: var(--border-gold);
-    padding: 8px 20px;
-    color: var(--gold);
-    font-family: var(--font-title);
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: transparent;
-    cursor: pointer;
-}
-
-/* Область для свечей перед лицами персонажей */
-.hero-image-area {
-    position: relative;
-    width: 200px;
-    height: 140px;
-}
-
-/* Секция Moments */
-.section-divider {
-    text-align: center;
-    position: relative;
-    margin-bottom: 16px;
-}
-
-.section-divider::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: rgba(212, 175, 55, 0.15);
-    z-index: 1;
-}
-
-.section-divider span {
-    background-color: var(--bg-color);
-    padding: 0 12px;
-    font-family: var(--font-title);
-    font-size: 14px;
-    position: relative;
-    z-index: 2;
-    letter-spacing: 1.5px;
-}
-
-.moments-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.moment-card {
-    background-color: rgba(16, 11, 24, 0.7);
-    border: var(--border-gold);
-    overflow: hidden;
-    border-radius: 2px;
-}
-
-.card-img { height: 110px; background: rgba(21, 15, 31, 0.6); border-bottom: var(--border-gold); }
-.card-footer { padding: 8px 10px; display: flex; justify-content: space-between; align-items: center; }
-.card-footer h4 { font-size: 11px; font-weight: normal; }
-.card-footer time { font-size: 9px; color: var(--text-muted); }
-
-/* Виджеты снизу */
-.bottom-widgets {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 12px;
-    margin-top: auto;
-}
-
-.player-widget, .letter-widget {
-    background-color: rgba(16, 11, 24, 0.7);
-    border: var(--border-gold);
-    display: flex;
-    padding: 12px;
-    gap: 12px;
-    align-items: center;
-    border-radius: 2px;
-}
-
-.player-cover { width: 64px; height: 64px; background: #150f1f; border: var(--border-gold); }
-.player-controls { flex: 1; }
-.track-title { font-size: 9px; text-transform: uppercase; color: var(--text-muted); }
-.song-name { font-family: var(--font-title); font-size: 13px; }
-.artist-name { font-size: 10px; color: var(--text-muted); }
-
-.progress-bar-container { display: flex; align-items: center; gap: 6px; margin-top: 4px; cursor: pointer; }
-.progress-bar-container .time { font-size: 9px; color: var(--text-muted); width: 24px; }
-.progress-bar-container .line { flex: 1; height: 2px; background: rgba(212, 175, 55, 0.15); position: relative; }
-.progress-bar-container .fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--gold); }
-
-.control-buttons { display: flex; gap: 10px; margin-top: 6px; align-items: center; }
-.control-buttons button { background: none; border: none; color: var(--gold); cursor: pointer; font-size: 11px; }
-.control-buttons .play-btn { font-size: 16px; }
-
-.letter-paper { width: 70px; height: 54px; background: #150f1f; border: var(--border-gold); }
-.letter-info h4 { font-size: 11px; margin-bottom: 2px; font-weight: normal; }
-.letter-tag { font-size: 9px; text-transform: uppercase; color: var(--text-muted); }
-.btn-read { color: var(--gold); text-decoration: none; font-size: 10px; border-bottom: 1px dashed var(--gold); }
-
-/* ==========================================================================
-   5. ПРАВАЯ ПАНЕЛЬ
-   ========================================================================== */
-.right-sidebar { padding: 20px 16px; display: flex; flex-direction: column; gap: 16px; }
-.quote-box, .constellation-box { padding: 16px; text-align: center; }
-
-.quote-box h3, .constellation-box h3 {
-    font-family: var(--font-title);
-    font-size: 13px;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    border-bottom: var(--border-gold);
-    padding-bottom: 6px;
-}
-
-.quote-box p { font-style: italic; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-.quote-author { display: block; margin-top: 8px; font-size: 10px; }
-.constellation-img { height: 110px; background: #150f1f; margin-bottom: 12px; border: var(--border-gold); }
-.constellation-desc { font-size: 11px; color: var(--text-muted); }
-
-/* ==========================================================================
-   6. ВОЛШЕБСТВО, МЕРЦАНИЕ СВЕЧЕЙ И КНОПОК
-   ========================================================================== */
-#particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
-
-.gold-particle {
-    position: absolute;
