@@ -44,20 +44,21 @@
 }
 
 body {
-    /* Подключаем ваш фон bg.jpg */
+    /* Подключаем ваш цельный фон bg.jpg */
     background-image: url('../images/bg.jpg');
     
-    /* СТРОГО КАК НА МАКЕТЕ: прижимаем к правому верхнему углу */
-    background-position: right top;
+    /* Растягиваем картинку на весь экран, чтобы не было куцых краев */
+    background-size: cover;
     
-    /* Делаем героев мельче (по пояс): 
-       auto — сохраняет пропорции (картинка не сожмется в квадрат), 
-       70vh — увеличиваем высоту до 70% экрана, чтобы на больших мониторах они не казались крошечными */
-    background-size: auto 70vh;
+    /* СТРОГО ПО ВАШЕМУ ОПИСАНИЮ:
+       center — центрирует персонажей ровно посередине экрана по горизонтали;
+       top — прижимает их к верху (они будут крупными, по пояс);
+       50% — если картинка сместится, этот параметр удержит её баланс. */
+    background-position: center top;
     
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: #050308; /* Глубокий темный цвет заполняет остальное пространство слева и снизу */
+    background-color: #050308;
     
     color: var(--gold);
     font-family: var(--font-main);
@@ -65,12 +66,15 @@ body {
     line-height: 1.4;
     min-height: 100vh;
     
-    /* Убираем flex-центрирование, которое ломало позиционирование блоков */
-    overflow-x: hidden;
-    overflow-y: auto;
+    /* Возвращаем красивое и стабильное выравнивание блоков по центру */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
 }
 
-/* Главный контейнер (Сдвигаем сетку влево и задаем точные пропорции) */
+/* Главный контейнер (Возвращаем в центр, чтобы он идеально обнимал персонажей) */
 .container {
     display: grid;
     grid-template-columns: 240px 1fr 260px;
@@ -78,16 +82,12 @@ body {
     width: 100%;
     max-width: 1280px;
     height: 760px;
-    
-    /* Абсолютное позиционирование, чтобы выровнять блоки по центру экрана вертикально, но прижать влево */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
     z-index: 1;
     
-    /* МАГИЯ СДВИГА: жестко прижимаем сайт ближе к левому краю, 
-       чтобы правая панель с цитатой идеально зашла на спину Гермионы */
-    left: 40px; 
+    /* Центрируем сетку интерфейса. Теперь левый текст Драмионы уйдет за спину Драко,
+       А правая цитата дня ляжет точно на спину Гермионы, как вы описали! */
+    margin: 0 auto;
 }
 
 /* ==========================================================================
@@ -98,12 +98,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.logo-section {
-    text-align: center;
-    border-bottom: var(--border-gold);
-    padding-bottom: 16px;
 }
 
 .logo-d {
