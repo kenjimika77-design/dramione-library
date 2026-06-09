@@ -1,6 +1,6 @@
-`javascript
+```javascript
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. ГЕНЕРАЦИЯ ЗОЛОТОЙ ПЫЛИ
+    // 1. СТАРТ ВОЛШЕБНОЙ ЗОЛОТОЙ ПЫЛИ
     const container = document.getElementById("particles-container");
     const particleCount = 35; 
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. ПОЛНОЦЕННЫЙ РАБОЧИЙ ПЛЕЕР С ПОДСЧЕТОМ ВРЕМЕНИ
+    // 3. ПОЛНОЦЕННЫЙ РАБОЧИЙ МУЗЫКАЛЬНЫЙ ПЛЕЕР
     const audio = document.getElementById("main-audio");
     const playPauseBtn = document.getElementById("play-pause-btn");
     const progressContainer = document.getElementById("progress-container");
@@ -25,10 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const durationTimeEl = document.getElementById("duration-time");
     const loopBtn = document.getElementById("loop-btn");
 
-    // Переключатель Воспроизведение / Пауза
     playPauseBtn.addEventListener("click", () => {
         if (audio.paused) {
-            audio.play().catch(err => console.log("Добавьте трек rewrite_the_stars.mp3 в корень проекта"));
+            audio.play().catch(err => console.log("Поместите файл rewrite_the_stars.mp3 в корень сайта"));
             playPauseBtn.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
         } else {
             audio.pause();
@@ -36,27 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Обновление тайм-кодов и полосы прогресса
     audio.addEventListener("timeupdate", () => {
         const { duration, currentTime } = audio;
         if (!duration) return;
         
         const progressPercent = (currentTime / duration) * 100;
         progressFill.style.width = `${progressPercent}%`;
-
-        // Форматирование текущего времени
         currentTimeEl.textContent = formatTime(currentTime);
     });
 
-    // Получение метаданных (длительность трека)
     audio.addEventListener("loadedmetadata", () => {
         durationTimeEl.textContent = formatTime(audio.duration);
     });
 
-    // Клик по полосе для перемотки трека
     progressContainer.addEventListener("click", (e) => {
         const width = progressContainer.querySelector('.line').clientWidth;
-        const clickX = e.offsetX - currentTimeEl.clientWidth - 6; // учитываем отступ таймера
+        const clickX = e.offsetX - currentTimeEl.clientWidth - 6; 
         const duration = audio.duration;
         
         if(clickX > 0 && clickX < width && duration) {
@@ -64,13 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Кнопка зацикливания трека
     loopBtn.addEventListener("click", () => {
         audio.loop = !audio.loop;
         loopBtn.classList.toggle("active", audio.loop);
     });
 
-    // Сброс кнопки при окончании трека (если нет повтора)
     audio.addEventListener("ended", () => {
         if(!audio.loop) {
             playPauseBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
@@ -80,14 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Вспомогательная функция для красивого вывода времени (минуты:секунды)
 function formatTime(time) {
     const mins = Math.floor(time / 60);
     const secs = Math.floor(time % 60);
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-// Создание элемента искры
 function createParticle(container) {
     const particle = document.createElement("div");
     particle.classList.add("gold-particle");
