@@ -44,13 +44,20 @@
 }
 
 body {
-    /* Фоновое изображение на весь экран с фиксацией Драко и Гермионы по правому верхнему краю по пояс */
+    /* Подключаем ваш фон bg.jpg */
     background-image: url('../images/bg.jpg');
-    background-size: cover;
+    
+    /* СТРОГО КАК НА МАКЕТЕ: прижимаем к правому верхнему углу */
     background-position: right top;
+    
+    /* Делаем героев мельче (по пояс): 
+       auto — сохраняет пропорции (картинка не сожмется в квадрат), 
+       55vh — картинка займет ровно 55% от высоты экрана, как в оригинале */
+    background-size: auto 55vh;
+    
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: #09050e;
+    background-color: #050308; /* Глубокий темный цвет заполняет остальное пространство слева и снизу */
     
     color: var(--gold);
     font-family: var(--font-main);
@@ -64,7 +71,7 @@ body {
     overflow: hidden;
 }
 
-/* Сетка макета точь-в-точь */
+/* Главный контейнер (Сдвигаем сетку влево и задаем точные пропорции) */
 .container {
     display: grid;
     grid-template-columns: 240px 1fr 260px;
@@ -74,17 +81,13 @@ body {
     height: 760px;
     position: relative;
     z-index: 1;
+    
+    /* МАГИЯ СДВИГА: убираем центрирование и двигаем весь сайт ближе к левому краю, 
+       чтобы правая панель с цитатой идеально зашла на спину Гермионы */
+    margin-left: 40px; 
+    margin-right: auto;
 }
 
-/* Полупрозрачные блоки (эффект дорогого матового стекла, чтобы просвечивал фон) */
-.sidebar, .main-content, .right-sidebar {
-    background-color: rgba(16, 11, 24, 0.88); 
-    border: var(--border-gold);
-    box-shadow: var(--gold-glow);
-    border-radius: 3px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
 
 /* ==========================================================================
    3. ЛЕВАЯ ПАНЕЛЬ И МЕНЮ
