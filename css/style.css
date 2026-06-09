@@ -221,14 +221,16 @@ body {
    ЦЕНТРАЛЬНАЯ ЧАСТЬ (ШАПКА И ЗАГОВОК С FOREVER)
    ========================================== */
 .main-content {
+    position: relative;
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
     gap: 40px;
     z-index: 2;
 }
-
 .hero-section {
+    position: relative;
+    z-index: 5;
     text-align: left;
     padding: 20px 0;
 }
@@ -236,8 +238,8 @@ body {
 .welcome-container {
     display: inline-flex;
     flex-direction: column;
-    align-items: center; 
-    margin-left: 65px; 
+    align-items: center;
+    margin-left: 65px;
     margin-bottom: 12px;
 }
 
