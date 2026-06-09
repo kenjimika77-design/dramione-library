@@ -21,11 +21,11 @@
 }
 
 /* ==========================================================================
-   2. ГЛОБАЛЬНЫЕ НАСТРОЙКИ (ЦВЕТА И ПРОПОРЦИИ ТОЧЬ-В-ТОЧЬ)
+   2. ГЛОБАЛЬНЫЕ НАСТРОЙКИ (С УЧЕТОМ АДРЕСА ФОНА images/bg.jpg)
    ========================================================================== */
 :root {
     --bg-color: #100b18;       /* Строго цвет блоков 100b18 */
-    --bg-darker: #09050e;      /* Фоновый темный оттенок */
+    --bg-darker: #09050e;      /* Запасной фоновый темный оттенок */
     --gold: #d4af37;           /* Золотой цвет шрифта и элементов */
     --gold-bright: #f3e5ab;    /* Яркое золото для подсветки */
     --text-muted: #8e8396;     /* Приглушенный текст */
@@ -45,7 +45,14 @@
 }
 
 body {
-    background-color: var(--bg-darker);
+    /* Подключаем ваш фон images/bg.jpg. Так как файл лежит в css/, пишем ../images/ */
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: var(--bg-darker); /* Запасной цвет, пока грузится картинка */
+    
     color: var(--gold);
     font-family: var(--font-main);
     font-size: 13px;
