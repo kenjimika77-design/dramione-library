@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library - Forbidden Archive</title>
     <link rel="stylesheet" href="css/style.css">
-  <!-- Иконки FontAwesome -->
+    <!-- Иконки для меню и плеера -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- Эффект золотой пыли/искр -->
+    <!-- Контейнер для магии (золотая парящая пыль) -->
     <div id="particles-container"></div>
 
     <div class="container">
@@ -49,13 +49,12 @@
                     <h2 class="main-title">DRAMIONE</h2>
                     <h3 class="cursive-title">forever</h3>
                     <p class="hero-desc">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
-                    <button class="btn-enter" id="enter-btn">Enter Library <i class="fa-solid fa-arrow-right-long"></i></button>
+                    <button class="btn-enter">Enter Library <i class="fa-solid fa-arrow-right-long"></i></button>
                 </div>
-                <div class="hero-image">
-                    <!-- Свечи слева и справа от арта Драко и Гермионы -->
+                <div class="hero-image-area">
+                    <!-- Свечи с живой анимацией пламени вокруг лиц на фоне -->
                     <div class="candle candle-left"><div class="flame"></div></div>
                     <div class="candle candle-right"><div class="flame"></div></div>
-                    <div class="image-placeholder-hero"></div>
                 </div>
             </header>
 
@@ -101,11 +100,10 @@
                 </div>
             </section>
 
-            <!-- Нижняя панель: Плеер и Новое письмо -->
+            <!-- Нижняя панель: Музыкальный плеер и Письмо -->
             <div class="bottom-widgets">
-                <!-- Музыкальный плеер -->
                 <div class="player-widget">
-                    <!-- Тег аудио для трека из макета -->
+                    <!-- Аудиофайл для воспроизведения музыки -->
                     <audio id="main-audio" src="rewrite_the_stars.mp3" preload="metadata"></audio>
                     
                     <div class="player-cover"></div>
@@ -123,16 +121,15 @@
                         </div>
                         
                         <div class="control-buttons">
-                            <button class="ctrl-btn" title="Перемешать"><i class="fa-solid fa-shuffle"></i></button>
-                            <button class="ctrl-btn" title="Назад"><i class="fa-solid fa-backward-step"></i></button>
-                            <button class="play-btn" id="play-pause-btn" title="Воспроизведение"><i class="fa-solid fa-circle-play"></i></button>
-                            <button class="ctrl-btn" title="Вперед"><i class="fa-solid fa-forward-step"></i></button>
-                            <button class="ctrl-btn" id="loop-btn" title="Повтор"><i class="fa-solid fa-repeat"></i></button>
+                            <button class="ctrl-btn"><i class="fa-solid fa-shuffle"></i></button>
+                            <button class="ctrl-btn"><i class="fa-solid fa-backward-step"></i></button>
+                            <button class="play-btn" id="play-pause-btn"><i class="fa-solid fa-circle-play"></i></button>
+                            <button class="ctrl-btn"><i class="fa-solid fa-forward-step"></i></button>
+                            <button class="ctrl-btn" id="loop-btn"><i class="fa-solid fa-repeat"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Блок письма -->
                 <div class="letter-widget">
                     <div class="letter-paper"></div>
                     <div class="letter-info">
