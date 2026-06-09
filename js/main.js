@@ -1,4 +1,4 @@
-```javascript
+javascript
 document.addEventListener("DOMContentLoaded", () => {
     // 1. СТАРТ ВОЛШЕБНОЙ ЗОЛОТОЙ ПЫЛИ
     const container = document.getElementById("particles-container");
