@@ -124,24 +124,52 @@ body::after{
 }
 
 .sidebar::before,
-.hero::before,
-.moments-section::before,
-.player-widget::before,
-.letter-widget::before,
-.quote-box::before,
-.constellation-box::before{
+.hero{
+    position:relative;
+    min-height:520px;
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+
+    padding:60px;
+}
+
+.hero::before{
     content:"";
-
     position:absolute;
-
     inset:8px;
-
-    border:1px solid
-    rgba(215,182,138,.15);
-
+    border:1px solid rgba(215,182,138,.15);
     border-radius:12px;
-
     pointer-events:none;
+    z-index:1;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(16,11,24,.75) 0%,
+            rgba(16,11,24,.30) 35%,
+            rgba(16,11,24,.30) 65%,
+            rgba(16,11,24,.75) 100%
+        ),
+        url("../images/bg.jpg");
+
+    background-size:cover;
+    background-position:center 15%;
+    background-repeat:no-repeat;
+
+    z-index:0;
+}
+
+.hero-text{
+    position:relative;
+    z-index:2;
 }
 
 /* =========================
