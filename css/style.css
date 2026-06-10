@@ -1,98 +1,434 @@
-/* ==========================================================================
-   1. ШРИФТЫ СТРОГО ПО ВАШИМ АДРЕСАМ
-   ========================================================================== */
-@font-face {
-    font-family: 'Bell Std';
-    src: url('../fonts/bell-std.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Literatura Pro';
-    src: url('../fonts/literatura-pro.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Salve Script';
-    src: url('../fonts/salve-script2.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+/* =========================
+   ШРИФТЫ
+========================= */
+
+@font-face{
+    font-family:'Bell Std';
+    src:url('../fonts/bell-std.otf');
 }
 
-/* ==========================================================================
-   2. ГЛОБАЛЬНЫЕ НАСТРОЙКИ И ИСПРАВЛЕННЫЙ ФОН
-   ========================================================================== */
-:root {
-    --bg-color: #100b18;       /* Строго цвет блоков 100b18 */
-    --gold: #d4af37;           /* Золотой цвет */
-    --gold-bright: #f3e5ab;    /* Светлое золото */
-    --text-muted: #8e8396;     /* Приглушенный текст */
-    
-    --font-main: 'Literatura Pro', serif;
-    --font-title: 'Bell Std', serif;
-    --font-cursive: 'Salve Script', cursive;
-    
-    --border-gold: 1px solid rgba(212, 175, 55, 0.25);
-    --gold-glow: 0 0 12px rgba(212, 175, 55, 0.15);
+@font-face{
+    font-family:'Literatura Pro';
+    src:url('../fonts/literatura-pro.ttf');
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@font-face{
+    font-family:'Salve Script';
+    src:url('../fonts/salve-script2.ttf');
 }
 
-body {
-    /* Подключаем ваш фон images/bg.jpg */
-    background-image: url('../images/bg.jpg');
-    
-    /* ИСПРАВЛЕНИЕ: Растягиваем картинку ровно по ширине окна, чтобы Драко и Гермиона 
-       встали в центре и по пояс, не улетая наверх отдельным блоком */
-    background-size: 100vw auto;
-    
-    /* Точно центрируем персонажей и прижимаем картинку к верхнему краю экрана */
-    background-position: center top;
-    
-    background-repeat: no-repeat;
-    
-    /* ИСПРАВЛЕНИЕ: Делаем фон фиксированным относительно окна, 
-       чтобы контент сайта скользил прямо по нему */
-    background-attachment: fixed;
-    background-color: #050308;
-    
-    color: var(--gold);
-    font-family: var(--font-main);
-    font-size: 13px;
-    line-height: 1.4;
-    
-    /* Фиксируем высоту страницы строго под высоту экрана смартфона/монитора, 
-       чтобы убрать бесконечную пустую черную прокрутку вниз */
-    height: 100vh;
-    width: 100vw;
-    
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Опускаем сетку блоков к нижней части, как на макете */
-    
-    padding: 16px;
-    overflow: hidden; /* Запрещаем появление двойных полос прокрутки */
+/* =========================
+   СБРОС
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Главный контейнер (Идеально садится поверх нижней части силуэтов персонажей) */
-.container {
-    display: grid;
-    /* Левая панель 240px, правая панель 260px, центр забирает всё свободное место */
-    grid-template-columns: 240px 1fr 260px;
-    gap: 16px;
-    width: 100%;
-    max-width: 1280px;
-    
-    /* ИСПРАВЛЕНИЕ: Задаем высоту контейнера так, чтобы верхняя часть блоков 
-       начиналась ровно под грудью персонажей, открывая их лица */
-    height: 60vh; 
-    
-    position: relative;
-    z-index: 1;
-    margin: 0 auto;
+body{
+    background:#100b18;
+    color:#d7b68a;
+    font-family:'Literatura Pro',serif;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* =========================
+   ФОН
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(8,5,13,.65),
+        rgba(8,5,13,.8)
+    ),
+    url("../images/draco-hermione.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0,0,0,.55) 100%
+    );
+
+    z-index:-1;
+}
+
+/* =========================
+   ОСНОВНАЯ СЕТКА
+========================= */
+
+.container{
+    max-width:1500px;
+
+    margin:0 auto;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:
+    280px
+    1fr
+    290px;
+
+    gap:22px;
+}
+
+/* =========================
+   ОБЩИЕ БЛОКИ
+========================= */
+
+.sidebar,
+.hero,
+.moments-section,
+.player-widget,
+.letter-widget,
+.quote-box,
+.constellation-box{
+    background:
+    rgba(10,7,18,.72);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid
+    rgba(215,182,138,.15);
+
+    border-radius:18px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.sidebar::before,
+.hero::before,
+.moments-section::before,
+.player-widget::before,
+.letter-widget::before,
+.quote-box::before,
+.constellation-box::before{
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border:1px solid
+    rgba(215,182,138,.15);
+
+    border-radius:12px;
+
+    pointer-events:none;
+}
+
+/* =========================
+   ЛЕВАЯ ПАНЕЛЬ
+========================= */
+
+.sidebar{
+    min-height:95vh;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-section{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.logo-d{
+    font-size:90px;
+    font-family:'Bell Std';
+    margin-bottom:15px;
+}
+
+.logo-section h1{
+    font-size:26px;
+    font-family:'Bell Std';
+    font-weight:normal;
+}
+
+.subtitle{
+    margin-top:10px;
+    letter-spacing:3px;
+    font-size:12px;
+}
+
+.menu{
+    padding:15px;
+}
+
+.menu-item{
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    padding:15px;
+
+    text-decoration:none;
+
+    color:#d7b68a;
+
+    border-radius:14px;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+}
+
+.menu-item:hover{
+    background:
+    rgba(215,182,138,.08);
+}
+
+.menu-item i{
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid
+    rgba(215,182,138,.15);
+}
+
+.sidebar-quote{
+    margin-top:auto;
+    padding:30px;
+    text-align:center;
+    line-height:1.8;
+}
+
+/* =========================
+   ЦЕНТР
+========================= */
+
+.main-content{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:420px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:60px;
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.welcome-tag{
+    font-size:26px;
+    margin-bottom:20px;
+}
+
+.main-title{
+    font-size:90px;
+    font-family:'Bell Std';
+    font-weight:normal;
+}
+
+.cursive-title{
+    font-size:90px;
+    font-family:'Salve Script';
+    font-weight:normal;
+
+    margin-top:-30px;
+}
+
+.hero-desc{
+    margin-top:20px;
+
+    font-size:26px;
+
+    max-width:550px;
+
+    line-height:1.5;
+}
+
+.btn-enter{
+    margin-top:35px;
+
+    padding:18px 40px;
+
+    background:#1a1128;
+
+    border:1px solid
+    rgba(215,182,138,.3);
+
+    color:#d7b68a;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+/* =========================
+   MOMENTS
+========================= */
+
+.moments-section{
+    padding:25px;
+}
+
+.section-divider{
+    text-align:center;
+
+    font-family:'Bell Std';
+
+    font-size:40px;
+
+    margin-bottom:25px;
+}
+
+.moments-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.moment-card{
+    background:#130d1e;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    border:1px solid
+    rgba(215,182,138,.12);
+}
+
+.card-img{
+    height:180px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #2a1839,
+    #0f0918
+    );
+}
+
+.card-footer{
+    padding:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+/* =========================
+   НИЖНИЕ ВИДЖЕТЫ
+========================= */
+
+.bottom-widgets{
+    display:grid;
+
+    grid-template-columns:
+    1fr
+    1fr;
+
+    gap:20px;
+}
+
+.player-widget,
+.letter-widget{
+    min-height:220px;
+
+    padding:25px;
+}
+
+/* =========================
+   ПРАВАЯ КОЛОНКА
+========================= */
+
+.right-sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.quote-box,
+.constellation-box{
+    padding:30px;
+}
+
+.quote-box{
+    min-height:280px;
+}
+
+.constellation-box{
+    min-height:420px;
+}
+
+.quote-box h3,
+.constellation-box h3{
+    font-family:'Bell Std';
+    font-size:34px;
+    font-weight:normal;
+    margin-bottom:20px;
+}
+
+/* =========================
+   АДАПТИВ
+========================= */
+
+@media(max-width:1200px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        min-height:auto;
+    }
+
+    .moments-grid{
+        grid-template-columns:1fr;
+    }
+
+    .bottom-widgets{
+        grid-template-columns:1fr;
+    }
 }
