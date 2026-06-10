@@ -18,7 +18,7 @@
 }
 
 /* =========================
-   СБРОС
+   СБРОС + БАЗА
 ========================= */
 
 *{
@@ -31,12 +31,14 @@ body{
     background:#100b18;
     color:#d7b68a;
     font-family:'Literatura Pro',serif;
+    font-weight:300;
+    letter-spacing:.3px;
     min-height:100vh;
     overflow-x:hidden;
 }
 
 /* =========================
-   ФОН
+   ФОН (свечение + глубина)
 ========================= */
 
 body::before{
@@ -45,49 +47,58 @@ body::before{
     inset:0;
 
     background:
-        linear-gradient(
-            rgba(8,5,13,.45),
-            rgba(8,5,13,.75)
-        ),
+        radial-gradient(circle at 30% 20%, rgba(255,220,170,.08), transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(255,200,150,.05), transparent 45%),
         url("../images/bg.jpg");
 
-    background-repeat:no-repeat;
-
-    /* самое важное */
     background-size:cover;
-
-    /* сдвигаем пару вверх */
     background-position:center 15%;
+    filter:brightness(.55) contrast(1.1);
 
     z-index:-2;
 }
+
 body::after{
     content:"";
     position:fixed;
     inset:0;
-
-    background:
-    radial-gradient(
-        circle at center,
-        transparent 0%,
-        rgba(0,0,0,.55) 100%
-    );
-
+    background:rgba(0,0,0,.45);
     z-index:-1;
 }
 
 /* =========================
-   ОСНОВНАЯ СЕТКА
+   СВЕЧНОЕ ДЫХАНИЕ (анимация света)
+========================= */
+
+@keyframes candleGlow{
+    0%,100%{
+        opacity:.35;
+    }
+    50%{
+        opacity:.55;
+    }
+}
+
+body::before{
+    animation:candleGlow 8s ease-in-out infinite;
+}
+
+/* =========================
+   КОНТЕЙНЕР (сдвиг влево)
 ========================= */
 
 .container{
     max-width:1500px;
-    margin-left:60px;
+    margin-left:70px;
     margin-right:auto;
     padding:20px;
+    display:grid;
+    grid-template-columns:280px 1fr 290px;
+    gap:22px;
 }
+
 /* =========================
-   ОБЩИЕ БЛОКИ
+   БЛОКИ (единая система)
 ========================= */
 
 .sidebar,
@@ -97,30 +108,38 @@ body::after{
 .letter-widget,
 .quote-box,
 .constellation-box{
-    background:
-    rgba(10,7,18,.72);
-
-    backdrop-filter:blur(10px);
-
-    border:1px solid
-    rgba(215,182,138,.15);
-
+    background:rgba(10,7,18,.55);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(215,182,138,.12);
     border-radius:18px;
-
     position:relative;
-
     overflow:hidden;
 }
 
+/* внутренняя рамка */
 .sidebar::before,
+.moments-section::before,
+.player-widget::before,
+.letter-widget::before,
+.quote-box::before,
+.constellation-box::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid rgba(215,182,138,.12);
+    border-radius:12px;
+    pointer-events:none;
+}
+
+/* =========================
+   HERO (сцена)
+========================= */
+
 .hero{
     position:relative;
     min-height:520px;
-    overflow:hidden;
-
     display:flex;
     align-items:center;
-
     padding:60px;
 }
 
@@ -128,10 +147,10 @@ body::after{
     content:"";
     position:absolute;
     inset:8px;
-    border:1px solid rgba(215,182,138,.15);
+    border:1px solid rgba(215,182,138,.18);
     border-radius:12px;
     pointer-events:none;
-    z-index:1;
+    z-index:2;
 }
 
 .hero::after{
@@ -140,31 +159,27 @@ body::after{
     inset:0;
 
     background:
-        radial-gradient(
-            circle at 35% 45%,
-            rgba(215,182,138,.10) 0%,
-            rgba(16,11,24,.15) 35%,
-            rgba(16,11,24,.85) 100%
-        ),
+        radial-gradient(circle at 35% 45%,
+            rgba(255,220,170,.12),
+            transparent 55%),
         linear-gradient(
             90deg,
-            rgba(16,11,24,.85) 0%,
-            rgba(16,11,24,.25) 35%,
-            rgba(16,11,24,.25) 65%,
-            rgba(16,11,24,.85) 100%
+            rgba(16,11,24,.88) 0%,
+            rgba(16,11,24,.25) 40%,
+            rgba(16,11,24,.25) 60%,
+            rgba(16,11,24,.88) 100%
         ),
         url("../images/bg.jpg");
 
     background-size:cover;
     background-position:center 15%;
-    background-repeat:no-repeat;
-
     z-index:0;
 }
 
 .hero-text{
     position:relative;
-    z-index:2;
+    z-index:3;
+    max-width:650px;
 }
 
 /* =========================
@@ -173,7 +188,6 @@ body::after{
 
 .sidebar{
     min-height:95vh;
-
     display:flex;
     flex-direction:column;
 }
@@ -186,19 +200,20 @@ body::after{
 .logo-d{
     font-size:90px;
     font-family:'Bell Std';
-    margin-bottom:15px;
+    font-weight:300;
 }
 
 .logo-section h1{
     font-size:26px;
     font-family:'Bell Std';
-    font-weight:normal;
+    font-weight:300;
 }
 
 .subtitle{
     margin-top:10px;
     letter-spacing:3px;
     font-size:12px;
+    opacity:.8;
 }
 
 .menu{
@@ -207,48 +222,18 @@ body::after{
 
 .menu-item{
     display:flex;
-
     gap:15px;
-
     align-items:center;
-
     padding:15px;
-
     text-decoration:none;
-
     color:#d7b68a;
-
     border-radius:14px;
-
     margin-bottom:10px;
-
     transition:.3s;
 }
 
 .menu-item:hover{
-    background:
-    rgba(215,182,138,.08);
-}
-
-.menu-item i{
-    width:48px;
-    height:48px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:1px solid
-    rgba(215,182,138,.15);
-}
-
-.sidebar-quote{
-    margin-top:auto;
-    padding:30px;
-    text-align:center;
-    line-height:1.8;
+    background:rgba(215,182,138,.08);
 }
 
 /* =========================
@@ -262,72 +247,6 @@ body::after{
 }
 
 /* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:420px;
-
-    display:flex;
-
-    align-items:center;
-
-    padding:60px;
-}
-
-.hero-text{
-    max-width:600px;
-}
-
-.welcome-tag{
-    font-size:26px;
-    margin-bottom:20px;
-}
-
-.main-title{
-    font-size:90px;
-    font-family:'Bell Std';
-    font-weight:normal;
-}
-
-.cursive-title{
-    font-size:90px;
-    font-family:'Salve Script';
-    font-weight:normal;
-
-    margin-top:-30px;
-}
-
-.hero-desc{
-    margin-top:20px;
-
-    font-size:26px;
-
-    max-width:550px;
-
-    line-height:1.5;
-}
-
-.btn-enter{
-    margin-top:35px;
-
-    padding:18px 40px;
-
-    background:#1a1128;
-
-    border:1px solid
-    rgba(215,182,138,.3);
-
-    color:#d7b68a;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:18px;
-}
-
-/* =========================
    MOMENTS
 ========================= */
 
@@ -335,73 +254,32 @@ body::after{
     padding:25px;
 }
 
-.section-divider{
-    text-align:center;
-
-    font-family:'Bell Std';
-
-    font-size:40px;
-
-    margin-bottom:25px;
-}
-
 .moments-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
 .moment-card{
-    background:#130d1e;
-
+    background:#120b1b;
     border-radius:14px;
-
     overflow:hidden;
-
-    border:1px solid
-    rgba(215,182,138,.12);
-}
-
-.card-img{
-    height:180px;
-
-    background:
-    linear-gradient(
-    135deg,
-    #2a1839,
-    #0f0918
-    );
-}
-
-.card-footer{
-    padding:15px;
-
-    display:flex;
-
-    justify-content:space-between;
+    border:1px solid rgba(215,182,138,.10);
 }
 
 /* =========================
-   НИЖНИЕ ВИДЖЕТЫ
+   ВИДЖЕТЫ
 ========================= */
 
 .bottom-widgets{
     display:grid;
-
-    grid-template-columns:
-    1fr
-    1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:20px;
 }
 
 .player-widget,
 .letter-widget{
     min-height:220px;
-
     padding:25px;
 }
 
@@ -412,29 +290,31 @@ body::after{
 .right-sidebar{
     display:flex;
     flex-direction:column;
-    gap:20px;
-}
-
-.quote-box,
-.constellation-box{
-    padding:30px;
+    gap:25px;
 }
 
 .quote-box{
-    min-height:280px;
+    min-height:260px;
+    padding:28px;
 }
 
 .constellation-box{
-    min-height:420px;
+    min-height:400px;
+    padding:30px;
 }
+
+/* =========================
+   ЗАГОЛОВКИ (тонкий стиль)
+========================= */
 
 .quote-box h3,
 .constellation-box h3{
-  body{
-    font-family:'Literatura Pro',serif;
+    font-family:'Bell Std';
     font-weight:300;
-    letter-spacing:.2px;
+    font-size:34px;
+    margin-bottom:15px;
 }
+
 /* =========================
    АДАПТИВ
 ========================= */
@@ -443,10 +323,7 @@ body::after{
 
     .container{
         grid-template-columns:1fr;
-    }
-
-    .sidebar{
-        min-height:auto;
+        margin-left:0;
     }
 
     .moments-grid{
