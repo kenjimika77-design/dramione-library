@@ -82,21 +82,10 @@ body::after{
 
 .container{
     max-width:1500px;
-
-    margin:0 auto;
-
+    margin-left:60px;
+    margin-right:auto;
     padding:20px;
-
-    display:grid;
-
-    grid-template-columns:
-    280px
-    1fr
-    290px;
-
-    gap:22px;
 }
-
 /* =========================
    ОБЩИЕ БЛОКИ
 ========================= */
@@ -441,12 +430,11 @@ body::after{
 
 .quote-box h3,
 .constellation-box h3{
-    font-family:'Bell Std';
-    font-size:34px;
-    font-weight:normal;
-    margin-bottom:20px;
+  body{
+    font-family:'Literatura Pro',serif;
+    font-weight:300;
+    letter-spacing:.2px;
 }
-
 /* =========================
    АДАПТИВ
 ========================= */
