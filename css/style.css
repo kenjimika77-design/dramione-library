@@ -1,255 +1,515 @@
-/* =========================
-   ШРИФТЫ
-========================= */
-
-@font-face{
-    font-family:'Bell Std';
-    src:url('../fonts/bell-std.otf');
+/* ОБНУЛЕНИЕ СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@font-face{
-    font-family:'Literatura Pro';
-    src:url('../fonts/literatura-pro.ttf');
+body {
+    background-color: #0b0606; /* Темный винный оттенок фона */
+    color: #cdb4a6; /* Элегантный бежево-серебристый цвет текста */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    overflow-x: hidden;
 }
 
-@font-face{
-    font-family:'Salve Script';
-    src:url('../fonts/salve-script2.ttf');
+/* ГЛАВНЫЙ КОНТЕЙНЕР (СЕТКА С САЙДБАРОМ) */
+.app-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    background: radial-gradient(circle at 70% 20%, #200f11 0%, #0b0606 60%);
 }
 
-/* =========================
-   БАЗА
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ЛЕВОЕ БОКОВОЕ МЕНЮ */
+.sidebar {
+    background-color: rgba(13, 7, 7, 0.95);
+    border-right: 1px solid rgba(205, 180, 166, 0.1);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-body{
-    background:#100b18;
-    color:#d7b68a;
-    font-family:'Literatura Pro', serif;
-    font-weight:300;
-    letter-spacing:.35px;
-    min-height:100vh;
-    overflow-x:hidden;
-
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* =========================
-   ФОН
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 30% 20%, rgba(255,220,170,.08), transparent 40%),
-        radial-gradient(circle at 70% 80%, rgba(255,200,150,.05), transparent 45%),
-        url("../images/bg.jpg");
-
-    background-size:cover;
-    background-position:center 15%;
-    filter:brightness(.6) contrast(1.1);
-
-    animation:candleGlow 7s ease-in-out infinite;
-    z-index:-2;
+.logo-d {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #e5c3b2;
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 0 0 15px rgba(229, 195, 178, 0.3);
 }
 
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.42);
-    z-index:-1;
+.logo-section h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #cdb4a6;
+    letter-spacing: 0.15em;
+    margin-bottom: 3px;
 }
 
-@keyframes candleGlow{
-    0%,100%{ opacity:.35; }
-    50%{ opacity:.55; }
+.logo-section .subtitle {
+    font-size: 9px;
+    color: rgba(205, 180, 166, 0.4);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
-/* =========================
-   КОНТЕЙНЕР
-========================= */
-
-.container{
-    max-width:1500px;
-    margin-left:70px;
-    margin-right:auto;
-    padding:20px;
-
-    display:grid;
-    grid-template-columns:280px 1fr 290px;
-    gap:22px;
+/* НАВИГАЦИЯ */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-/* =========================
-   БЛОКИ
-========================= */
-
-.sidebar,
-.hero,
-.moments-section,
-.player-widget,
-.letter-widget,
-.quote-box,
-.constellation-box{
-    background:rgba(10,7,18,.55);
-    backdrop-filter:blur(14px);
-    border:1px solid rgba(215,182,138,.12);
-    border-radius:18px;
-    position:relative;
-    overflow:hidden;
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 12px;
+    color: rgba(205, 180, 166, 0.7);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    position:relative;
-    min-height:520px;
-    display:flex;
-    align-items:center;
-    padding:60px;
+.nav-item i {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+    color: rgba(205, 180, 166, 0.5);
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 35% 45%,
-            rgba(255,220,170,.12),
-            transparent 55%),
-        linear-gradient(
-            90deg,
-            rgba(16,11,24,.78) 0%,
-            rgba(16,11,24,.28) 40%,
-            rgba(16,11,24,.28) 60%,
-            rgba(16,11,24,.78) 100%
-        ),
-        url("../images/bg.jpg");
-
-    background-size:cover;
-    background-position:center 15%;
-    z-index:0;
-
-    animation:softCandle 7s ease-in-out infinite;
+.nav-item div {
+    display: flex;
+    flex-direction: column;
 }
 
-@keyframes softCandle{
-    0%,100%{ filter:brightness(.95); }
-    50%{ filter:brightness(1.05); }
+.nav-item span {
+    font-size: 13px;
+    font-weight: 400;
 }
 
-.hero-text{
-    position:relative;
-    z-index:2;
-    max-width:650px;
+.nav-item small {
+    font-size: 10px;
+    color: rgba(205, 180, 166, 0.4);
 }
 
-/* =========================
-   MOMENTS
-========================= */
-
-.moments-section{
-    padding:25px;
+.nav-item:hover {
+    background-color: rgba(229, 195, 178, 0.05);
+    color: #e5c3b2;
 }
 
-.moments-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.nav-item:hover i {
+    color: #e5c3b2;
+    text-shadow: 0 0 8px rgba(229, 195, 178, 0.5);
 }
 
-.moment-card{
-    background:#120b1b;
-    border-radius:14px;
-    border:1px solid rgba(215,182,138,.10);
+.sidebar-quote {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(205, 180, 166, 0.1);
+    text-align: center;
 }
 
-/* =========================
-   WIDGETS
-========================= */
-
-.bottom-widgets{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+.sidebar-quote p {
+    font-style: italic;
+    font-size: 11px;
+    color: rgba(205, 180, 166, 0.6);
+    line-height: 1.5;
 }
 
-.player-widget,
-.letter-widget{
-    min-height:220px;
-    padding:25px;
+.sidebar-quote .author {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    color: #e5c3b2;
+    font-family: 'Cinzel', serif;
 }
 
-/* =========================
-   RIGHT SIDEBAR
-========================= */
-
-.right-sidebar{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
+/* ОСНОВНОЙ БЛОК */
+.main-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.quote-box{
-    min-height:260px;
-    padding:28px;
+/* HERO SECTION (ГЛАВНЫЙ БАННЕР) */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(20, 10, 11, 0.6);
+    border: 1px solid rgba(205, 180, 166, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 280px;
 }
 
-.constellation-box{
-    min-height:400px;
-    padding:30px;
+.hero-text {
+    padding: 40px;
+    flex: 1;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
-.btn-enter{
-    margin-top:35px;
-    padding:16px 38px;
-
-    background:rgba(20,14,30,.6);
-    border:1px solid rgba(215,182,138,.25);
-    color:#d7b68a;
-
-    border-radius:12px;
-    cursor:pointer;
-    transition:.3s;
+.welcome-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: rgba(205, 180, 166, 0.5);
+    letter-spacing: 0.2em;
+    line-height: 1.4;
+    margin-bottom: 10px;
 }
 
-.btn-enter:hover{
-    background:rgba(215,182,138,.08);
-    transform:translateY(-2px);
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: #e5c3b2;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    margin-bottom: 15px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+.main-title span {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    text-transform: lowercase;
+    color: #c99276;
+    font-size: 48px;
+    margin-left: 5px;
+}
 
-@media(max-width:1200px){
-    .container{
-        grid-template-columns:1fr;
-        margin-left:0;
+.hero-description {
+    font-size: 13px;
+    color: rgba(205, 180, 166, 0.7);
+    margin-bottom: 25px;
+    max-width: 450px;
+}
+
+.btn-enter {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    border: 1px solid rgba(229, 195, 178, 0.3);
+    color: #e5c3b2;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background: rgba(13, 7, 7, 0.4);
+}
+
+.btn-enter:hover {
+    background: #e5c3b2;
+    color: #0b0606;
+    box-shadow: 0 0 15px rgba(229, 195, 178, 0.2);
+}
+
+.hero-art {
+    width: 40%;
+    align-self: stretch;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Эффект легкого размытия по краям арта */
+.hero-art::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(20, 10, 11, 1) 0%, rgba(20, 10, 11, 0) 20%);
+}
+
+/* СЕТКА БЛОКОВ (GRID) */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Общие стили карточек */
+.grid-card {
+    background-color: rgba(20, 10, 11, 0.4);
+    border: 1px solid rgba(205, 180, 166, 0.08);
+    border-radius: 6px;
+    padding: 20px;
+    position: relative;
+}
+
+/* Заголовки разделов в карточках */
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    text-align: center;
+    color: #e5c3b2;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+}
+
+/* 1. БЛОК MOMENTS (Занимает 2 колонки) */
+.moments-card {
+    grid-column: span 2;
+}
+
+.moments-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.moment-item {
+    background-color: rgba(13, 7, 7, 0.6);
+    border: 1px solid rgba(205, 180, 166, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.moment-img {
+    height: 110px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+}
+
+.moment-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.moment-footer h4 {
+    font-size: 11px;
+    font-weight: 400;
+    color: #cdb4a6;
+    margin-bottom: 2px;
+}
+
+.moment-footer time {
+    font-size: 9px;
+    color: rgba(205, 180, 166, 0.4);
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    color: rgba(205, 180, 166, 0.5);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.like-btn:hover {
+    color: #ff4d4d;
+}
+
+/* 2. БЛОК ЦИТАТА ДНЯ */
+.card-border-decoration {
+    border: 1px dashed rgba(205, 180, 166, 0.15);
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: rgba(205, 180, 166, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 15px;
+}
+
+.day-quote {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(205, 180, 166, 0.85);
+    margin-bottom: 15px;
+}
+
+.quote-author {
+    font-size: 10px;
+    color: #e5c3b2;
+}
+
+/* 3. МУЗЫКАЛЬНЫЙ ПЛЕЕР */
+.player-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.player-body {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.player-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    background-size: cover;
+}
+
+.player-status {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: rgba(205, 180, 166, 0.4);
+}
+
+.track-title {
+    font-size: 13px;
+    color: #e5c3b2;
+}
+
+.track-artist {
+    font-size: 11px;
+    color: rgba(205, 180, 166, 0.5);
+}
+
+.player-timeline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    font-size: 10px;
+    color: rgba(205, 180, 166, 0.4);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 3px;
+    background-color: rgba(205, 180, 166, 0.1);
+    border-radius: 2px;
+    position: relative;
+}
+
+.progress-fill {
+    width: 40%;
+    height: 100%;
+    background-color: #e5c3b2;
+    border-radius: 2px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p-btn {
+    background: none;
+    border: none;
+    color: rgba(205, 180, 166, 0.6);
+    cursor: pointer;
+    font-size: 12px;
+    transition: color 0.2s;
+}
+
+.p-btn:hover {
+    color: #e5c3b2;
+}
+
+.p-btn.play-main {
+    background-color: rgba(229, 195, 178, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e5c3b2;
+}
+
+/* 4. БЛОК ПИСЬМО ИЗ ХОГВАРТСА */
+.letter-card {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.letter-content h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: #e5c3b2;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.btn-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background-color: rgba(229, 195, 178, 0.15);
+    border: 1px solid rgba(229, 195, 178, 0.3);
+    border-radius: 4px;
+    color: #e5c3b2;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+.btn-read:hover {
+    background-color: #e5c3b2;
+    color: #0b0606;
+}
+
+/* 5. СОЗВЕЗДИЕ СУДЬБЫ */
+.constellation-card .card-border-decoration {
+    justify-content: space-between;
+}
+
+.stars-map {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: rgba(229, 195, 178, 0.2);
+    font-size: 32px;
+}
+
+.const-text {
+    font-size: 11px;
+    color: rgba(205, 180, 166, 0.6);
+    line-height: 1.4;
+}
+
+/* АДАПТИВНОСТЬ ДЛЯ ЭКРАНОВ ПОМЕНЬШЕ */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
     }
-
-    .moments-grid{
-        grid-template-columns:1fr;
+    .moments-card {
+        grid-column: span 1;
     }
-
-    .bottom-widgets{
-        grid-template-columns:1fr;
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid rgba(205, 180, 166, 0.1);
     }
 }
