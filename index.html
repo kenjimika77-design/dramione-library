@@ -5,9 +5,8 @@
     <title>Dramione Library</title>
 
     <link rel="icon" href="favicon.ico">
-
     <link rel="stylesheet" href="style.css">
-</head>
+
     <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -18,7 +17,7 @@
     <div id="particles-container"></div>
 
     <div class="container">
-        
+
         <!-- ЛЕВАЯ ПАНЕЛЬ -->
         <aside class="sidebar">
             <div class="logo-section">
@@ -26,7 +25,7 @@
                 <h1>DRAMIONE LIBRARY</h1>
                 <p class="subtitle">FORBIDDEN ARCHIVE</p>
             </div>
-            
+
             <nav class="menu">
                 <a href="#" class="menu-item"><i class="fa-solid fa-book-open"></i> <div><span>Archive</span><small>Архив историй</small></div></a>
                 <a href="#" class="menu-item"><i class="fa-solid fa-wand-magic-sparkles"></i> <div><span>Magic Entries</span><small>Магические записи</small></div></a>
@@ -37,7 +36,7 @@
                 <a href="#" class="menu-item"><i class="fa-solid fa-envelope"></i> <div><span>Letters</span><small>Письма</small></div></a>
                 <a href="#" class="menu-item"><i class="fa-solid fa-circle-info"></i> <div><span>About Us</span><small>О нас</small></div></a>
             </nav>
-            
+
             <div class="sidebar-quote">
                 <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
                 <span class="author">— D & H</span>
@@ -46,107 +45,149 @@
 
         <!-- ЦЕНТРАЛЬНЫЙ БЛОК -->
         <main class="main-content">
-            <!-- Верхний баннер -->
+
+            <!-- HERO -->
             <header class="hero">
                 <div class="hero-text">
                     <p class="welcome-tag">Welcome to our<br>forbidden archive</p>
                     <h2 class="main-title">DRAMIONE</h2>
                     <h3 class="cursive-title">forever</h3>
-                    <p class="hero-desc">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
-                    <button class="btn-enter">Enter Library <i class="fa-solid fa-arrow-right-long"></i></button>
+                    <p class="hero-desc">
+                        Два сердца. Два мира. Одна любовь, которую невозможно разрушить.
+                    </p>
+
+                    <button type="button" class="btn-enter">
+                        Enter Library <i class="fa-solid fa-arrow-right-long"></i>
+                    </button>
                 </div>
+
                 <div class="hero-image-area">
-                    <!-- Свечи с живой анимацией пламени вокруг лиц на фоне -->
                     <div class="candle candle-left"><div class="flame"></div></div>
                     <div class="candle candle-right"><div class="flame"></div></div>
                 </div>
             </header>
 
-            <!-- Секция Our Moments -->
+            <!-- MOMENTS -->
             <section class="moments-section">
                 <div class="section-divider">
                     <span>Our Moments</span>
                 </div>
-                
+
                 <div class="moments-grid">
-                    <div class="moment-card">
+
+                    <article class="moment-card">
                         <div class="card-img placeholder-box-1"></div>
                         <div class="card-footer">
                             <div>
                                 <h4>Первая встреча</h4>
                                 <time>14.02.2022</time>
                             </div>
-                            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            <button type="button" class="like-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
                         </div>
-                    </div>
-                    
-                    <div class="moment-card">
+                    </article>
+
+                    <article class="moment-card">
                         <div class="card-img placeholder-box-2"></div>
                         <div class="card-footer">
                             <div>
                                 <h4>Ты сказал «Люблю»</h4>
                                 <time>07.07.2022</time>
                             </div>
-                            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            <button type="button" class="like-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
                         </div>
-                    </div>
-                    
-                    <div class="moment-card">
+                    </article>
+
+                    <article class="moment-card">
                         <div class="card-img placeholder-box-3"></div>
                         <div class="card-footer">
                             <div>
                                 <h4>Навсегда</h4>
                                 <time>01.01.2023</time>
                             </div>
-                            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                            <button type="button" class="like-btn">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
                         </div>
-                    </div>
+                    </article>
+
                 </div>
             </section>
 
-            <!-- Нижняя панель: Музыкальный плеер и Письмо -->
+            <!-- BOTTOM WIDGETS -->
             <div class="bottom-widgets">
+
+                <!-- PLAYER -->
                 <div class="player-widget">
-                    <!-- Аудиофайл для воспроизведения музыки -->
-                    <audio id="main-audio" src="rewrite_the_stars.mp3" preload="metadata"></audio>
-                    
+
+                    <audio id="main-audio" src="rewrite_the_stars.mp3" preload="metadata">
+                        Your browser does not support audio playback.
+                    </audio>
+
                     <div class="player-cover"></div>
+
                     <div class="player-controls">
                         <span class="track-title">Now Playing</span>
                         <h4 class="song-name">Rewrite The Stars</h4>
                         <span class="artist-name">James Arthur & Anne-Marie</span>
-                        
+
                         <div class="progress-bar-container" id="progress-container">
                             <span class="time" id="current-time">0:00</span>
+
                             <div class="line">
                                 <div class="fill" id="progress-fill"></div>
                             </div>
+
                             <span class="time" id="duration-time">3:37</span>
                         </div>
-                        
+
                         <div class="control-buttons">
-                            <button class="ctrl-btn"><i class="fa-solid fa-shuffle"></i></button>
-                            <button class="ctrl-btn"><i class="fa-solid fa-backward-step"></i></button>
-                            <button class="play-btn" id="play-pause-btn"><i class="fa-solid fa-circle-play"></i></button>
-                            <button class="ctrl-btn"><i class="fa-solid fa-forward-step"></i></button>
-                            <button class="ctrl-btn" id="loop-btn"><i class="fa-solid fa-repeat"></i></button>
+                            <button type="button" class="ctrl-btn" aria-label="Shuffle">
+                                <i class="fa-solid fa-shuffle"></i>
+                            </button>
+
+                            <button type="button" class="ctrl-btn" aria-label="Previous">
+                                <i class="fa-solid fa-backward-step"></i>
+                            </button>
+
+                            <button type="button" class="play-btn" id="play-pause-btn" aria-label="Play/Pause">
+                                <i class="fa-solid fa-circle-play"></i>
+                            </button>
+
+                            <button type="button" class="ctrl-btn" aria-label="Next">
+                                <i class="fa-solid fa-forward-step"></i>
+                            </button>
+
+                            <button type="button" class="ctrl-btn" id="loop-btn" aria-label="Loop">
+                                <i class="fa-solid fa-repeat"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="letter-widget">
+                <!-- LETTER -->
+                <section class="letter-widget">
                     <div class="letter-paper"></div>
+
                     <div class="letter-info">
                         <span class="letter-tag">New Letter</span>
                         <h4>У вас новое письмо из Хогвартса</h4>
-                        <a href="#" class="btn-read">Читать <i class="fa-solid fa-pen"></i></a>
+
+                        <a href="#" class="btn-read">
+                            Читать <i class="fa-solid fa-pen"></i>
+                        </a>
                     </div>
-                </div>
+                </section>
+
             </div>
         </main>
 
-        <!-- ПРАВАЯ ПАНЕЛЬ -->
+        <!-- RIGHT SIDEBAR -->
         <aside class="right-sidebar">
+
             <div class="quote-box">
                 <h3>Цитата дня</h3>
                 <p>«Любовь — это не взгляд друг на друга, а взгляд в одном направлении»</p>
@@ -156,8 +197,11 @@
             <div class="constellation-box">
                 <h3>Constellation of Fate</h3>
                 <div class="constellation-img"></div>
-                <p class="constellation-desc">Лев и Змея связаны нитями магии, которые невозможно разорвать.</p>
+                <p class="constellation-desc">
+                    Лев и Змея связаны нитями магии, которые невозможно разорвать.
+                </p>
             </div>
+
         </aside>
 
     </div>
