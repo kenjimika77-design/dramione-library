@@ -30,7 +30,7 @@
 body{
     background:#100b18;
     color:#d7b68a;
-    font-family:'Literatura Pro',serif;
+    font-family:'Literatura Pro', serif;
     font-weight:300;
     letter-spacing:.35px;
     min-height:100vh;
@@ -41,7 +41,7 @@ body{
 }
 
 /* =========================
-   ФОН (живой свет + глубина)
+   ФОН
 ========================= */
 
 body::before{
@@ -76,7 +76,7 @@ body::after{
 }
 
 /* =========================
-   КОНТЕЙНЕР (сдвиг влево)
+   КОНТЕЙНЕР
 ========================= */
 
 .container{
@@ -91,7 +91,7 @@ body::after{
 }
 
 /* =========================
-   ГЛАВНЫЕ БЛОКИ
+   БЛОКИ
 ========================= */
 
 .sidebar,
@@ -109,23 +109,8 @@ body::after{
     overflow:hidden;
 }
 
-/* внутренние рамки */
-.sidebar::before,
-.moments-section::before,
-.player-widget::before,
-.letter-widget::before,
-.quote-box::before,
-.constellation-box::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(215,182,138,.12);
-    border-radius:12px;
-    pointer-events:none;
-}
-
 /* =========================
-   HERO (сцена)
+   HERO
 ========================= */
 
 .hero{
@@ -134,18 +119,6 @@ body::after{
     display:flex;
     align-items:center;
     padding:60px;
-
-    background:rgba(10,7,18,.45);
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(215,182,138,.18);
-    border-radius:12px;
-    pointer-events:none;
-    z-index:2;
 }
 
 .hero::after{
@@ -170,7 +143,6 @@ body::after{
     background-position:center 15%;
     z-index:0;
 
-    box-shadow: inset 0 0 120px rgba(255,200,150,.06);
     animation:softCandle 7s ease-in-out infinite;
 }
 
@@ -181,377 +153,8 @@ body::after{
 
 .hero-text{
     position:relative;
-    z-index:3;
-    max-width:650px;
-}
-
-/* =========================
-   ТЕКСТ
-========================= */
-
-p,
-.menu-item,
-.subtitle{
-    font-weight:300;
-    opacity:.9;
-}
-
-/* =========================
-   КНОПКА (ИСПРАВЛЕНО)
-========================= */
-
-.btn-enter{
-    margin-top:35px;
-    padding:16px 38px;
-
-    background:rgba(20,14,30,.6);
-    border:1px solid rgba(215,182,138,.25);
-
-    color:#d7b68a;
-
-    border-radius:12px;
-    cursor:pointer;
-
-    font-size:16px;
-    font-weight:300;
-
-    transition:.3s;
-}
-
-.btn-enter:hover{
-    background:rgba(215,182,138,.08);
-    transform:translateY(-2px);
-}
-
-/* =========================
-   ЛЕВАЯ ПАНЕЛЬ
-========================= */
-
-.sidebar{
-    min-height:95vh;
-    display:flex;
-    flex-direction:column;
-}
-
-/* =========================
-   MOMENTS
-========================= */
-
-.moments-section{
-    padding:25px;
-}
-
-.moments-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.moment-card{
-    background:#120b1b;
-    border-radius:14px;
-    border:1px solid rgba(215,182,138,.10);
-}
-
-/* =========================
-   ВИДЖЕТЫ
-========================= */
-
-.bottom-widgets{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.player-widget,
-.letter-widget{
-    min-height:220px;
-    padding:25px;
-}
-
-/* =========================
-   ПРАВАЯ КОЛОНКА
-========================= */
-
-.right-sidebar{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-}
-
-.quote-box{
-    min-height:260px;
-    padding:28px;
-}
-
-.constellation-box{
-    min-height:400px;
-    padding:30px;
-}
-
-/* =========================
-   ЗАГОЛОВКИ
-========================= */
-
-.quote-box h3,
-.constellation-box h3{
-    font-family:'Bell Std';
-    font-weight:300;
-    font-size:34px;
-    margin-bottom:15px;
-}
-
-/* =========================
-   АДАПТИВ
-========================= */
-
-@media(max-width:1200px){
-
-    .container{
-        grid-template-columns:1fr;
-        margin-left:0;
-    }
-
-    .moments-grid{
-        grid-template-columns:1fr;
-    }
-
-    .bottom-widgets{
-        grid-template-columns:1fr;
-    }
-}/* =========================
-   ШРИФТЫ
-========================= */
-
-@font-face{
-    font-family:'Bell Std';
-    src:url('../fonts/bell-std.otf');
-}
-
-@font-face{
-    font-family:'Literatura Pro';
-    src:url('../fonts/literatura-pro.ttf');
-}
-
-@font-face{
-    font-family:'Salve Script';
-    src:url('../fonts/salve-script2.ttf');
-}
-
-/* =========================
-   БАЗА
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#100b18;
-    color:#d7b68a;
-    font-family:'Literatura Pro',serif;
-    font-weight:300;
-    letter-spacing:.35px;
-    min-height:100vh;
-    overflow-x:hidden;
-
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-}
-
-/* =========================
-   ФОН (живой свет + глубина)
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 30% 20%, rgba(255,220,170,.08), transparent 40%),
-        radial-gradient(circle at 70% 80%, rgba(255,200,150,.05), transparent 45%),
-        url("../images/bg.jpg");
-
-    background-size:cover;
-    background-position:center 15%;
-    filter:brightness(.6) contrast(1.1);
-
-    animation:candleGlow 7s ease-in-out infinite;
-    z-index:-2;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.42);
-    z-index:-1;
-}
-
-@keyframes candleGlow{
-    0%,100%{ opacity:.35; }
-    50%{ opacity:.55; }
-}
-
-/* =========================
-   КОНТЕЙНЕР (сдвиг влево)
-========================= */
-
-.container{
-    max-width:1500px;
-    margin-left:70px;
-    margin-right:auto;
-    padding:20px;
-
-    display:grid;
-    grid-template-columns:280px 1fr 290px;
-    gap:22px;
-}
-
-/* =========================
-   ГЛАВНЫЕ БЛОКИ
-========================= */
-
-.sidebar,
-.hero,
-.moments-section,
-.player-widget,
-.letter-widget,
-.quote-box,
-.constellation-box{
-    background:rgba(10,7,18,.55);
-    backdrop-filter:blur(14px);
-    border:1px solid rgba(215,182,138,.12);
-    border-radius:18px;
-    position:relative;
-    overflow:hidden;
-}
-
-/* внутренние рамки */
-.sidebar::before,
-.moments-section::before,
-.player-widget::before,
-.letter-widget::before,
-.quote-box::before,
-.constellation-box::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(215,182,138,.12);
-    border-radius:12px;
-    pointer-events:none;
-}
-
-/* =========================
-   HERO (сцена)
-========================= */
-
-.hero{
-    position:relative;
-    min-height:520px;
-    display:flex;
-    align-items:center;
-    padding:60px;
-
-    background:rgba(10,7,18,.45);
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(215,182,138,.18);
-    border-radius:12px;
-    pointer-events:none;
     z-index:2;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 35% 45%,
-            rgba(255,220,170,.12),
-            transparent 55%),
-        linear-gradient(
-            90deg,
-            rgba(16,11,24,.78) 0%,
-            rgba(16,11,24,.28) 40%,
-            rgba(16,11,24,.28) 60%,
-            rgba(16,11,24,.78) 100%
-        ),
-        url("../images/bg.jpg");
-
-    background-size:cover;
-    background-position:center 15%;
-    z-index:0;
-
-    box-shadow: inset 0 0 120px rgba(255,200,150,.06);
-    animation:softCandle 7s ease-in-out infinite;
-}
-
-@keyframes softCandle{
-    0%,100%{ filter:brightness(.95); }
-    50%{ filter:brightness(1.05); }
-}
-
-.hero-text{
-    position:relative;
-    z-index:3;
     max-width:650px;
-}
-
-/* =========================
-   ТЕКСТ
-========================= */
-
-p,
-.menu-item,
-.subtitle{
-    font-weight:300;
-    opacity:.9;
-}
-
-/* =========================
-   КНОПКА (ИСПРАВЛЕНО)
-========================= */
-
-.btn-enter{
-    margin-top:35px;
-    padding:16px 38px;
-
-    background:rgba(20,14,30,.6);
-    border:1px solid rgba(215,182,138,.25);
-
-    color:#d7b68a;
-
-    border-radius:12px;
-    cursor:pointer;
-
-    font-size:16px;
-    font-weight:300;
-
-    transition:.3s;
-}
-
-.btn-enter:hover{
-    background:rgba(215,182,138,.08);
-    transform:translateY(-2px);
-}
-
-/* =========================
-   ЛЕВАЯ ПАНЕЛЬ
-========================= */
-
-.sidebar{
-    min-height:95vh;
-    display:flex;
-    flex-direction:column;
 }
 
 /* =========================
@@ -575,7 +178,7 @@ p,
 }
 
 /* =========================
-   ВИДЖЕТЫ
+   WIDGETS
 ========================= */
 
 .bottom-widgets{
@@ -591,7 +194,7 @@ p,
 }
 
 /* =========================
-   ПРАВАЯ КОЛОНКА
+   RIGHT SIDEBAR
 ========================= */
 
 .right-sidebar{
@@ -611,235 +214,7 @@ p,
 }
 
 /* =========================
-   ЗАГОЛОВКИ
-========================= */
-
-.quote-box h3,
-.constellation-box h3{
-    font-family:'Bell Std';
-    font-weight:300;
-    font-size:34px;
-    margin-bottom:15px;
-}
-
-/* =========================
-   АДАПТИВ
-========================= */
-
-@media(max-width:1200px){
-
-    .container{
-        grid-template-columns:1fr;
-        margin-left:0;
-    }
-
-    .moments-grid{
-        grid-template-columns:1fr;
-    }
-
-    .bottom-widgets{
-        grid-template-columns:1fr;
-    }
-}/* =========================
-   ШРИФТЫ
-========================= */
-
-@font-face{
-    font-family:'Bell Std';
-    src:url('../fonts/bell-std.otf');
-}
-
-@font-face{
-    font-family:'Literatura Pro';
-    src:url('../fonts/literatura-pro.ttf');
-}
-
-@font-face{
-    font-family:'Salve Script';
-    src:url('../fonts/salve-script2.ttf');
-}
-
-/* =========================
-   БАЗА
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#100b18;
-    color:#d7b68a;
-    font-family:'Literatura Pro',serif;
-    font-weight:300;
-    letter-spacing:.35px;
-    min-height:100vh;
-    overflow-x:hidden;
-
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-}
-
-/* =========================
-   ФОН (живой свет + глубина)
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 30% 20%, rgba(255,220,170,.08), transparent 40%),
-        radial-gradient(circle at 70% 80%, rgba(255,200,150,.05), transparent 45%),
-        url("../images/bg.jpg");
-
-    background-size:cover;
-    background-position:center 15%;
-    filter:brightness(.6) contrast(1.1);
-
-    animation:candleGlow 7s ease-in-out infinite;
-    z-index:-2;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.42);
-    z-index:-1;
-}
-
-@keyframes candleGlow{
-    0%,100%{ opacity:.35; }
-    50%{ opacity:.55; }
-}
-
-/* =========================
-   КОНТЕЙНЕР (сдвиг влево)
-========================= */
-
-.container{
-    max-width:1500px;
-    margin-left:70px;
-    margin-right:auto;
-    padding:20px;
-
-    display:grid;
-    grid-template-columns:280px 1fr 290px;
-    gap:22px;
-}
-
-/* =========================
-   ГЛАВНЫЕ БЛОКИ
-========================= */
-
-.sidebar,
-.hero,
-.moments-section,
-.player-widget,
-.letter-widget,
-.quote-box,
-.constellation-box{
-    background:rgba(10,7,18,.55);
-    backdrop-filter:blur(14px);
-    border:1px solid rgba(215,182,138,.12);
-    border-radius:18px;
-    position:relative;
-    overflow:hidden;
-}
-
-/* внутренние рамки */
-.sidebar::before,
-.moments-section::before,
-.player-widget::before,
-.letter-widget::before,
-.quote-box::before,
-.constellation-box::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(215,182,138,.12);
-    border-radius:12px;
-    pointer-events:none;
-}
-
-/* =========================
-   HERO (сцена)
-========================= */
-
-.hero{
-    position:relative;
-    min-height:520px;
-    display:flex;
-    align-items:center;
-    padding:60px;
-
-    background:rgba(10,7,18,.45);
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(215,182,138,.18);
-    border-radius:12px;
-    pointer-events:none;
-    z-index:2;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 35% 45%,
-            rgba(255,220,170,.12),
-            transparent 55%),
-        linear-gradient(
-            90deg,
-            rgba(16,11,24,.78) 0%,
-            rgba(16,11,24,.28) 40%,
-            rgba(16,11,24,.28) 60%,
-            rgba(16,11,24,.78) 100%
-        ),
-        url("../images/bg.jpg");
-
-    background-size:cover;
-    background-position:center 15%;
-    z-index:0;
-
-    box-shadow: inset 0 0 120px rgba(255,200,150,.06);
-    animation:softCandle 7s ease-in-out infinite;
-}
-
-@keyframes softCandle{
-    0%,100%{ filter:brightness(.95); }
-    50%{ filter:brightness(1.05); }
-}
-
-.hero-text{
-    position:relative;
-    z-index:3;
-    max-width:650px;
-}
-
-/* =========================
-   ТЕКСТ
-========================= */
-
-p,
-.menu-item,
-.subtitle{
-    font-weight:300;
-    opacity:.9;
-}
-
-/* =========================
-   КНОПКА (ИСПРАВЛЕНО)
+   BUTTON
 ========================= */
 
 .btn-enter{
@@ -848,15 +223,10 @@ p,
 
     background:rgba(20,14,30,.6);
     border:1px solid rgba(215,182,138,.25);
-
     color:#d7b68a;
 
     border-radius:12px;
     cursor:pointer;
-
-    font-size:16px;
-    font-weight:300;
-
     transition:.3s;
 }
 
@@ -866,89 +236,10 @@ p,
 }
 
 /* =========================
-   ЛЕВАЯ ПАНЕЛЬ
-========================= */
-
-.sidebar{
-    min-height:95vh;
-    display:flex;
-    flex-direction:column;
-}
-
-/* =========================
-   MOMENTS
-========================= */
-
-.moments-section{
-    padding:25px;
-}
-
-.moments-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.moment-card{
-    background:#120b1b;
-    border-radius:14px;
-    border:1px solid rgba(215,182,138,.10);
-}
-
-/* =========================
-   ВИДЖЕТЫ
-========================= */
-
-.bottom-widgets{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.player-widget,
-.letter-widget{
-    min-height:220px;
-    padding:25px;
-}
-
-/* =========================
-   ПРАВАЯ КОЛОНКА
-========================= */
-
-.right-sidebar{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-}
-
-.quote-box{
-    min-height:260px;
-    padding:28px;
-}
-
-.constellation-box{
-    min-height:400px;
-    padding:30px;
-}
-
-/* =========================
-   ЗАГОЛОВКИ
-========================= */
-
-.quote-box h3,
-.constellation-box h3{
-    font-family:'Bell Std';
-    font-weight:300;
-    font-size:34px;
-    margin-bottom:15px;
-}
-
-/* =========================
-   АДАПТИВ
+   RESPONSIVE
 ========================= */
 
 @media(max-width:1200px){
-
     .container{
         grid-template-columns:1fr;
         margin-left:0;
