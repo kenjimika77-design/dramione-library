@@ -1,3 +1,8 @@
+/* Подключаем ваш изящный тонкий шрифт */
+@font-face {
+    font-family: 'BellStd';
+    src: url('../FONTS/bell-std.otf') format('opentype');
+}
 /* Базовые стили */
 * {
     margin: 0;
@@ -186,10 +191,11 @@ body {
     margin: 10px 0;
 }
 
+/* Применяем его к заголовку и делаем буквы тонкими */
 .main-title {
-    font-family: 'Cinzel', serif;
-    font-size: 44px;
-    font-weight: 200; /* ИСПРАВЛЕНО: Включили самый тонкий и изящный режим */
+    font-family: 'BellStd', serif; /* Используем ваш фирменный шрифт */
+    font-size: 42px;
+    font-weight: 300; /* Делаем его утонченным */
     color: #e5c3b2;
     letter-spacing: 0.08em;
     line-height: 1.3; 
