@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dramione Library — Forbidden Archive</title>
     
+    <!-- Заглушка для предотвращения ошибки 404 favicon.ico -->
+    <link rel="icon" href="data:,">
+    
     <!-- Подключение шрифтов Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -13,9 +16,8 @@
     <!-- Подключение иконок Font Awesome -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
-    <!-- Стили (ИСПРАВЛЕНО: Заглавные буквы CSS) -->
+    <!-- ПРЯМОЙ ПУТЬ К СТИЛЯМ (ИСПРАВЛЕНО: БЕЗ ПАПОК) -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -105,8 +107,8 @@
                     <p class="hero-description">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
                     <a href="#" class="btn-enter">Enter Library <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
-                <!-- Арт Гермионы и Драко (заглушка высокого качества) -->
-                <div class="hero-art" style="background-image: url('https://unsplash.com');"></div>
+                <!-- Стабильный интернет-арт героев -->
+                <div class="hero-art" style="background-image: url('https://picsum.photos'); background-size: cover; background-position: center;"></div>
             </section>
 
             <!-- НИЖНЯЯ СЕТКА БЛОКОВ -->
@@ -118,7 +120,8 @@
                     <div class="moments-container">
                         
                         <div class="moment-item">
-                            <div class="moment-img" style="background-image: url('https://unsplash.com');"></div>
+                            <!-- Картинка Момент 1 -->
+                            <div class="moment-img" style="background-image: url('https://picsum.photos');"></div>
                             <div class="moment-footer">
                                 <div>
                                     <h4>Первая встреча</h4>
@@ -129,7 +132,8 @@
                         </div>
 
                         <div class="moment-item">
-                            <div class="moment-img" style="background-image: url('https://unsplash.com');"></div>
+                            <!-- Картинка Момент 2 -->
+                            <div class="moment-img" style="background-image: url('https://picsum.photos');"></div>
                             <div class="moment-footer">
                                 <div>
                                     <h4>Ты сказал «Люблю»</h4>
@@ -140,7 +144,8 @@
                         </div>
 
                         <div class="moment-item">
-                            <div class="moment-img" style="background-image: url('https://unsplash.com');"></div>
+                            <!-- Картинка Момент 3 -->
+                            <div class="moment-img" style="background-image: url('https://picsum.photos');"></div>
                             <div class="moment-footer">
                                 <div>
                                     <h4>Навсегда</h4>
@@ -167,7 +172,8 @@
                 <!-- БЛОК: ПЛЕЕР -->
                 <section class="grid-card player-card">
                     <div class="player-body">
-                        <div class="player-cover" style="background-image: url('https://unsplash.com');"></div>
+                        <!-- Обложка музыкального трека -->
+                        <div class="player-cover" style="background-image: url('https://picsum.photos');"></div>
                         <div class="player-info">
                             <span class="player-status">Now Playing</span>
                             <h4 class="track-title">Rewrite The Stars</h4>
@@ -189,7 +195,7 @@
                 </section>
 
                 <!-- БЛОК: ПИСЬМО ИЗ ХОГВАРТСА -->
-                <section class="grid-card letter-card" style="background-image: linear-gradient(rgba(10,5,5,0.7), rgba(10,5,5,0.85)), url('https://unsplash.com');">
+                <section class="grid-card letter-card" style="background-image: linear-gradient(rgba(15,8,9,0.75), rgba(15,8,9,0.9)), url('https://picsum.photos'); background-size: cover;">
                     <div class="letter-content">
                         <span class="letter-tag">New Letter</span>
                         <h4>У вас новое письмо<br>из Хогвартса</h4>
@@ -202,5 +208,3 @@
                     <div class="card-border-decoration">
                         <span class="card-tag">Constellation of Fate</span>
                         <div class="stars-map">
-                            <i class="fa-solid fa-shuttle-space" style="transform: rotate(-45deg); opacity: 0.1;"></i>
-                        </div>
