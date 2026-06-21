@@ -1,7 +1,7 @@
 @import url('https://googleapis.com');
 /* Подключаем ваш изящный тонкий шрифт */
 @font-face {
-    font-family: 'BellStd';
+    font-family: 'Cinzel', serif;
     src: url('../FONTS/bell-std.otf') format('opentype');
 }
 /* Базовые стили */
