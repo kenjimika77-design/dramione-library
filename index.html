@@ -32,82 +32,88 @@
                 <div class="decorative-line"></div>
             </div>
 
-           <nav class="sidebar-menu">
-    <!-- Архив историй -->
+         <div class="sidebar-menu">
+
+    <!-- 1. Архив историй -->
     <a href="#archive" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V5A2.5 2.5 0 0 1 6.5 2.5H20v14.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6 6h8M6 10h6" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Это код самой иконки-книги, он её нарисует -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V5A2.5 2.5 0 0 1 6.5 2.5H20v14.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="menu-text">Archive <small>Архив историй</small></span>
+        Archive / Архив историй
     </a>
 
-    <!-- Магические записи -->
+    <!-- 2. Магические записи -->
     <a href="#magic" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M12 3v1m0 16v1m9-9h-1M4 9H3m14.5-4.5l-.7.7M7.2 16.8l-.7.7m11-1l-.7-.7M7.2 7.2l-.7-.7" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" stroke-width="1.5"/>
+        <!-- Иконка магии/искры -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 9H3m14.5-4.5l-.7.7M7.2 16.8l-.7.7m11-1l-.7-.7M7.2 7.2l-.7-.7" stroke-linecap="round"/>
             <path d="M12 2l1.5 3.5L17 7l-3.5 1.5L12 12l-1.5-3.5L7 7l3.5-1.5Z" fill="currentColor"/>
         </svg>
-        <span class="menu-text">Magic Entries <small>Магические записи</small></span>
+        Magic Entries / Магические записи
     </a>
 
-    <!-- Истории любви -->
+    <!-- 3. Истории любви -->
     <a href="#love" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Иконка сердца -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="menu-text">Love Stories <small>Истории любви</small></span>
+        Love Stories / Истории любви
     </a>
 
-    <!-- Ночные разделы -->
+    <!-- 4. Ночные разделы -->
     <a href="#night" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Иконка луны -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9Z" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="menu-text">Night Section <small>Ночные разделы</small></span>
+        Night Section / Ночные разделы
     </a>
 
-    <!-- Запретное -->
+    <!-- 5. Запретное -->
     <a href="#restricted" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Иконка замка -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="menu-text">Restricted <small>Запретное</small></span>
+        Restricted / Запретное
     </a>
 
-    <!-- Воспоминания -->
+    <!-- 6. Воспоминания -->
     <a href="#memories" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" stroke-width="1.5" stroke-linejoin="round"/>
-            <circle cx="12" cy="13" r="4" stroke-width="1.5"/>
+        <!-- Иконка камеры -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" stroke-linejoin="round"/>
+            <circle cx="12" cy="13" r="4"/>
         </svg>
-        <span class="menu-text">Memories <small>Воспоминания</small></span>
+        Memories / Воспоминания
     </a>
 
-    <!-- Письма -->
+    <!-- 7. Письма -->
     <a href="#letters" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <rect x="2" y="4" width="20" height="16" rx="2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Иконка конверта -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="menu-text">Letters <small>Письма</small></span>
+        Letters / Письма
     </a>
 
-    <!-- О нас -->
+    <!-- 8. О нас -->
     <a href="#about" class="menu-item">
-        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="9" cy="7" r="4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Иконка людей -->
+        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="menu-text">About Us <small>О нас</small></span>
+        About Us / О нас
     </a>
-</nav>
 
+</div>
 
-            <div class="sidebar-quote">
+              <div class="sidebar-quote">
                 <p>«Любовь — это магия, которую нельзя изучить, но можно почувствовать»</p>
                 <span class="author">— D & H</span>
             </div>
