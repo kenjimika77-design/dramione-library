@@ -3,232 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dramione Library — Forbidden Archive</title>
-    
-    <!-- Заглушка для favicon -->
-    <link rel="icon" href="data:,">
-    
-      <!-- Полное и правильное подключение Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <!-- Подключение иконок Font Awesome -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    
-    <!-- Путь к стилям внутри папки css -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Dramione Library - Forbidden Archive</title>
+    <!-- Подключаем изящные шрифты из Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="app-container">
         
-        <!-- ЛЕВОЕ БОКОВОЕ МЕНЮ -->
+        <!-- ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) -->
         <aside class="sidebar">
-            <div class="logo-section">
+            <div class="logo-area">
                 <div class="logo-d">D</div>
-                <h1>DRAMIONE LIBRARY</h1>
-                <p class="subtitle">FORBIDDEN ARCHIVE</p>
-                <div class="decorative-line"></div>
+                <div class="logo-title">DRAMIONE LIBRARY</div>
+                <div class="logo-subtitle">— FORBIDDEN ARCHIVE —</div>
             </div>
 
-         <div class="sidebar-menu">
+            <nav class="sidebar-menu">
+                <a href="#archive" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V5A2.5 2.5 0 0 1 6.5 2.5H20v14.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="menu-text">Archive <small>Архив историй</small></div>
+                </a>
 
-    <!-- 1. Архив историй -->
-    <a href="#archive" class="menu-item">
-        <!-- Это код самой иконки-книги, он её нарисует -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V5A2.5 2.5 0 0 1 6.5 2.5H20v14.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Archive / Архив историй
-    </a>
+                <a href="#magic" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 3v1m0 16v1m9-9h-1M4 9H3m14.5-4.5l-.7.7M7.2 16.8l-.7.7" stroke-linecap="round"/>
+                        <path d="M12 2l1.5 3.5L17 7l-3.5 1.5L12 12l-1.5-3.5L7 7l3.5-1.5Z" fill="currentColor"/>
+                    </svg>
+                    <div class="menu-text">Magic Entries <small>Магические записи</small></div>
+                </a>
 
-    <!-- 2. Магические записи -->
-    <a href="#magic" class="menu-item">
-        <!-- Иконка магии/искры -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 3v1m0 16v1m9-9h-1M4 9H3m14.5-4.5l-.7.7M7.2 16.8l-.7.7m11-1l-.7-.7M7.2 7.2l-.7-.7" stroke-linecap="round"/>
-            <path d="M12 2l1.5 3.5L17 7l-3.5 1.5L12 12l-1.5-3.5L7 7l3.5-1.5Z" fill="currentColor"/>
-        </svg>
-        Magic Entries / Магические записи
-    </a>
+                <a href="#love" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="menu-text">Love Stories <small>Истории любви</small></div>
+                </a>
 
-    <!-- 3. Истории любви -->
-    <a href="#love" class="menu-item">
-        <!-- Иконка сердца -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Love Stories / Истории любви
-    </a>
+                <a href="#night" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="menu-text">Night Section <small>Ночные разделы</small></div>
+                </a>
 
-    <!-- 4. Ночные разделы -->
-    <a href="#night" class="menu-item">
-        <!-- Иконка луны -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9Z" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Night Section / Ночные разделы
-    </a>
+                <a href="#restricted" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="menu-text">Restricted <small>Запретное</small></div>
+                </a>
 
-    <!-- 5. Запретное -->
-    <a href="#restricted" class="menu-item">
-        <!-- Иконка замка -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Restricted / Запретное
-    </a>
+                <a href="#memories" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" stroke-linejoin="round"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                    <div class="menu-text">Memories <small>Воспоминания</small></div>
+                </a>
 
-    <!-- 6. Воспоминания -->
-    <a href="#memories" class="menu-item">
-        <!-- Иконка камеры -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z" stroke-linejoin="round"/>
-            <circle cx="12" cy="13" r="4"/>
-        </svg>
-        Memories / Воспоминания
-    </a>
+                <a href="#letters" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="4" width="20" height="16" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="menu-text">Letters <small>Письма</small></div>
+                </a>
 
-    <!-- 7. Письма -->
-    <a href="#letters" class="menu-item">
-        <!-- Иконка конверта -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="4" width="20" height="16" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Letters / Письма
-    </a>
+                <a href="#about" class="menu-item">
+                    <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                    <div class="menu-text">About Us <small>О нас</small></div>
+                </a>
+            </nav>
 
-    <!-- 8. О нас -->
-    <a href="#about" class="menu-item">
-        <!-- Иконка людей -->
-        <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        About Us / О нас
-    </a>
-
-</div>
-
-              <div class="sidebar-quote">
-                <p>«Любовь — это магия, которую нельзя изучить, но можно почувствовать»</p>
-                <span class="author">— D & H</span>
+            <div class="sidebar-footer-quote">
+                <p>Любовь — это магия, которую нельзя изучить, но можно почувствовать.</p>
+                <span>— D & H</span>
             </div>
         </aside>
 
-        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <!-- ЦЕНТРАЛЬНАЯ ЧАСТЬ (MAIN CONTENT + RIGHT SIDEBAR) -->
         <main class="main-content">
             
-            <!-- ВЕРХНИЙ БЛОК HERO -->
+            <!-- ВЕРХНЯЯ СЕКЦИЯ С АРТОМ ГЕРОЕВ -->
             <section class="hero-section">
-                <div class="hero-text">
-                    <p class="welcome-tag">Welcome to our<br>forbidden archive</p>
-                    <div class="ornament-top">✦ ── ✦ ── ✦</div>
-                   <h2 class="main-title">DRAMIONE <br><span class="cursive-title">forever</span></h2>
-                   <p class="hero-description">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
-                    <a href="#" class="btn-enter">Enter Library <i class="fa-solid fa-arrow-right-long"></i></a>
+                <div class="hero-text-block">
+                    <p class="welcome-tag">Welcome to our forbidden archive</p>
+                    <h1 class="main-title">DRAMIONE <br><span class="cursive-title">forever</span></h1>
+                    <p class="hero-description">Два сердца. Два мира. Одна любовь, которую невозможно разрушить.</p>
+                    <a href="#explore" class="enter-btn">Enter Library ➔</a>
                 </div>
-                <div class="hero-art" style="background-image: url('images/hero.jpg');"></div>
+                <div class="hero-image-wrapper">
+                    <img src="images/hero.jpg" alt="Dramione Art" class="hero-art">
+                </div>
             </section>
 
-            <!-- НИЖНЯЯ СЕТКА БЛОКОВ -->
-            <div class="content-grid">
+            <!-- НИЖНЯЯ СЕКЦИЯ С КАРТОЧКАМИ, ПЛЕЕРОМ И ПИСЬМАМИ -->
+            <div class="bottom-grid">
                 
-                <!-- БЛОК: OUR MOMENTS -->
-                <section class="grid-card moments-card">
-                    <div class="moments-header">
-                        <span class="line-dec">❖ ──────</span>
-                        <h3 class="section-title">Our Moments</h3>
-                        <span class="line-dec">────── ❖</span>
-                    </div>
+                <!-- Левый блок: Воспоминания, Плеер, Письмо -->
+                <div class="left-column">
                     
-                    <div class="moments-container">
-                        <div class="moment-item">
-                            <div class="moment-img" style="background-image: url('images/moment1.jpg');"></div>
-                            <div class="moment-footer">
-                                <div>
-                                    <h4>Первая встреча</h4>
-                                    <time>14.02.2022</time>
+                    <!-- Блок Наших Моментов -->
+                    <div class="moments-panel">
+                        <div class="panel-header">
+                            <span class="decorative-line">✦ ──</span>
+                            <h2>Our Moments</h2>
+                            <span class="decorative-line">── ✦</h2>
+                        </div>
+                        <div class="moments-grid">
+                            <div class="moment-card">
+                                <img src="images/moment1.jpg" alt="Первая встреча">
+                                <div class="moment-info">
+                                    <h3>Первая встреча</h3>
+                                    <p>14.02.2022</p>
                                 </div>
-                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                <span class="heart-icon">♡</span>
+                            </div>
+                            <div class="moment-card">
+                                <img src="images/moment2.jpg" alt="Ты сказал люблю">
+                                <div class="moment-info">
+                                    <h3>Ты сказал «Люблю»</h3>
+                                    <p>07.07.2022</p>
+                                </div>
+                                <span class="heart-icon">♡</span>
+                            </div>
+                            <div class="moment-card">
+                                <img src="images/moment3.jpg" alt="Навсегда">
+                                <div class="moment-info">
+                                    <h3>Навсегда</h3>
+                                    <p>01.01.2023</p>
+                                </div>
+                                <span class="heart-icon">♡</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Плеер и Новое письмо (в один ряд) -->
+                    <div class="media-row">
+                        <!-- Музыкальный плеер -->
+                        <div class="player-card" style="background-image: url('images/player-bg.jpg');">
+                            <div class="player-overlay">
+                                <span class="player-status">Now Playing</span>
+                                <h3 class="track-title">Rewrite The Stars</h3>
+                                <p class="track-author">James Arthur & Anne-Marie</p>
+                                <div class="player-progress">
+                                    <span class="time-current">1:23</span>
+                                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                                    <span class="time-total">3:37</span>
+                                </div>
+                                <div class="player-controls">
+                                    <button class="ctrl-btn">⇆</button>
+                                    <button class="ctrl-btn">⏮</button>
+                                    <button class="ctrl-btn play-btn">▶</button>
+                                    <button class="ctrl-btn">⏭</button>
+                                    <button class="ctrl-btn">↻</button>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="moment-item">
-                            <div class="moment-img" style="background-image: url('images/moment2.jpg');"></div>
-                            <div class="moment-footer">
-                                <div>
-                                    <h4>Ты сказал «Люблю»</h4>
-                                    <time>07.07.2022</time>
-                                </div>
-                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="moment-item">
-                            <div class="moment-img" style="background-image: url('images/moment3.jpg');"></div>
-                            <div class="moment-footer">
-                                <div>
-                                    <h4>Навсегда</h4>
-                                    <time>01.01.2023</time>
-                                </div>
-                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ПРАВЫЙ БЛОК: ЦИТАТА ДНЯ -->
-                <section class="grid-card quote-card">
-                    <div class="card-border-decoration">
-                        <span class="card-tag">Цитата дня</span>
-                        <blockquote class="day-quote">
-                            «Любовь — это не взгляд друг на друга, а взгляд в одном направлении»
-                        </blockquote>
-                        <cite class="quote-author">— Антуан де Сент-Экзюпери</cite>
-                    </div>
-                </section>
-
-                <!-- БЛОК: ПЛЕЕР -->
-                <section class="grid-card player-card">
-                    <div class="player-body">
-                        <div class="player-cover" style="background-image: url('images/player-bg.jpg');"></div>
-                        <div class="player-info">
-                            <span class="player-status">Now Playing</span>
-                            <h4 class="track-title">Rewrite The Stars</h4>
-                            <p class="track-artist">James Arthur & Anne-Marie</p>
-                        </div>
-                    </div>
-                    <div class="player-timeline">
-                        <span class="time-cur">1:23</span>
-                        <div class="progress-bar"><div class="progress-fill"></div></div>
-                        <span class="time-end">3:37</span>
-                    </div>
-                    <div class="player-controls">
-                        <button class="p-btn"><i class="fa-solid fa-shuffle"></i></button>
-                        <button class="p-btn"><i class="fa-solid fa-backward-step"></i></button>
-                        <button class="p-btn play-main"><i class="fa-solid fa-play"></i></button>
-                        <button class="p-btn"><i class="fa-solid fa-forward-step"></i></button>
-                        <button class="p-btn"><i class="fa-solid fa-repeat"></i></button>
-                    </div>
-                </section>
-
-                <!-- БЛОК: ПИСЬМО ИЗ ХОГВАРТСА -->
-                <section class="grid-card letter-card" style="background-image: linear-gradient(rgba(14, 7, 8, 0.8), rgba(14, 7, 8, 0.95)), url('images/letter-bg.jpg');">
-                    <div class="letter-content">
-                        <span class="letter-tag">New Letter</span>
-                        <h4>У вас новое письмо<br>из Хогвартса</h4>
-                        <a href="#" class="btn-read">Читать <i class="fa-solid fa-feather-pointed"></i></a>
-                    </div>
-                </section>
-
-                <!-- БЛОК: СОЗВЕЗДИЕ СУДЬБЫ -->
-                <section class="grid-card constellation-card">
-                    <div class="card-border-decoration">
-                        <span class="card-tag">Constellation of Fate</span>
-                        <div class="stars-map">
-                            <!-- SVG карта звездного неба из макета -->
-                            <svg viewBox="0 0 100 60" class="constellation-svg">
+                        <!-- Блок Нового Письма -->
+                        <div class="letter-card" style="background-image: url('images/letter-bg.jpg');">
+                            <div class="letter-overlay">
+                                <span class="letter-tag">New Letter</span>
+                                <h3>У вас новое письмо из Хогвартса</h3>
