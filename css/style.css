@@ -1,283 +1,259 @@
-@import url('https://googleapis.com');
-/* Подключаем ваш изящный тонкий шрифт */
-@font-face {
-    font-family: 'Cinzel', serif;
-    src: url('../FONTS/bell-std.otf') format('opentype');
-}
-/* Базовые стили */
+/* ОБЩИЕ СТИЛИ И СБРОСЫ */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    /* Исправлен путь: выход из css/ на уровень вверх к images/ */
-    background: linear-gradient(rgba(11, 6, 6, 0.92), rgba(11, 6, 6, 0.96)), url('../images/bg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    color: #cdb4a6;
+    background-color: #050303;
+    /* Мягкая фоновая микротекстура нитей, как в оригинале */
+    background-image: radial-gradient(circle at center, rgba(18, 12, 12, 0.4) 0%, rgba(3, 2, 2, 0.95) 100%),
+                      url('https://transparenttextures.com');
+    color: #a38f8f;
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.05em;
     overflow-x: hidden;
 }
 
-/* Главная сетка */
+/* Главная сетка на весь экран */
 .app-container {
-    display: grid;
-    grid-template-columns: 280px 1fr;
+    display: flex;
     min-height: 100vh;
+    padding: 24px;
+    gap: 24px;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
-/* Боковая панель сайдбара */
+/* ЛЕВАЯ ПАНЕЛЬ (SIDEBAR) */
 .sidebar {
-    background-color: rgba(10, 5, 5, 0.88);
-    backdrop-filter: blur(12px);
-    border-right: 1px solid rgba(205, 180, 166, 0.08);
-    padding: 40px 25px;
+    width: 260px;
+    background: linear-gradient(180deg, rgba(20, 13, 13, 0.7) 0%, rgba(10, 6, 6, 0.95) 100%);
+    border: 1px solid rgba(138, 107, 107, 0.12);
+    border-radius: 6px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 10px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
 }
 
-.logo-section {
+.logo-area {
     text-align: center;
     margin-bottom: 35px;
 }
 
 .logo-d {
     font-family: 'Cinzel', serif;
-    font-size: 54px;
-    font-weight: 700;
-    color: #e5c3b2;
+    font-size: 3.5rem;
+    color: #e4d5d5;
     line-height: 1;
-    margin-bottom: 8px;
-    text-shadow: 0 0 20px rgba(229, 195, 178, 0.35);
+    text-shadow: 0 0 15px rgba(228, 213, 213, 0.2);
 }
 
-.logo-section h1 {
+.logo-title {
     font-family: 'Cinzel', serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: #e5c3b2;
-    letter-spacing: 0.15em;
-    margin-bottom: 5px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #c5b2b2;
+    margin-top: 5px;
 }
 
-.logo-section .subtitle {
-    font-size: 9px;
-    color: rgba(205, 180, 166, 0.4);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-}
-
-.decorative-line {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(229, 195, 178, 0.4), transparent);
-    margin: 15px auto 0;
+.logo-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    color: #6b5353;
+    margin-top: 4px;
 }
 
 /* Меню навигации */
-.nav-menu {
+.sidebar-menu {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
 }
 
-.nav-item {
+.menu-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 10px 12px;
-    color: rgba(205, 180, 166, 0.65);
     text-decoration: none;
+    color: #8c7373;
+    padding: 6px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 14px;
+    color: #614646;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-text {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+}
+
+.menu-text small {
+    font-size: 0.7rem;
+    color: #523f3f;
+    margin-top: 1px;
+}
+
+.menu-item:hover {
+    color: #e4d5d5;
+    text-shadow: 0 0 8px rgba(228, 213, 213, 0.2);
+}
+
+.menu-item:hover .menu-icon {
+    color: #bfa3a3;
+    filter: drop-shadow(0 0 4px rgba(191, 163, 163, 0.4));
+    transform: scale(1.05);
+}
+
+.sidebar-footer-quote {
+    margin-top: auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(138, 107, 107, 0.08);
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #5e4646;
+    line-height: 1.5;
+}
+
+.sidebar-footer-quote span {
+    display: block;
+    text-align: right;
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ВЕРХНИЙ БЛОК (HERO) */
+.hero-section {
+    display: flex;
+    background: linear-gradient(135deg, rgba(18, 11, 11, 0.8) 0%, rgba(8, 5, 5, 0.95) 100%);
+    border: 1px solid rgba(138, 107, 107, 0.12);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    min-height: 340px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+}
+
+.hero-text-block {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    background: linear-gradient(90deg, rgba(8,5,5,1) 40%, rgba(8,5,5,0.4) 100%);
+}
+
+.welcome-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6e5454;
+    margin-bottom: 12px;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: #e4d5d5;
+    line-height: 0.95;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.cursive-title {
+    font-family: 'Great Vibes', cursive;
+    color: #8f7070;
+    font-size: 3.4rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.hero-description {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #8c7676;
+    max-width: 380px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.enter-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid #543b3b;
+    color: #cfaeae;
+    padding: 10px 22px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    letter-spacing: 1px;
     border-radius: 4px;
     transition: all 0.3s ease;
 }
 
-.nav-item i {
-    font-size: 14px;
-    width: 20px;
-    text-align: center;
-    color: rgba(205, 180, 166, 0.4);
+.enter-btn:hover {
+    border-color: #a37f7f;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(163, 127, 127, 0.3);
 }
 
-.nav-item div {
-    display: flex;
-    flex-direction: column;
-}
-
-.nav-item span {
-    font-size: 13px;
-}
-
-.nav-item small {
-    font-size: 10px;
-    color: rgba(205, 180, 166, 0.35);
-    margin-top: 1px;
-}
-
-.nav-item:hover {
-    background-color: rgba(229, 195, 178, 0.03);
-    color: #e5c3b2;
-}
-
-.nav-item:hover i {
-    color: #e5c3b2;
-    text-shadow: 0 0 8px rgba(229, 195, 178, 0.5);
-}
-
-.sidebar-quote {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(205, 180, 166, 0.1);
-    text-align: center;
-}
-
-.sidebar-quote p {
-    font-style: italic;
-    font-size: 12px;
-    color: rgba(205, 180, 166, 0.55);
-    line-height: 1.6;
-}
-
-.sidebar-quote .author {
-    display: block;
-    margin-top: 8px;
-    font-size: 11px;
-    color: #e5c3b2;
-    font-family: 'Cinzel', serif;
-}
-
-/* Центральная часть сайта */
-.main-content {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-/* Секция Hero */
-.hero-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(18, 9, 10, 0.6);
-    border: 1px solid rgba(205, 180, 166, 0.06);
-    border-radius: 8px;
-    overflow: hidden;
-    backdrop-filter: blur(4px);
-}
-
-.hero-text {
-    padding: 45px;
-    flex: 1;
-}
-
-.welcome-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: rgba(205, 180, 166, 0.4);
-    letter-spacing: 0.2em;
-    line-height: 1.5;
-}
-
-.ornament-top {
-    font-size: 10px;
-    color: rgba(229, 195, 178, 0.2);
-    margin: 10px 0;
-}
-
-/* Применяем его к заголовку и делаем буквы тонкими */
-.main-title {
-    font-family: 'BellStd', serif; /* Используем ваш фирменный шрифт */
-    font-size: 42px;
-    font-weight: 300; /* Делаем его утонченным */
-    color: #e5c3b2;
-    letter-spacing: 0.08em;
-    line-height: 1.3; 
-    margin-bottom: 18px;
-}
-
-.main-title .cursive-title {
-    font-family: 'Great Vibes', cursive;
-    text-transform: lowercase;
-    color: #c99276;
-    font-size: 52px;
-    margin-left: 5px;
-}
-
-
-.hero-description {
-    font-size: 14px;
-    color: rgba(205, 180, 166, 0.6);
-    margin-bottom: 30px;
-    max-width: 420px;
-    line-height: 1.5;
-}
-
-.btn-enter {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 28px;
-    border: 1px solid rgba(229, 195, 178, 0.2);
-    color: #e5c3b2;
-    text-decoration: none;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    border-radius: 4px;
-    transition: all 0.3s;
-    background: rgba(13, 7, 7, 0.2);
-}
-
-.btn-enter:hover {
-    background: #e5c3b2;
-    color: #0b0606;
-    box-shadow: 0 0 20px rgba(229, 195, 178, 0.2);
-}
-
-.hero-art {
-    width: 44%;
-    align-self: stretch;
-    background-size: cover;
-    background-position: center top;
+.hero-image-wrapper {
+    width: 45%;
     position: relative;
 }
 
-.hero-art::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(18, 9, 10, 1) 0%, rgba(18, 9, 10, 0) 20%);
+.hero-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.05) sepia(0.1);
 }
 
-/* Сетка карточек */
-.content-grid {
+/* СЕТКА НИЖНИХ БЛОКОВ */
+.bottom-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 280px;
     gap: 24px;
 }
 
-.grid-card {
-    background-color: rgba(20, 11, 12, 0.5);
-    border: 1px solid rgba(205, 180, 166, 0.06);
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Панель воспоминаний */
+.moments-panel {
+    background: rgba(13, 8, 8, 0.5);
+    border: 1px solid rgba(138, 107, 107, 0.08);
     border-radius: 6px;
-    padding: 24px;
-    backdrop-filter: blur(4px);
+    padding: 20px;
 }
 
-/* Раздел моментов */
-.moments-card {
-    grid-column: span 2;
-}
-
-.moments-header {
+.panel-header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -285,266 +261,244 @@ body {
     margin-bottom: 20px;
 }
 
-.line-dec {
-    font-size: 11px;
-    color: rgba(229, 195, 178, 0.15);
+.panel-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: #d1bfbf;
+    letter-spacing: 2px;
+}
+
+.decorative-line {
+    color: #423030;
+    font-size: 0.8rem;
     letter-spacing: -2px;
 }
 
-.section-title {
-    font-family: 'Cinzel', serif;
-    font-size: 15px;
-    color: #e5c3b2;
-    letter-spacing: 0.1em;
-}
-
-.moments-container {
+.moments-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
-.moment-item {
-    background-color: rgba(10, 5, 5, 0.4);
-    border: 1px solid rgba(205, 180, 166, 0.05);
+.moment-card {
+    background: #0d0909;
+    border: 1px solid rgba(138, 107, 107, 0.15);
     border-radius: 4px;
     overflow: hidden;
-}
-
-.moment-img {
-    height: 115px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.moment-item:hover .moment-img {
-    opacity: 0.95;
-}
-
-.moment-footer {
-    padding: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.moment-footer h4 {
-    font-size: 11px;
-    font-weight: 400;
-    color: #cdb4a6;
-    margin-bottom: 3px;
-}
-
-.moment-footer time {
-    font-size: 9px;
-    color: rgba(205, 180, 166, 0.35);
-}
-
-.like-btn {
-    background: none;
-    border: none;
-    color: rgba(205, 180, 166, 0.4);
+    position: relative;
     cursor: pointer;
-    font-size: 13px;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
 }
 
-.like-btn:hover {
-    color: #ff4d4d;
+.moment-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    filter: brightness(0.4) contrast(1.1) sepia(0.2);
+    transition: all 0.4s ease;
 }
 
-/* Цитата дня */
-.card-border-decoration {
-    border: 1px dashed rgba(205, 180, 166, 0.12);
-    padding: 20px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.moment-info {
+    padding: 12px;
     text-align: center;
 }
 
-.card-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    color: rgba(205, 180, 166, 0.35);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 15px;
+.moment-info h3 {
+    font-family: 'Georgia', serif;
+    font-size: 0.85rem;
+    color: #bfa8a8;
+    margin-bottom: 4px;
 }
 
-.day-quote {
-    font-style: italic;
-    font-size: 13px;
-    line-height: 1.6;
-    color: rgba(205, 180, 166, 0.8);
-    margin-bottom: 12px;
+.moment-info p {
+    font-size: 0.7rem;
+    color: #5c4747;
+    letter-spacing: 0.5px;
 }
 
-.quote-author {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    color: #e5c3b2;
+.heart-icon {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    color: #423030;
+    font-size: 0.9rem;
+    transition: color 0.3s;
 }
 
-/* Музыкальный плеер */
-.player-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+/* Интерактив по наведению на моменты */
+.moment-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(163, 127, 127, 0.4);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-.player-body {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+.moment-card:hover img {
+    filter: brightness(0.6) contrast(1.05) sepia(0);
 }
 
-.player-cover {
-    width: 54px;
-    height: 54px;
-    border-radius: 4px;
+.moment-card:hover .heart-icon {
+    color: #a36c6c;
+}
+
+/* Строка Музыка + Письмо */
+.media-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* Карточка музыкального плеера */
+.player-card, .letter-card {
     background-size: cover;
     background-position: center;
+    border: 1px solid rgba(138, 107, 107, 0.12);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 180px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.player-status {
-    font-size: 9px;
+.player-overlay, .letter-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,10,10,0.5) 0%, rgba(8,5,5,0.92) 100%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-status, .letter-tag {
+    font-size: 0.65rem;
     text-transform: uppercase;
-    color: rgba(205, 180, 166, 0.35);
+    letter-spacing: 1.5px;
+    color: #7d5e5e;
+    margin-bottom: 8px;
 }
 
 .track-title {
-    font-size: 13px;
-    color: #e5c3b2;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: #e4d5d5;
 }
 
-.track-artist {
-    font-size: 11px;
-    color: rgba(205, 180, 166, 0.45);
+.track-author {
+    font-size: 0.75rem;
+    color: #735d5d;
+    margin-bottom: auto;
 }
 
-.player-timeline {
+/* Прогресс-бар */
+.player-progress {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 15px 0;
-    font-size: 10px;
-    color: rgba(205, 180, 166, 0.35);
+    font-size: 0.65rem;
+    color: #5c4747;
+    margin-bottom: 14px;
 }
 
 .progress-bar {
     flex: 1;
     height: 3px;
-    background-color: rgba(205, 180, 166, 0.1);
+    background: #241919;
     border-radius: 2px;
+    position: relative;
 }
 
 .progress-fill {
-    width: 35%;
+    width: 38%;
     height: 100%;
-    background-color: #e5c3b2;
+    background: #8f6b6b;
     border-radius: 2px;
 }
 
+/* Управление музыкой */
 .player-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.p-btn {
-    background: none;
-    border: none;
-    color: rgba(205, 180, 166, 0.5);
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.p-btn.play-main {
-    background-color: rgba(229, 195, 178, 0.06);
-    border: 1px solid rgba(229, 195, 178, 0.2);
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e5c3b2;
-}
-
-/* Блок письма */
-.letter-card {
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.letter-content h4 {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    color: #e5c3b2;
-    margin-bottom: 15px;
-    font-weight: 400;
-}
-
-.btn-read {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 22px;
-    background-color: rgba(229, 195, 178, 0.08);
-    border: 1px solid rgba(229, 195, 178, 0.2);
-    border-radius: 4px;
-    color: #e5c3b2;
-    text-decoration: none;
-    font-size: 11px;
-}
-
-/* Блок созвездия */
-.constellation-svg {
+    max-width: 220px;
+    margin: 0 auto;
     width: 100%;
-    height: 65px;
-    fill: none;
-    stroke: rgba(229, 195, 178, 0.25);
-    stroke-width: 0.5;
 }
 
-.constellation-svg circle {
-    fill: #e5c3b2;
-    stroke: rgba(229, 195, 178, 0.5);
-    stroke-width: 1;
-    /* Неоновое свечение звезд */
-    filter: drop-shadow(0 0 3px rgba(229, 195, 178, 0.8));
+.ctrl-btn {
+    background: transparent;
+    border: none;
+    color: #6e5454;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s;
 }
 
-.const-text {
-    font-size: 12px;
-    color: rgba(205, 180, 166, 0.55);
-/* Выравниваем иконку и текст по одной линии */
-.menu-item {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    margin-bottom: 12px; /* Расстояние между строчками меню */
+.ctrl-btn:hover {
+    color: #cfaeae;
 }
 
-/* Настраиваем цвет и отступ для встроенных SVG иконок */
-.menu-icon {
-    margin-right: 12px; /* Отступ от иконки до текста */
-    color: #705454;     /* Тот самый благородный приглушенный цвет */
-    flex-shrink: 0;     /* Чтобы иконка не сжималась */
-}
-
-/* При наведении иконка будет красиво подсвечиваться */
-.menu-item:hover .menu-icon {
+.play-btn {
+    font-size: 1.2rem;
     color: #bfa3a3;
 }
 
+/* Карточка Письма */
+.letter-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #bfa8a8;
+    max-width: 180px;
+    line-height: 1.4;
+    margin-bottom: auto;
+}
+
+.read-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid #422d2d;
+    color: #a38989;
+    padding: 7px 18px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.read-btn:hover {
+    border-color: #8a6464;
+    color: #fff;
+    background: rgba(138, 100, 100, 0.05);
+}
+
+/* ПРАВАЯ КОЛОНКА (ЦИТАТЫ И СОЗВЕЗДИЯ) */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.quote-card, .constellation-card {
+    background: linear-gradient(180deg, rgba(18, 11, 11, 0.6) 0%, rgba(8, 5, 5, 0.9) 100%);
+    border: 1px solid rgba(138, 107, 107, 0.12);
+    border-radius: 6px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.quote-card h3, .constellation-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #8c7171;
+    text-align: center;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.quote-text {
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #bfa8a8;
+    text-align: center;
     
