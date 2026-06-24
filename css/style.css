@@ -466,3 +466,12 @@ body::before {
     color: #000;
     box-shadow: 0 0 10px rgba(223, 183, 108, 0.4);
 }
+/* Включаем роскошный шрифт для заголовков, меню и логотипа */
+.welcome-header h1, .logo-section h2, .moments-section h3, .widget-box h4, .menu-item span {
+    font-family: 'Cinzel Decorative', serif !important;
+}
+
+/* Включаем утонченную каллиграфию для рукописного текста */
+.magic-script {
+    font-family: 'Pinyon Script', cursive !important;
+}
