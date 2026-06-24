@@ -1,528 +1,119 @@
-/* Подключаем ваш изящный тонкий шрифт */
-@font-face {
-    font-family: 'BellStd';
-    src: url('../FONTS/bell-std.otf') format('opentype');
-}
-/* Базовые стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Стили для страницы Архива */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
 }
 
-body {
-    /* Исправлен путь: выход из css/ на уровень вверх к images/ */
-    background: linear-gradient(rgba(11, 6, 6, 0.92), rgba(11, 6, 6, 0.96)), url('../images/bg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    color: #cdb4a6;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    overflow-x: hidden;
-}
-
-/* Главная сетка */
-.app-container {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    min-height: 100vh;
-}
-
-/* Боковая панель сайдбара */
-.sidebar {
-    background-color: rgba(10, 5, 5, 0.88);
-    backdrop-filter: blur(12px);
-    border-right: 1px solid rgba(205, 180, 166, 0.08);
-    padding: 40px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.logo-section {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.logo-d {
+.content-header h1 {
     font-family: 'Cinzel', serif;
-    font-size: 54px;
-    font-weight: 700;
-    color: #e5c3b2;
-    line-height: 1;
-    margin-bottom: 8px;
-    text-shadow: 0 0 20px rgba(229, 195, 178, 0.35);
-}
-
-.logo-section h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: #e5c3b2;
-    letter-spacing: 0.15em;
+    color: #dfb76c; /* Золотой неоновый цвет как на главной */
+    font-size: 2.5rem;
     margin-bottom: 5px;
 }
 
-.logo-section .subtitle {
-    font-size: 9px;
-    color: rgba(205, 180, 166, 0.4);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-}
-
-.decorative-line {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(229, 195, 178, 0.4), transparent);
-    margin: 15px auto 0;
-}
-
-/* Меню навигации */
-.nav-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 12px;
-    color: rgba(205, 180, 166, 0.65);
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.nav-item i {
-    font-size: 14px;
-    width: 20px;
-    text-align: center;
-    color: rgba(205, 180, 166, 0.4);
-}
-
-.nav-item div {
-    display: flex;
-    flex-direction: column;
-}
-
-.nav-item span {
-    font-size: 13px;
-}
-
-.nav-item small {
-    font-size: 10px;
-    color: rgba(205, 180, 166, 0.35);
-    margin-top: 1px;
-}
-
-.nav-item:hover {
-    background-color: rgba(229, 195, 178, 0.03);
-    color: #e5c3b2;
-}
-
-.nav-item:hover i {
-    color: #e5c3b2;
-    text-shadow: 0 0 8px rgba(229, 195, 178, 0.5);
-}
-
-.sidebar-quote {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(205, 180, 166, 0.1);
-    text-align: center;
-}
-
-.sidebar-quote p {
-    font-style: italic;
-    font-size: 12px;
-    color: rgba(205, 180, 166, 0.55);
-    line-height: 1.6;
-}
-
-.sidebar-quote .author {
-    display: block;
-    margin-top: 8px;
-    font-size: 11px;
-    color: #e5c3b2;
-    font-family: 'Cinzel', serif;
-}
-
-/* Центральная часть сайта */
-.main-content {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-/* Секция Hero */
-.hero-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(18, 9, 10, 0.6);
-    border: 1px solid rgba(205, 180, 166, 0.06);
-    border-radius: 8px;
-    overflow: hidden;
-    backdrop-filter: blur(4px);
-}
-
-.hero-text {
-    padding: 45px;
-    flex: 1;
-}
-
-.welcome-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: rgba(205, 180, 166, 0.4);
-    letter-spacing: 0.2em;
-    line-height: 1.5;
-}
-
-.ornament-top {
-    font-size: 10px;
-    color: rgba(229, 195, 178, 0.2);
-    margin: 10px 0;
-}
-
-/* Применяем его к заголовку и делаем буквы тонкими */
-.main-title {
-    font-family: 'BellStd', serif; /* Используем ваш фирменный шрифт */
-    font-size: 42px;
-    font-weight: 300; /* Делаем его утонченным */
-    color: #e5c3b2;
-    letter-spacing: 0.08em;
-    line-height: 1.3; 
-    margin-bottom: 18px;
-}
-
-.main-title .cursive-title {
-    font-family: 'Great Vibes', cursive;
-    text-transform: lowercase;
-    color: #c99276;
-    font-size: 52px;
-    margin-left: 5px;
-}
-
-
-.hero-description {
-    font-size: 14px;
-    color: rgba(205, 180, 166, 0.6);
-    margin-bottom: 30px;
-    max-width: 420px;
-    line-height: 1.5;
-}
-
-.btn-enter {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 28px;
-    border: 1px solid rgba(229, 195, 178, 0.2);
-    color: #e5c3b2;
-    text-decoration: none;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    border-radius: 4px;
-    transition: all 0.3s;
-    background: rgba(13, 7, 7, 0.2);
-}
-
-.btn-enter:hover {
-    background: #e5c3b2;
-    color: #0b0606;
-    box-shadow: 0 0 20px rgba(229, 195, 178, 0.2);
-}
-
-.hero-art {
-    width: 44%;
-    align-self: stretch;
-    background-size: cover;
-    background-position: center top;
-    position: relative;
-}
-
-.hero-art::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(18, 9, 10, 1) 0%, rgba(18, 9, 10, 0) 20%);
+.section-subtitle {
+    font-family: 'Pinyon Script', cursive;
+    color: #8a9a86;
+    font-size: 1.5rem;
 }
 
 /* Сетка карточек */
-.content-grid {
+.archive-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.grid-card {
-    background-color: rgba(20, 11, 12, 0.5);
-    border: 1px solid rgba(205, 180, 166, 0.06);
-    border-radius: 6px;
-    padding: 24px;
-    backdrop-filter: blur(4px);
+/* Сама карточка фанфика */
+.fanfic-card {
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(223, 183, 108, 0.2); /* Тонкая золотая рамка */
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
-/* Раздел моментов */
-.moments-card {
-    grid-column: span 2;
+.fanfic-card:hover {
+    border-color: #dfb76c;
+    box-shadow: 0 0 15px rgba(223, 183, 108, 0.15);
+    transform: translateY(-5px);
 }
 
-.moments-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.card-image-wrapper {
+    position: relative;
+    height: 200px;
+}
+
+.fanfic-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.fanfic-rating {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #7a1d1d;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.fanfic-details {
+    padding: 20px;
+}
+
+.fanfic-title {
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.fanfic-author {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.fanfic-author span {
+    color: #dfb76c;
+}
+
+.fanfic-tags {
+    color: #8a9a86;
+    font-size: 0.85rem;
+    margin: 10px 0;
+}
+
+.fanfic-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ccc;
     margin-bottom: 20px;
 }
 
-.line-dec {
-    font-size: 11px;
-    color: rgba(229, 195, 178, 0.15);
-    letter-spacing: -2px;
-}
-
-.section-title {
-    font-family: 'Cinzel', serif;
-    font-size: 15px;
-    color: #e5c3b2;
-    letter-spacing: 0.1em;
-}
-
-.moments-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
-
-.moment-item {
-    background-color: rgba(10, 5, 5, 0.4);
-    border: 1px solid rgba(205, 180, 166, 0.05);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.moment-img {
-    height: 115px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.moment-item:hover .moment-img {
-    opacity: 0.95;
-}
-
-.moment-footer {
-    padding: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.moment-footer h4 {
-    font-size: 11px;
-    font-weight: 400;
-    color: #cdb4a6;
-    margin-bottom: 3px;
-}
-
-.moment-footer time {
-    font-size: 9px;
-    color: rgba(205, 180, 166, 0.35);
-}
-
-.like-btn {
-    background: none;
-    border: none;
-    color: rgba(205, 180, 166, 0.4);
-    cursor: pointer;
-    font-size: 13px;
-    transition: color 0.2s;
-}
-
-.like-btn:hover {
-    color: #ff4d4d;
-}
-
-/* Цитата дня */
-.card-border-decoration {
-    border: 1px dashed rgba(205, 180, 166, 0.12);
-    padding: 20px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.card-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    color: rgba(205, 180, 166, 0.35);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 15px;
-}
-
-.day-quote {
-    font-style: italic;
-    font-size: 13px;
-    line-height: 1.6;
-    color: rgba(205, 180, 166, 0.8);
-    margin-bottom: 12px;
-}
-
-.quote-author {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    color: #e5c3b2;
-}
-
-/* Музыкальный плеер */
-.player-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.player-body {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.player-cover {
-    width: 54px;
-    height: 54px;
-    border-radius: 4px;
-    background-size: cover;
-    background-position: center;
-}
-
-.player-status {
-    font-size: 9px;
-    text-transform: uppercase;
-    color: rgba(205, 180, 166, 0.35);
-}
-
-.track-title {
-    font-size: 13px;
-    color: #e5c3b2;
-}
-
-.track-artist {
-    font-size: 11px;
-    color: rgba(205, 180, 166, 0.45);
-}
-
-.player-timeline {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 15px 0;
-    font-size: 10px;
-    color: rgba(205, 180, 166, 0.35);
-}
-
-.progress-bar {
-    flex: 1;
-    height: 3px;
-    background-color: rgba(205, 180, 166, 0.1);
-    border-radius: 2px;
-}
-
-.progress-fill {
-    width: 35%;
-    height: 100%;
-    background-color: #e5c3b2;
-    border-radius: 2px;
-}
-
-.player-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.p-btn {
-    background: none;
-    border: none;
-    color: rgba(205, 180, 166, 0.5);
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.p-btn.play-main {
-    background-color: rgba(229, 195, 178, 0.06);
-    border: 1px solid rgba(229, 195, 178, 0.2);
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e5c3b2;
-}
-
-/* Блок письма */
-.letter-card {
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.letter-content h4 {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    color: #e5c3b2;
-    margin-bottom: 15px;
-    font-weight: 400;
-}
-
+/* Кнопка "Читать" */
 .btn-read {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 22px;
-    background-color: rgba(229, 195, 178, 0.08);
-    border: 1px solid rgba(229, 195, 178, 0.2);
-    border-radius: 4px;
-    color: #e5c3b2;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #dfb76c;
+    color: #dfb76c;
     text-decoration: none;
-    font-size: 11px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
 }
 
-/* Блок созвездия */
-.constellation-svg {
-    width: 100%;
-    height: 65px;
-    fill: none;
-    stroke: rgba(229, 195, 178, 0.25);
-    stroke-width: 0.5;
+.btn-read:hover {
+    background: #dfb76c;
+    color: #111;
+    box-shadow: 0 0 10px rgba(223, 183, 108, 0.4);
 }
-
-.constellation-svg circle {
-    fill: #e5c3b2;
-    stroke: rgba(229, 195, 178, 0.5);
-    stroke-width: 1;
-    /* Неоновое свечение звезд */
-    filter: drop-shadow(0 0 3px rgba(229, 195, 178, 0.8));
-}
-
-.const-text {
-    font-size: 12px;
-    color: rgba(205, 180, 166, 0.55);
