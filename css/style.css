@@ -1,91 +1,276 @@
-@font-face {
-    font-family: 'Literatura Pro'; /* Имя, которое мы будем использовать в коде */
-    src: url('../fonts/literatura.woff2') format('woff2'); /* Путь к файлу шрифта */
-    font-weight: normal;
-    font-style: normal;
+/* ОБЩИЕ НАСТРОЙКИ ЦВЕТА И ФОНА */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-* Стили для страницы Архива */
+
+body {
+    background-color: #0b0f0c; /* Почти черный, глубокий ночной цвет */
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* СТИЛИ ЛЕВОГО МЕНЮ (SIDEBAR) */
+.sidebar {
+    width: 300px;
+    background: linear-gradient(180deg, #0e1411 0%, #060807 100%);
+    border-right: 1px solid rgba(223, 183, 108, 0.15); /* Тонкая неоново-золотая рамка */
+    display: flex;
+    flex-direction: column;
+    padding: 40px 25px;
+    justify-content: space-between;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-d {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    color: #dfb76c; /* Неоновое золото */
+    text-shadow: 0 0 15px rgba(223, 183, 108, 0.3);
+    margin-bottom: 10px;
+}
+
+.logo-section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 0.75rem;
+    color: #dfb76c;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+/* КНОПКИ МЕНЮ */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+    margin-top: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 20px;
+    color: #8a9a86; /* Приглушенный зеленый мох */
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.menu-item i {
+    font-size: 1.2rem;
+    width: 25px;
+}
+
+.menu-item span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    display: block;
+    color: #ffffff;
+}
+
+.menu-item small {
+    font-size: 0.75rem;
+    color: #667563;
+    display: block;
+}
+
+.menu-item:hover, .menu-item.active {
+    background: rgba(46, 90, 68, 0.1);
+    border-color: rgba(223, 183, 108, 0.3);
+    color: #dfb76c;
+}
+
+.menu-item:hover span, .menu-item.active span {
+    color: #dfb76c;
+}
+
+.sidebar-footer {
+    text-align: center;
+    font-family: 'Pinyon Script', cursive;
+    color: #dfb76c;
+    font-size: 1.3rem;
+    opacity: 0.7;
+}
+
+/* ЦЕНТРАЛЬНАЯ ОБЛАСТЬ КОНТЕНТА */
 .main-content {
     flex: 1;
-    padding: 40px;
+    padding: 50px;
     overflow-y: auto;
+    background: radial-gradient(circle at center, #111a14 0%, #0b0f0c 100%); /* Изумрудное свечение в центре */
+}
+
+/* Оформление главной страницы приветствия */
+.center-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.welcome-box {
+    max-width: 600px;
+}
+
+.magic-script {
+    font-family: 'Pinyon Script', cursive;
+    color: #dfb76c;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.welcome-box h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.welcome-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #b0b8b2;
+    margin-bottom: 35px;
+}
+
+.enter-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid #dfb76c;
+    color: #dfb76c;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(223, 183, 108, 0.1);
+}
+
+.enter-btn:hover {
+    background: #dfb76c;
+    color: #0b0f0c;
+    box-shadow: 0 0 20px rgba(223, 183, 108, 0.4);
+}
+
+/* СТИЛИ СТРАНИЦЫ АРХИВА С КАРТОЧКАМИ */
+.content-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(223, 183, 108, 0.1);
+    padding-bottom: 20px;
 }
 
 .content-header h1 {
     font-family: 'Cinzel', serif;
-    color: #dfb76c; /* Золотой неоновый цвет как на главной */
+    color: #dfb76c;
     font-size: 2.5rem;
-    margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
 .section-subtitle {
     font-family: 'Pinyon Script', cursive;
     color: #8a9a86;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    margin-top: 5px;
 }
 
-/* Сетка карточек */
+/* СЕТКА С КАРТОЧКАМИ */
 .archive-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 35px;
 }
 
-/* Сама карточка фанфика */
 .fanfic-card {
-    background: rgba(30, 30, 30, 0.6);
-    border: 1px solid rgba(223, 183, 108, 0.2); /* Тонкая золотая рамка */
+    background: rgba(14, 20, 17, 0.4);
+    border: 1px solid rgba(223, 183, 108, 0.15);
     border-radius: 12px;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .fanfic-card:hover {
     border-color: #dfb76c;
-    box-shadow: 0 0 15px rgba(223, 183, 108, 0.15);
+    box-shadow: 0 0 20px rgba(46, 90, 68, 0.2);
     transform: translateY(-5px);
 }
 
 .card-image-wrapper {
     position: relative;
-    height: 200px;
+    height: 220px;
+    background-color: #000;
 }
 
 .fanfic-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.7;
+    opacity: 0.65;
+    transition: opacity 0.3s ease;
+}
+
+.fanfic-card:hover .fanfic-img {
+    opacity: 0.8;
 }
 
 .fanfic-rating {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: #7a1d1d;
-    color: #fff;
-    padding: 4px 8px;
+    background: #6e1a1a;
+    color: #ffffff;
+    padding: 4px 10px;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .fanfic-details {
-    padding: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
 }
 
 .fanfic-title {
     font-family: 'Cinzel', serif;
-    color: #fff;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 1.35rem;
+    margin-bottom: 8px;
 }
 
 .fanfic-author {
-    font-size: 0.9rem;
-    color: #aaa;
+    font-size: 0.85rem;
+    color: #8a9a86;
+    margin-bottom: 5px;
 }
 
 .fanfic-author span {
@@ -93,33 +278,50 @@
 }
 
 .fanfic-tags {
-    color: #8a9a86;
-    font-size: 0.85rem;
-    margin: 10px 0;
+    color: #667563;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    font-weight: 500;
 }
 
 .fanfic-text {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #ccc;
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #b8c0b9;
+    margin-bottom: 25px;
 }
 
-/* Кнопка "Читать" */
+/* КНОПКА ЧИТАТЬ НА ФИКБУКЕ */
 .btn-read {
     display: inline-block;
     padding: 10px 20px;
-    border: 1px solid #dfb76c;
+    border: 1px solid rgba(223, 183, 108, 0.4);
     color: #dfb76c;
     text-decoration: none;
     border-radius: 6px;
-    font-size: 0.9rem;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .btn-read:hover {
+    background: rgba(223, 183, 108, 0.1);
+    border-color: #dfb76c;
+    box-shadow: 0 0 12px rgba(223, 183, 108, 0.2);
+}
+
+/* КРАСИВЫЙ СКРОЛЛБАР ДЛЯ СПИСКА */
+.main-content::-webkit-scrollbar {
+    width: 6px;
+}
+.main-content::-webkit-scrollbar-track {
+    background: #060807;
+}
+.main-content::-webkit-scrollbar-thumb {
+    background: rgba(46, 90, 68, 0.3);
+    border-radius: 10px;
+}
+.main-content::-webkit-scrollbar-thumb:hover {
     background: #dfb76c;
-    color: #111;
-    box-shadow: 0 0 10px rgba(223, 183, 108, 0.4);
 }
