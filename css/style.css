@@ -1,4 +1,10 @@
-/* Стили для страницы Архива */
+@font-face {
+    font-family: 'Literatura Pro'; /* Имя, которое мы будем использовать в коде */
+    src: url('../fonts/literatura.woff2') format('woff2'); /* Путь к файлу шрифта */
+    font-weight: normal;
+    font-style: normal;
+}
+* Стили для страницы Архива */
 .main-content {
     flex: 1;
     padding: 40px;
