@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dramione Library - Archive</title>
+    <title>Dramione Library - Forbidden Archive</title>
+    <!-- Подключаем атмосферные шрифты -->
     <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Подключаем иконки меню -->
     <link rel="stylesheet" href="https://cloudflare.com">
-   <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <div class="app-container">
         
-        <!-- ЛЕВОЕ МЕНЮ (Копируем с главной, но делаем ссылки рабочими) -->
+        <!-- ЛЕВОЕ МЕНЮ (SIDEBAR) -->
         <aside class="sidebar">
             <div class="logo-section">
                 <div class="logo-d">D</div>
@@ -22,11 +23,11 @@
             </div>
             
             <nav class="menu">
-                <a href="index.html" class="menu-item">
+                <a href="index.html" class="menu-item active">
                     <i class="fa-solid fa-wand-magic-sparkles"></i> 
-                    <div><span>Magic Entries</span><small>Главная</small></div>
+                    <div><span>Magic Entries</span><small>Главная страница</small></div>
                 </a>
-                <a href="library.html" class="menu-item active">
+                <a href="library.html" class="menu-item">
                     <i class="fa-solid fa-book-open"></i> 
                     <div><span>Archive</span><small>Архив историй</small></div>
                 </a>
@@ -35,44 +36,22 @@
                     <div><span>Love Stories</span><small>Истории любви</small></div>
                 </a>
             </nav>
-            
             <div class="sidebar-footer">
                 <p>Любовь — это магия... — D & H</p>
             </div>
         </aside>
 
-        <!-- ЦЕНТРАЛЬНАЯ ЧАСТЬ (Здесь будут фанфики вместо плеера) -->
-        <main class="main-content">
-            <header class="content-header">
-                <h1>Запретный Архив</h1>
-                <p class="section-subtitle">Секретные хроники Малфоя и Грейнджер</p>
-            </header>
-
-            <!-- Сетка с карточками фанфиков -->
-            <section class="archive-grid">
-                
-                <!-- КАРТОЧКА 1: Скованные -->
-                <div class="fanfic-card">
-                    <div class="card-image-wrapper">
-                        <img src="https://unsplash.com" alt="Manacled" class="fanfic-img">
-                        <span class="fanfic-rating">NC-17</span>
-                    </div>
-                    <div class="fanfic-details">
-                        <h2 class="fanfic-title">Скованные (Manacled)</h2>
-                        <p class="fanfic-author">Автор: <span>SenLinYu</span></p>
-                        <p class="fanfic-tags">#ВоенноеВремя #Стекло #Макси</p>
-                        <p class="fanfic-text">
-                            Мрачная военная драма. Пять лет после гибели Гарри Поттера. Орден Феникса разбит, а Гермиону с измененной памятью отдают верховному правителю Пожирателей — Драко Малфою.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="https://ficbook.net" target="_blank" class="btn-read">Читать на Фикбуке →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Сюда по аналогии можно добавлять вторую, третью карточки... -->
-
-            </section>
+        <!-- ЦЕНТРАЛЬНЫЙ БЛОК ГЛАВНОЙ СТРАНИЦЫ -->
+        <main class="main-content center-welcome">
+            <div class="welcome-box">
+                <p class="magic-script">Welcome to our forbidden archive...</p>
+                <h1>Dramione Library</h1>
+                <p class="welcome-text">
+                    Добро пожаловать в тайную обитель хроник Малфоя и Грейнджер. Здесь время замирает, а страницы раскрывают самые глубокие тайны запретных чувств.
+                </p>
+                <!-- Рабочая ссылка на архив фанфиков -->
+                <a href="library.html" class="enter-btn">Enter Library →</a>
+            </div>
         </main>
 
     </div>
